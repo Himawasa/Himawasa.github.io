@@ -349,127 +349,20 @@
     .footer-links a:hover { color: var(--yellow); }
     .footer-copy { color: rgba(255,255,255,0.2); font-size: 12px; }
 
-    /* ===== 大切にしていること ===== */
-    .values { background: linear-gradient(135deg, #1a1a2e, #16213e); color: #fff; }
-    .values .section-title { color: #fff; }
-    .values .section-desc { color: rgba(255,255,255,0.6); }
-    .values-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 48px; }
-    .value-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px 24px; text-align: center; transition: transform 0.3s, background 0.3s; }
-    .value-card:hover { transform: translateY(-4px); background: rgba(255,215,0,0.08); }
-    .value-icon { font-size: 36px; margin-bottom: 16px; }
-    .value-card h4 { font-size: 16px; margin-bottom: 12px; color: #FFD700; }
-    .value-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.8; }
-
-    /* ===== Before→After ===== */
-    .results { background: #fff; }
-    .results-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 48px; max-width: 800px; margin-left: auto; margin-right: auto; }
-    .result-card { background: #fafafa; border: 1px solid #eee; border-radius: 16px; padding: 28px 32px; }
-    .result-label { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #111; }
-    .result-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .result-before, .result-after { font-size: 14px; line-height: 1.7; padding: 12px 16px; border-radius: 10px; }
-    .result-before { background: #f0f0f0; color: #666; }
-    .result-after { background: linear-gradient(135deg, #fff8e1, #fffde7); color: #333; border: 1px solid rgba(255,215,0,0.3); }
-    .rb-label, .ra-label { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 8px; }
-    .rb-label { background: #ccc; color: #666; }
-    .ra-label { background: #FFD700; color: #111; }
-
-    /* ===== ヒーロー統計帯 ===== */
-    .hero-stats { display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 32px; }
-    .hero-stat { text-align: center; }
-    .hero-stat-num { font-size: 30px; font-weight: 900; color: #FFD700; line-height: 1; }
-    .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 4px; letter-spacing: 0.05em; }
-
-    /* ===== 導入の流れ ===== */
-    .flow { background: #f8f8f8; }
-    .flow-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 48px; position: relative; }
-    .flow-item { text-align: center; padding: 36px 24px 32px; position: relative; background: #fff; border: 1px solid #eee; border-radius: 16px; margin: 0 8px; }
-    .flow-num { width: 52px; height: 52px; border-radius: 50%; background: #FFD700; color: #111; font-size: 20px; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(255,215,0,0.4); }
-    .flow-icon { font-size: 28px; margin-bottom: 10px; }
-    .flow-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #111; }
-    .flow-desc { font-size: 13px; color: #666; line-height: 1.7; }
-    .flow-arrow { position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-size: 22px; color: #FFD700; z-index: 2; }
-    .flow-period { text-align: center; margin-top: 32px; font-size: 14px; color: #888; }
-    .flow-period strong { color: #FFD700; }
-
     /* ===== レスポンシブ ===== */
-
-    /* タブレット (〜900px) */
     @media (max-width: 900px) {
       .brand-grid,
-      .about-grid        { grid-template-columns: 1fr; }
+      .about-grid       { grid-template-columns: 1fr; }
       .services-grid,
-      .projects-grid     { grid-template-columns: 1fr 1fr; }
-      .nav-links         { display: none; }
-      .flow-grid         { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .flow-arrow        { display: none; }
-
-      .about-grid        { gap: 24px; }
-      .about-card        { max-width: 480px; margin: 0 auto; }
-      .counter-grid      { flex-wrap: wrap; }
-      .counter-item      { flex: 1 1 45%; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.12); padding: 16px; }
-      .counter-item:last-child { border-bottom: none; }
+      .projects-grid    { grid-template-columns: 1fr 1fr; }
+      .nav-links        { display: none; }
     }
-
-    /* スマホ (〜600px) */
     @media (max-width: 600px) {
-      /* ナビ */
-      .nav-inner         { height: 56px; }
-      .nav-logo          { font-size: 17px; }
-
-      /* ヒーロー */
-      section            { padding: 60px 0; }
-      .hero              { padding-top: 56px; }
-      .hero-btns         { flex-direction: column; align-items: center; }
-      .btn-yellow,
-      .btn-outline-w     { width: 100%; max-width: 280px; text-align: center; }
-
-      /* ミッション帯 */
-      .mission-band      { padding: 28px 16px; }
-
-      /* サービス・実績 */
       .services-grid,
-      .projects-grid     { grid-template-columns: 1fr; }
-      .flow-grid         { grid-template-columns: 1fr; }
-      .values-grid       { grid-template-columns: 1fr; }
-      .result-row        { grid-template-columns: 1fr; }
-      .hero-stats        { gap: 24px; }
-      .hero-stat-num     { font-size: 24px; }
-
-      /* カウンター */
-      .counter-grid      { flex-direction: column; align-items: center; }
-      .counter-item      { width: 100%; max-width: 320px; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.12); padding: 16px 24px; }
-      .counter-item:last-child { border-bottom: none; }
-      .counter-num       { font-size: 52px; }
-
-      /* ブランド */
-      .brand-grid        { gap: 32px; }
-      .name-table th,
-      .name-table td     { padding: 8px 10px; font-size: 13px; }
-      .name-table td:first-child { font-size: 18px; }
-
-      /* 代表紹介 */
-      .about-grid        { grid-template-columns: 1fr; gap: 24px; }
-      .about-card        { max-width: 100%; }
-
-      /* お問い合わせ */
-      .contact-cards     { flex-direction: column; align-items: center; }
-      .contact-card      { width: 100%; max-width: 320px; }
-
-      /* フッター */
-      .footer-links      { gap: 12px; }
-
-      /* コンテナ余白 */
-      .container         { padding: 0 16px; }
-    }
-
-    /* 超小型スマホ (〜380px) */
-    @media (max-width: 380px) {
-      .nav-logo          { font-size: 15px; }
-      .hero-logo         { font-size: 36px; }
-      .section-title     { font-size: 22px; }
+      .projects-grid    { grid-template-columns: 1fr; }
+      .hero-btns        { flex-direction: column; align-items: center; }
     }
   </style>
-
 </head>
 <body>
 
@@ -536,25 +429,6 @@
       <a href="#services" class="btn-yellow">サービスを見る</a>
       <a href="#contact" class="btn-outline-w">お問い合わせ</a>
     </div>
-
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">45<span style="font-size:0.6em">+</span></div>
-        <div class="hero-stat-label">開発実績</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">17</div>
-        <div class="hero-stat-label">現在稼働中</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">25<span style="font-size:0.6em">年+</span></div>
-        <div class="hero-stat-label">IT業界経験</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">0<span style="font-size:0.6em">円〜</span></div>
-        <div class="hero-stat-label">まずは無料相談</div>
-      </div>
-    </div>
   </div>
 
   <div class="hero-scroll">
@@ -611,39 +485,6 @@
           <h4>🤝 作って終わりにしない</h4>
           <p>現場に寄り添い、使い続けてもらえるシステムを一緒に育てていきます。導入後の改善・保守も責任を持って対応します。</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 大切にしていること ===== -->
-<section class="values" id="values">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">VALUES</span>
-      <h2 class="section-title">大切にしていること</h2>
-      <p class="section-desc">技術より先に、いつも大事にしていることがあります</p>
-    </div>
-    <div class="values-grid">
-      <div class="value-card reveal">
-        <div class="value-icon">👂</div>
-        <h4>現場の声を、最初に聽く</h4>
-        <p>「何が困っているか」は現場の人が一番知っています。技術の話より先に、まず現場の話を聞きます。</p>
-      </div>
-      <div class="value-card reveal">
-        <div class="value-icon">✨</div>
-        <h4>難しい言葉を使わない</h4>
-        <p>「API」「インスタンス」とか言われても困りますよね。現場の言葉で伝えて、現場の言葉で一緒に考えます。</p>
-      </div>
-      <div class="value-card reveal">
-        <div class="value-icon">🌱</div>
-        <h4>小さく作って、一緒に育てる</h4>
-        <p>最初から完璧なものは作れません。「まず動くもの」を素早くお見せして、使いながら一緒に良くしていきます。</p>
-      </div>
-      <div class="value-card reveal">
-        <div class="value-icon">🤝</div>
-        <h4>作ったあとも、ずっと</h4>
-        <p>「納品して終わり」はしません。現場の声を聞き続けて、保守も改善も責任を持ちます。「いつでも相談できる人」でありたい。</p>
       </div>
     </div>
   </div>
@@ -740,7 +581,7 @@
 
       <div class="about-card reveal">
         <div class="about-card-top">
-          <img src="profile.png" alt="代表イラスト" class="avatar-circle" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid #FFD700;">
+          <div class="avatar-circle">🌻</div>
           <h3>弘</h3>
           <p>代表 / 医療DX推進 · システム開発</p>
         </div>
@@ -806,8 +647,8 @@
       <div class="counter-label">現在稼働中のシステム</div>
     </div>
     <div class="counter-item">
-      <div class="counter-num"><span class="count-num" data-target="6">0</span></div>
-      <div class="counter-label">使用技術・言語数</div>
+      <div class="counter-num"><span class="count-num" data-target="3">0</span></div>
+      <div class="counter-label">技術スタック（GAS・Python・TypeScript）</div>
     </div>
     <div class="counter-item">
       <div class="counter-num"><span class="count-num" data-target="25">0</span><span class="counter-suffix">年+</span></div>
@@ -815,40 +656,6 @@
     </div>
   </div>
 </div>
-
-<!-- ===== Before→After ===== -->
-<section class="results" id="results">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">RESULTS</span>
-      <h2 class="section-title">導入で変わったこと</h2>
-      <p class="section-desc">「作って終わり」ではなく、現場が本当に変わりました</p>
-    </div>
-    <div class="results-grid">
-      <div class="result-card reveal">
-        <div class="result-label">📠 FAX仕分け作業</div>
-        <div class="result-row">
-          <div class="result-before"><span class="rb-label">Before</span>毎日30分の手作業。「これどこ行き？」の確認が絶えない</div>
-          <div class="result-after"><span class="ra-label">After</span><strong>AIが自動分類→ゼロ分</strong>。年間2,000枚が完全自動化</div>
-        </div>
-      </div>
-      <div class="result-card reveal">
-        <div class="result-label">📋 持ち物チェック</div>
-        <div class="result-row">
-          <div class="result-before"><span class="rb-label">Before</span>紙のリストで目視確認。「忘れ物」で毎週トラブル</div>
-          <div class="result-after"><span class="ra-label">After</span><strong>スマホで撮影→AIが3秒で判定</strong>。忘れ物ゼロを達成</div>
-        </div>
-      </div>
-      <div class="result-card reveal">
-        <div class="result-label">📅 勤務帳票作成</div>
-        <div class="result-row">
-          <div class="result-before"><span class="rb-label">Before</span>毎月丸一日、Excelに手入力。計算ミスで差し戻しも</div>
-          <div class="result-after"><span class="ra-label">After</span><strong>ボタン一つで自動生成</strong>。丸一日→2分に短縮</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== 実績 ===== -->
 <section class="projects" id="projects">
@@ -971,52 +778,11 @@
     </div>
     <div class="projects-note">
       <div class="projects-more-box reveal">
-        <div class="projects-more-num">45<span style="font-size:0.6em;">+</span></div>
-        <div>上記以外にも、薬剤在庫管理・施設カレンダー・外来予約・勤怠管理支援・FAX連携・AI自動ログイン など<br>45件以上のシステムを設計・開発・運用しています。</div>
+        <div class="projects-more-num">30<span style="font-size:0.6em;">+</span></div>
+        <div>上記以外にも、薬剤在庫管理・施設カレンダー・外来予約・勤怠管理支援・FAX連携・AI自動ログイン など<br>30件以上のシステムを設計・開発・運用しています。</div>
       </div>
       <a href="https://note.com/himawasa" target="_blank" class="btn-yellow-sm">noteで開発記録を読む →</a>
     </div>
-  </div>
-</section>
-
-<!-- ===== 導入の流れ ===== -->
-<section class="flow reveal" id="flow">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">HOW IT WORKS</span>
-      <h2 class="section-title">導入の流れ</h2>
-      <p class="section-desc">初めての方も安心。相談から運用開始まで<strong>最短2週間</strong>で対応します。</p>
-    </div>
-    <div class="flow-grid">
-      <div class="flow-item">
-        <div class="flow-num">1</div>
-        <div class="flow-icon">💬</div>
-        <div class="flow-title">無料ヒアリング</div>
-        <div class="flow-desc">まず「困っていること」をお聞かせください。noteメッセージ・メールどちらでもOK。初回相談は無料です。</div>
-        <div class="flow-arrow">›</div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-num">2</div>
-        <div class="flow-icon">📋</div>
-        <div class="flow-title">ご提案・お見積り</div>
-        <div class="flow-desc">1週間以内に具体的なご提案書とお見積りをご提示。小さく始めて育てる方針です。</div>
-        <div class="flow-arrow">›</div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-num">3</div>
-        <div class="flow-icon">⚡</div>
-        <div class="flow-title">高速プロトタイプ</div>
-        <div class="flow-desc">GAS・Python・AIを活用し、最短1週間で動くものをお見せします。使いながら改善していきます。</div>
-        <div class="flow-arrow">›</div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-num">4</div>
-        <div class="flow-icon">🚀</div>
-        <div class="flow-title">本番運用・保守</div>
-        <div class="flow-desc">現場スタッフへのレクチャーも込み。運用後もチャットで気軽に相談いただけます。</div>
-      </div>
-    </div>
-    <p class="flow-period">初回相談から本番稼働まで <strong>最短2週間〜</strong>。まずはお気軽にご連絡ください。</p>
   </div>
 </section>
 
@@ -1029,23 +795,17 @@
       <p class="section-desc">「まず話だけ聞きたい」「デモを見てみたい」など、<br>小さなご相談からお気軽にどうぞ</p>
     </div>
     <div class="contact-cards">
-      <a href="mailto:himawasa@gmail.com" class="contact-card">
-        <div class="cc-icon">✉️</div>
-        <h4>メールで相談する</h4>
-        <p>具体的なご相談・お見積り依頼は<br>メールが一番確実です</p>
-        <span class="cc-link">himawasa@gmail.com →</span>
+      <a href="https://note.com/himawasa" target="_blank" class="contact-card">
+        <div class="cc-icon">📝</div>
+        <h4>noteで記事を読む</h4>
+        <p>開発事例・考え方を発信しています</p>
+        <span class="cc-link">note.com/himawasa →</span>
       </a>
       <a href="https://note.com/himawasa/message" target="_blank" class="contact-card">
         <div class="cc-icon">💬</div>
-        <h4>noteメッセージ</h4>
-        <p>「まず話だけ聞きたい」など<br>気軽なご連絡はこちら</p>
+        <h4>メッセージを送る</h4>
+        <p>noteのメッセージ機能から<br>お気軽にどうぞ</p>
         <span class="cc-link">メッセージを送る →</span>
-      </a>
-      <a href="https://note.com/himawasa" target="_blank" class="contact-card">
-        <div class="cc-icon">📝</div>
-        <h4>noteで実績を見る</h4>
-        <p>開発事例・考え方を<br>発信しています</p>
-        <span class="cc-link">note.com/himawasa →</span>
       </a>
     </div>
     <div class="contact-note-box">
