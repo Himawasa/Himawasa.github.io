@@ -101,12 +101,23 @@
       top: 50%; left: 50%; transform: translate(-50%,-50%);
     }
     .hero-content { position: relative; z-index: 2; }
+    .hero-logo-img {
+      width: min(130px, 26vw); height: min(130px, 26vw);
+      margin-bottom: 16px;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 50%;
+      border: 3px solid rgba(255,215,0,0.4);
+      box-shadow: 0 0 40px rgba(255,215,0,0.2), 0 0 80px rgba(255,215,0,0.08);
+      animation: fade-in 1s ease both;
+    }
+
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.4);
       color: var(--yellow); border-radius: 20px; padding: 6px 18px;
       font-size: 13px; font-weight: 700; margin-bottom: 24px;
-      animation: fade-in 1s ease both;
+      animation: fade-in 1s ease 0.1s both;
     }
     .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
@@ -544,6 +555,8 @@
   <div class="hero-glow"></div>
 
   <div class="hero-content">
+    <img src="logo.png" alt="HiMaWaSa Sync ロゴ" class="hero-logo-img" />
+
     <div class="hero-badge">
       <span class="badge-dot"></span>
       現場のDXを、シンプルに。
@@ -614,7 +627,7 @@
           <tr><td class="Sa-cell">Sa</td><td>さ</td><td>家族の頭文字</td></tr>
         </table>
         <div class="num-box">
-          <div style="font-size:36px;margin-bottom:8px;">🌻</div>
+          <img src="logo.png" alt="HiMaWaSa Sync ロゴ" style="width:80px;height:auto;margin-bottom:12px;mix-blend-mode:lighten;filter:drop-shadow(0 2px 12px rgba(255,215,0,0.4));" />
           <div class="num-box-desc" style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.85);">
             「4人家族の絆でできた名前。」<br>
             <span style="font-size:12px;color:rgba(255,255,255,0.45);">HiMaWaSa の4文字は、大切な家族の頭文字を並べたものです。<br>詳しくは、仕事でご縁ができた際にでもこっそりお話しします。😊</span>
