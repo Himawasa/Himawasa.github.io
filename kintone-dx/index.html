@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kintone × GAS 顧問先管理DX提案書</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>📋</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #2563EB;
+      --primary-dk: #1D4ED8;
+      --primary-lt: #EFF6FF;
+      --kintone: #ED7A00;
+      --kintone-lt: #FFF7ED;
+      --gas: #0F9D58;
+      --gas-lt: #ECFDF5;
+      --chat: #EF4444;
+      --black: #1A1A1A;
+      --gray: #555;
+      --gray-lt: #F8FAFC;
+      --white: #FFF;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--black); background: var(--white); line-height: 1.8; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 72px 0; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @keyframes fade-in { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ナビ */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 3px solid var(--primary); padding: 0 24px; }
+    .nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; color: var(--primary); }
+    .nav-logo .k { color: var(--kintone); }
+    .nav-logo .g { color: var(--gas); }
+    .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--gray); font-size: 13px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* ヒーロー */
+    .hero { min-height: 92vh; background: linear-gradient(135deg, #1e3a5f 0%, #2563EB 50%, #3B82F6 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding-top: 60px; text-align: center; }
+    .hero-pattern { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 50px 50px; }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff; border-radius: 20px; padding: 6px 18px; font-size: 13px; font-weight: 700; margin-bottom: 20px; animation: fade-in 1s ease 0.1s both; }
+    .hero-title { font-size: clamp(24px, 4.5vw, 44px); font-weight: 900; color: #fff; line-height: 1.3; margin-bottom: 16px; animation: fade-in 1s ease 0.2s both; }
+    .hero-title .k { color: #FFB347; }
+    .hero-title .g { color: #81C784; }
+    .hero-sub { font-size: clamp(13px, 1.8vw, 17px); color: rgba(255,255,255,0.85); max-width: 650px; margin: 0 auto 28px; line-height: 1.8; animation: fade-in 1s ease 0.4s both; }
+    .hero-meta { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; animation: fade-in 1s ease 0.6s both; }
+    .hero-meta-item { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 10px 20px; color: rgba(255,255,255,0.9); font-size: 13px; }
+    .hero-meta-item strong { display: block; font-size: 14px; color: #fff; }
+    .hero-scroll { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 0.2em; text-align: center; }
+    .scroll-line { width: 1px; height: 36px; background: rgba(255,255,255,0.2); margin: 4px auto 0; animation: scroll-anim 2s ease infinite; }
+    @keyframes scroll-anim { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+    /* セクション共通 */
+    .section-label { display: block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: var(--primary); margin-bottom: 8px; text-transform: uppercase; }
+    .section-title { font-size: clamp(22px, 3.5vw, 32px); font-weight: 900; margin-bottom: 12px; }
+    .section-desc { color: var(--gray); font-size: 14px; margin-bottom: 40px; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+
+    /* 課題 */
+    .problems { background: var(--gray-lt); }
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .problem-card { background: #fff; border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border-left: 4px solid var(--chat); transition: transform 0.3s; }
+    .problem-card:hover { transform: translateY(-3px); }
+    .problem-icon { font-size: 28px; margin-bottom: 10px; }
+    .problem-title { font-weight: 900; font-size: 15px; margin-bottom: 6px; }
+    .problem-text { color: var(--gray); font-size: 13px; }
+
+    /* 解決策テーブル */
+    .solutions { background: #fff; }
+    .sol-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .sol-table th { background: var(--primary); color: #fff; padding: 12px 16px; text-align: left; font-weight: 700; }
+    .sol-table td { padding: 12px 16px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .sol-table tr:hover { background: var(--primary-lt); }
+    .sol-table .num { font-family: 'Inter', sans-serif; font-weight: 900; color: var(--primary); }
+
+    /* 全体像 */
+    .architecture { background: var(--gray-lt); }
+    .arch-box { background: #fff; border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); }
+    .arch-section { margin-bottom: 24px; }
+    .arch-label { font-weight: 900; font-size: 14px; padding: 4px 14px; border-radius: 20px; display: inline-block; margin-bottom: 12px; color: #fff; }
+    .arch-label.kintone { background: var(--kintone); }
+    .arch-label.gas { background: var(--gas); }
+    .arch-label.pca { background: var(--primary); }
+    .arch-items { display: flex; flex-wrap: wrap; gap: 10px; }
+    .arch-item { background: var(--gray-lt); border-radius: 8px; padding: 10px 16px; font-size: 13px; font-weight: 500; border: 1px solid #e2e8f0; }
+    .arch-flow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 20px 0; padding: 16px; background: #f0fdf4; border-radius: 8px; border: 1px solid #bbf7d0; font-size: 13px; }
+    .arch-flow .arrow { color: var(--gas); font-size: 20px; flex-shrink: 0; }
+
+    /* kintoneアプリ一覧 */
+    .apps { background: #fff; }
+    .app-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+    .app-card { border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow); transition: transform 0.3s; border-top: 4px solid var(--kintone); background: #fff; }
+    .app-card:hover { transform: translateY(-3px); }
+    .app-icon { font-size: 36px; margin-bottom: 10px; }
+    .app-name { font-weight: 900; font-size: 15px; margin-bottom: 6px; }
+    .app-desc { color: var(--gray); font-size: 12px; }
+
+    /* スペース運用 */
+    .space { background: var(--gray-lt); }
+    .space-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+    .space-box { border-radius: var(--radius); padding: 24px; }
+    .space-cw { background: #FEF2F2; border: 2px solid #FECACA; }
+    .space-kt { background: var(--kintone-lt); border: 2px solid #FED7AA; }
+    .space-label { font-weight: 900; font-size: 14px; margin-bottom: 12px; padding: 4px 14px; border-radius: 20px; display: inline-block; color: #fff; }
+    .space-cw .space-label { background: var(--chat); }
+    .space-kt .space-label { background: var(--kintone); }
+    .space-list { list-style: none; }
+    .space-list li { padding: 6px 0; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+    .space-list li .icon { font-size: 16px; flex-shrink: 0; }
+    .space-tree { background: #fff; border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); font-family: 'Noto Sans JP', monospace; font-size: 13px; line-height: 2; white-space: pre-wrap; }
+
+    /* GAS自動化 */
+    .automation { background: #fff; }
+    .auto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .auto-card { border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 4px solid var(--gas); }
+    .auto-title { font-weight: 900; font-size: 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .auto-flow { font-size: 13px; color: var(--gray); line-height: 2; }
+    .auto-flow .step { display: flex; align-items: center; gap: 8px; }
+    .auto-effect { margin-top: 12px; padding: 8px 14px; background: var(--gas-lt); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--gas); }
+
+    /* 効果 */
+    .effects { background: var(--gray-lt); }
+    .effect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+    .effect-card { background: #fff; border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow); }
+    .effect-icon { font-size: 36px; margin-bottom: 10px; }
+    .effect-title { font-weight: 900; font-size: 15px; margin-bottom: 6px; }
+    .effect-text { color: var(--gray); font-size: 13px; }
+
+    /* スケジュール */
+    .schedule { background: #fff; }
+    .schedule-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .schedule-table th { background: var(--primary); color: #fff; padding: 12px 16px; text-align: left; }
+    .schedule-table td { padding: 12px 16px; border-bottom: 1px solid #eee; }
+    .schedule-table .phase { font-weight: 900; color: var(--primary); }
+
+    /* 費用 */
+    .cost { background: var(--gray-lt); }
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .cost-table th { background: var(--kintone); color: #fff; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid #eee; }
+    .cost-note { margin-top: 16px; padding: 16px; background: var(--primary-lt); border-radius: 8px; font-size: 13px; border-left: 4px solid var(--primary); }
+
+    /* フッター */
+    .footer { background: var(--black); color: rgba(255,255,255,0.6); padding: 40px 24px; text-align: center; font-size: 13px; }
+    .footer-title { font-weight: 900; color: #fff; font-size: 16px; margin-bottom: 8px; }
+    .footer-copy { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; margin-top: 16px; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .space-compare { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .nav, .hero-scroll { display: none; }
+      .hero { min-height: auto; padding: 40px 0; }
+      section { padding: 32px 0; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">📋 <span class="k">Kintone</span> × <span class="g">GAS</span> DX提案</div>
+    <ul class="nav-links">
+      <li><a href="#problems">課題</a></li>
+      <li><a href="#apps">kintone構成</a></li>
+      <li><a href="#automation">自動化</a></li>
+      <li><a href="#schedule">スケジュール</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-content container">
+    <div class="hero-badge">📄 提案書</div>
+    <h1 class="hero-title">
+      <span class="k">Kintone</span> × <span class="g">GAS</span> 活用による<br>
+      顧問先管理DX提案書
+    </h1>
+    <p class="hero-sub">
+      Chatworkを活かしながらKintoneで管理を強化し、<br>GASで自動化することで、事務所のDXを実現します。
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>提案者</strong>岩城 / IT World 石橋</div>
+      <div class="hero-meta-item"><strong>対象</strong>社労士事務所・会計事務所</div>
+      <div class="hero-meta-item"><strong>作成日</strong>2026年4月6日</div>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL<div class="scroll-line"></div></div>
+</section>
+
+<!-- 課題 -->
+<section class="problems" id="problems">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">current problems</span>
+      <h2 class="section-title">現在の課題</h2>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon">📨</div>
+        <div class="problem-title">依頼・質問が埋もれる</div>
+        <p class="problem-text">Chatworkのやり取りに紛れて対応漏れが発生。ステータス管理ができない。</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">👤</div>
+        <div class="problem-title">属人化している</div>
+        <p class="problem-text">個人が案件を管理。チーム全体で進捗が見えない。担当不在時に対応できない。</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">📝</div>
+        <div class="problem-title">議事録作成が手間</div>
+        <p class="problem-text">訪問・Web会議の議事録を毎回手作業で作成。共有にも時間がかかる。</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">🔄</div>
+        <div class="problem-title">二重入力が多い</div>
+        <p class="problem-text">PCAの請求・給与データをExcelに手動で転記。ミスのリスクも。</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">🔍</div>
+        <div class="problem-title">横断確認ができない</div>
+        <p class="problem-text">複数の顧問先の依頼を一覧で確認できず、優先順位が見えない。</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">📊</div>
+        <div class="problem-title">Excel管理の限界</div>
+        <p class="problem-text">月次処理の確認作業がExcel頼み。データ活用や自動化が困難。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 解決策テーブル -->
+<section class="solutions" id="solutions">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">solutions</span>
+      <h2 class="section-title">課題と解決策</h2>
+    </div>
+    <div class="reveal">
+      <table class="sol-table">
+        <tr><th>#</th><th>現状の課題</th><th>解決策</th></tr>
+        <tr><td class="num">1</td><td>依頼・質問がChatworkに埋もれる</td><td>Kintoneスペースで依頼・質問を別アプリ化してステータス管理</td></tr>
+        <tr><td class="num">2</td><td>対応漏れが発生する</td><td>ステータス・担当者管理で「放置」を可視化</td></tr>
+        <tr><td class="num">3</td><td>複数顧問先の依頼を横断確認できない</td><td>社内Kintoneに全顧問先の依頼・質問を自動集約</td></tr>
+        <tr><td class="num">4</td><td>議事録作成・共有に手間がかかる</td><td>Google Meet → GASで自動要約 → Kintone記録＆Chatwork通知</td></tr>
+        <tr><td class="num">5</td><td>PCAデータを手動で転記している</td><td>PCAクラウドAPIでKintoneに自動連携</td></tr>
+        <tr><td class="num">6</td><td>訪問履歴がバラバラ</td><td>履歴アプリに一元管理</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- kintoneアプリ一覧 -->
+<section class="apps" id="apps">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">kintone apps</span>
+      <h2 class="section-title">Kintone データベース構成</h2>
+      <p class="section-desc">8つのアプリで顧問先管理を一元化します</p>
+    </div>
+    <div class="app-grid">
+      <div class="app-card reveal"><div class="app-icon">🏢</div><div class="app-name">顧問先マスタ</div><p class="app-desc">基本情報管理（全アプリの親マスタ）</p></div>
+      <div class="app-card reveal"><div class="app-icon">📋</div><div class="app-name">案件（受注）</div><p class="app-desc">受注管理・受注残・請求漏れ防止</p></div>
+      <div class="app-card reveal"><div class="app-icon">📄</div><div class="app-name">見積</div><p class="app-desc">見積書の作成・管理</p></div>
+      <div class="app-card reveal"><div class="app-icon">📨</div><div class="app-name">送付状</div><p class="app-desc">送付状の作成・管理</p></div>
+      <div class="app-card reveal"><div class="app-icon">📝</div><div class="app-name">履歴</div><p class="app-desc">訪問・WebMTG・チャット履歴</p></div>
+      <div class="app-card reveal"><div class="app-icon">👥</div><div class="app-name">顧問先従業員</div><p class="app-desc">従業員名簿・月次給与</p></div>
+      <div class="app-card reveal"><div class="app-icon">📦</div><div class="app-name">依頼DB</div><p class="app-desc">全顧問先の依頼を横断管理</p></div>
+      <div class="app-card reveal"><div class="app-icon">❓</div><div class="app-name">質問DB</div><p class="app-desc">全顧問先の質問を横断管理</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- スペース運用 -->
+<section class="space" id="space">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">communication</span>
+      <h2 class="section-title">スペース運用（Chatwork併用）</h2>
+      <p class="section-desc">Chatworkを廃止せず、役割を分担して併用します</p>
+    </div>
+    <div class="space-compare reveal">
+      <div class="space-box space-cw">
+        <div class="space-label">Chatwork（継続利用）</div>
+        <ul class="space-list">
+          <li><span class="icon">💬</span>顧問先への通知・連絡（従来通り）</li>
+          <li><span class="icon">📢</span>Kintone更新時のGAS自動通知先</li>
+          <li><span class="icon">👤</span>顧問先は今まで通りの使い心地</li>
+        </ul>
+      </div>
+      <div class="space-box space-kt">
+        <div class="space-label">Kintoneスペース（新設）</div>
+        <ul class="space-list">
+          <li><span class="icon">📥</span>依頼の受付・ステータス管理</li>
+          <li><span class="icon">❓</span>質問の受付・ステータス管理</li>
+          <li><span class="icon">📢</span>情報提供（法改正・お知らせ）</li>
+          <li><span class="icon">📦</span>社内DBへ自動複写で横断管理</li>
+        </ul>
+      </div>
+    </div>
+    <div class="space-tree reveal">📂 顧問先別スペース（例：○○社スペース）
+├── 💬 チャット（スレッド毎）　← 顧問先と双方向
+├── 📥 依頼アプリ　← 区分・ステータス・担当者管理
+│　　└── 🟣 複写 → 社内「依頼DB」
+├── ❓ 質問アプリ　← 区分・ステータス・担当者管理
+│　　└── 🟣 複写 → 社内「質問DB」
+└── 📢 情報提供アプリ　← 事務所→顧問先への発信</div>
+  </div>
+</section>
+
+<!-- GAS自動化 -->
+<section class="automation" id="automation">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">automation</span>
+      <h2 class="section-title">GAS 自動化エンジン</h2>
+    </div>
+    <div class="auto-grid">
+      <div class="auto-card reveal">
+        <div class="auto-title">📹 Google Meet → 自動議事録</div>
+        <div class="auto-flow">
+          <div class="step">🎙️ Google Meetで会議</div>
+          <div class="step">↓ Googleが自動文字起こし</div>
+          <div class="step">↓ GASが要約を自動作成</div>
+          <div class="step">↓ Kintone「履歴」に記録 + Chatwork通知</div>
+        </div>
+        <div class="auto-effect">✨ 議事録作成の工数をほぼゼロに</div>
+      </div>
+      <div class="auto-card reveal">
+        <div class="auto-title">📊 PCAクラウド → 自動連携</div>
+        <div class="auto-flow">
+          <div class="step">📦 PCAクラウド商魂（請求書）</div>
+          <div class="step">↓ API → Kintone「案件」</div>
+          <div class="step">👥 PCAクラウド給与</div>
+          <div class="step">↓ API → Kintone「従業員」</div>
+        </div>
+        <div class="auto-effect">✨ 二重入力の排除・データ一元管理</div>
+      </div>
+      <div class="auto-card reveal">
+        <div class="auto-title">💬 Kintone → Chatwork通知</div>
+        <div class="auto-flow">
+          <div class="step">📋 Kintoneのレコード更新</div>
+          <div class="step">↓ GASが変更内容を整形</div>
+          <div class="step">↓ Chatworkで顧問先に自動通知</div>
+        </div>
+        <div class="auto-effect">✨ リアルタイムで状況共有</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 効果 -->
+<section class="effects">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">expected results</span>
+      <h2 class="section-title">期待される効果</h2>
+    </div>
+    <div class="effect-grid">
+      <div class="effect-card reveal"><div class="effect-icon">⏰</div><div class="effect-title">工数削減</div><p class="effect-text">議事録作成・データ転記を大幅削減（月あたり数時間〜）</p></div>
+      <div class="effect-card reveal"><div class="effect-icon">🛡️</div><div class="effect-title">漏れ防止</div><p class="effect-text">依頼・質問の対応漏れをシステムで防止</p></div>
+      <div class="effect-card reveal"><div class="effect-icon">👁️</div><div class="effect-title">見える化</div><p class="effect-text">全顧問先の依頼・案件を一覧で確認可能</p></div>
+      <div class="effect-card reveal"><div class="effect-icon">😊</div><div class="effect-title">顧問先満足度UP</div><p class="effect-text">迅速・正確な対応で信頼関係を強化</p></div>
+      <div class="effect-card reveal"><div class="effect-icon">📈</div><div class="effect-title">データ活用</div><p class="effect-text">履歴・実績の蓄積で次の提案に活用</p></div>
+      <div class="effect-card reveal"><div class="effect-icon">🤝</div><div class="effect-title">属人化解消</div><p class="effect-text">特定担当者がいなくても業務が回る</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- スケジュール -->
+<section class="schedule" id="schedule">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">schedule</span>
+      <h2 class="section-title">導入ステップ</h2>
+    </div>
+    <div class="reveal">
+      <table class="schedule-table">
+        <tr><th>フェーズ</th><th>期間</th><th>内容</th></tr>
+        <tr><td class="phase">Phase 1</td><td>1〜2ヶ月目</td><td>Kintone契約・顧問先マスタ・案件アプリ作成・データ移行</td></tr>
+        <tr><td class="phase">Phase 2</td><td>2〜3ヶ月目</td><td>Kintoneスペース・依頼/質問アプリ構築・スタッフ研修</td></tr>
+        <tr><td class="phase">Phase 3</td><td>3〜4ヶ月目</td><td>GAS：議事録自動作成・Chatwork通知・PCAクラウドAPI連携</td></tr>
+        <tr><td class="phase">Phase 4</td><td>4ヶ月目〜</td><td>運用確認・効果測定・追加カスタマイズ</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 費用 -->
+<section class="cost">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">pricing</span>
+      <h2 class="section-title">費用概算</h2>
+      <p class="section-desc">詳細はヒアリング後にご提示します</p>
+    </div>
+    <div class="reveal">
+      <table class="cost-table">
+        <tr><th>項目</th><th>概算費用</th><th>備考</th></tr>
+        <tr><td>Kintone 月額費用</td><td>1,500円〜 / ユーザー・月</td><td>cybozu公式参照</td></tr>
+        <tr><td>初期構築費用（Phase1-2）</td><td>150,000〜300,000円</td><td>アプリ数・移行量による</td></tr>
+        <tr><td>GAS自動化開発（Phase3）</td><td>100,000〜200,000円</td><td>連携サービス数による</td></tr>
+        <tr><td>保守・運用サポート</td><td>30,000〜50,000円 / 月</td><td>月次改善・問い合わせ対応</td></tr>
+      </table>
+      <div class="cost-note">💡 <strong>IT導入補助金活用の可能性あり</strong> — 2026年度IT導入補助金の対象となる可能性があります。申請サポートも対応可能です。</div>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="footer-title">Kintone × GAS 顧問先管理DX提案書</div>
+  <p>提案者：岩城 / IT World 石橋</p>
+  <p>次回打ち合わせ：2026年5月13日（火）19:00〜 大阪梅田</p>
+  <p class="footer-copy">&copy; 2026 HiMaWaSa Sync × IT World</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
