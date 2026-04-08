@@ -350,19 +350,76 @@
     .footer-copy { color: rgba(255,255,255,0.2); font-size: 12px; }
 
     /* ===== レスポンシブ ===== */
+
+    /* タブレット (〜900px) */
     @media (max-width: 900px) {
       .brand-grid,
-      .about-grid       { grid-template-columns: 1fr; }
+      .about-grid        { grid-template-columns: 1fr; }
       .services-grid,
-      .projects-grid    { grid-template-columns: 1fr 1fr; }
-      .nav-links        { display: none; }
+      .projects-grid     { grid-template-columns: 1fr 1fr; }
+      .nav-links         { display: none; }
+      .about-grid        { gap: 24px; }
+      .about-card        { max-width: 480px; margin: 0 auto; }
+      .counter-grid      { flex-wrap: wrap; }
+      .counter-item      { flex: 1 1 45%; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.12); padding: 16px; }
+      .counter-item:last-child { border-bottom: none; }
     }
+
+    /* スマホ (〜600px) */
     @media (max-width: 600px) {
+      /* ナビ */
+      .nav-inner         { height: 56px; }
+      .nav-logo          { font-size: 17px; }
+
+      /* ヒーロー */
+      section            { padding: 60px 0; }
+      .hero              { padding-top: 56px; }
+      .hero-btns         { flex-direction: column; align-items: center; }
+      .btn-yellow,
+      .btn-outline-w     { width: 100%; max-width: 280px; text-align: center; }
+
+      /* ミッション帯 */
+      .mission-band      { padding: 28px 16px; }
+
+      /* サービス・実績 */
       .services-grid,
-      .projects-grid    { grid-template-columns: 1fr; }
-      .hero-btns        { flex-direction: column; align-items: center; }
+      .projects-grid     { grid-template-columns: 1fr; }
+
+      /* カウンター */
+      .counter-grid      { flex-direction: column; align-items: center; }
+      .counter-item      { width: 100%; max-width: 320px; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.12); padding: 16px 24px; }
+      .counter-item:last-child { border-bottom: none; }
+      .counter-num       { font-size: 52px; }
+
+      /* ブランド */
+      .brand-grid        { gap: 32px; }
+      .name-table th,
+      .name-table td     { padding: 8px 10px; font-size: 13px; }
+      .name-table td:first-child { font-size: 18px; }
+
+      /* 代表紹介 */
+      .about-grid        { grid-template-columns: 1fr; gap: 24px; }
+      .about-card        { max-width: 100%; }
+
+      /* お問い合わせ */
+      .contact-cards     { flex-direction: column; align-items: center; }
+      .contact-card      { width: 100%; max-width: 320px; }
+
+      /* フッター */
+      .footer-links      { gap: 12px; }
+
+      /* コンテナ余白 */
+      .container         { padding: 0 16px; }
+    }
+
+    /* 超小型スマホ (〜380px) */
+    @media (max-width: 380px) {
+      .nav-logo          { font-size: 15px; }
+      .hero-logo         { font-size: 36px; }
+      .section-title     { font-size: 22px; }
     }
   </style>
+
 </head>
 <body>
 
