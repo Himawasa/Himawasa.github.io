@@ -1,0 +1,15 @@
+# バックアップファイル
+_backup/
+
+# GASソースコード（スクリプトIDがある）
+gas/
+
+# ドキュメント
+docs/
+
+# 引継書
+HANDOVER.md
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db

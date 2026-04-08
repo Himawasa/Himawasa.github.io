@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HiMaWaSa Sync | ソフトウェアで仕事と生活をつなぐ</title>
   <meta name="description" content="ソフトウェアの力で介護・医療・事務の現場に働く人々の日々をもっと便利にし、大切な人との時間を増やすことを目指します。" />
+
+  <!-- OGP（URL共有時のプレビュー） -->
+  <meta property="og:title" content="HiMaWaSa Sync | ソフトウェアで仕事と生活をつなぐ" />
+  <meta property="og:description" content="介護・医療・士業の現場DXをシンプルに。GAS・Python・AIで業務を自動化します。" />
+  <meta property="og:image" content="https://himawasa.github.io/ogp.png" />
+  <meta property="og:url" content="https://himawasa.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="HiMaWaSa Sync" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ファビコン（ひまわりSVG） -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🌻</text></svg>" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
@@ -62,6 +75,7 @@
       transition: background 0.2s !important;
     }
     .nav-cta:hover { background: var(--yellow-dk) !important; }
+    .hamburger { display: none; background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; padding: 4px 8px; }
 
     /* ===== ヒーロー ===== */
     .hero {
@@ -400,6 +414,15 @@
       .services-grid,
       .projects-grid     { grid-template-columns: 1fr 1fr; }
       .nav-links         { display: none; }
+
+      /* ハンバーガーメニュー */
+      .hamburger          { display: flex; }
+      .nav-links.open     { display: flex; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26,26,26,0.97); z-index: 1000; justify-content: center; align-items: center; gap: 28px; animation: fadeIn 0.25s ease; }
+      .nav-links.open li   { list-style: none; }
+      .nav-links.open a    { font-size: 20px; color: #fff; text-decoration: none; }
+      .nav-links.open .nav-cta { background: var(--yellow); color: #111; padding: 12px 32px; border-radius: 8px; }
+      .close-btn           { display: block; position: absolute; top: 20px; right: 24px; font-size: 32px; color: #fff; cursor: pointer; background: none; border: none; z-index: 1001; }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
       .flow-grid         { grid-template-columns: 1fr 1fr; gap: 16px; }
       .flow-arrow        { display: none; }
 
@@ -487,6 +510,7 @@
       <li><a href="#projects">実績</a></li>
       <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">☰</button>
   </div>
 </nav>
 
@@ -1109,6 +1133,25 @@
     });
   }, { threshold: 0.3 });
   if (counterBand) counterObs.observe(counterBand);
+
+  // ハンバーガーメニュー
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.add('open');
+    // 閉じるボタンを追加
+    if (!document.querySelector('.close-btn')) {
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'close-btn';
+      closeBtn.textContent = '×';
+      closeBtn.addEventListener('click', () => navLinks.classList.remove('open'));
+      navLinks.appendChild(closeBtn);
+    }
+  });
+  // リンククリックで閉じる
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
 </script>
 </body>
 </html>
