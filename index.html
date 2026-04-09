@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HiMaWaSa Sync | ソフトウェアで仕事と生活をつなぐ</title>
-  <meta name="description" content="ソフトウェアの力で介護・医療・事務の現場に働く人々の日々をもっと便利にし、大切な人との時間を増やすことを目指します。" />
+  <meta name="description" content="面倒な手作業をソフトウェアで自動化。あなたの現場をもっとラクにし、大切な時間を増やします。" />
 
   <!-- OGP（URL共有時のプレビュー） -->
   <meta property="og:title" content="HiMaWaSa Sync | ソフトウェアで仕事と生活をつなぐ" />
-  <meta property="og:description" content="介護・医療・士業の現場DXをシンプルに。GAS・Python・AIで業務を自動化します。" />
+  <meta property="og:description" content="現場のDXを、シンプルに。GAS・Python・AIで面倒な手作業を自動化します。" />
   <meta property="og:image" content="https://himawasa.github.io/ogp.png" />
   <meta property="og:url" content="https://himawasa.github.io/" />
   <meta property="og:type" content="website" />
@@ -388,10 +388,10 @@
     /* ===== Before→After ===== */
     .results { background: linear-gradient(180deg, #fff 0%, #f8f8f8 100%); }
     .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
-    .result-card { background: #fff; border: 1px solid #eee; border-radius: 20px; padding: 32px 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.3s; }
+    .result-card { background: #fff; border: 1px solid #eee; border-radius: 20px; padding: 32px 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.3s; overflow: hidden; }
     .result-card:hover { transform: translateY(-4px); }
     .result-impact { text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0; }
-    .result-impact-num { font-size: 36px; font-weight: 900; color: #FFD700; line-height: 1; }
+    .result-impact-num { font-size: clamp(28px, 4vw, 36px); font-weight: 900; color: #FFD700; line-height: 1; white-space: nowrap; }
     .result-impact-unit { font-size: 14px; color: #888; margin-top: 4px; }
     .result-label { font-size: 15px; font-weight: 700; margin-bottom: 16px; color: #111; }
     .result-before, .result-after { font-size: 13px; line-height: 1.7; padding: 12px 16px; border-radius: 10px; margin-bottom: 8px; }
@@ -431,11 +431,11 @@
 
       /* ハンバーガーメニュー */
       .hamburger          { display: flex; }
-      .nav-links.open     { display: flex; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26,26,26,0.97); z-index: 1000; justify-content: center; align-items: center; gap: 28px; animation: fadeIn 0.25s ease; }
+      .nav-links.open     { display: flex; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background: rgba(26,26,26,0.98); z-index: 1000; justify-content: center; align-items: center; gap: 32px; animation: fadeIn 0.25s ease; overflow: hidden; }
       .nav-links.open li   { list-style: none; }
-      .nav-links.open a    { font-size: 20px; color: #fff; text-decoration: none; }
-      .nav-links.open .nav-cta { background: var(--yellow); color: #111; padding: 12px 32px; border-radius: 8px; }
-      .close-btn           { display: block; position: absolute; top: 20px; right: 24px; font-size: 32px; color: #fff; cursor: pointer; background: none; border: none; z-index: 1001; }
+      .nav-links.open a    { font-size: 22px; color: #fff; text-decoration: none; padding: 8px 16px; }
+      .nav-links.open .nav-cta { background: var(--yellow); color: #111 !important; padding: 14px 36px; border-radius: 8px; font-size: 18px; }
+      .close-btn           { display: block; position: fixed; top: 20px; right: 24px; font-size: 36px; color: #fff; cursor: pointer; background: none; border: none; z-index: 1002; padding: 8px; }
       @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
       .flow-grid         { grid-template-columns: 1fr 1fr; gap: 16px; }
       .flow-arrow        { display: none; }
@@ -641,11 +641,11 @@
         </div>
         <div class="brand-card reveal">
           <h4>📐 シンプルさへのこだわり</h4>
-          <p>「難しくて使えない」ITは意味がありません。手書き文化が根強い介護・医療現場でも、初日から誰でも使えるシンプルさを最優先に設計します。</p>
+          <p>「難しくて使えない」ITは意味がありません。どんな現場でも、初日から誰でも使えるシンプルさを最優先に設計します。</p>
         </div>
         <div class="brand-card reveal">
           <h4>⚡ 低コスト・高速開発</h4>
-          <p>Google Apps Script・Gemini AIを活用し、高額なシステム投資なしに業務を自動化。中小規模の介護・医療・士業事務所でも導入しやすい価格を実現します。</p>
+          <p>Google Apps Script・Gemini AIを活用し、高額なシステム投資なしに業務を自動化。中小規模の事業所でも導入しやすい価格を実現します。</p>
         </div>
         <div class="brand-card reveal">
           <h4>🤝 作って終わりにしない</h4>
@@ -695,7 +695,7 @@
     <div class="section-header">
       <span class="section-label">SERVICES</span>
       <h2 class="section-title">ご提供できるサービス</h2>
-      <p class="section-desc">介護・医療・士業の現場が抱える「困った」をソフトウェアで解決します</p>
+      <p class="section-desc">現場が抱える「困った」をソフトウェアで解決します</p>
     </div>
     <div class="services-grid">
 
@@ -704,7 +704,7 @@
         <h3>業務アプリ開発</h3>
         <p>写真撮影→テキスト化、チェックリスト自動作成など、スマホで使えるシンプルなツールを低コストで開発します。</p>
         <ul class="service-list">
-          <li>持ち物確認AIアプリ（介護向け）</li>
+          <li>持ち物確認AIアプリ</li>
           <li>書類スキャン・自動整理</li>
           <li>チェックシートのデジタル化</li>
         </ul>
@@ -733,8 +733,8 @@
       </div>
 
       <div class="service-card reveal">
-        <div class="service-icon">🏥</div>
-        <h3>医療・介護DX相談</h3>
+        <div class="service-icon">💡</div>
+        <h3>業務改善コンサルティング</h3>
         <p>「何から始めればいいか分からない」そんなご相談も歓迎。現場の課題を一緒に整理し、最適なシステムを設計します。</p>
         <ul class="service-list">
           <li>DX推進の方向性相談</li>
@@ -902,7 +902,7 @@
     <div class="section-header">
       <span class="section-label">PROJECTS</span>
       <h2 class="section-title">主な開発実績</h2>
-      <p class="section-desc">医療・介護・業務の現場から生まれた、リアルな課題解決プロジェクト群</p>
+      <p class="section-desc">現場から生まれた、リアルな課題解決プロジェクトの一部をご紹介します</p>
     </div>
     <div class="projects-grid">
 
