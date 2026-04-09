@@ -1,8 +1,37 @@
-﻿開業届/
+# ============================================
+# ホワイトリスト方式（安全優先）
+# まず全部除外 → 公開するものだけ許可
+# ============================================
+
+# まず全ファイルを除外
+*
+
+# --- ここから公開許可するファイル ---
+
+# gitignore自身
+!.gitignore
+
+# ポートフォリオ本体
+!index.html
+!logo.png
+!ogp.png
+!profile.png
+
+# kintone-dx提案ページ（フォルダごと許可）
+!kintone-dx/
+!kintone-dx/**
+
+# shiftsync（フォルダごと許可）
+!shiftsync/
+!shiftsync/**
+
+# --- ここから明示的に除外（念のため） ---
+
+# 個人情報・機密ファイル
+開業届/
 gas/
-shiftsync/
 _backup/
 docs/
 HANDOVER.md
-*.png.bak
-himawasa_logo_v4_*
+*.pdf
+*.bak
