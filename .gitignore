@@ -1,15 +1,8 @@
-# バックアップファイル
-_backup/
-
-# GASソースコード（スクリプトIDがある）
+﻿開業届/
 gas/
-
-# ドキュメント
+shiftsync/
+_backup/
 docs/
-
-# 引継書
 HANDOVER.md
-
-# OS生成ファイル
-.DS_Store
-Thumbs.db
+*.png.bak
+himawasa_logo_v4_*
