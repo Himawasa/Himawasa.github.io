@@ -245,13 +245,24 @@
     }
     .about-card-top h3 { font-size: 22px; font-weight: 900; color: var(--black); }
     .about-card-top p { font-size: 13px; color: rgba(0,0,0,0.6); margin-top: 4px; }
-    .about-card-body { padding: 24px; }
-    .about-tag-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .about-card-body { padding: 20px; }
+    .skill-section { margin-bottom: 14px; }
+    .skill-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+    .about-tag-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0; }
     .about-tag {
       background: rgba(255,215,0,0.12); border: 1px solid rgba(255,215,0,0.3);
-      color: var(--yellow); font-size: 12px; font-weight: 700;
-      padding: 4px 10px; border-radius: 10px;
+      color: var(--yellow); font-size: 11px; font-weight: 700;
+      padding: 3px 9px; border-radius: 10px;
     }
+    .about-tag.dim {
+      background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.5);
+    }
+    .about-tag.domain {
+      background: rgba(100,200,255,0.1); border-color: rgba(100,200,255,0.3);
+      color: #7ec8ff;
+    }
+    .skill-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 14px 0; }
     .about-link {
       display: flex; align-items: center; gap: 8px;
       color: rgba(255,255,255,0.7); font-size: 13px;
@@ -785,13 +796,31 @@
           <p>代表 / 業務改善エンジニア</p>
         </div>
         <div class="about-card-body">
-          <div class="about-tag-wrap">
-            <span class="about-tag">GAS</span>
-            <span class="about-tag">Python</span>
-            <span class="about-tag">TypeScript</span>
-            <span class="about-tag">AI活用</span>
-            <span class="about-tag">業務自動化</span>
-            <span class="about-tag">現場DX</span>
+          <div class="skill-section">
+            <div class="skill-label">🔥 実務で毎日使う</div>
+            <div class="about-tag-wrap">
+              <span class="about-tag">GAS</span>
+              <span class="about-tag">Python</span>
+              <span class="about-tag">TypeScript</span>
+              <span class="about-tag">Go</span>
+              <span class="about-tag">HTML/CSS/JS</span>
+            </div>
+          </div>
+          <div class="skill-section">
+            <div class="skill-label">📚 学習経験あり</div>
+            <div class="about-tag-wrap">
+              <span class="about-tag dim">Java</span>
+            </div>
+          </div>
+          <hr class="skill-divider">
+          <div class="skill-section">
+            <div class="skill-label">💡 得意領域</div>
+            <div class="about-tag-wrap">
+              <span class="about-tag domain">AI活用</span>
+              <span class="about-tag domain">業務自動化</span>
+              <span class="about-tag domain">現場DX</span>
+              <span class="about-tag domain">API連携</span>
+            </div>
           </div>
           <a href="https://note.com/himawasa" target="_blank" class="about-link">
             📝 noteで開発記事を発信中
