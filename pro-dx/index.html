@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>士業事務所の「困った」を解決します | HiMaWaSa Sync</title>
+<meta name="description" content="顧客管理、期日通知、FAX整理、請求書作成…。事務所の面倒な手作業を、今のパソコンのまま月1万円から自動化します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🌻</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --yellow: #FFD700;
+  --yellow-dk: #E6C000;
+  --yellow-lt: #FFF8CC;
+  --black: #1A1A1A;
+  --black-s: #2D2D2D;
+  --gray: #555;
+  --gray-lt: #F5F5F5;
+  --white: #FFFFFF;
+  --radius: 16px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; color: var(--black); background: var(--white); line-height: 1.8; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+section { padding: 80px 0; }
+
+/* アニメーション */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ===== ナビ ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(26,26,26,0.97); backdrop-filter: blur(12px);
+  border-bottom: 3px solid var(--yellow); padding: 0 24px;
+}
+.nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-logo { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; }
+.nav-logo .hi { color: #2196F3; }
+.nav-logo .ma { color: #4CAF50; }
+.nav-logo .wa { color: #FF4081; }
+.nav-logo .sa { color: #FFD700; }
+.nav-logo .sync { color: #fff; font-weight: 400; font-size: 15px; margin-left: 3px; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--yellow); }
+.nav-cta { background: var(--yellow); color: var(--black) !important; padding: 7px 18px; border-radius: 20px; font-weight: 700 !important; }
+
+/* ===== ヒーロー ===== */
+.hero {
+  min-height: 100vh; background: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 80px 24px 60px;
+  position: relative; overflow: hidden;
+}
+.hero-glow {
+  position: absolute; width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.12) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+}
+.hero-content { position: relative; z-index: 2; max-width: 700px; }
+.hero-logo-img {
+  width: 110px; height: 110px; object-fit: cover; object-position: center 30%;
+  border-radius: 50%; border: 3px solid rgba(255,215,0,0.4);
+  margin-bottom: 24px; box-shadow: 0 0 40px rgba(255,215,0,0.15);
+  animation: fadeIn 0.8s ease both;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero h1 {
+  font-size: clamp(24px, 5vw, 40px); font-weight: 900;
+  color: var(--white); line-height: 1.5;
+  margin-bottom: 20px; animation: fadeIn 0.8s ease 0.2s both;
+}
+.hero h1 em {
+  font-style: normal; color: var(--yellow);
+  border-bottom: 3px solid var(--yellow);
+}
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px); color: rgba(255,255,255,0.75);
+  margin-bottom: 36px; line-height: 1.9;
+  animation: fadeIn 0.8s ease 0.4s both;
+}
+.hero-sub strong { color: var(--yellow); }
+.hero-points {
+  display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 40px; animation: fadeIn 0.8s ease 0.5s both;
+}
+.hero-point {
+  background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3);
+  border-radius: 12px; padding: 12px 20px; text-align: center; min-width: 140px;
+}
+.hero-point .hp-icon { font-size: 28px; margin-bottom: 4px; }
+.hero-point .hp-text { color: rgba(255,255,255,0.9); font-size: 13px; font-weight: 700; }
+.hero-point .hp-sub { color: rgba(255,255,255,0.5); font-size: 11px; }
+.btn-yellow {
+  display: inline-block; background: var(--yellow); color: var(--black);
+  padding: 14px 36px; border-radius: 30px; font-weight: 900; font-size: 16px;
+  transition: all 0.2s; animation: fadeIn 0.8s ease 0.6s both;
+}
+.btn-yellow:hover { background: var(--yellow-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,215,0,0.3); }
+
+/* ===== お悩みセクション ===== */
+.problems { background: var(--gray-lt); }
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--yellow-dk); text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-size: clamp(22px, 4vw, 32px); font-weight: 900; line-height: 1.5; margin-bottom: 8px; }
+.section-title .yl { color: var(--yellow-dk); }
+.section-desc { color: var(--gray); font-size: 15px; }
+
+.problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.problem-card {
+  background: var(--white); border-radius: var(--radius); padding: 24px;
+  border-left: 4px solid #ff6b6b; box-shadow: var(--shadow);
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.problem-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.problem-text { font-size: 15px; color: #444; line-height: 1.7; }
+.problem-text strong { color: var(--black); }
+
+/* ===== 解決セクション ===== */
+.solutions { background: var(--white); }
+.before-after-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.ba-card {
+  background: var(--gray-lt); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); transition: transform 0.2s;
+}
+.ba-card:hover { transform: translateY(-4px); }
+.ba-header {
+  background: var(--black); color: var(--yellow);
+  padding: 16px 20px; font-size: 16px; font-weight: 900;
+  display: flex; align-items: center; gap: 10px;
+}
+.ba-header-icon { font-size: 24px; }
+.ba-body { padding: 20px; }
+.ba-before, .ba-after {
+  padding: 14px 16px; border-radius: 10px; margin-bottom: 10px;
+  font-size: 14px; line-height: 1.7;
+}
+.ba-before {
+  background: #fff0f0; border: 1px solid #ffd4d4; color: #c44;
+}
+.ba-before::before { content: '😰 今こうなっていませんか？'; display: block; font-size: 11px; font-weight: 700; color: #e55; margin-bottom: 6px; }
+.ba-after {
+  background: #f0fff4; border: 1px solid #b2f2bb; color: #2b8a3e;
+}
+.ba-after::before { content: '✨ こうなります'; display: block; font-size: 11px; font-weight: 700; color: #37b24d; margin-bottom: 6px; }
+.ba-price {
+  text-align: right; font-size: 12px; color: var(--gray);
+  padding-top: 8px; border-top: 1px solid #e0e0e0;
+}
+.ba-price strong { color: var(--black); font-size: 16px; }
+
+/* ===== 15メニュー ===== */
+.menu { background: var(--black); color: var(--white); }
+.menu .section-label { color: var(--yellow); }
+.menu .section-title { color: var(--white); }
+.menu .section-desc { color: rgba(255,255,255,0.6); }
+.menu-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px;
+}
+.menu-item {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 20px 16px; text-align: center;
+  transition: all 0.25s; cursor: default;
+}
+.menu-item:hover { background: rgba(255,215,0,0.1); border-color: rgba(255,215,0,0.4); transform: translateY(-3px); }
+.menu-num { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: var(--yellow); margin-bottom: 8px; }
+.menu-icon { font-size: 32px; margin-bottom: 8px; }
+.menu-name { font-size: 14px; font-weight: 700; color: var(--white); }
+
+/* ===== なぜ安心か ===== */
+.why { background: var(--gray-lt); }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.why-card {
+  background: var(--white); border-radius: var(--radius); padding: 28px 24px;
+  text-align: center; box-shadow: var(--shadow);
+  border-top: 4px solid var(--yellow);
+}
+.why-icon { font-size: 40px; margin-bottom: 12px; }
+.why-title { font-size: 16px; font-weight: 900; margin-bottom: 10px; color: var(--black); }
+.why-text { font-size: 14px; color: var(--gray); line-height: 1.8; }
+
+/* ===== 導入の流れ ===== */
+.flow { background: var(--white); }
+.flow-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 48px;
+}
+.flow-item { text-align: center; padding: 32px 16px; position: relative; }
+.flow-num {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--yellow); color: var(--black);
+  font-size: 20px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px; box-shadow: 0 4px 12px rgba(255,215,0,0.3);
+}
+.flow-icon { font-size: 28px; margin-bottom: 8px; }
+.flow-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.flow-desc { font-size: 13px; color: var(--gray); line-height: 1.7; }
+.flow-arrow { position: absolute; right: -12px; top: 50%; transform: translateY(-50%); font-size: 20px; color: var(--yellow); z-index: 2; }
+.flow-note { text-align: center; margin-top: 32px; font-size: 14px; color: var(--gray); }
+.flow-note strong { color: var(--yellow-dk); }
+
+/* ===== 人物紹介（シンプル） ===== */
+.about { background: var(--gray-lt); }
+.about-inner { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+.about-photo {
+  width: 120px; height: 120px; border-radius: 50%;
+  object-fit: cover; object-position: center 30%;
+  border: 4px solid var(--yellow); background: var(--black);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+.about-text { flex: 1; min-width: 280px; }
+.about-text h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+.about-text h3 .yl { color: var(--yellow-dk); }
+.about-text p { font-size: 15px; color: #444; line-height: 1.9; margin-bottom: 10px; }
+.about-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.about-badge {
+  background: var(--yellow-lt); border: 1px solid rgba(255,215,0,0.4);
+  color: #6b5a00; font-size: 12px; font-weight: 700;
+  padding: 4px 12px; border-radius: 20px;
+}
+
+/* ===== CTA ===== */
+.cta { background: var(--yellow); padding: 72px 24px; text-align: center; }
+.cta h2 { font-size: clamp(22px, 4vw, 32px); font-weight: 900; color: var(--black); margin-bottom: 16px; }
+.cta p { font-size: 16px; color: rgba(0,0,0,0.6); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+.btn-black {
+  display: inline-block; background: var(--black); color: var(--yellow);
+  padding: 14px 36px; border-radius: 30px; font-weight: 900; font-size: 16px;
+  transition: all 0.2s;
+}
+.btn-black:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.cta-note { margin-top: 20px; font-size: 13px; color: rgba(0,0,0,0.45); }
+
+/* ===== フッター ===== */
+footer {
+  background: var(--black); padding: 32px 24px; text-align: center;
+  border-top: 3px solid var(--yellow);
+}
+.footer-logo { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; margin-bottom: 8px; }
+.footer-logo .Hi { color: #2196F3; }
+.footer-logo .Ma { color: #4CAF50; }
+.footer-logo .Wa { color: #FF4081; }
+.footer-logo .Sa { color: #FFD700; }
+.footer-logo .rest { color: #fff; }
+.footer-copy { color: rgba(255,255,255,0.3); font-size: 12px; }
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .flow-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .flow-arrow { display: none; }
+  .about-inner { flex-direction: column; text-align: center; }
+  .about-badges { justify-content: center; }
+  .hero-points { flex-direction: column; align-items: center; }
+}
+@media (max-width: 480px) {
+  .flow-grid { grid-template-columns: 1fr; }
+  section { padding: 56px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ナビ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="hi">Hi</span><span class="ma">Ma</span><span class="wa">Wa</span><span class="sa">Sa</span>
+      <span class="sync"> Sync</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#problems">よくあるお悩み</a></li>
+      <li><a href="#solutions">解決できること</a></li>
+      <li><a href="#menu">サービス一覧</a></li>
+      <li><a href="#contact" class="nav-cta">無料相談</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== ヒーロー ===== -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <img src="logo.png" alt="HiMaWaSa Sync" class="hero-logo-img">
+    <h1>事務所の<em>面倒な手作業</em>、<br>まだ手でやっていませんか？</h1>
+    <p class="hero-sub">
+      顧客管理、期日の確認、FAXの整理、請求書の作成…<br>
+      それ、<strong>今のパソコンのまま</strong>自動化できます。
+    </p>
+    <div class="hero-points">
+      <div class="hero-point">
+        <div class="hp-icon">💰</div>
+        <div class="hp-text">月1万円から</div>
+        <div class="hp-sub">大掛かりな投資は不要</div>
+      </div>
+      <div class="hero-point">
+        <div class="hp-icon">💻</div>
+        <div class="hp-text">今のPCでOK</div>
+        <div class="hp-sub">新しい機器の購入不要</div>
+      </div>
+      <div class="hero-point">
+        <div class="hp-icon">🎓</div>
+        <div class="hp-text">難しい操作なし</div>
+        <div class="hp-sub">ExcelやGoogleを使います</div>
+      </div>
+    </div>
+    <a href="#problems" class="btn-yellow">まずはお悩みチェック ↓</a>
+  </div>
+</section>
+
+<!-- ===== お悩み ===== -->
+<section class="problems" id="problems">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">PROBLEMS</span>
+      <h2 class="section-title">こんな<span class="yl">「困った」</span>ありませんか？</h2>
+      <p class="section-desc">ひとつでも当てはまったら、自動化で解決できるかもしれません</p>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon">📁</div>
+        <div class="problem-text"><strong>顧客情報がバラバラ</strong>で、必要なときにすぐ見つからない。Excelと紙とメモが混在している。</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">📅</div>
+        <div class="problem-text"><strong>申請や届出の期日</strong>を手帳や記憶で管理していて、うっかり忘れそうでヒヤヒヤする。</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">📠</div>
+        <div class="problem-text"><strong>届いたFAXが紙のまま</strong>積まれている。誰宛か探すのに毎回時間がかかる。</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">📞</div>
+        <div class="problem-text"><strong>電話の問い合わせ内容</strong>をメモに書いて、あとから入力し直している。二度手間がつらい。</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">📝</div>
+        <div class="problem-text"><strong>請求書や見積書</strong>を毎回手入力で作成している。コピペミスが怖い。</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">📧</div>
+        <div class="problem-text"><strong>お知らせメール</strong>を顧客ごとに1通ずつ送っている。数十件あると半日かかる。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 解決Before/After ===== -->
+<section class="solutions" id="solutions">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">SOLUTIONS</span>
+      <h2 class="section-title">自動化すると、<span class="yl">こう変わります</span></h2>
+      <p class="section-desc">実際に士業事務所で想定される改善イメージです</p>
+    </div>
+    <div class="before-after-grid">
+
+      <div class="ba-card reveal">
+        <div class="ba-header"><span class="ba-header-icon">📁</span> 顧客台帳の管理</div>
+        <div class="ba-body">
+          <div class="ba-before">ExcelとWordと紙のファイルが混在。「あの顧客の情報どこだっけ？」と毎回探す。</div>
+          <div class="ba-after">顧客名を入れるだけで、連絡先・案件履歴・書類がすべて一画面で表示されます。</div>
+          <div class="ba-price">月額 <strong>¥10,000〜</strong></div>
+        </div>
+      </div>
+
+      <div class="ba-card reveal">
+        <div class="ba-header"><span class="ba-header-icon">📅</span> 期日の通知</div>
+        <div class="ba-body">
+          <div class="ba-before">手帳やカレンダーで管理。忙しいと確認を忘れて、慌てて対応することも…。</div>
+          <div class="ba-after">期日の7日前・3日前・当日に自動でお知らせ。「うっかり忘れ」がゼロになります。</div>
+          <div class="ba-price">月額 <strong>¥10,000〜</strong></div>
+        </div>
+      </div>
+
+      <div class="ba-card reveal">
+        <div class="ba-header"><span class="ba-header-icon">📠</span> FAX・書類の整理</div>
+        <div class="ba-body">
+          <div class="ba-before">届いたFAXを1枚ずつ確認して、該当する顧客のファイルに手で綴じている。</div>
+          <div class="ba-after">届いた書類をAIが自動で「誰宛か」を判別。顧客フォルダへ自動で振り分けます。</div>
+          <div class="ba-price">月額 <strong>¥10,000〜</strong></div>
+        </div>
+      </div>
+
+      <div class="ba-card reveal">
+        <div class="ba-header"><span class="ba-header-icon">📝</span> 請求書の作成</div>
+        <div class="ba-body">
+          <div class="ba-before">毎月、顧客ごとに金額を手入力して請求書を作成。30件で半日かかる。</div>
+          <div class="ba-after">顧客リストから自動で請求書を一括生成。PDF保存・メール送信まで自動化。</div>
+          <div class="ba-price">月額 <strong>¥10,000〜</strong></div>
+        </div>
+      </div>
+
+      <div class="ba-card reveal">
+        <div class="ba-header"><span class="ba-header-icon">🎙️</span> 相談記録の作成</div>
+        <div class="ba-body">
+          <div class="ba-before">面談中にメモを取りながら、あとで清書してWordに打ち直す。集中しづらい。</div>
+          <div class="ba-after">スマホで録音するだけ。AIが自動で文字起こし＆要約を作成してくれます。</div>
+          <div class="ba-price">月額 <strong>¥10,000〜</strong></div>
+        </div>
+      </div>
+
+      <div class="ba-card reveal">
+        <div class="ba-header"><span class="ba-header-icon">📧</span> お知らせメールの送信</div>
+        <div class="ba-body">
+          <div class="ba-before">法改正のお知らせなどを、顧客ごとに宛名を変えて1通ずつ送信。</div>
+          <div class="ba-after">顧客リストを選んでボタン1つ。宛名・内容を自動で差し替えて一括送信。</div>
+          <div class="ba-price">月額 <strong>¥10,000〜</strong></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 15メニュー ===== -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">MENU</span>
+      <h2 class="section-title">「月1万円DX」<span style="color:var(--yellow)">メニュー15選</span></h2>
+      <p class="section-desc">貴事務所の課題に当てはまるものはありますか？</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item"><div class="menu-num">01</div><div class="menu-icon">📁</div><div class="menu-name">顧客台帳</div></div>
+      <div class="menu-item"><div class="menu-num">02</div><div class="menu-icon">📅</div><div class="menu-name">期日通知</div></div>
+      <div class="menu-item"><div class="menu-num">03</div><div class="menu-icon">📠</div><div class="menu-name">FAX保存</div></div>
+      <div class="menu-item"><div class="menu-num">04</div><div class="menu-icon">📞</div><div class="menu-name">問い合わせ記録</div></div>
+      <div class="menu-item"><div class="menu-num">05</div><div class="menu-icon">📝</div><div class="menu-name">請求書生成</div></div>
+      <div class="menu-item"><div class="menu-num">06</div><div class="menu-icon">📧</div><div class="menu-name">メール一括送信</div></div>
+      <div class="menu-item"><div class="menu-num">07</div><div class="menu-icon">📄</div><div class="menu-name">テンプレート選択</div></div>
+      <div class="menu-item"><div class="menu-num">08</div><div class="menu-icon">📂</div><div class="menu-name">フォルダ設計</div></div>
+      <div class="menu-item"><div class="menu-num">09</div><div class="menu-icon">🗂️</div><div class="menu-name">名刺管理</div></div>
+      <div class="menu-item"><div class="menu-num">10</div><div class="menu-icon">📊</div><div class="menu-name">日報集計</div></div>
+      <div class="menu-item"><div class="menu-num">11</div><div class="menu-icon">📰</div><div class="menu-name">法改正要約</div></div>
+      <div class="menu-item"><div class="menu-num">12</div><div class="menu-icon">💬</div><div class="menu-name">相談フォーム</div></div>
+      <div class="menu-item"><div class="menu-num">13</div><div class="menu-icon">🔍</div><div class="menu-name">契約書チェック</div></div>
+      <div class="menu-item"><div class="menu-num">14</div><div class="menu-icon">🧾</div><div class="menu-name">経費精算</div></div>
+      <div class="menu-item"><div class="menu-num">15</div><div class="menu-icon">📖</div><div class="menu-name">Webマニュアル</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== なぜ安心か ===== -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">WHY US</span>
+      <h2 class="section-title">なぜ<span class="yl">安心して</span>お任せいただけるのか</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">👂</div>
+        <div class="why-title">ITの専門用語は使いません</div>
+        <div class="why-text">「APIとは」「クラウドとは」なんて説明はしません。「今こうなってるのを、こうしましょう」と、事務所の言葉で話します。</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🏥</div>
+        <div class="why-title">介護・医療現場で実績あり</div>
+        <div class="why-text">ITに詳しくないスタッフでも使えるシステムを、介護・医療の現場で多数作ってきました。士業事務所でも同じ考え方でお作りします。</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">💻</div>
+        <div class="why-title">今のパソコンでそのまま使えます</div>
+        <div class="why-text">ExcelやGoogleを使うので、新しいソフトの購入や難しい設定は不要。いつもの画面で、いつもの操作の延長で使えます。</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🌱</div>
+        <div class="why-title">まず1つから、小さく始められます</div>
+        <div class="why-text">「全部まとめて」ではなく、一番困っていることから1つだけ解決。効果が出たら徐々に広げていけます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 導入の流れ ===== -->
+<section class="flow" id="flow">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FLOW</span>
+      <h2 class="section-title">ご相談から導入までの<span class="yl">かんたん4ステップ</span></h2>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-item reveal">
+        <div class="flow-num">1</div>
+        <div class="flow-icon">☕</div>
+        <div class="flow-title">無料相談</div>
+        <div class="flow-desc">「こんなこと困ってるんだけど…」でOK。お気軽にご連絡ください。</div>
+        <div class="flow-arrow">→</div>
+      </div>
+      <div class="flow-item reveal">
+        <div class="flow-num">2</div>
+        <div class="flow-icon">📋</div>
+        <div class="flow-title">ご提案</div>
+        <div class="flow-desc">お悩みを聞いて「こうすると楽になりますよ」を具体的にご説明します。</div>
+        <div class="flow-arrow">→</div>
+      </div>
+      <div class="flow-item reveal">
+        <div class="flow-num">3</div>
+        <div class="flow-icon">🔧</div>
+        <div class="flow-title">お試し導入</div>
+        <div class="flow-desc">まず小さく作ってお見せします。使ってみて「もっとこうしたい」を反映。</div>
+        <div class="flow-arrow">→</div>
+      </div>
+      <div class="flow-item reveal">
+        <div class="flow-num">4</div>
+        <div class="flow-icon">🚀</div>
+        <div class="flow-title">本格運用</div>
+        <div class="flow-desc">使い方のサポートも、運用後の改善もお任せください。ずっと伴走します。</div>
+      </div>
+    </div>
+    <p class="flow-note">初回相談は<strong>無料</strong>です。最短<strong>1〜2週間</strong>でお試しいただけます。</p>
+  </div>
+</section>
+
+<!-- ===== 担当者紹介 ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">ABOUT</span>
+      <h2 class="section-title">こんな人がお手伝いします</h2>
+    </div>
+    <div class="about-inner reveal">
+      <img src="logo.png" alt="HiMaWaSa Sync" class="about-photo">
+      <div class="about-text">
+        <h3>IT業界<span class="yl">25年</span>、現場を知るエンジニア</h3>
+        <p>
+          お客様サポート、品質管理、開発チームの運営、複数部署のマネジメントなど、いろいろな立場を経験してきました。
+          とくに介護・医療の現場では、「パソコンが苦手なスタッフでも使える」システムをたくさん作ってきた実績があります。
+        </p>
+        <p>
+          <strong>「難しいITの話」ではなく「事務所の困りごとの話」</strong>をしましょう。どうすれば楽になるか、一緒に考えます。
+        </p>
+        <div class="about-badges">
+          <span class="about-badge">お客様サポート経験</span>
+          <span class="about-badge">品質管理の知見</span>
+          <span class="about-badge">チーム運営経験</span>
+          <span class="about-badge">介護・医療のDX実績</span>
+          <span class="about-badge">ITツール選定アドバイス</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="contact">
+  <h2>どの「困りごと」から<br>解決しますか？</h2>
+  <p>15のメニューから、ピンとくるものをお選びください。<br>「とりあえず話を聞いてみたい」でも大歓迎です。</p>
+  <a href="#" class="btn-black">無料で相談してみる →</a>
+  <p class="cta-note">※ 相談したら必ず契約、ということはありません。お気軽にどうぞ。</p>
+</section>
+
+<!-- フッター -->
+<footer>
+  <div class="footer-logo">
+    <span class="Hi">Hi</span><span class="Ma">Ma</span><span class="Wa">Wa</span><span class="Sa">Sa</span>
+    <span class="rest"> Sync</span>
+  </div>
+  <p class="footer-copy">© 2026 HiMaWaSa Sync. All rights reserved.</p>
+</footer>
+
+<script>
+// スクロールアニメーション
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
