@@ -430,12 +430,59 @@
     .flow-period { text-align: center; margin-top: 32px; font-size: 14px; color: #888; }
     .flow-period strong { color: #FFD700; }
 
+    /* ===== LP・サービスページ一覧 ===== */
+    .lp-gallery { background: var(--gray-lt); }
+    .lp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .lp-card {
+      background: var(--black);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,215,0,0.15);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+    }
+    .lp-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--yellow);
+      box-shadow: 0 20px 56px rgba(0,0,0,0.25);
+    }
+    .lp-card-header {
+      padding: 24px 28px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+    }
+    .lp-card-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .lp-card-badge {
+      font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 6px;
+      background: rgba(255,215,0,0.12); color: var(--yellow);
+      border: 1px solid rgba(255,215,0,0.3); white-space: nowrap;
+    }
+    .lp-card-badge.new-badge {
+      background: rgba(105,219,124,0.12); color: #69DB7C;
+      border-color: rgba(105,219,124,0.3);
+    }
+    .lp-card-body { padding: 18px 28px; flex: 1; }
+    .lp-card-body h3 { font-size: 16px; font-weight: 900; color: var(--white); margin-bottom: 8px; }
+    .lp-card-body p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 14px; }
+    .lp-card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lp-card-tag { font-size: 11px; background: rgba(255,215,0,0.1); color: var(--yellow); padding: 2px 8px; border-radius: 6px; font-weight: 700; }
+    .lp-card-footer {
+      padding: 14px 28px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .lp-card-url { font-size: 11px; color: rgba(255,255,255,0.25); font-family: 'Inter', monospace; }
+    .lp-card-arrow { font-size: 16px; font-weight: 900; color: var(--yellow); transition: transform 0.2s; }
+    .lp-card:hover .lp-card-arrow { transform: translateX(5px); }
+
     /* ===== レスポンシブ ===== */
 
     /* タブレット (〜900px) */
     @media (max-width: 900px) {
       .brand-grid,
       .about-grid        { grid-template-columns: 1fr; }
+      .lp-grid           { grid-template-columns: 1fr; }
       .services-grid,
       .projects-grid     { grid-template-columns: 1fr 1fr; }
       .nav-links         { display: none; }
@@ -533,6 +580,7 @@
       <li><a href="#services">サービス</a></li>
       <li><a href="#about">代表紹介</a></li>
       <li><a href="#projects">実績</a></li>
+      <li><a href="#gallery">サービスページ</a></li>
       <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="メニューを開く">☰</button>
@@ -1050,6 +1098,101 @@
         <div>上記以外にも、薬剤在庫管理・施設カレンダー・外来予約・勤怠管理支援・FAX連携・AI自動ログイン など<br>45件以上のシステムを設計・開発・運用しています。</div>
       </div>
       <a href="https://note.com/himawasa" target="_blank" class="btn-yellow-sm">noteで開発記録を読む →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== サービスLPページ一覧 ===== -->
+<section class="lp-gallery" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">SERVICE PAGES</span>
+      <h2 class="section-title">サービス詳細ページ</h2>
+      <p class="section-desc">各サービスの詳細・活用事例・お問い合わせは、それぞれのページをご覧ください</p>
+    </div>
+    <div class="lp-grid">
+
+      <a class="lp-card reveal" href="/kintone-dx/">
+        <div class="lp-card-header">
+          <span class="lp-card-icon">🟡</span>
+          <span class="lp-card-badge">公開中</span>
+        </div>
+        <div class="lp-card-body">
+          <h3>kintone × DX 提案ページ</h3>
+          <p>中小企業向けkintone導入支援。業務をkintoneで一元管理し、コピペ・手入力ゼロを目指す提案ページです。</p>
+          <div class="lp-card-tags">
+            <span class="lp-card-tag">kintone</span>
+            <span class="lp-card-tag">中小企業DX</span>
+            <span class="lp-card-tag">業務自動化</span>
+          </div>
+        </div>
+        <div class="lp-card-footer">
+          <span class="lp-card-url">himawasa.github.io/kintone-dx/</span>
+          <span class="lp-card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="lp-card reveal" href="/pro-dx/">
+        <div class="lp-card-header">
+          <span class="lp-card-icon">⚖️</span>
+          <span class="lp-card-badge">公開中</span>
+        </div>
+        <div class="lp-card-body">
+          <h3>士業向け DX 提案ページ</h3>
+          <p>社労士・税理士など士業事務所向けのDX支援提案。GAS＋AIで帳票・給与計算・契約書を自動化します。</p>
+          <div class="lp-card-tags">
+            <span class="lp-card-tag">社労士</span>
+            <span class="lp-card-tag">GAS × AI</span>
+            <span class="lp-card-tag">帳票自動化</span>
+          </div>
+        </div>
+        <div class="lp-card-footer">
+          <span class="lp-card-url">himawasa.github.io/pro-dx/</span>
+          <span class="lp-card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="lp-card reveal" href="/shiftsync/">
+        <div class="lp-card-header">
+          <span class="lp-card-icon">📅</span>
+          <span class="lp-card-badge">公開中</span>
+        </div>
+        <div class="lp-card-body">
+          <h3>ShiftSync ─ シフト自動化ツール</h3>
+          <p>KING OF TIME連携のシフト表自動生成ツール。毎月のシフト作成作業を劇的に削減する専用サービスです。</p>
+          <div class="lp-card-tags">
+            <span class="lp-card-tag">KING OF TIME</span>
+            <span class="lp-card-tag">シフト管理</span>
+            <span class="lp-card-tag">API連携</span>
+          </div>
+        </div>
+        <div class="lp-card-footer">
+          <span class="lp-card-url">himawasa.github.io/shiftsync/</span>
+          <span class="lp-card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="lp-card reveal" href="/yoom-lp/">
+        <div class="lp-card-header">
+          <span class="lp-card-icon">🚀</span>
+          <span class="lp-card-badge new-badge">NEW</span>
+        </div>
+        <div class="lp-card-body">
+          <h3>Yoom 導入支援・運用サポート</h3>
+          <p>Yoomの設定・構築から月額保守まで一括対応。入社手続き・FAX受注・労働生産性など繰り返し業務を全自動化。</p>
+          <div class="lp-card-tags">
+            <span class="lp-card-tag">Yoom</span>
+            <span class="lp-card-tag">AI-OCR</span>
+            <span class="lp-card-tag">SaaS連携</span>
+            <span class="lp-card-tag">月額保守</span>
+          </div>
+        </div>
+        <div class="lp-card-footer">
+          <span class="lp-card-url">himawasa.github.io/yoom-lp/</span>
+          <span class="lp-card-arrow">→</span>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
