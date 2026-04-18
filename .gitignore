@@ -39,3 +39,7 @@ docs/
 HANDOVER.md
 *.pdf
 *.bak
+
+# Yoom導入支援LP
+!yoom-lp/
+!yoom-lp/**
