@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医療機関向け DX ソリューション</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;background:#f0f4f8;color:#1a2a3a}
+header{background:linear-gradient(135deg,#0a6e7c,#1a9fb5);color:#fff;padding:60px 20px;text-align:center}
+header h1{font-size:clamp(1.5rem,4vw,2.6rem);margin-bottom:16px;line-height:1.3}
+header p{font-size:1.1rem;opacity:.9;max-width:700px;margin:0 auto 30px}
+.badges{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:8px 18px;font-size:.9rem}
+.section-title{text-align:center;font-size:1.8rem;color:#0a6e7c;margin:60px 0 10px;font-weight:700}
+.section-sub{text-align:center;color:#5a7a8a;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:1100px;margin:0 auto;padding:0 20px 60px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,100,120,.1);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,100,120,.18)}
+.card img{width:100%;height:200px;object-fit:cover}
+.card-body{padding:24px}
+.card-num{font-size:.78rem;font-weight:700;color:#1a9fb5;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.card-title{font-size:1.15rem;font-weight:700;color:#0a3a4a;margin-bottom:8px}
+.card-catch{font-size:.92rem;color:#1a9fb5;font-style:italic;margin-bottom:14px;border-left:3px solid #1a9fb5;padding-left:10px}
+.card-section{margin-bottom:10px}
+.card-section dt{font-size:.8rem;font-weight:700;color:#888;margin-bottom:4px}
+.card-section dd{font-size:.88rem;color:#334;line-height:1.6}
+.appeal{background:#f0fbfc;border-radius:10px;padding:12px 14px;margin-top:12px}
+.appeal dt{font-size:.8rem;font-weight:700;color:#0a6e7c;margin-bottom:4px}
+.appeal dd{font-size:.86rem;color:#1a3a4a;line-height:1.6}
+.talkbox{background:linear-gradient(135deg,#0a6e7c,#0f8fa8);color:#fff;padding:50px 20px;text-align:center}
+.talkbox h2{font-size:1.5rem;margin-bottom:24px}
+.talks{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;max-width:900px;margin:0 auto}
+.talk{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:18px 24px;max-width:380px;font-size:.95rem;line-height:1.7;text-align:left}
+.flow{background:#fff;max-width:800px;margin:0 auto 60px;padding:0 20px}
+.flow-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid #e8f0f4}
+.flow-item:last-child{border:none}
+.flow-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#0a6e7c,#1a9fb5);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;flex-shrink:0}
+.flow-content h3{font-size:1rem;font-weight:700;color:#0a3a4a;margin-bottom:6px}
+.flow-content p{font-size:.88rem;color:#556;line-height:1.6}
+.support{background:#f8fbfc;padding:40px 20px 60px;text-align:center}
+.support-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;max-width:700px;margin:20px auto 0}
+.support-card{background:#fff;border-radius:12px;padding:24px 30px;box-shadow:0 2px 12px rgba(0,80,100,.08);min-width:200px}
+.support-card h3{color:#0a6e7c;font-size:1rem;margin-bottom:8px}
+.support-card p{font-size:.88rem;color:#556;line-height:1.6}
+footer{background:#0a3a4a;color:#adc;text-align:center;padding:24px;font-size:.85rem}
+@media(max-width:600px){.card img{height:160px}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <h1>医療機関向け DX ソリューション<br>〜 今あるシステムの「隙間」を埋めます 〜</h1>
+  <p>電子カルテ・レセコンはそのままに。その周辺の手作業・紙・口頭確認を自動化し、現場の負担を軽くします。</p>
+  <div class="badges">
+    <span class="badge">✅ 既存システムをそのまま利用</span>
+    <span class="badge">✅ 特定ベンダーに依存しない設計</span>
+    <span class="badge">✅ 実際の医療法人で本番稼働済み</span>
+    <span class="badge">✅ 導入・運用サポートあり</span>
+  </div>
+</header>
+
+<h2 class="section-title">ソリューション 10 選</h2>
+<p class="section-sub">クリニック・病院・在宅医療など、幅広い医療機関に対応できます</p>
+
+<div class="grid">
+
+  <div class="card">
+    <img src="images/01_fax_scan.png" alt="FAX自動スキャン">
+    <div class="card-body">
+      <div class="card-num">01</div>
+      <div class="card-title">FAX 自動スキャン・カルテ自動登録</div>
+      <div class="card-catch">「届いたFAXが、気づいたらカルテに入っている」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>FAXが1日10枚以上届く病院・クリニック全般。紹介状・検査結果など他院とのやり取りが多い医療機関に特に効果大</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>FAX着信 → 担当者が取りに行く → 内容を読んで患者特定 → カルテに手入力。1件5〜10分 × 30件 = 毎日2〜3時間が手作業に</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>AIが自動読み取り → 患者名・書類種別・内容を抽出 → カルテへ自動登録。担当者は「確認してOK」を押すだけ</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>HOMIS・ORCA・FileMaker など電子カルテ種類問わず対応可能。手書きFAXも読み取り可。実際の医療法人で複数拠点・本番稼働中の実績あり</dd></dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/02_ai_routing.png" alt="AI問い合わせ振り分け">
+    <div class="card-body">
+      <div class="card-num">02</div>
+      <div class="card-title">問い合わせ AI 自動振り分け・通知</div>
+      <div class="card-catch">「問い合わせが、担当者に直接届く」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>院内外の問い合わせ対応で受付が振り回されている医療機関。複数部署がある中規模以上の病院に特に効果大</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>問い合わせ → 受付が判断 → 担当部署へ口頭伝言 → 担当者が対応。「たらい回し」「伝言ミス」が日常的に発生</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>AIが内容を自動判断（カルテ系・会計系・薬剤師向けなど）→ 担当者に直接通知。受付の仲介が不要に</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>Google Chat・メール複数チャンネルに対応。振り分けルールは現場スタッフがスプレッドシートで変更可能。実際の医療法人でたらい回しが大幅減少した事例あり</dd></dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/03_xray_navi.png" alt="訪問レントゲン管理">
+    <div class="card-body">
+      <div class="card-num">03</div>
+      <div class="card-title">訪問レントゲン依頼・完了管理</div>
+      <div class="card-catch">「依頼から完了・カルテ転記まで、紙もFAXも不要」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>訪問診療・在宅医療を行うクリニックや診療所。複数の訪問技師が動く環境</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>口頭・紙でレントゲン依頼 → 撮影技師が動く → 完了を電話報告 → スタッフがカルテ手入力 → 月次集計も手作業</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>Webアプリで依頼入力 → 技師に自動通知 → 完了ボタン押下でカルテ自動転記 → 月次レポート自動生成</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>在宅医療の需要増加でニーズ拡大中。集団検診にも対応。月次レポートが自動生成され診療報酬の算定確認にも役立つ</dd></dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/04_emr_api.png" alt="電子カルテ自動入力">
+    <div class="card-body">
+      <div class="card-num">04</div>
+      <div class="card-title">電子カルテへの自動データ入力</div>
+      <div class="card-catch">「他のシステムのデータが、カルテに自動で書き込まれる」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>HOMIS電子カルテ使用中で、他システムのデータをカルテに二重入力している医療機関</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>管理ツールで記録したバイタル・指導内容などを、別途カルテにも手入力。2箇所管理で入力漏れ・ミスが起きやすい</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>外部システムからAPIでデータ自動送信 → カルテに自動入力。医師・スタッフは確認するだけでよい</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>医師のメールアドレスから担当医を自動特定。SpO2・血圧・指導内容など複数フィールドに同時書き込み可能。「二重入力」の悩みに直接刺さる</dd></dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/05_visit_chart.png" alt="往診カルテ自動作成">
+    <div class="card-body">
+      <div class="card-num">05</div>
+      <div class="card-title">往診カルテ自動作成</div>
+      <div class="card-catch">「往診患者リストがあれば、カルテは自動でできている」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>在宅医療・往診を行うクリニック・診療所。毎日一定数の往診があり、出発前のカルテ準備に時間がかかっている</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>毎朝スタッフが往診予定を確認 → 患者ごとにカルテを手動作成 → 往診出発 → 帰院後に再入力</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>スケジュール管理システムから往診予定を自動取得 → 患者ごとにカルテを自動作成 → スタッフは確認・修正するだけ</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>処方日数の自動計算・担当看護師の自動選択まで対応。往診件数が多いほど効果大。時間短縮の数字でROIを説明しやすい</dd></dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/06_insurance_scan.png" alt="保険証AI撮影">
+    <div class="card-body">
+      <div class="card-num">06</div>
+      <div class="card-title">保険証 AI 撮影・自動保存</div>
+      <div class="card-catch">「スマホで撮るだけで、正しいフォルダに自動で保存される」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>訪問診療・在宅医療など患者宅で保険証を確認する機会が多い医療機関。複数スタッフが別々のスマホで撮影している</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>患者宅でスマホ撮影 → 帰院後に手動でフォルダ移動 → ファイル名付け → 共有。撮り忘れ・場所間違いが日常的に発生</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>撮影するだけでAIが「健康保険証・介護保険証・その他」を自動判別 → 患者・月別フォルダに自動保存</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>スキャナ不要・専用アプリ不要（Webブラウザのみ）。マイナンバーカード誤撮影の警告機能あり。Google Drive連携でPCからも確認可能</dd></dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/07_chat_inquiry.png" alt="院内問い合わせ管理">
+    <div class="card-body">
+      <div class="card-num">07</div>
+      <div class="card-title">院内問い合わせ デジタル管理</div>
+      <div class="card-catch">「問い合わせが全部記録され、対応状況を誰でも確認できる」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>複数部署・複数拠点がある医療法人。電話・口頭・付箋で問い合わせが飛び交い「聞いた・聞いてない」が絶えない職場</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>問い合わせが口頭・付箋で伝わる → 誰が担当か不明 → 対応記録が残らない → 「あの件どうなった？」が何度も発生</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>問い合わせ → Google Chatに自動通知 → 担当者がボタン1つで「対応中」「完了」を記録 → 全員がリアルタイムで確認可能</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>対応履歴がすべてデジタルで残る。スマホからも操作可能。法人・拠点が大きくなるほど効果が大きく、複数拠点を持つ医療法人に特に響く</dd></dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/08_doc_delivery.png" alt="書類自動配信">
+    <div class="card-body">
+      <div class="card-num">08</div>
+      <div class="card-title">ケアマネ・訪看への書類自動配信</div>
+      <div class="card-catch">「書類を作ったら、関係者のメールに自動で届く」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>居宅療養管理指導書・訪問看護指示書などを毎月ケアマネ・訪看・薬局に送付している在宅医療機関</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>書類作成 → 印刷 → FAX送付 → 「届きましたか？」確認電話 → ファイリング。毎月・複数施設分繰り返される</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>書類作成すると登録済みのケアマネ・訪看・薬局へ自動メール送信。受け取り確認も自動。確認電話が不要に</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>一度メールアドレスを登録すれば毎月自動配信。FAX代・印刷代・封入作業がゼロになる。月次で必ず発生する業務なので自動化効果が毎月積み上がる</dd></dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/09_lab_image.png" alt="検査画像AI保存">
+    <div class="card-body">
+      <div class="card-num">09</div>
+      <div class="card-title">検査画像 AI 自動保存</div>
+      <div class="card-catch">「検査の写真を撮るだけで、患者ごとに自動で整理される」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>エコー・皮膚科・創傷など検査・処置画像を大量に管理しているクリニック。画像整理に時間がかかっている医療機関</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>検査画像を撮影 → 手動でファイル名付け → 患者フォルダへ移動 → 日付で整理。ファイルが膨大になり探すだけで時間がかかる</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>スマホ・タブレットで撮影するだけでAIが画像種類を自動判別 → 患者・日付別フォルダに自動保存。整理作業が完全になくなる</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>専用機器・カメラ不要。手持ちのスマホがそのまま使える。撮影から保存まで数秒。Google Drive連携で院内PCからも確認可能</dd></dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/10_reservation.png" alt="外来予約Web管理">
+    <div class="card-body">
+      <div class="card-num">10</div>
+      <div class="card-title">外来予約 Web 管理</div>
+      <div class="card-catch">「予約管理を、電話と手書きから解放する」</div>
+      <dl class="card-section"><dt>刺さる医療機関</dt><dd>まだ電話・手書き台帳・Excelで予約管理しているクリニック・診療所。受付スタッフが予約対応に追われている医療機関</dd></dl>
+      <dl class="card-section"><dt>今の状況</dt><dd>電話で予約受付 → 手書き台帳orExcelに記入 → スタッフが確認するたびに問い合わせ → ダブルブッキングが起きる</dd></dl>
+      <dl class="card-section"><dt>導入後</dt><dd>Webフォームで予約受付 → カレンダーに自動反映 → スタッフ全員がリアルタイムで予約状況を確認できる</dd></dl>
+      <dl class="appeal"><dt>⭐ アピールポイント</dt><dd>特別なソフト不要（Google カレンダー連携）。スマホからも確認・変更可能。「予約管理がまだアナログ」なクリニックへの最初の提案として話しやすい</dd></dl>
+    </div>
+  </div>
+
+</div>
+
+<div class="talkbox">
+  <h2>💬 営業トークのヒント</h2>
+  <div class="talks">
+    <div class="talk">「電子カルテを変える必要はありません。今使っているシステムはそのままで、その周りの手作業だけを自動化するのが私たちのアプローチです。」</div>
+    <div class="talk">「すべて実際の医療法人で使われているシステムです。概念や机上の提案ではなく、今日も現場で動いているものです。」</div>
+    <div class="talk">「小さな手作業の積み重ねが、月単位・年単位で見るとどれだけのコストになっているか。そこを一緒に整理するところから始められます。」</div>
+  </div>
+</div>
+
+<h2 class="section-title">導入の流れ</h2>
+<p class="section-sub">まずはヒアリングから。費用はその後でご提案します</p>
+<div class="flow" style="border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,100,120,.1)">
+  <div class="flow-item" style="padding:24px">
+    <div class="flow-num">①</div>
+    <div class="flow-content"><h3>ヒアリング（30〜60分）</h3><p>どんな手作業に困っているか、何のシステムを使っているかを確認します。課題の大きさを整理し、合うソリューションを提案します。</p></div>
+  </div>
+  <div class="flow-item" style="padding:24px">
+    <div class="flow-num">②</div>
+    <div class="flow-content"><h3>デモ（1〜2週間）</h3><p>実際の医療法人での動作を見ていただきます。「うちでも使えますか？」という疑問にその場でお答えします。</p></div>
+  </div>
+  <div class="flow-item" style="padding:24px">
+    <div class="flow-num">③</div>
+    <div class="flow-content"><h3>試験導入（1〜4週間）</h3><p>対象施設のシステム環境に合わせてカスタマイズし、テスト運用を行います。</p></div>
+  </div>
+  <div class="flow-item" style="padding:24px">
+    <div class="flow-num">④</div>
+    <div class="flow-content"><h3>本格稼働・継続サポート</h3><p>本番稼働後も私たちが継続してサポートします。システムが変わっても、担当者が変わっても対応できる体制を整えます。</p></div>
+  </div>
+</div>
+
+<div class="support">
+  <h2 class="section-title" style="margin-top:0">サポート体制</h2>
+  <div class="support-grid">
+    <div class="support-card">
+      <h3>🏥 初期導入</h3>
+      <p>担当者が現場に入り、導入を丁寧に支援します</p>
+    </div>
+    <div class="support-card">
+      <h3>🌱 将来的な自走化</h3>
+      <p>院内担当者を育成し、自走できる体制を構築します</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 医療機関向け DX ソリューション　作成: 岩城</p>
+</footer>
+
+</body>
+</html>
