@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoom設定支援・導入代行｜業務自動化の設定から運用サポートまで一括対応</title>
+  <meta name="description" content="Yoom設定支援の専門サービス。Yoomの導入設定・フロー構築・月額運用サポートまで一括対応。入社手続き・FAX受注・給与明細など繰り返し業務をAIと自動化。初回相談無料。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #6C47FF;
+      --purple-light: #8B6FFF;
+      --purple-pale: #F0EDFF;
+      --dark: #111111;
+      --body: #333333;
+      --muted: #666666;
+      --bg: #EFF1F8;
+      --bg-white: #FFFFFF;
+      --bg-section: #F6F7FC;
+      --border: #E2E4EF;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-hover: 0 12px 40px rgba(108,71,255,0.15);
+      --radius: 20px;
+      --radius-sm: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--body);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ===== ナビゲーション ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .nav-logo .y-icon {
+      width: 32px; height: 32px;
+      background: var(--purple);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      font-size: 1rem;
+    }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-link {
+      color: var(--body);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-link:hover { background: var(--bg-section); }
+    .btn-nav {
+      background: var(--dark);
+      color: white;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-nav:hover { background: var(--purple); transform: scale(1.02); }
+
+    /* ===== ヒーロー ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #E8EBF8 0%, #DDE0F5 40%, #EBE8FF 80%, #F0EEF8 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 6% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -150px; right: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(108,71,255,0.12), transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(108,71,255,0.08), transparent 65%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow);
+      animation: fadeDown 0.7s ease;
+    }
+    .hero-tag .dot {
+      width: 8px; height: 8px;
+      background: #10B981;
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+    .hero h1 .accent { color: var(--purple); }
+    .hero-desc {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 48px;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+    .btn-primary {
+      background: var(--dark);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--purple); transform: translateY(-2px); }
+    .btn-outline {
+      background: white;
+      color: var(--dark);
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--purple); color: var(--purple); transform: translateY(-2px); }
+
+    /* ===== ロゴ帯（社名なし）===== */
+    .logo-strip {
+      background: var(--bg-white);
+      padding: 36px 6%;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-strip p {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .logo-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* ===== 数字セクション ===== */
+    .stats {
+      background: var(--bg-white);
+      padding: 70px 6%;
+    }
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+    .stat-item .num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--purple);
+      line-height: 1;
+      display: block;
+    }
+    .stat-item .unit { font-size: 1.4rem; }
+    .stat-item .label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* ===== セクション共通 ===== */
+    section { padding: 90px 6%; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--purple);
+      background: var(--purple-pale);
+      border-radius: 20px;
+      padding: 5px 16px;
+      margin-bottom: 18px;
+      letter-spacing: 0.05em;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 56px;
+    }
+
+    /* ===== 課題セクション ===== */
+    .problems { background: var(--bg-section); }
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .problem-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+    }
+    .problem-card:hover { transform: translateY(-4px); }
+    .problem-card .icon-wrap {
+      width: 48px; height: 48px;
+      background: #FEF2F2;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    .problem-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .problem-card p { font-size: 0.88rem; color: var(--muted); }
+
+    /* ===== ソリューション（フロー）===== */
+    .solution { background: var(--bg-white); }
+    .flow-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+    .flow-box {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      text-align: center;
+      min-width: 140px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .flow-box:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .flow-box .ficon { font-size: 1.8rem; margin-bottom: 8px; }
+    .flow-box .ftitle { font-size: 0.82rem; color: var(--muted); }
+    .flow-box .fname { font-size: 0.95rem; font-weight: 700; color: var(--dark); }
+    .flow-arr { font-size: 1.4rem; color: var(--purple); align-self: center; font-weight: 900; padding: 8px 0; }
+
+    /* ===== 活用事例 ===== */
+    .usecases { background: var(--bg-section); }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+    }
+    .case-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .case-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 24px; right: 24px;
+      height: 3px;
+      background: var(--purple);
+      border-radius: 0 0 4px 4px;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .case-icon {
+      width: 52px; height: 52px;
+      background: var(--purple-pale);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+    .case-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+    .case-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 18px; }
+    .case-flow-box {
+      background: var(--bg-section);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 0.8rem;
+      color: var(--purple);
+      line-height: 2;
+    }
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #059669;
+    }
+
+    /* ===== サービス内容 ===== */
+    .services { background: var(--bg-white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .srv-card {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .srv-card:hover {
+      transform: translateY(-4px);
+      background: var(--bg-white);
+      box-shadow: var(--shadow-hover);
+    }
+    .srv-card .sicon { font-size: 2.4rem; margin-bottom: 16px; display: block; }
+    .srv-card h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+    .srv-card p { font-size: 0.86rem; color: var(--muted); }
+    .srv-type {
+      margin-top: 16px;
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--purple);
+      background: var(--purple-pale);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    /* ===== 導入の流れ ===== */
+    .howto { background: var(--bg-section); }
+    .steps {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .step-item {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-num {
+      width: 44px; height: 44px;
+      background: var(--purple);
+      border-radius: 50%;
+      color: white;
+      font-weight: 900;
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .step-body p { font-size: 0.88rem; color: var(--muted); }
+
+    /* ===== FAQ ===== */
+    .faq { background: var(--bg-white); }
+    .faq-wrap { max-width: 700px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-q {
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-q-text {
+      font-weight: 700;
+      color: var(--dark);
+      font-size: 0.95rem;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .faq-q-text .ql { color: var(--purple); font-weight: 900; font-size: 1rem; flex-shrink: 0; }
+    .faq-arrow { color: var(--muted); transition: transform 0.3s; font-size: 1rem; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+      padding: 0;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding-bottom: 22px; }
+
+    /* ===== CTA ===== */
+    .cta {
+      background: linear-gradient(135deg, #6C47FF 0%, #9B7BFF 50%, #5B8EFF 100%);
+      text-align: center;
+      padding: 100px 6%;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+    .cta h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 18px;
+    }
+    .cta p { color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 520px; margin: 0 auto 40px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: white;
+      color: var(--purple);
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-wout {
+      background: transparent;
+      color: white;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: background 0.2s;
+    }
+    .btn-wout:hover { background: rgba(255,255,255,0.15); }
+
+    /* ===== フッター ===== */
+    footer {
+      background: var(--dark);
+      color: #999;
+      padding: 60px 6% 36px;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .f-brand .logo {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .f-brand .logo .yi {
+      width: 28px; height: 28px;
+      background: var(--purple);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+    .f-brand p { font-size: 0.85rem; max-width: 260px; }
+    .f-links h4 { color: #ccc; font-size: 0.85rem; margin-bottom: 14px; font-weight: 700; }
+    .f-links ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .f-links a { color: #888; text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .f-links a:hover { color: white; }
+    .footer-copy {
+      border-top: 1px solid #222;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    /* ===== アニメーション ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.show { opacity: 1; transform: none; }
+
+    /* ===== レスポンシブ ===== */
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-link { display: none; }
+      .flow-row { flex-direction: column; align-items: center; }
+      .flow-arr { transform: rotate(90deg); }
+      section { padding: 70px 4%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="y-icon">Y</span>
+    Yoom 導入支援
+  </a>
+  <div class="nav-right">
+    <a class="nav-link" href="#usecases">活用事例</a>
+    <a class="nav-link" href="#services">サービス内容</a>
+    <a class="nav-link" href="#faq">よくある質問</a>
+    <a class="nav-link" href="https://lp.yoom.fun/" target="_blank" style="color:#6C47FF;font-weight:700;">Yoom公式 ↗</a>
+    <a class="btn-nav" href="#contact">無料相談する</a>
+  </div>
+</nav>
+
+<!-- ヒーロー -->
+<section class="hero">
+
+  <h1>
+    Yoom設定支援で<br>
+    繰り返し業務を<br>
+    <span class="accent">AIと自動化</span>でゼロに。
+  </h1>
+  <p class="hero-desc">
+    Yoomの設定支援・導入代行から月額運用サポートまで一括お任せ。<br>
+    入社手続き・給与明細・FAX受注…毎日の面倒な作業から解放されましょう。
+  </p>
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">📞 無料相談をする</a>
+    <a href="#usecases" class="btn-outline">活用事例を見る →</a>
+  </div>
+</section>
+
+<!-- 連携アプリ帯 -->
+<div class="logo-strip">
+  <p>主要な連携サービス（700種類以上対応）</p>
+  <div class="logo-row">
+    <span class="logo-pill">🟡 kintone</span>
+    <span class="logo-pill">💬 Chatwork</span>
+    <span class="logo-pill">👥 SmartHR</span>
+    <span class="logo-pill">💚 freee</span>
+    <span class="logo-pill">📧 Gmail</span>
+    <span class="logo-pill">🟢 Slack</span>
+    <span class="logo-pill">⏰ KING OF TIME</span>
+    <span class="logo-pill">🤖 ChatGPT</span>
+  </div>
+</div>
+
+<!-- 実績数字 -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <span class="num">700<span class="unit">+</span></span>
+      <div class="label">連携対応SaaS数</div>
+    </div>
+    <div class="stat-item reveal">
+      <span class="num">50<span class="unit">%</span></span>
+      <div class="label">平均工数削減率</div>
+    </div>
+    <div class="stat-item reveal">
+      <span class="num">5<span class="unit">分</span></span>
+      <div class="label">入社手続き自動化後の処理時間</div>
+    </div>
+    <div class="stat-item reveal">
+      <span class="num">0<span class="unit">円</span></span>
+      <div class="label">初回相談費用</div>
+    </div>
+  </div>
+</div>
+
+<!-- 課題 -->
+<section class="problems" id="problems">
+  <div class="section-inner">
+    <div class="section-tag">📋 こんなお悩みはありませんか？</div>
+    <h2 class="section-title">その繰り返し作業、<br>まだ手でやっていますか？</h2>
+    <p class="section-desc">毎日同じ操作の繰り返し、ミスの多発、担当者が変わると止まる業務…それ、全部自動化できます。</p>
+    <div class="problems-grid">
+      <div class="problem-card reveal">
+        <div class="icon-wrap">😓</div>
+        <h3>入退社のたびに大量の手作業</h3>
+        <p>各サービスに1つずつアカウントを手動作成。1人あたり1時間以上かかっている。</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="icon-wrap">📠</div>
+        <h3>FAXを見て手でシステムに入力</h3>
+        <p>届いたFAXを目視確認して1件ずつ手入力。ミスや転記漏れが後を絶たない。</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="icon-wrap">📊</div>
+        <h3>生産性がまったく見えない</h3>
+        <p>労働時間は把握できているのに、それがどれだけの成果につながっているか数字で見えない。</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="icon-wrap">🔒</div>
+        <h3>担当者が変わると誰もわからない</h3>
+        <p>自動化の仕組みを作った人がいなくなったら、誰も修正・運用できなくなった。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ソリューション -->
+<section class="solution" id="solution">
+  <div class="section-inner">
+    <div class="section-tag">✅ 解決策</div>
+    <h2 class="section-title">Yoomで、全部まるごと<br>解決します</h2>
+    <p class="section-desc">設定・保守・運用すべてお任せ。お客様はYoomの画面を見るだけで、業務の自動化状況がひと目でわかります。</p>
+    <div class="flow-row">
+      <div class="flow-box reveal">
+        <div class="ficon">📋</div>
+        <div class="ftitle">STEP 1</div>
+        <div class="fname">無料相談</div>
+      </div>
+      <div class="flow-arr">→</div>
+      <div class="flow-box reveal">
+        <div class="ficon">⚙️</div>
+        <div class="ftitle">STEP 2</div>
+        <div class="fname">フロー設計・構築</div>
+      </div>
+      <div class="flow-arr">→</div>
+      <div class="flow-box reveal">
+        <div class="ficon">🧪</div>
+        <div class="ftitle">STEP 3</div>
+        <div class="fname">テスト・品質確認</div>
+      </div>
+      <div class="flow-arr">→</div>
+      <div class="flow-box reveal">
+        <div class="ficon">🚀</div>
+        <div class="ftitle">STEP 4</div>
+        <div class="fname">本番稼働</div>
+      </div>
+      <div class="flow-arr">→</div>
+      <div class="flow-box reveal">
+        <div class="ficon">🔧</div>
+        <div class="ftitle">STEP 5</div>
+        <div class="fname">月額保守サポート</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 活用事例 -->
+<section class="usecases" id="usecases">
+  <div class="section-inner">
+    <div class="section-tag">💼 活用事例</div>
+    <h2 class="section-title">こんな業務が<br>自動化できます</h2>
+    <p class="section-desc">社労士事務所・中小企業・製造業など、様々な現場での活用シナリオです。</p>
+    <div class="cases-grid">
+
+      <div class="case-card reveal">
+        <div class="case-icon">👤</div>
+        <h3>入社手続きの完全自動化</h3>
+        <p>SmartHRへの登録をきっかけに、複数のSaaSアカウントを自動作成。担当者の作業をゼロに。</p>
+        <div class="case-flow-box">
+          SmartHR（入社登録）<br>
+          ↓<br>
+          Slack・Google・kintone・Chatwork<br>
+          → アカウント自動作成
+        </div>
+        <span class="case-badge">✅ 1時間 → 5分に短縮</span>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-icon">📠</div>
+        <h3>FAX受注のデジタル化</h3>
+        <p>紙のFAXをAI-OCRで自動読み取り。販売管理システムへ自動登録するまで人の手が不要に。</p>
+        <div class="case-flow-box">
+          FAX受信（スキャン）<br>
+          ↓<br>
+          Yoom AI-OCR（文字認識）<br>
+          ↓<br>
+          販売管理システムに自動登録
+        </div>
+        <span class="case-badge">✅ 入力ミスゼロ・残業削減</span>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-icon">💰</div>
+        <h3>給与明細の自動配信</h3>
+        <p>毎月の給与明細PDFを自動生成して各従業員にメール送付。月次の担当者作業が消える。</p>
+        <div class="case-flow-box">
+          会計ソフト（freee等）<br>
+          ↓<br>
+          PDF自動生成<br>
+          ↓<br>
+          各従業員にメール自動送付
+        </div>
+        <span class="case-badge">✅ 月次作業が自動化</span>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-icon">📊</div>
+        <h3>労働生産性の自動計算</h3>
+        <p>勤怠システムの労働時間とkintone日報データを自動集計。経営判断に使えるレポートを毎月自動生成。</p>
+        <div class="case-flow-box">
+          勤怠管理（KING OF TIME等）<br>
+          + kintone 日報データ<br>
+          ↓<br>
+          生産性レポート自動作成 → 通知
+        </div>
+        <span class="case-badge">✅ 経営の見える化</span>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-icon">🤖</div>
+        <h3>問い合わせへのAI自動返信</h3>
+        <p>問い合わせをAIが自動で読み取り、返信案を作成。担当者は確認してボタンを押すだけ。</p>
+        <div class="case-flow-box">
+          問い合わせフォーム<br>
+          ↓<br>
+          ChatGPTが返信案を作成<br>
+          ↓<br>
+          担当者が確認 → 送信
+        </div>
+        <span class="case-badge">✅ 対応スピード大幅アップ</span>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-icon">🤝</div>
+        <h3>退職手続きの自動化</h3>
+        <p>退職申請が届いたら、書類準備・システムアカウントの無効化通知まで自動进行。</p>
+        <div class="case-flow-box">
+          退職申請フォーム<br>
+          ↓<br>
+          退職届自動生成・送付<br>
+          ↓<br>
+          関連アカウント停止の手配通知
+        </div>
+        <span class="case-badge">✅ 抜け漏れゼロ</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- サービス内容 -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-tag">🛠️ サービス内容</div>
+    <h2 class="section-title">設定から保守まで<br>まるごとサポート</h2>
+    <p class="section-desc">構築して終わりではなく、継続してサポートします。だから安心してお任せいただけます。</p>
+    <div class="services-grid">
+      <div class="srv-card reveal">
+        <span class="sicon">🔍</span>
+        <h3>業務ヒアリング・設計</h3>
+        <p>現状の業務フローをヒアリングし、自動化できる箇所を設計します。最適なフローボットを提案します。</p>
+        <span class="srv-type">初期 / 一括</span>
+      </div>
+      <div class="srv-card reveal">
+        <span class="sicon">⚙️</span>
+        <h3>フローボット構築</h3>
+        <p>Yoomの設定・テスト・本番移行まで一括対応。複数SaaS連携、AI機能の組み込みも対応します。</p>
+        <span class="srv-type">初期 / 一括</span>
+      </div>
+      <div class="srv-card reveal">
+        <span class="sicon">🔧</span>
+        <h3>月額 運用・保守サポート</h3>
+        <p>フロー修正・エラー対応・新機能の追加など継続サポート。担当者が変わっても安心です。</p>
+        <span class="srv-type">月額 / 継続</span>
+      </div>
+      <div class="srv-card reveal">
+        <span class="sicon">📦</span>
+        <h3>SaaS一括ご提案</h3>
+        <p>Yoomと連携するSmartHR・kintone・freee等のSaaSもまとめてご提案。手続きもお任せ。</p>
+        <span class="srv-type">月額 / 継続</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 導入の流れ -->
+<section class="howto" id="howto">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-tag">📅 導入の流れ</div>
+    <h2 class="section-title">最短2週間で<br>自動化がスタート</h2>
+    <p class="section-desc" style="margin:0 auto 48px;">ヒアリングから本番稼働まで、丁寧にサポートします。</p>
+    <div class="steps">
+      <div class="step-item reveal">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>無料相談（オンライン・30分）</h3>
+          <p>自動化したい業務をヒアリング。どんな小さなことでもお気軽にご相談ください。</p>
+        </div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>フロー設計・お見積り</h3>
+          <p>ヒアリング内容をもとに、自動化フローの設計と費用のご提案をいたします。</p>
+        </div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Yoom環境の構築・テスト</h3>
+          <p>フローボットを構築し、テスト実行で動作確認。お客様にも確認いただきます。</p>
+        </div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>本番稼働・引き渡し</h3>
+          <p>本番環境で稼働開始。操作方法のご説明も丁寧に行います。</p>
+        </div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>月額保守サポート</h3>
+          <p>本番稼働後も継続してサポート。修正・追加・エラー対応はすべてお任せください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-inner" style="max-width:700px;">
+    <div class="section-tag">❓ よくある質問</div>
+    <h2 class="section-title">よくあるご質問</h2>
+    <p class="section-desc">お気軽にご相談ください。</p>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text"><span class="ql">Q</span>プログラミングの知識がなくても使えますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">はい、まったく不要です。Yoomはノーコードツールなので、設定はすべてマウス操作で行えます。また、設定・保守はすべて弊社が対応しますので、お客様はYoomの画面を「見る」だけで大丈夫です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text"><span class="ql">Q</span>今使っているシステムとつながりますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">Yoomは700種類以上のSaaSと連携可能です。SmartHR・kintone・freee・Chatwork・Slack・KING OF TIMEなど日本でよく使われるサービスはほぼ対応しています。ご不安な場合は無料相談でご確認ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text"><span class="ql">Q</span>どのくらいで使えるようになりますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">シンプルな自動化フローであれば最短1〜2週間で本番稼働できます。複数システムとの連携が必要な場合は1〜2か月程度が目安です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text"><span class="ql">Q</span>担当者が変わっても引き継げますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">はい。Yoomはフローが画面上で「見える化」されているため、誰でも内容を把握できます。月額保守サポートにご加入いただくことで、弊社が継続してサポートします。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text"><span class="ql">Q</span>Yoomのライセンス費用は別途かかりますか？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">はい、Yoomのご利用料金は別途発生します。フリープランからお試しいただき、業務規模に応じたプランをご提案します。弊社経由でのご契約も承っております。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <h2>まず、無料で相談してみませんか？</h2>
+  <p>どんな業務を自動化できるか、具体的にご提案します。<br>費用・期間・効果のイメージもお伝えします。</p>
+  <div class="cta-btns">
+    <a href="mailto:himawasa@gmail.com" class="btn-white">📧 メールで相談する</a>
+    <a href="#usecases" class="btn-wout">事例をもっと見る</a>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <div class="footer-inner">
+    <div class="f-brand">
+      <div class="logo"><span class="yi">Y</span> Yoom 導入支援</div>
+      <p>Yoomの設定・構築から月額保守まで一括対応。AIと自動化で、ビジネスを前進させます。</p>
+    </div>
+    <div class="f-links">
+      <h4>サービス</h4>
+      <ul>
+        <li><a href="#solution">導入の流れ</a></li>
+        <li><a href="#usecases">活用事例</a></li>
+        <li><a href="#services">サービス内容</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+      </ul>
+    </div>
+    <div class="f-links">
+      <h4>お問い合わせ</h4>
+      <ul>
+        <li><a href="mailto:himawasa@gmail.com">メールで相談する</a></li>
+        <li><a href="#contact">無料相談フォーム</a></li>
+      </ul>
+    </div>
+    <div class="f-links">
+      <h4>Yoom 公式情報</h4>
+      <ul>
+        <li><a href="https://lp.yoom.fun/" target="_blank">Yoom 公式サイト ↗</a></li>
+        <li><a href="https://yoom.fun/members/sign_in" target="_blank">Yoom ログイン ↗</a></li>
+        <li><a href="https://lp.yoom.fun/" target="_blank">料金プランを見る ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Yoom 導入支援サービス. All rights reserved.</div>
+</footer>
+
+<script>
+  // FAQアコーディオン
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  }
+
+  // スクロールアニメーション
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('show'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
