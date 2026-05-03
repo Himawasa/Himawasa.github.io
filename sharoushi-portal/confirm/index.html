@@ -51,9 +51,9 @@ table tr:nth-child(even){background:#f8f9ff}
 <body>
 
 <div class="hero">
-  <h1>📋 石橋さんへの確認事項</h1>
-  <p>社労士ポータルの今後の開発にあたり、ご確認いただきたい内容です</p>
-  <p style="margin-top:8px;font-size:.8rem;opacity:.7">作成: 2026-05-03 | 作成者: 岩城</p>
+  <h1>🏗️ 社労士ポータル 開発レポート</h1>
+  <p>現在の進捗・今後の開発計画・石橋さんへの確認事項</p>
+  <p style="margin-top:8px;font-size:.8rem;opacity:.7">最終更新: 2026-05-03 | 担当: 岩城</p>
 </div>
 
 <div class="container">
@@ -69,6 +69,69 @@ table tr:nth-child(even){background:#f8f9ff}
     <tr><td>🏢 クライアントB</td><td>sharoushi@himawasa.jp</td><td>sharoushi123</td><td>HiMaWaSa 社労士（テスト用）</td></tr>
   </table>
   <p style="font-size:.8rem;color:#888;margin-top:8px">※ 初回アクセス時はサーバー起動に30秒ほどかかる場合があります</p>
+</div>
+
+<!-- ===== 完了済み機能 ===== -->
+<div class="section">
+  <h2>✅ 完了済みの機能（現在動いているもの）</h2>
+  <div class="screenshot">
+    <img src="img/dashboard.png" alt="ダッシュボード画面">
+    <div class="caption">▲ 実際のダッシュボード画面（顧問先切替え・統計カード・売上グラフ）</div>
+  </div>
+  <table>
+    <tr><th>カテゴリ</th><th>機能名</th><th>説明</th></tr>
+    <tr><td>🏠</td><td>ダッシュボード</td><td>統計カード（売上/未請求/タスク数）、月別売上グラフ、全メニューへの導線</td></tr>
+    <tr><td>🔀</td><td>顧問先切り替え</td><td>社労士が画面上部のプルダウンで顧問先を切替え → 全画面が連動</td></tr>
+    <tr><td>📰</td><td>お知らせ・情報発信</td><td>法改正情報などを投稿。既読/未読・重要度マーク対応</td></tr>
+    <tr><td>💬</td><td>AI労務相談</td><td>Google Gemini AIが24時間一次回答するチャット機能</td></tr>
+    <tr><td>📋</td><td>タスク管理</td><td>TODO→進行中→完了のカンバンボード。ファイル添付対応</td></tr>
+    <tr><td>👤</td><td>従業員マスター</td><td>従業員の基本情報・住所・銀行口座・家族・手当まで管理。CSV一括取込対応</td></tr>
+    <tr><td>📤</td><td>給与計算情報</td><td>月別勤怠入力・手当改定（月別リセット）・確定ロック機能</td></tr>
+    <tr><td>📄</td><td>見積→受注→請求</td><td>見積作成→受注転記→請求書発行の一連フロー。PDF印刷対応</td></tr>
+    <tr><td>💹</td><td>売上管理</td><td>月別売上データの登録・管理</td></tr>
+    <tr><td>⚙️</td><td>マスター管理</td><td>部門・役職・手当マスターの登録・削除</td></tr>
+    <tr><td>➕</td><td>オプション販売</td><td>クライアントへの追加サービスON/OFF</td></tr>
+    <tr><td>📠</td><td>FAX受信管理</td><td>受信FAXの処理済/未処理管理</td></tr>
+  </table>
+  <p style="font-size:.85rem;color:#555;margin-top:12px">🛡️ <strong>技術面:</strong> マルチテナント（会社別データ完全分離）、レスポンシブ対応（PC/タブレット/スマホ）</p>
+</div>
+
+<!-- ===== 今後の開発計画 ===== -->
+<div class="section">
+  <h2>🗺️ 今後の開発ロードマップ</h2>
+  <div class="lead">
+    石橋さんの仕様書をもとに、今後の開発を3つのフェーズに整理しました。<br>
+    <strong>フェーズ2以降は、下記の確認事項へのご回答をいただいてから着手</strong>します。
+  </div>
+
+  <h3 style="font-size:.95rem;font-weight:700;color:#1a4a7c;margin-bottom:8px">フェーズ1: 従業員マスター項目拡張 <span style="background:#fff3e0;color:#e65100;padding:2px 10px;border-radius:20px;font-size:.7rem;font-weight:700">確認待ち</span></h3>
+  <table>
+    <tr><th>内容</th><th>目安</th><th>状況</th></tr>
+    <tr><td>PCA給与と同じタブ構成・項目に合わせる</td><td>2〜3時間</td><td>⏳ 石橋さんの回答待ち</td></tr>
+    <tr><td>入力権限の分離（顧問先 / 社労士のみ）</td><td>上記に含む</td><td>⏳ 石橋さんの回答待ち</td></tr>
+  </table>
+
+  <h3 style="font-size:.95rem;font-weight:700;color:#1a4a7c;margin:20px 0 8px">フェーズ2: PCA給与クラウドAPI連携 <span style="background:#e3f2fd;color:#1565c0;padding:2px 10px;border-radius:20px;font-size:.7rem;font-weight:700">計画中</span></h3>
+  <table>
+    <tr><th>内容</th><th>目安</th></tr>
+    <tr><td>PCA APIへの認証・接続テスト</td><td>2〜3時間</td></tr>
+    <tr><td>従業員マスタ → PCA社員マスタ連携</td><td>3〜4時間</td></tr>
+    <tr><td>勤怠・手当データ → PCA月次入力連携</td><td>5〜7時間</td></tr>
+  </table>
+
+  <h3 style="font-size:.95rem;font-weight:700;color:#1a4a7c;margin:20px 0 8px">フェーズ3: 労働生産性メニュー <span style="background:#e3f2fd;color:#1565c0;padding:2px 10px;border-radius:20px;font-size:.7rem;font-weight:700">計画中</span></h3>
+  <table>
+    <tr><th>内容</th><th>目安</th></tr>
+    <tr><td>期間選択・集計単位選択の画面</td><td>3〜4時間</td></tr>
+    <tr><td>計算エンジン（分子÷分母）</td><td>2〜3時間</td></tr>
+    <tr><td>推移グラフ・比較チャート</td><td>2〜3時間</td></tr>
+    <tr><td>外部SaaS連携（freee等）</td><td>3〜5時間</td></tr>
+  </table>
+</div>
+
+<!-- ===== ここから確認事項 ===== -->
+<div style="text-align:center;margin:40px 0 24px">
+  <div style="display:inline-block;background:linear-gradient(135deg,#1a4a7c,#2d7dd2);color:#fff;padding:12px 40px;border-radius:40px;font-size:1.2rem;font-weight:900;letter-spacing:2px">📋 石橋さんへの確認事項</div>
 </div>
 
 <!-- サマリー -->
@@ -104,13 +167,7 @@ table tr:nth-child(even){background:#f8f9ff}
     現在のポータルの従業員マスターに、PCA給与と同じ項目・タブ構成を追加する作業です。
   </div>
 
-  <h3 style="font-size:.95rem;font-weight:700;color:#1a4a7c;margin-bottom:12px">📸 現在のポータル画面</h3>
-  <div class="screenshot">
-    <img src="img/dashboard.png" alt="ダッシュボード画面">
-    <div class="caption">▲ ダッシュボード（顧問先切替え・統計カード・売上グラフが動作中）</div>
-  </div>
-
-  <h3 style="font-size:.95rem;font-weight:700;color:#1a4a7c;margin:20px 0 12px">✅ 現在の従業員マスター項目（入力できるもの）</h3>
+  <h3 style="font-size:.95rem;font-weight:700;color:#1a4a7c;margin:8px 0 12px">✅ 現在の従業員マスター項目（入力できるもの）</h3>
   <div class="current-items">
     <div class="item">✅ 氏名・ふりがな</div>
     <div class="item">✅ 社員番号</div>
