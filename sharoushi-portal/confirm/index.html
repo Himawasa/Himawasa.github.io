@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>石橋さんへの確認事項 | 社労士ポータル</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;background:#f0f4f8;color:#1a1a2e;line-height:1.8}
+.hero{background:linear-gradient(135deg,#1a4a7c 0%,#2d7dd2 100%);color:#fff;padding:60px 24px;text-align:center}
+.hero h1{font-size:2rem;font-weight:900;margin-bottom:8px;letter-spacing:2px}
+.hero p{font-size:1rem;opacity:.85}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.summary-card{background:#fff;border-radius:16px;padding:32px;margin:-40px auto 32px;box-shadow:0 8px 32px rgba(0,0,0,.1);position:relative;z-index:1}
+.summary-card h2{font-size:1.2rem;color:#1a4a7c;margin-bottom:16px;border-bottom:2px solid #e0e0e0;padding-bottom:8px}
+.theme-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.theme-item{background:linear-gradient(135deg,#f8f9ff,#eef2ff);border-radius:12px;padding:20px;border-left:4px solid #2d7dd2;text-align:center}
+.theme-item .num{font-size:2rem;font-weight:900;color:#2d7dd2}
+.theme-item .title{font-size:1rem;font-weight:700;margin:4px 0}
+.theme-item .desc{font-size:.8rem;color:#666}
+.theme-item .stars{color:#f5a623;font-size:1.1rem}
+.section{background:#fff;border-radius:16px;padding:32px;margin-bottom:24px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.section h2{font-size:1.3rem;font-weight:900;color:#1a4a7c;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.section h2 .badge{background:#2d7dd2;color:#fff;font-size:.7rem;padding:2px 10px;border-radius:20px;font-weight:700}
+.section .lead{font-size:.9rem;color:#555;margin-bottom:20px;padding:12px 16px;background:#f8f9ff;border-radius:8px;border-left:3px solid #2d7dd2}
+.q-card{background:#fafbff;border:1.5px solid #e0e7ff;border-radius:12px;padding:20px;margin-bottom:16px}
+.q-card h3{font-size:1rem;font-weight:700;color:#2d7dd2;margin-bottom:8px}
+.q-card h3 .q-num{background:#2d7dd2;color:#fff;display:inline-block;padding:1px 10px;border-radius:20px;font-size:.75rem;margin-right:6px}
+.q-card p,.q-card ul{font-size:.88rem;color:#444}
+.q-card ul{padding-left:20px;margin-top:8px}
+.q-card li{margin-bottom:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.85rem}
+table th{background:#1a4a7c;color:#fff;padding:8px 12px;text-align:left;font-weight:700}
+table td{padding:8px 12px;border-bottom:1px solid #e0e0e0}
+table tr:nth-child(even){background:#f8f9ff}
+.screenshot{margin:16px 0;text-align:center}
+.screenshot img{max-width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.12);border:1px solid #e0e0e0}
+.screenshot .caption{font-size:.8rem;color:#888;margin-top:6px}
+.current-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin:12px 0}
+.current-items .item{background:#e8f5e9;border-radius:8px;padding:8px 12px;font-size:.82rem;text-align:center;font-weight:600;color:#2e7d32}
+.footer{text-align:center;padding:32px;color:#888;font-size:.85rem}
+.answer-box{background:#fff3e0;border:2px dashed #f5a623;border-radius:12px;padding:20px;margin-top:32px}
+.answer-box h2{color:#e65100;font-size:1.1rem;margin-bottom:8px}
+.answer-box p{font-size:.88rem;color:#555}
+.flow-diagram{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:16px 0;font-size:.85rem}
+.flow-box{background:#e3f2fd;border:2px solid #2d7dd2;border-radius:8px;padding:8px 16px;font-weight:700;color:#1a4a7c;text-align:center}
+.flow-arrow{font-size:1.2rem;color:#2d7dd2;font-weight:900}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📋 石橋さんへの確認事項</h1>
+  <p>社労士ポータルの今後の開発にあたり、ご確認いただきたい内容です</p>
+  <p style="margin-top:8px;font-size:.8rem;opacity:.7">作成: 2026-05-03 | 作成者: 岩城</p>
+</div>
+
+<div class="container">
+
+<!-- ログイン情報 -->
+<div class="summary-card" style="margin-top:-40px;margin-bottom:16px">
+  <h2>🔑 ポータルログイン情報</h2>
+  <p style="font-size:.9rem;margin-bottom:12px">URL: <a href="https://shoroushi-portal.onrender.com" target="_blank" style="color:#2d7dd2;font-weight:700">https://shoroushi-portal.onrender.com</a></p>
+  <table>
+    <tr><th>種別</th><th>メールアドレス（ID）</th><th>パスワード</th><th>備考</th></tr>
+    <tr><td>👔 社労士</td><td>demo@sharoushi.jp</td><td>demo123</td><td>全顧問先のデータを閲覧・切替え可能</td></tr>
+    <tr><td>🏢 クライアントA</td><td>client1@himawasa.jp</td><td>client123</td><td>株式会社テスト商事</td></tr>
+    <tr><td>🏢 クライアントB</td><td>sharoushi@himawasa.jp</td><td>sharoushi123</td><td>HiMaWaSa 社労士（テスト用）</td></tr>
+  </table>
+  <p style="font-size:.8rem;color:#888;margin-top:8px">※ 初回アクセス時はサーバー起動に30秒ほどかかる場合があります</p>
+</div>
+
+<!-- サマリー -->
+<div class="summary-card" style="margin-top:0">
+  <h2>📊 確認テーマ一覧（全3テーマ・11問）</h2>
+  <div class="theme-grid">
+    <div class="theme-item">
+      <div class="num">1</div>
+      <div class="title">従業員マスター項目拡張</div>
+      <div class="desc">PCA給与と同じ画面構成にしたい</div>
+      <div class="stars">⭐⭐⭐ 重要度：高</div>
+    </div>
+    <div class="theme-item">
+      <div class="num">2</div>
+      <div class="title">PCA給与API連携</div>
+      <div class="desc">ポータルのデータをPCAに自動送信</div>
+      <div class="stars">⭐⭐⭐ 重要度：高</div>
+    </div>
+    <div class="theme-item">
+      <div class="num">3</div>
+      <div class="title">労働生産性メニュー</div>
+      <div class="desc">計算方法と表示方法の最終決定</div>
+      <div class="stars">⭐⭐ 重要度：中</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== テーマ1 ===== -->
+<div class="section">
+  <h2>👤 テーマ1：従業員マスター項目拡張 <span class="badge">3問</span></h2>
+  <div class="lead">
+    石橋さんの仕様書に「本システムの従業員マスターとPCA給与の社員マスター項目を一致させたい」と記載がありました。<br>
+    現在のポータルの従業員マスターに、PCA給与と同じ項目・タブ構成を追加する作業です。
+  </div>
+
+  <h3 style="font-size:.95rem;font-weight:700;color:#1a4a7c;margin-bottom:12px">📸 現在のポータル画面</h3>
+  <div class="screenshot">
+    <img src="img/dashboard.png" alt="ダッシュボード画面">
+    <div class="caption">▲ ダッシュボード（顧問先切替え・統計カード・売上グラフが動作中）</div>
+  </div>
+
+  <h3 style="font-size:.95rem;font-weight:700;color:#1a4a7c;margin:20px 0 12px">✅ 現在の従業員マスター項目（入力できるもの）</h3>
+  <div class="current-items">
+    <div class="item">✅ 氏名・ふりがな</div>
+    <div class="item">✅ 社員番号</div>
+    <div class="item">✅ メール・電話</div>
+    <div class="item">✅ 雇用区分</div>
+    <div class="item">✅ 給与区分・基本給</div>
+    <div class="item">✅ 部門・役職</div>
+    <div class="item">✅ 入社日・生年月日</div>
+    <div class="item">✅ 住所</div>
+    <div class="item">✅ 銀行口座</div>
+    <div class="item">✅ 家族構成</div>
+    <div class="item">✅ 手当設定</div>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q1-1</span>PCA給与のタブ構成を教えてください</h3>
+    <p>PCA給与の社員マスターには複数のタブがあると伺っています。<br>
+    具体的にどんなタブがあるか教えてください。ポータルも同じタブ構成に作り変えます。</p>
+    <p style="color:#888;font-size:.8rem;margin-top:8px">（例：基本情報、給与、社会保険、税金、銀行口座…など）</p>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q1-2</span>追加が必要な項目は何ですか？</h3>
+    <p>以前共有いただいたスプレッドシートに項目一覧があるとのことですが、<br>
+    現在のポータルに「足りていない項目」を具体的に教えてください。</p>
+    <p style="margin-top:8px;font-weight:700">特に以下が不足していると思われます：</p>
+    <ul>
+      <li><strong>社会保険関連</strong> — 健康保険番号、厚生年金番号、雇用保険番号など</li>
+      <li><strong>税金関連</strong> — 扶養人数、甲乙区分、住民税額など</li>
+      <li><strong>通勤関連</strong> — 通勤手段、通勤距離、定期代など</li>
+    </ul>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q1-3</span>入力権限の分け方</h3>
+    <p>仕様書に「顧問先が入力できる箇所と、社労士のみが入力できる箇所を制御したい」とありました。</p>
+    <p style="margin-top:8px">具体的に<strong>どの項目が「顧問先入力OK」で、どの項目が「社労士のみ」</strong>か教えてください。</p>
+    <table>
+      <tr><th>権限</th><th>項目の例（イメージ）</th></tr>
+      <tr><td>👤 顧問先が入力OK</td><td>氏名、住所、家族構成、銀行口座</td></tr>
+      <tr><td>🔒 社労士のみ</td><td>基本給、社会保険番号、税金関連</td></tr>
+    </table>
+    <p style="font-size:.85rem;color:#888;margin-top:8px">↑ このイメージで合っていますか？</p>
+  </div>
+</div>
+
+<!-- ===== テーマ2 ===== -->
+<div class="section">
+  <h2>🔗 テーマ2：PCA給与クラウドAPI連携 <span class="badge">4問</span></h2>
+  <div class="lead">
+    ポータルのデータをPCA給与にAPIで自動送信する仕組みを作ります。<br>
+    仕様書のシステム構成図をもとに、連携方法を確認させてください。
+  </div>
+
+  <h3 style="font-size:.95rem;font-weight:700;color:#1a4a7c;margin-bottom:12px">🔄 仕様書にあったシステム構成のイメージ</h3>
+  <div class="flow-diagram">
+    <div class="flow-box">社労士ポータル<br><small>従業員マスタ<br>勤怠・手当データ</small></div>
+    <div class="flow-arrow">→ API →</div>
+    <div class="flow-box">PCA給与クラウド<br><small>社員マスタ<br>月次入力</small></div>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q2-1</span>API接続テストをしてよいですか？</h3>
+    <p>仕様書にPCAクラウドの認証情報が記載されていました。<br>
+    <strong>この環境に接続して、APIの動作テストを行ってもよいでしょうか？</strong></p>
+    <p style="font-size:.85rem;color:#888;margin-top:8px">（テスト用のダミーデータで、本番データには影響を与えない範囲で行います）</p>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q2-2</span>連携の方向はどちらを優先しますか？</h3>
+    <table>
+      <tr><th>パターン</th><th>内容</th><th>用途</th></tr>
+      <tr><td>① ポータル → PCA</td><td>ポータルで入力 → PCA給与に送信</td><td>二重入力の削減</td></tr>
+      <tr><td>② PCA → ポータル</td><td>PCA給与の既存データ → ポータルに読込</td><td>初期データ移行</td></tr>
+      <tr><td>③ 双方向</td><td>両方</td><td>完全同期</td></tr>
+    </table>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q2-3</span>手当のPCA記号マッピング</h3>
+    <p>仕様書に「手当マスターにPCA給与の記号を入力できる仕様とする」とありました。</p>
+    <table>
+      <tr><th>PCA記号</th><th>推測される項目</th><th>正しい項目名は？</th></tr>
+      <tr><td>AA003</td><td>出勤日数？</td><td style="color:#e65100">← 教えてください</td></tr>
+      <tr><td>AA005</td><td>？</td><td style="color:#e65100">← 教えてください</td></tr>
+      <tr><td>AA009</td><td>？</td><td style="color:#e65100">← 教えてください</td></tr>
+      <tr><td>AA011</td><td>残業時間？</td><td style="color:#e65100">← 教えてください</td></tr>
+      <tr><td>BB007</td><td>？</td><td style="color:#e65100">← 教えてください</td></tr>
+      <tr><td>BB008</td><td>？</td><td style="color:#e65100">← 教えてください</td></tr>
+    </table>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q2-4</span>iPaaS（Yoom等）との役割分担</h3>
+    <p>仕様書のシステム構成図に「iPaaS（既製品）」が登場しています。<br>
+    どの部分をiPaaSに任せ、どの部分をポータルから直接APIを叩くか教えてください。</p>
+    <table>
+      <tr><th>パターン</th><th>内容</th></tr>
+      <tr><td>A</td><td>全部ポータルから直接APIを叩く</td></tr>
+      <tr><td>B</td><td>勤怠SaaSの取得はiPaaS、PCA連携はポータルから</td></tr>
+      <tr><td>C</td><td>全部iPaaS経由</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ===== テーマ3 ===== -->
+<div class="section">
+  <h2>📊 テーマ3：労働生産性メニュー <span class="badge">4問</span></h2>
+  <div class="lead">
+    仕様書に「労働生産性＝アウトプット（分子）÷ 労働時間（分母）」の計算ロジックが記載されていました。<br>
+    最初のバージョンの仕様を確定させてください。
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q3-1</span>最初に使う「分子」は何ですか？</h3>
+    <table>
+      <tr><th>種類</th><th>例</th><th>向いている業種</th></tr>
+      <tr><td>売上高・粗利</td><td>月次売上 ÷ 労働時間</td><td>営業・小売・サービス</td></tr>
+      <tr><td>付加価値額</td><td>（売上 − 外部費）÷ 労働時間</td><td>製造業</td></tr>
+      <tr><td>件数</td><td>対応件数 ÷ 労働時間</td><td>コールセンター・物流</td></tr>
+      <tr><td>タスク</td><td>完了タスク数 ÷ 労働時間</td><td>IT・プロジェクト型</td></tr>
+    </table>
+    <p style="font-size:.85rem;color:#888;margin-top:8px">💡 売上高が一番シンプルで、すでにポータルに売上データがあるので着手しやすいです</p>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q3-2</span>分子のデータ元はどこですか？</h3>
+    <ul>
+      <li>ポータルの売上管理画面のデータをそのまま使う？</li>
+      <li>外部の会計SaaS（freee、マネーフォワード等）から取得する？</li>
+      <li>手動で月次入力する画面を作る？</li>
+    </ul>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q3-3</span>予実管理（目標 vs 実績）は必要ですか？</h3>
+    <p>仕様書に「予実を見れるようにする（予定月別入力）」とありました。<br>
+    <strong>最初のバージョンから入れますか？ それとも後で追加しますか？</strong></p>
+  </div>
+
+  <div class="q-card">
+    <h3><span class="q-num">Q3-4</span>集計単位の優先順位を教えてください</h3>
+    <p>以下すべてに対応予定ですが、<strong>最初に作る優先順位</strong>は？</p>
+    <ul>
+      <li>□ 会社単位</li>
+      <li>□ 部署単位</li>
+      <li>□ チーム（部署の下位）単位</li>
+      <li>□ プロジェクト単位</li>
+      <li>□ 役職単位</li>
+      <li>□ 雇用区分単位</li>
+      <li>□ 個人単位</li>
+    </ul>
+  </div>
+</div>
+
+
+
+</div>
+
+
+
+</body>
+</html>
