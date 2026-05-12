@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社労士ポータル インフラ移行提案書</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== カバーページ ===== -->
+<div class="cover">
+  <div class="cover-logo">☁️</div>
+  <h1>社労士ポータル<br>インフラ移行提案書</h1>
+  <h2>― すべてGoogleで統一する安定運用環境 ―</h2>
+  <div class="cover-meta">
+    作成日: 2026年5月10日<br>
+    対象: 石橋さん打ち合わせ用<br>
+    為替レート: $1 = ¥150 で計算
+  </div>
+  <div class="cover-badge">月額 約¥4,300 で全て解決</div>
+</div>
+
+<!-- ===== 1. 全体像 ===== -->
+<div class="page">
+  <h2>1. 提案の全体像</h2>
+  <p>「すべてGoogleで統一」することで、管理をシンプルに、コストを最小限にします。</p>
+
+  <div class="arch-diagram">
+    <div class="arch-title">すべて Google で統一</div>
+    <div class="arch-grid">
+      <div class="arch-item">
+        <div class="arch-icon">📧</div>
+        <div><div class="arch-label">Google Workspace</div><div class="arch-desc">メール・カレンダー・ドライブ（2TB）</div></div>
+      </div>
+      <div class="arch-item">
+        <div class="arch-icon">🌐</div>
+        <div><div class="arch-label">独自ドメイン</div><div class="arch-desc">himawasa-sync.com 等</div></div>
+      </div>
+      <div class="arch-item">
+        <div class="arch-icon">🖥️</div>
+        <div><div class="arch-label">Cloud Run</div><div class="arch-desc">アプリケーション実行</div></div>
+      </div>
+      <div class="arch-item">
+        <div class="arch-icon">🗄️</div>
+        <div><div class="arch-label">Cloud SQL</div><div class="arch-desc">データベース（PostgreSQL）</div></div>
+      </div>
+      <div class="arch-item">
+        <div class="arch-icon">🔒</div>
+        <div><div class="arch-label">Cloud NAT</div><div class="arch-desc">固定IPアドレス</div></div>
+      </div>
+      <div class="arch-item">
+        <div class="arch-icon">🔐</div>
+        <div><div class="arch-label">SSL証明書</div><div class="arch-desc">自動発行・無料</div></div>
+      </div>
+    </div>
+    <div class="arch-footer">★ 1つのGoogleアカウントで全て管理</div>
+  </div>
+
+  <h2>2. 現在の問題と解決策</h2>
+  <table>
+    <tr><th style="width:40px">#</th><th>現在の問題</th><th>解決方法</th></tr>
+    <tr><td>1</td><td>❌ 15分放置で<strong>30秒スリープ</strong></td><td>✅ Cloud Run → スリープなし（0.5〜2秒で応答）</td></tr>
+    <tr><td>2</td><td>❌ 固定IPなし → <strong>KOT API連携不可</strong></td><td>✅ Cloud NAT → 固定IP取得 → API連携可能</td></tr>
+    <tr><td>3</td><td>❌ 無料DB → <strong>90日でデータ消失リスク</strong></td><td>✅ Cloud SQL → 自動バックアップ付きDB</td></tr>
+    <tr><td>4</td><td>❌ 独自ドメインなし</td><td>✅ ドメイン取得 → プロフェッショナルな印象</td></tr>
+    <tr><td>5</td><td>❌ ビジネスメールなし</td><td>✅ Google Workspace → 独自ドメインのメール</td></tr>
+  </table>
+
+  <div class="highlight-box blue">
+    <strong>💡 KOT API連携で実現すること</strong>
+    <strong>Before:</strong> 毎月KOTにログイン → CSVダウンロード → ポータルにアップロード（30分〜1時間）<br>
+    <strong>After:</strong> ポータルの「取込」ボタンを押すだけ → 自動取得（数秒）
+  </div>
+</div>
+
+<!-- ===== 3. コスト詳細 ===== -->
+<div class="page">
+  <h2>3. コスト詳細</h2>
+
+  <h3>3-1. ドメイン取得（月額 約¥125）</h3>
+  <table>
+    <tr><th>項目</th><th>費用</th><th>備考</th></tr>
+    <tr><td>.com ドメイン取得・更新</td><td>約¥1,500/年</td><td>お名前.com等で取得</td></tr>
+    <tr class="total-row"><td>月額換算</td><td colspan="2">約¥125/月</td></tr>
+  </table>
+
+  <h3>3-2. Google Workspace Business Standard（月額 ¥1,760）</h3>
+  <table>
+    <tr><th>プラン</th><th>月額（税込）</th><th>容量</th><th>主な機能</th></tr>
+    <tr><td><s>Business Starter</s></td><td><s>¥880</s></td><td>30GB</td><td>基本機能のみ（GASアドオン等不可）</td></tr>
+    <tr style="background:var(--blue-light)"><td><strong>Business Standard</strong></td><td><strong>¥1,760</strong></td><td>2TB</td><td>GASアドオン・AppSheet・高度なセキュリティ</td></tr>
+  </table>
+  <div class="highlight-box orange">
+    <strong>⚠️ なぜStandardが必要か</strong>
+    Starterでは自社ソリューション（GASアドオン等）が利用できません。<br>
+    業務自動化ツールを展開するにはStandard以上が必須です。
+  </div>
+
+  <h3>3-3. GCPインフラ（月額 ¥2,373）</h3>
+  <table>
+    <tr><th>コンポーネント</th><th>サービス</th><th>月額</th><th>計算根拠</th></tr>
+    <tr><td>🖥️ アプリ実行</td><td>Cloud Run</td><td><strong>¥0〜¥100</strong></td><td>小規模利用は無料枠内</td></tr>
+    <tr><td>🗄️ データベース</td><td>Cloud SQL（db-f1-micro）</td><td><strong>¥1,565</strong></td><td>$0.0105/時 × 730h + ストレージ</td></tr>
+    <tr><td>🔒 固定IP</td><td>Cloud NAT + 静的IP</td><td><strong>¥708</strong></td><td>IP $0.005/時 + NAT $0.0014/時</td></tr>
+    <tr><td>🔐 SSL・LB</td><td>Cloud Run自動付与</td><td><strong>¥0</strong></td><td>追加費用なし</td></tr>
+    <tr class="total-row"><td colspan="2">GCPインフラ小計</td><td colspan="2">¥2,373/月</td></tr>
+  </table>
+
+  <div class="highlight-box green">
+    <strong>✅ Cloud Runの無料枠が大きい</strong>
+    想定利用量（月4,400リクエスト）は無料枠180,000 vCPU秒のわずか<strong>2.4%</strong>。<br>
+    アプリ実行費用は<strong>ほぼ確実に¥0</strong>です。
+  </div>
+
+  <h3>3-4. 月額合計</h3>
+  <table>
+    <tr><th>項目</th><th>月額（税込）</th></tr>
+    <tr><td>🌐 ドメイン（.com）</td><td>¥125</td></tr>
+    <tr><td>📧 Google Workspace Standard × 1名</td><td>¥1,760</td></tr>
+    <tr><td>🖥️ Cloud Run（アプリ実行）</td><td>¥0〜¥100</td></tr>
+    <tr><td>🗄️ Cloud SQL（データベース）</td><td>¥1,565</td></tr>
+    <tr><td>🔒 Cloud NAT + 静的IP</td><td>¥708</td></tr>
+    <tr class="total-row"><td>月額合計</td><td>約¥4,200〜¥4,300</td></tr>
+  </table>
+</div>
+
+<!-- ===== 4. 年間コスト ===== -->
+<div class="page">
+  <h2>4. 年間コストシミュレーション</h2>
+
+  <h3>初年度（GCP $300 無料クレジット適用）</h3>
+  <table>
+    <tr><th>期間</th><th>ドメイン</th><th>GWS</th><th>GCPインフラ</th><th>月額計</th></tr>
+    <tr><td><strong>1〜3ヶ月目</strong></td><td>¥125</td><td>¥1,760</td><td>¥0（クレジット消化）</td><td><strong>¥1,885</strong></td></tr>
+    <tr><td><strong>4〜12ヶ月目</strong></td><td>¥125</td><td>¥1,760</td><td>¥2,373</td><td><strong>¥4,258</strong></td></tr>
+  </table>
+
+  <div class="cost-cards">
+    <div class="cost-card">
+      <div class="label">初年度合計</div>
+      <div class="amount">¥44,000</div>
+      <div class="sub">3ヶ月間のGCP無料クレジット適用</div>
+    </div>
+    <div class="cost-card">
+      <div class="label">2年目以降（年額）</div>
+      <div class="amount">¥51,100</div>
+      <div class="sub">月額 ¥4,258 × 12ヶ月</div>
+    </div>
+  </div>
+
+  <h3>初期費用</h3>
+  <table>
+    <tr><th>項目</th><th>金額</th></tr>
+    <tr><td>ドメイン取得（.com 初年度）</td><td>約¥1,500（初年度1円キャンペーンの場合もあり）</td></tr>
+    <tr><td>Google Workspace 契約</td><td>¥0（初期費用なし）</td></tr>
+    <tr><td>GCPアカウント作成</td><td>¥0</td></tr>
+    <tr><td>GCP無料クレジット</td><td>+¥45,000分（$300）付与</td></tr>
+    <tr><td>SSL証明書</td><td>¥0（自動発行）</td></tr>
+    <tr class="total-row"><td>初期費用合計</td><td>実質 ¥0〜¥1,500</td></tr>
+  </table>
+
+  <h2>5. 月¥4,300 で手に入るもの</h2>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-header">❌ 今まで（¥0/月）</div>
+      <div class="compare-item">スリープで30秒待ち</div>
+      <div class="compare-item">KOT API連携不可（CSV手動）</div>
+      <div class="compare-item">90日でDB消失リスク</div>
+      <div class="compare-item">フリーメール</div>
+      <div class="compare-item">GASアドオン利用不可</div>
+      <div class="compare-item">サーバー管理は自己責任</div>
+      <div class="compare-item">SLA保証なし</div>
+      <div class="compare-item">バラバラなサービス</div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-header">✅ これから（¥4,300/月）</div>
+      <div class="compare-item">即座に応答（0.5〜2秒）</div>
+      <div class="compare-item">ボタン1つで勤怠データ自動取得</div>
+      <div class="compare-item">自動バックアップ付きDB</div>
+      <div class="compare-item">独自ドメインのビジネスメール</div>
+      <div class="compare-item">自社ソリューション展開可能</div>
+      <div class="compare-item">Googleが全て管理</div>
+      <div class="compare-item">Google品質のインフラ</div>
+      <div class="compare-item"><strong>全てGoogleで一元管理</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 6〜8. メリット・安全性・スケジュール ===== -->
+<div class="page">
+  <h2>6.「全てGoogle」のメリット</h2>
+  <table>
+    <tr><th>メリット</th><th>説明</th></tr>
+    <tr><td><strong>🔑 アカウント1つで全管理</strong></td><td>Gmail、GCP、ドメイン全て同じGoogleアカウント</td></tr>
+    <tr><td><strong>💳 請求が1つに統合</strong></td><td>Google Workspaceの請求にGCPも統合可能</td></tr>
+    <tr><td><strong>🔗 GAS連携が簡単</strong></td><td>Google Apps Scriptで業務自動化を拡張可能</td></tr>
+    <tr><td><strong>🛡️ セキュリティ統一</strong></td><td>Googleの統一セキュリティポリシーで保護</td></tr>
+    <tr><td><strong>📊 管理画面が統一</strong></td><td>admin.google.com + console.cloud.google.com</td></tr>
+    <tr><td><strong>🇯🇵 データは東京保管</strong></td><td>全サービスで東京リージョンを選択可能</td></tr>
+  </table>
+
+  <h2>7. データの安全性</h2>
+  <table>
+    <tr><th>項目</th><th>内容</th></tr>
+    <tr><td>データセンター</td><td>🇯🇵 <strong>東京都内</strong>（asia-northeast1リージョン）</td></tr>
+    <tr><td>暗号化</td><td>保存時・転送時ともに<strong>デフォルトで暗号化</strong></td></tr>
+    <tr><td>セキュリティ認証</td><td>ISO 27001（ISMS）、SOC 1/2/3 取得済み</td></tr>
+    <tr><td>利用実績</td><td>日本の金融機関・上場企業・官公庁が多数利用</td></tr>
+    <tr><td>顧問先への説明</td><td>「Googleの国内データセンターで管理」と説明可能</td></tr>
+  </table>
+
+  <h2>8. コールドスタートについて</h2>
+  <p>Cloud Runは利用がない時にインスタンスを停止しますが、Renderの30秒とは全く異なります。</p>
+  <table>
+    <tr><th>環境</th><th>初回応答時間</th><th>体感</th></tr>
+    <tr><td><strong>Render（現在）</strong></td><td style="color:var(--red)"><strong>約30秒</strong></td><td>使い物にならない</td></tr>
+    <tr><td><strong>Cloud Run（標準）</strong></td><td style="color:var(--green)"><strong>0.5〜2秒</strong></td><td>ほぼ気にならない</td></tr>
+    <tr><td><strong>Cloud Run（常時稼働）</strong></td><td style="color:var(--green)"><strong>0秒</strong></td><td>完全に即応答（+¥500/月）</td></tr>
+  </table>
+  <div class="highlight-box blue">
+    <strong>💡 運用のポイント</strong>
+    最初は標準設定で運用し、気になれば「最小インスタンス=1」に変更可能です（+約¥500/月）。
+  </div>
+
+  <h2>9. 移行スケジュール</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-step">1</div>
+      <div class="timeline-content"><div class="timeline-title">ドメイン取得</div><div class="timeline-desc">himawasa-sync.com 等を取得</div></div>
+      <div class="timeline-period">1日</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">2</div>
+      <div class="timeline-content"><div class="timeline-title">Google Workspace契約</div><div class="timeline-desc">ドメインに紐づけてGWS設定</div></div>
+      <div class="timeline-period">1日</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">3</div>
+      <div class="timeline-content"><div class="timeline-title">GCPプロジェクト作成</div><div class="timeline-desc">$300クレジット取得、各サービス設定</div></div>
+      <div class="timeline-period">1日</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">4</div>
+      <div class="timeline-content"><div class="timeline-title">インフラ構築</div><div class="timeline-desc">Cloud Run + Cloud SQL + Cloud NAT セットアップ</div></div>
+      <div class="timeline-period">1〜2日</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">5</div>
+      <div class="timeline-content"><div class="timeline-title">アプリデプロイ</div><div class="timeline-desc">Dockerコンテナ化 → Cloud Runにデプロイ</div></div>
+      <div class="timeline-period">半日</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">6</div>
+      <div class="timeline-content"><div class="timeline-title">動作検証</div><div class="timeline-desc">KOT API接続テスト（固定IP疎通確認）</div></div>
+      <div class="timeline-period">1〜2日</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">7</div>
+      <div class="timeline-content"><div class="timeline-title">本番切替</div><div class="timeline-desc">DNS設定、Renderからの移行完了</div></div>
+      <div class="timeline-period">1日</div>
+    </div>
+  </div>
+  <div class="highlight-box green">
+    <strong>📅 合計: 約1〜2週間で完了</strong>
+  </div>
+</div>
+
+<!-- ===== 10. 確認事項 ===== -->
+<div class="page">
+  <h2>10. 費用まとめ</h2>
+
+  <div class="cost-card" style="margin-bottom:24px">
+    <div class="label">通常月額（4ヶ月目以降）</div>
+    <div class="amount">約 ¥4,300<span style="font-size:20px">/月</span></div>
+    <div class="sub">ドメイン ¥125 ＋ Google Workspace ¥1,760 ＋ GCPインフラ ¥2,373</div>
+  </div>
+
+  <div class="cost-cards">
+    <div class="cost-card small">
+      <div class="label">初年度コスト</div>
+      <div class="amount">¥44,000</div>
+      <div class="sub">最初の3ヶ月はGCP無料</div>
+    </div>
+    <div class="cost-card small">
+      <div class="label">2年目以降（年額）</div>
+      <div class="amount">¥51,100</div>
+      <div class="sub">月額 ¥4,258 × 12ヶ月</div>
+    </div>
+  </div>
+
+  <h2>11. AWS との比較（なぜGCPを選ぶのか）</h2>
+  <p>同等の構成をAWS（Amazon Web Services）で構築した場合との比較です。</p>
+
+  <table>
+    <tr><th>コンポーネント</th><th>GCP（提案）</th><th>AWS</th></tr>
+    <tr><td>🖥️ アプリ実行</td><td>Cloud Run: <strong>¥0〜¥100</strong></td><td>ECS Fargate: <strong>¥1,655</strong></td></tr>
+    <tr><td>🗄️ データベース</td><td>Cloud SQL: <strong>¥1,565</strong></td><td>RDS: <strong>¥2,097</strong></td></tr>
+    <tr><td>🔒 固定IP / NAT</td><td>Cloud NAT: <strong>¥708</strong></td><td style="color:var(--red)">NAT Gateway: <strong>¥7,346</strong></td></tr>
+    <tr><td>⚖️ ロードバランサー</td><td>内蔵: <strong>¥0</strong></td><td>ALB: <strong>¥2,902</strong></td></tr>
+    <tr class="total-row"><td>インフラ月額合計</td><td>約¥2,400</td><td>約¥14,200</td></tr>
+  </table>
+
+  <div class="highlight-box red">
+    <strong>⚠️ 最大のコスト差：固定IP（NAT）</strong>
+    AWS NAT Gateway: ¥7,346/月 vs GCP Cloud NAT: ¥708/月 → <strong>AWSは約10倍高い</strong><br>
+    KOT API連携に必須の固定IPだけで、月¥6,600以上の差が生まれます。
+  </div>
+
+  <table>
+    <tr><th>比較項目</th><th>GCP</th><th>AWS</th></tr>
+    <tr><td>💰 <strong>月額コスト</strong></td><td style="color:var(--green)"><strong>約¥4,300</strong></td><td>約¥16,100</td></tr>
+    <tr><td>💰 <strong>年額コスト</strong></td><td style="color:var(--green)"><strong>約¥51,100</strong></td><td>約¥193,200</td></tr>
+    <tr><td>📉 <strong>年間差額</strong></td><td colspan="2" style="text-align:center"><strong>GCPが年間 約¥142,000 安い</strong></td></tr>
+    <tr><td>🆓 初回無料クレジット</td><td style="color:var(--green)"><strong>$300（約¥45,000）</strong></td><td>なし</td></tr>
+    <tr><td>🔗 Google Workspace連携</td><td style="color:var(--green)"><strong>同一アカウントで管理</strong></td><td>連携なし</td></tr>
+    <tr><td>🔧 構築の手間</td><td>中（1〜2日）</td><td>大（2〜3日）</td></tr>
+  </table>
+
+  <div class="highlight-box green">
+    <strong>✅ GCPを選ぶ理由</strong>
+    ① コストが約1/3（年間約14万円の節約）<br>
+    ② 固定IPが圧倒的に安い（AWSの1/10）<br>
+    ③ Google Workspace利用中 → 同じアカウントで一元管理<br>
+    ④ $300無料クレジットで3ヶ月間無料試用
+  </div>
+</div>
+
+<!-- ===== 12. 会社運営経費・確認事項 ===== -->
+<div class="page">
+  <h2>12. HiMaWaSa Sync 会社運営経費（参考）</h2>
+  <p>以下は社労士ポータルとは別の、HiMaWaSa Sync 自社の運営に必要な経費です。</p>
+
+  <table>
+    <tr><th>項目</th><th>月額（税込）</th><th>備考</th></tr>
+    <tr><td>📧 Google Workspace Business Standard</td><td><strong>¥1,760</strong></td><td>自社メール・ドライブ・GASアドオン開発基盤</td></tr>
+    <tr><td>🤖 AI Ultra Access アドオン</td><td><strong>¥30,770</strong></td><td>定価¥36,200 → 15%割引交渉の目安</td></tr>
+    <tr class="total-row"><td>会社運営経費 合計</td><td>約¥32,530/月</td><td></td></tr>
+  </table>
+
+  <div class="highlight-box blue">
+    <strong>💡 AI Ultra Access の主な機能</strong>
+    Gemini高度な推論（Deep Think）、自律エージェント、動画生成（Veo）等<br>
+    → 業務自動化・AI活用による生産性向上に活用
+  </div>
+
+  <h2>13. ご確認事項</h2>
+  <table>
+    <tr><th style="width:40px">#</th><th>確認事項</th><th>備考</th></tr>
+    <tr><td>1</td><td><strong>ドメイン名の決定</strong></td><td>himawasa-sync.com？他の候補は？</td></tr>
+    <tr><td>2</td><td><strong>Google Workspaceのユーザー数</strong></td><td>1名？複数名？（1名追加ごとに +¥1,760/月）</td></tr>
+    <tr><td>3</td><td><strong>月額¥4,300の予算確認</strong></td><td>石橋さん側の承認</td></tr>
+    <tr><td>4</td><td><strong>GCPアカウントの作成者</strong></td><td>こちらで作成？石橋さんが作成？</td></tr>
+    <tr><td>5</td><td><strong>KOT APIのIPホワイトリスト登録</strong></td><td>固定IP確定後に登録</td></tr>
+    <tr><td>6</td><td><strong>移行開始時期</strong></td><td>いつから着手するか</td></tr>
+  </table>
+
+  <div class="footer">
+    <p>※ 本見積もりは2026年5月時点の公開料金に基づく概算です。</p>
+    <p>※ GWS Business Standard料金は税込（10%）で計算しています。</p>
+    <p>※ GCPインフラ料金は利用量により変動します。</p>
+    <p>※ AWS料金は東京リージョン（ap-northeast1）のオンデマンド料金です。</p>
+  </div>
+</div>
+
+</body>
+</html>
