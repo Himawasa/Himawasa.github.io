@@ -225,5 +225,123 @@
     <p>※ 各社とも東京リージョン（日本国内のデータセンター）で計算しています。</p>
   </div>
 </div>
+
+<!-- 6. スケーリング -->
+<div class="page">
+  <h2>6. 将来大きくなったら？（1000ユーザー規模）</h2>
+  <p>もし社労士ポータルが大成功して、<strong>顧問先が増え、利用者が1000人規模になった場合</strong>を想定します。</p>
+
+  <div class="highlight-box blue">
+    <strong>💡 たとえるなら…</strong>
+    今は「1人用の小さなオフィス」を借りていますが、<br>
+    事業が成長したら「大きなフロア」に引っ越す必要があります。<br>
+    <strong>その時の引っ越しのしやすさ・費用を比べます。</strong>
+  </div>
+
+  <h3>成長ステージ別コスト比較</h3>
+  <table>
+    <tr><th>規模</th><th>ユーザー数</th><th style="color:var(--green)">Google</th><th>Amazon</th><th style="color:#0078d4">Microsoft</th></tr>
+    <tr>
+      <td>🌱 <strong>スタート</strong><br><span style="font-size:11px;color:#666">現在の想定</span></td>
+      <td>1〜10人</td>
+      <td style="color:var(--green)"><strong>¥2,400/月</strong></td>
+      <td>¥13,900/月</td>
+      <td>¥7,400/月</td>
+    </tr>
+    <tr>
+      <td>🌿 <strong>成長期</strong><br><span style="font-size:11px;color:#666">顧問先5〜10社</span></td>
+      <td>50〜100人</td>
+      <td style="color:var(--green)"><strong>¥3,000/月</strong><br><span style="font-size:11px">まだほぼ無料枠内</span></td>
+      <td>¥14,500/月</td>
+      <td>¥8,000/月</td>
+    </tr>
+    <tr>
+      <td>🌳 <strong>拡大期</strong><br><span style="font-size:11px;color:#666">顧問先30〜50社</span></td>
+      <td>300〜500人</td>
+      <td style="color:var(--green)"><strong>¥8,000/月</strong><br><span style="font-size:11px">DB強化: ¥3,900</span></td>
+      <td>¥20,000/月</td>
+      <td>¥14,000/月</td>
+    </tr>
+    <tr>
+      <td>🏢 <strong>本格運用</strong><br><span style="font-size:11px;color:#666">顧問先100社超</span></td>
+      <td><strong>1000人</strong></td>
+      <td style="color:var(--green)"><strong>¥15,000/月</strong></td>
+      <td>¥30,000/月</td>
+      <td>¥22,000/月</td>
+    </tr>
+  </table>
+
+  <h3>1000ユーザー時に何が変わる？</h3>
+  <table>
+    <tr><th>変わるもの</th><th>今の構成（1〜10人）</th><th>1000人規模</th><th>たとえ</th></tr>
+    <tr>
+      <td>🖥️ アプリ</td>
+      <td>1台で十分<br>（ほぼ無料枠）</td>
+      <td>自動で台数が増える<br>（月¥2,000〜¥3,000）</td>
+      <td>お客さんが増えたら<br>窓口を増やす</td>
+    </tr>
+    <tr>
+      <td>🗄️ データベース</td>
+      <td>一番小さいサイズ<br>（db-f1-micro）</td>
+      <td>中〜大サイズに変更<br>（月¥5,000〜¥8,000）</td>
+      <td>金庫を大きいのに<br>買い替え</td>
+    </tr>
+    <tr>
+      <td>🔒 固定IP</td>
+      <td>1つ</td>
+      <td>1つのまま<br>（変更不要）</td>
+      <td>住所は変わらない</td>
+    </tr>
+    <tr>
+      <td>⚖️ 受付</td>
+      <td>自動</td>
+      <td>自動のまま<br>（変更不要）</td>
+      <td>受付嬢が自動で<br>増員してくれる</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box green">
+    <strong>✅ Googleの強み: 「段階的に」大きくできる</strong>
+    1000人になっても<strong>月額¥15,000程度</strong>。<br>
+    Amazonの同規模（月¥30,000）の<strong>半額</strong>で済みます。<br><br>
+    しかも設定変更はボタン1つ。<strong>「引っ越し作業」は不要</strong>です。
+  </div>
+
+  <h3>Googleが大規模でも安い理由</h3>
+  <table>
+    <tr><th>理由</th><th>説明</th></tr>
+    <tr>
+      <td>📈 <strong>自動スケール</strong></td>
+      <td>アクセスが増えたら自動で台数を増やし、減ったら自動で減らす。<br><strong>忙しい時だけ増員、暇な時はゼロ</strong>。ムダがない。</td>
+    </tr>
+    <tr>
+      <td>🔒 <strong>固定IPが定額</strong></td>
+      <td>何人使っても固定IP代は<strong>¥708のまま</strong>。<br>Amazonは利用量に応じてさらに高くなる。</td>
+    </tr>
+    <tr>
+      <td>⚖️ <strong>受付が無料</strong></td>
+      <td>Amazonだと1000人を捌くためのロードバランサー代が<strong>¥5,000以上</strong>。<br>Googleは何人でも<strong>無料</strong>。</td>
+    </tr>
+    <tr>
+      <td>💾 <strong>DBの柔軟性</strong></td>
+      <td>データベースは<strong>ボタン1つでサイズ変更</strong>可能。<br>小さく始めて、必要になったら大きくする。最初から大きいのを借りる必要なし。</td>
+    </tr>
+  </table>
+
+  <h3>成長イメージ</h3>
+  <div class="highlight-box blue">
+    <strong>💡 まとめ</strong>
+    <strong>今 →</strong> 月¥4,300で始める（GWS込み）<br>
+    <strong>100人 →</strong> 月¥5,000程度（ほぼ変わらない）<br>
+    <strong>500人 →</strong> 月¥10,000程度（DB強化のみ）<br>
+    <strong>1000人 →</strong> 月¥15,000程度（それでもAmazonの半額）<br><br>
+    <strong>「小さく始めて、大きく育てる」ことができるのがGoogleの最大の強み</strong>です。
+  </div>
+
+  <div class="footer">
+    <p>※ 1000ユーザー規模の料金は、1日5,000リクエスト・DB 50GB・同時接続50人を想定した概算です。</p>
+    <p>※ 実際の料金はアクセスパターンやデータ量により変動します。</p>
+  </div>
+</div>
 </body>
 </html>
