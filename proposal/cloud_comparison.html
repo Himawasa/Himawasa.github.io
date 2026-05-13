@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3大クラウド比較表（GCP vs AWS vs Azure）</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cover" style="background:linear-gradient(135deg,#1a237e 0%,#0d47a1 50%,#01579b 100%)">
+  <div class="cover-logo">☁️</div>
+  <h1>3大クラウド比較表</h1>
+  <h2>― GCP vs AWS vs Azure ―</h2>
+  <div class="cover-meta">社労士ポータルの構成に基づく比較<br>作成日: 2026年5月14日</div>
+</div>
+
+<!-- 1. コスト比較 -->
+<div class="page">
+  <h2>1. 社労士ポータル構成でのコスト比較</h2>
+  <p>同じ構成（アプリ実行 + DB + 固定IP + LB）を3社で構築した場合の月額比較です。</p>
+
+  <table>
+    <tr><th>コンポーネント</th><th style="color:var(--green)">GCP</th><th>AWS</th><th style="color:#0078d4">Azure</th></tr>
+    <tr>
+      <td>🖥️ アプリ実行</td>
+      <td>Cloud Run<br><strong>¥0〜¥100</strong></td>
+      <td>ECS Fargate<br><strong>¥1,655</strong></td>
+      <td>Container Apps<br><strong>¥0〜¥100</strong></td>
+    </tr>
+    <tr>
+      <td>🗄️ データベース</td>
+      <td>Cloud SQL<br>db-f1-micro<br><strong>¥1,565</strong></td>
+      <td>RDS<br>db.t4g.micro<br><strong>¥1,934</strong></td>
+      <td>PostgreSQL Flexible<br>B1ms<br><strong>¥1,862</strong></td>
+    </tr>
+    <tr>
+      <td>🔒 固定IP / NAT</td>
+      <td>Cloud NAT<br><strong>¥708</strong></td>
+      <td style="color:var(--red)">NAT Gateway<br><strong>¥7,346</strong></td>
+      <td>NAT Gateway<br><strong>¥5,413</strong></td>
+    </tr>
+    <tr>
+      <td>⚖️ ロードバランサー</td>
+      <td>内蔵<br><strong>¥0</strong></td>
+      <td>ALB<br><strong>¥2,902</strong></td>
+      <td>内蔵<br><strong>¥0</strong></td>
+    </tr>
+    <tr class="total-row">
+      <td>インフラ月額合計</td>
+      <td style="color:var(--green)"><strong>約¥2,400</strong></td>
+      <td>約¥13,900</td>
+      <td>約¥7,400</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box red">
+    <strong>⚠️ 固定IP（NAT）のコスト差が決定的</strong>
+    GCP ¥708 / Azure ¥5,413 / AWS ¥7,346<br>
+    KOT API連携に必須の固定IPだけで、<strong>GCPはAWSの約1/10、Azureの約1/8</strong>。
+  </div>
+
+  <h3>年間コスト比較（インフラ＋GWS＋ドメイン込み）</h3>
+  <table>
+    <tr><th>期間</th><th style="color:var(--green)">GCP</th><th>AWS</th><th style="color:#0078d4">Azure</th></tr>
+    <tr><td>月額</td><td style="color:var(--green)"><strong>¥4,300</strong></td><td>¥15,800</td><td>¥9,300</td></tr>
+    <tr><td>年額</td><td style="color:var(--green)"><strong>¥51,100</strong></td><td>¥189,600</td><td>¥111,600</td></tr>
+    <tr><td>5年累計</td><td style="color:var(--green)"><strong>¥248,000</strong></td><td>¥948,000</td><td>¥558,000</td></tr>
+    <tr><td>初回無料クレジット</td><td style="color:var(--green)"><strong>$300（¥45,000）</strong></td><td>なし</td><td>$200（¥30,000）</td></tr>
+  </table>
+
+  <div class="cost-cards">
+    <div class="cost-card">
+      <div class="label">GCP 年額</div>
+      <div class="amount">¥51,100</div>
+      <div class="sub">最安</div>
+    </div>
+    <div class="cost-card" style="background:linear-gradient(135deg,#0078d4,#004578)">
+      <div class="label">Azure 年額</div>
+      <div class="amount">¥111,600</div>
+      <div class="sub">GCPの2.2倍</div>
+    </div>
+    <div class="cost-card" style="background:linear-gradient(135deg,#d93025,#a50e0e)">
+      <div class="label">AWS 年額</div>
+      <div class="amount">¥189,600</div>
+      <div class="sub">GCPの3.7倍</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. サービス対応表 -->
+<div class="page">
+  <h2>2. サービス対応表</h2>
+  <p>社労士ポータルで使用する各機能の、3社での対応サービス名です。</p>
+
+  <table>
+    <tr><th>用途</th><th>GCP</th><th>AWS</th><th>Azure</th></tr>
+    <tr><td>コンテナ実行<br>（サーバーレス）</td><td><strong>Cloud Run</strong></td><td>ECS Fargate /<br>App Runner</td><td><strong>Container Apps</strong></td></tr>
+    <tr><td>マネージドDB<br>（PostgreSQL）</td><td><strong>Cloud SQL</strong></td><td>RDS /<br>Aurora Serverless</td><td>Database for<br>PostgreSQL</td></tr>
+    <tr><td>固定IP（NAT）</td><td><strong>Cloud NAT</strong></td><td>NAT Gateway</td><td>NAT Gateway</td></tr>
+    <tr><td>オブジェクトストレージ</td><td>Cloud Storage</td><td>S3</td><td>Blob Storage</td></tr>
+    <tr><td>CDN</td><td>Cloud CDN</td><td>CloudFront</td><td>Front Door</td></tr>
+    <tr><td>DNS</td><td>Cloud DNS</td><td>Route 53</td><td>Azure DNS</td></tr>
+    <tr><td>SSL証明書</td><td>自動（無料）</td><td>ACM（無料）</td><td>App Service<br>マネージド証明書</td></tr>
+    <tr><td>CI/CD</td><td>Cloud Build</td><td>CodePipeline</td><td>Azure DevOps</td></tr>
+    <tr><td>ログ管理</td><td>Cloud Logging</td><td>CloudWatch</td><td>Azure Monitor</td></tr>
+    <tr><td>AI / ML</td><td><strong>Vertex AI</strong><br>Gemini</td><td>Bedrock /<br>SageMaker</td><td>Azure OpenAI<br>Service</td></tr>
+    <tr><td>業務ツール連携</td><td><strong>Google Workspace</strong><br>GAS</td><td>なし</td><td>Microsoft 365</td></tr>
+  </table>
+
+  <h2>3. 0スケール（ゼロスケール）対応</h2>
+  <p>リクエストがない時にインスタンスを0に縮退できるか。コストに直結します。</p>
+  <table>
+    <tr><th>項目</th><th>GCP Cloud Run</th><th>AWS Fargate</th><th>Azure Container Apps</th></tr>
+    <tr><td>0スケール</td><td style="color:var(--green)"><strong>✅ 対応</strong></td><td style="color:var(--red)"><strong>❌ 非対応</strong></td><td style="color:var(--green)"><strong>✅ 対応</strong></td></tr>
+    <tr><td>影響</td><td>使わない時 = ¥0</td><td>常時稼働 = 常時課金</td><td>使わない時 = ¥0</td></tr>
+    <tr><td>コールドスタート</td><td>0.5〜2秒</td><td>なし（常時稼働）</td><td>1〜3秒</td></tr>
+  </table>
+  <div class="highlight-box blue">
+    <strong>💡 小規模ポータルでは0スケール対応が重要</strong>
+    社労士ポータルは1日100リクエスト程度。0スケール非対応のAWSでは「誰も使ってない深夜も課金」されます。
+  </div>
+</div>
+
+<!-- 3. 強み・弱み -->
+<div class="page">
+  <h2>4. 3社の強み・弱み比較</h2>
+
+  <h3>GCP（Google Cloud Platform）</h3>
+  <table>
+    <tr><th style="width:50%">💪 強み</th><th>⚡ 弱み</th></tr>
+    <tr><td>✅ <strong>AI / ML が圧倒的に強い</strong>（Vertex AI, Gemini）</td><td>❌ AWSに比べ情報量・コミュニティが小さい</td></tr>
+    <tr><td>✅ <strong>コンテナ技術のリーダー</strong>（Kubernetes開発元）</td><td>❌ エンタープライズ実績ではAWS/Azureに劣る</td></tr>
+    <tr><td>✅ <strong>Google Workspace と同一アカウント管理</strong></td><td>❌ サービス数がAWSほど多くない</td></tr>
+    <tr><td>✅ <strong>無料枠が充実</strong>（$300クレジット、Cloud Run無料枠）</td><td>❌ サポートプランが高め</td></tr>
+    <tr><td>✅ <strong>UIが直感的</strong>で学習コストが低い</td><td></td></tr>
+    <tr><td>✅ <strong>固定IP（NAT）が圧倒的に安い</strong></td><td></td></tr>
+  </table>
+
+  <h3>AWS（Amazon Web Services）</h3>
+  <table>
+    <tr><th style="width:50%">💪 強み</th><th>⚡ 弱み</th></tr>
+    <tr><td>✅ <strong>市場シェアNo.1</strong>（業界標準）</td><td>❌ <strong>NAT Gatewayが非常に高い</strong>（$0.062/h）</td></tr>
+    <tr><td>✅ <strong>サービス数が最多</strong>（200以上）</td><td>❌ <strong>料金体系が複雑</strong>で把握が困難</td></tr>
+    <tr><td>✅ <strong>技術情報・事例が最も豊富</strong></td><td>❌ 0スケール非対応（Fargate）で小規模に不向き</td></tr>
+    <tr><td>✅ エンジニア採用がしやすい</td><td>❌ Google Workspace連携なし</td></tr>
+    <tr><td>✅ 大規模ワークロードに最適</td><td>❌ 初回無料クレジットなし</td></tr>
+  </table>
+
+  <h3>Azure（Microsoft Azure）</h3>
+  <table>
+    <tr><th style="width:50%">💪 強み</th><th>⚡ 弱み</th></tr>
+    <tr><td>✅ <strong>Microsoft 365とシームレス連携</strong></td><td>❌ <strong>NAT Gatewayが高い</strong>（$0.045/h）</td></tr>
+    <tr><td>✅ <strong>Azure OpenAI Service</strong>（GPT系AIを法人利用可能）</td><td>❌ MS製品以外との相性がやや劣る</td></tr>
+    <tr><td>✅ エンタープライズ向け機能が充実</td><td>❌ UIの操作性がGCPに比べ複雑</td></tr>
+    <tr><td>✅ Container Appsは0スケール対応</td><td>❌ 日本語の技術情報がAWSより少ない</td></tr>
+    <tr><td>✅ $200無料クレジット（初回）</td><td>❌ GWSアドオン連携は不可</td></tr>
+  </table>
+</div>
+
+<!-- 4. 今回のケースでの結論 -->
+<div class="page">
+  <h2>5. 今回のケースでの総合評価</h2>
+
+  <table>
+    <tr><th>評価項目</th><th style="color:var(--green)">GCP</th><th>AWS</th><th style="color:#0078d4">Azure</th></tr>
+    <tr><td>💰 コスト</td><td style="color:var(--green)"><strong>◎ 最安</strong></td><td>△ 高い</td><td>○ 中間</td></tr>
+    <tr><td>🔒 固定IP費用</td><td style="color:var(--green)"><strong>◎ ¥708</strong></td><td style="color:var(--red)">✕ ¥7,346</td><td>△ ¥5,413</td></tr>
+    <tr><td>⚡ 0スケール</td><td style="color:var(--green)"><strong>◎ 対応</strong></td><td style="color:var(--red)">✕ 非対応</td><td style="color:var(--green)">◎ 対応</td></tr>
+    <tr><td>📧 GWS連携</td><td style="color:var(--green)"><strong>◎ 同一アカウント</strong></td><td>✕ なし</td><td>△ M365は可</td></tr>
+    <tr><td>🤖 AI活用</td><td style="color:var(--green)"><strong>◎ Gemini</strong></td><td>○ Bedrock</td><td>○ Azure OpenAI</td></tr>
+    <tr><td>🔧 GASアドオン</td><td style="color:var(--green)"><strong>◎ ネイティブ</strong></td><td>✕ 不可</td><td>✕ 不可</td></tr>
+    <tr><td>🆓 無料クレジット</td><td style="color:var(--green)"><strong>◎ $300</strong></td><td>✕ なし</td><td>○ $200</td></tr>
+    <tr><td>📚 情報量</td><td>○ 十分</td><td style="color:var(--green)">◎ 最多</td><td>○ 十分</td></tr>
+    <tr><td>🇯🇵 東京リージョン</td><td style="color:var(--green)">◎ あり</td><td style="color:var(--green)">◎ あり</td><td style="color:var(--green)">◎ あり</td></tr>
+    <tr class="total-row"><td><strong>総合評価</strong></td><td style="color:var(--green)"><strong>★★★★★</strong></td><td>★★☆☆☆</td><td>★★★☆☆</td></tr>
+  </table>
+
+  <div class="highlight-box green">
+    <strong>✅ 結論: GCPが最適</strong>
+    ① コストが最安（AWSの1/3、Azureの1/2）<br>
+    ② Google Workspace利用中 → 同一アカウントで一元管理<br>
+    ③ 固定IPが圧倒的に安い → KOT API連携のコスト最適<br>
+    ④ GASアドオンとの連携が唯一可能<br>
+    ⑤ $300無料クレジットで約3ヶ月無料試用
+  </div>
+
+  <h3>もしAzureを選ぶなら？</h3>
+  <div class="highlight-box blue">
+    <strong>💡 Azureが適するケース</strong>
+    Microsoft 365を全社で利用していて、Active DirectoryやTeamsとの連携が最優先の場合。<br>
+    今回のケースでは<strong>Google Workspaceを契約するため、GCPとの親和性が圧倒的に高い</strong>。
+  </div>
+
+  <h3>もしAWSを選ぶなら？</h3>
+  <div class="highlight-box orange">
+    <strong>⚠️ AWSが適するケース</strong>
+    大規模トラフィック・複数リージョン展開・豊富なAWSエンジニアが社内にいる場合。<br>
+    今回のような<strong>小規模1拠点のポータルには、コスト・機能ともにオーバースペック</strong>。
+  </div>
+
+  <div class="footer">
+    <p>※ 本比較表は2026年5月時点の公開料金に基づく概算です。</p>
+    <p>※ Azure NAT Gateway: $0.045/h × 730h + IP $0.005/h × 730h = $36.50 → ¥5,413</p>
+    <p>※ Azure PostgreSQL B1ms: $12.41/月 + ストレージ → 約¥1,862</p>
+  </div>
+</div>
+</body>
+</html>
