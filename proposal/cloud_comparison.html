@@ -10,44 +10,83 @@
 
 <div class="cover" style="background:linear-gradient(135deg,#1a237e 0%,#0d47a1 50%,#01579b 100%)">
   <div class="cover-logo">☁️</div>
-  <h1>3大クラウド比較表</h1>
-  <h2>― GCP vs AWS vs Azure ―</h2>
-  <div class="cover-meta">社労士ポータルの構成に基づく比較<br>作成日: 2026年5月14日</div>
+  <h1>3大クラウド<br>かんたん比較表</h1>
+  <h2>― Google vs Amazon vs Microsoft ―</h2>
+  <div class="cover-meta">社労士ポータルに最適なクラウドはどれ？<br>作成日: 2026年5月14日</div>
+</div>
+
+<!-- 0. そもそもクラウドって？ -->
+<div class="page">
+  <h2>まず「クラウド」って何？</h2>
+  <p>クラウドとは、<strong>インターネット上にある「レンタルサーバー」</strong>のことです。</p>
+  <p>自分でサーバー（コンピューター）を買わなくても、月額料金を払うだけでアプリやデータベースを動かせます。</p>
+
+  <div class="highlight-box blue">
+    <strong>💡 たとえるなら…</strong>
+    自社ビルを買う → ❌ 高い・管理が大変<br>
+    レンタルオフィスを借りる → ✅ 安い・掃除や修繕はビル管理会社がやってくれる<br><br>
+    <strong>クラウド = ITのレンタルオフィス</strong>です。
+  </div>
+
+  <p>世界には3つの大きなクラウド会社があります。</p>
+  <table>
+    <tr><th>クラウド名</th><th>運営会社</th><th>ひとことで言うと</th></tr>
+    <tr><td><strong>GCP</strong><br>（Google Cloud）</td><td>Google</td><td>Gmail・YouTube を動かしている技術</td></tr>
+    <tr><td><strong>AWS</strong><br>（Amazon Web Services）</td><td>Amazon</td><td>Amazonの通販サイトを動かしている技術</td></tr>
+    <tr><td><strong>Azure</strong><br>（アジュール）</td><td>Microsoft</td><td>WordやExcelのクラウド版を動かしている技術</td></tr>
+  </table>
+
+  <h2>比較する4つのポイント</h2>
+  <p>社労士ポータルを動かすには、以下の4つが必要です。</p>
+  <table>
+    <tr><th>#</th><th>必要なもの</th><th>たとえるなら</th></tr>
+    <tr><td>1</td><td>🖥️ <strong>アプリを動かす場所</strong></td><td>レンタルオフィスの「部屋」</td></tr>
+    <tr><td>2</td><td>🗄️ <strong>データベース</strong><br>（データの保管庫）</td><td>書類を保管する「金庫」</td></tr>
+    <tr><td>3</td><td>🔒 <strong>固定の住所（固定IP）</strong><br>（KOT API連携に必須）</td><td>郵便物が届く「住所」</td></tr>
+    <tr><td>4</td><td>⚖️ <strong>受付（ロードバランサー）</strong><br>（アクセスを振り分け）</td><td>ビルの「受付嬢」</td></tr>
+  </table>
+
+  <div class="highlight-box orange">
+    <strong>⚠️ なぜ「固定の住所」が必要？</strong>
+    KOT（勤怠管理システム）は、セキュリティのため<strong>「この住所からのアクセスだけ許可」</strong>という仕組みです。<br>
+    住所がコロコロ変わると、KOTに「あなた誰？」と拒否されます。<br>
+    だから<strong>固定の住所（固定IP）が必須</strong>なのです。
+  </div>
 </div>
 
 <!-- 1. コスト比較 -->
 <div class="page">
-  <h2>1. 社労士ポータル構成でのコスト比較</h2>
-  <p>同じ構成（アプリ実行 + DB + 固定IP + LB）を3社で構築した場合の月額比較です。</p>
+  <h2>1. 月額コスト比較</h2>
+  <p>同じものを3社で借りた場合、いくらかかるか比べました。</p>
 
   <table>
-    <tr><th>コンポーネント</th><th style="color:var(--green)">GCP</th><th>AWS</th><th style="color:#0078d4">Azure</th></tr>
+    <tr><th>何の費用？</th><th style="color:var(--green)">Google</th><th>Amazon</th><th style="color:#0078d4">Microsoft</th></tr>
     <tr>
-      <td>🖥️ アプリ実行</td>
-      <td>Cloud Run<br><strong>¥0〜¥100</strong></td>
-      <td>ECS Fargate<br><strong>¥1,655</strong></td>
-      <td>Container Apps<br><strong>¥0〜¥100</strong></td>
+      <td>🖥️ アプリを動かす<br><span style="font-size:12px;color:#666">（レンタルオフィスの部屋）</span></td>
+      <td style="color:var(--green)"><strong>¥0〜¥100</strong><br><span style="font-size:12px">使った分だけ</span></td>
+      <td><strong>¥1,655</strong><br><span style="font-size:12px">常に部屋代が発生</span></td>
+      <td style="color:var(--green)"><strong>¥0〜¥100</strong><br><span style="font-size:12px">使った分だけ</span></td>
     </tr>
     <tr>
-      <td>🗄️ データベース</td>
-      <td>Cloud SQL<br>db-f1-micro<br><strong>¥1,565</strong></td>
-      <td>RDS<br>db.t4g.micro<br><strong>¥1,934</strong></td>
-      <td>PostgreSQL Flexible<br>B1ms<br><strong>¥1,862</strong></td>
+      <td>🗄️ データベース<br><span style="font-size:12px;color:#666">（データの金庫）</span></td>
+      <td><strong>¥1,565</strong></td>
+      <td><strong>¥1,934</strong></td>
+      <td><strong>¥1,862</strong></td>
     </tr>
     <tr>
-      <td>🔒 固定IP / NAT</td>
-      <td>Cloud NAT<br><strong>¥708</strong></td>
-      <td style="color:var(--red)">NAT Gateway<br><strong>¥7,346</strong></td>
-      <td>NAT Gateway<br><strong>¥5,413</strong></td>
+      <td>🔒 固定の住所<br><span style="font-size:12px;color:#666">（KOT連携に必須）</span></td>
+      <td style="color:var(--green)"><strong>¥708</strong></td>
+      <td style="color:var(--red)"><strong>¥7,346</strong></td>
+      <td style="color:var(--red)"><strong>¥5,413</strong></td>
     </tr>
     <tr>
-      <td>⚖️ ロードバランサー</td>
-      <td>内蔵<br><strong>¥0</strong></td>
-      <td>ALB<br><strong>¥2,902</strong></td>
-      <td>内蔵<br><strong>¥0</strong></td>
+      <td>⚖️ 受付<br><span style="font-size:12px;color:#666">（アクセスの振り分け）</span></td>
+      <td style="color:var(--green)"><strong>¥0</strong><br><span style="font-size:12px">無料で付いてくる</span></td>
+      <td><strong>¥2,902</strong><br><span style="font-size:12px">別料金</span></td>
+      <td style="color:var(--green)"><strong>¥0</strong><br><span style="font-size:12px">無料で付いてくる</span></td>
     </tr>
     <tr class="total-row">
-      <td>インフラ月額合計</td>
+      <td>月額合計</td>
       <td style="color:var(--green)"><strong>約¥2,400</strong></td>
       <td>約¥13,900</td>
       <td>約¥7,400</td>
@@ -55,154 +94,135 @@
   </table>
 
   <div class="highlight-box red">
-    <strong>⚠️ 固定IP（NAT）のコスト差が決定的</strong>
-    GCP ¥708 / Azure ¥5,413 / AWS ¥7,346<br>
-    KOT API連携に必須の固定IPだけで、<strong>GCPはAWSの約1/10、Azureの約1/8</strong>。
+    <strong>⚠️ 一番大きな差は「固定の住所」代</strong>
+    Google: <strong>¥708</strong> / Microsoft: ¥5,413 / Amazon: ¥7,346<br>
+    同じ「住所を固定する」だけなのに、<strong>Amazonは Googleの約10倍</strong>！
   </div>
 
-  <h3>年間コスト比較（インフラ＋GWS＋ドメイン込み）</h3>
-  <table>
-    <tr><th>期間</th><th style="color:var(--green)">GCP</th><th>AWS</th><th style="color:#0078d4">Azure</th></tr>
-    <tr><td>月額</td><td style="color:var(--green)"><strong>¥4,300</strong></td><td>¥15,800</td><td>¥9,300</td></tr>
-    <tr><td>年額</td><td style="color:var(--green)"><strong>¥51,100</strong></td><td>¥189,600</td><td>¥111,600</td></tr>
-    <tr><td>5年累計</td><td style="color:var(--green)"><strong>¥248,000</strong></td><td>¥948,000</td><td>¥558,000</td></tr>
-    <tr><td>初回無料クレジット</td><td style="color:var(--green)"><strong>$300（¥45,000）</strong></td><td>なし</td><td>$200（¥30,000）</td></tr>
-  </table>
-
+  <h3>年間でいくら違う？</h3>
   <div class="cost-cards">
     <div class="cost-card">
-      <div class="label">GCP 年額</div>
+      <div class="label">Google 年額</div>
       <div class="amount">¥51,100</div>
-      <div class="sub">最安</div>
+      <div class="sub">一番安い</div>
     </div>
     <div class="cost-card" style="background:linear-gradient(135deg,#0078d4,#004578)">
-      <div class="label">Azure 年額</div>
+      <div class="label">Microsoft 年額</div>
       <div class="amount">¥111,600</div>
-      <div class="sub">GCPの2.2倍</div>
+      <div class="sub">Googleの約2倍</div>
     </div>
     <div class="cost-card" style="background:linear-gradient(135deg,#d93025,#a50e0e)">
-      <div class="label">AWS 年額</div>
+      <div class="label">Amazon 年額</div>
       <div class="amount">¥189,600</div>
-      <div class="sub">GCPの3.7倍</div>
+      <div class="sub">Googleの約4倍</div>
     </div>
   </div>
 </div>
 
-<!-- 2. サービス対応表 -->
+<!-- 2. 使わない時どうなる？ -->
 <div class="page">
-  <h2>2. サービス対応表</h2>
-  <p>社労士ポータルで使用する各機能の、3社での対応サービス名です。</p>
+  <h2>2. 使わない時間の課金はどうなる？</h2>
+  <p>社労士ポータルは1日のアクセスが100回程度。<strong>深夜や休日は誰も使いません</strong>。<br>
+  使わない間も料金がかかるかどうかは、とても大事なポイントです。</p>
 
   <table>
-    <tr><th>用途</th><th>GCP</th><th>AWS</th><th>Azure</th></tr>
-    <tr><td>コンテナ実行<br>（サーバーレス）</td><td><strong>Cloud Run</strong></td><td>ECS Fargate /<br>App Runner</td><td><strong>Container Apps</strong></td></tr>
-    <tr><td>マネージドDB<br>（PostgreSQL）</td><td><strong>Cloud SQL</strong></td><td>RDS /<br>Aurora Serverless</td><td>Database for<br>PostgreSQL</td></tr>
-    <tr><td>固定IP（NAT）</td><td><strong>Cloud NAT</strong></td><td>NAT Gateway</td><td>NAT Gateway</td></tr>
-    <tr><td>オブジェクトストレージ</td><td>Cloud Storage</td><td>S3</td><td>Blob Storage</td></tr>
-    <tr><td>CDN</td><td>Cloud CDN</td><td>CloudFront</td><td>Front Door</td></tr>
-    <tr><td>DNS</td><td>Cloud DNS</td><td>Route 53</td><td>Azure DNS</td></tr>
-    <tr><td>SSL証明書</td><td>自動（無料）</td><td>ACM（無料）</td><td>App Service<br>マネージド証明書</td></tr>
-    <tr><td>CI/CD</td><td>Cloud Build</td><td>CodePipeline</td><td>Azure DevOps</td></tr>
-    <tr><td>ログ管理</td><td>Cloud Logging</td><td>CloudWatch</td><td>Azure Monitor</td></tr>
-    <tr><td>AI / ML</td><td><strong>Vertex AI</strong><br>Gemini</td><td>Bedrock /<br>SageMaker</td><td>Azure OpenAI<br>Service</td></tr>
-    <tr><td>業務ツール連携</td><td><strong>Google Workspace</strong><br>GAS</td><td>なし</td><td>Microsoft 365</td></tr>
+    <tr><th>項目</th><th style="color:var(--green)">Google</th><th>Amazon</th><th style="color:#0078d4">Microsoft</th></tr>
+    <tr><td>誰も使ってない時</td><td style="color:var(--green)"><strong>¥0（自動停止）</strong></td><td style="color:var(--red)"><strong>課金され続ける</strong></td><td style="color:var(--green)"><strong>¥0（自動停止）</strong></td></tr>
+    <tr><td>再開までの待ち時間</td><td>0.5〜2秒</td><td>なし（常に動いてるので）</td><td>1〜3秒</td></tr>
   </table>
 
-  <h2>3. 0スケール（ゼロスケール）対応</h2>
-  <p>リクエストがない時にインスタンスを0に縮退できるか。コストに直結します。</p>
-  <table>
-    <tr><th>項目</th><th>GCP Cloud Run</th><th>AWS Fargate</th><th>Azure Container Apps</th></tr>
-    <tr><td>0スケール</td><td style="color:var(--green)"><strong>✅ 対応</strong></td><td style="color:var(--red)"><strong>❌ 非対応</strong></td><td style="color:var(--green)"><strong>✅ 対応</strong></td></tr>
-    <tr><td>影響</td><td>使わない時 = ¥0</td><td>常時稼働 = 常時課金</td><td>使わない時 = ¥0</td></tr>
-    <tr><td>コールドスタート</td><td>0.5〜2秒</td><td>なし（常時稼働）</td><td>1〜3秒</td></tr>
-  </table>
   <div class="highlight-box blue">
-    <strong>💡 小規模ポータルでは0スケール対応が重要</strong>
-    社労士ポータルは1日100リクエスト程度。0スケール非対応のAWSでは「誰も使ってない深夜も課金」されます。
+    <strong>💡 たとえるなら…</strong>
+    <strong>Google・Microsoft</strong> = 必要な時だけ電気をつける → 省エネ<br>
+    <strong>Amazon</strong> = 24時間電気つけっぱなし → もったいない<br><br>
+    小規模なポータルでは、<strong>使った分だけ払える方がお得</strong>です。
   </div>
-</div>
 
-<!-- 3. 強み・弱み -->
-<div class="page">
-  <h2>4. 3社の強み・弱み比較</h2>
-
-  <h3>GCP（Google Cloud Platform）</h3>
+  <h2>3. 初回の無料お試しは？</h2>
   <table>
-    <tr><th style="width:50%">💪 強み</th><th>⚡ 弱み</th></tr>
-    <tr><td>✅ <strong>AI / ML が圧倒的に強い</strong>（Vertex AI, Gemini）</td><td>❌ AWSに比べ情報量・コミュニティが小さい</td></tr>
-    <tr><td>✅ <strong>コンテナ技術のリーダー</strong>（Kubernetes開発元）</td><td>❌ エンタープライズ実績ではAWS/Azureに劣る</td></tr>
-    <tr><td>✅ <strong>Google Workspace と同一アカウント管理</strong></td><td>❌ サービス数がAWSほど多くない</td></tr>
-    <tr><td>✅ <strong>無料枠が充実</strong>（$300クレジット、Cloud Run無料枠）</td><td>❌ サポートプランが高め</td></tr>
-    <tr><td>✅ <strong>UIが直感的</strong>で学習コストが低い</td><td></td></tr>
-    <tr><td>✅ <strong>固定IP（NAT）が圧倒的に安い</strong></td><td></td></tr>
-  </table>
-
-  <h3>AWS（Amazon Web Services）</h3>
-  <table>
-    <tr><th style="width:50%">💪 強み</th><th>⚡ 弱み</th></tr>
-    <tr><td>✅ <strong>市場シェアNo.1</strong>（業界標準）</td><td>❌ <strong>NAT Gatewayが非常に高い</strong>（$0.062/h）</td></tr>
-    <tr><td>✅ <strong>サービス数が最多</strong>（200以上）</td><td>❌ <strong>料金体系が複雑</strong>で把握が困難</td></tr>
-    <tr><td>✅ <strong>技術情報・事例が最も豊富</strong></td><td>❌ 0スケール非対応（Fargate）で小規模に不向き</td></tr>
-    <tr><td>✅ エンジニア採用がしやすい</td><td>❌ Google Workspace連携なし</td></tr>
-    <tr><td>✅ 大規模ワークロードに最適</td><td>❌ 初回無料クレジットなし</td></tr>
-  </table>
-
-  <h3>Azure（Microsoft Azure）</h3>
-  <table>
-    <tr><th style="width:50%">💪 強み</th><th>⚡ 弱み</th></tr>
-    <tr><td>✅ <strong>Microsoft 365とシームレス連携</strong></td><td>❌ <strong>NAT Gatewayが高い</strong>（$0.045/h）</td></tr>
-    <tr><td>✅ <strong>Azure OpenAI Service</strong>（GPT系AIを法人利用可能）</td><td>❌ MS製品以外との相性がやや劣る</td></tr>
-    <tr><td>✅ エンタープライズ向け機能が充実</td><td>❌ UIの操作性がGCPに比べ複雑</td></tr>
-    <tr><td>✅ Container Appsは0スケール対応</td><td>❌ 日本語の技術情報がAWSより少ない</td></tr>
-    <tr><td>✅ $200無料クレジット（初回）</td><td>❌ GWSアドオン連携は不可</td></tr>
+    <tr><th>クラウド</th><th>無料クレジット</th><th>つまり</th></tr>
+    <tr><td style="color:var(--green)"><strong>Google</strong></td><td style="color:var(--green)"><strong>$300（約¥45,000分）</strong></td><td>約3ヶ月分のインフラ費用が無料</td></tr>
+    <tr><td style="color:#0078d4"><strong>Microsoft</strong></td><td>$200（約¥30,000分）</td><td>約2ヶ月分が無料</td></tr>
+    <tr><td><strong>Amazon</strong></td><td style="color:var(--red)">なし</td><td>初日から全額自腹</td></tr>
   </table>
 </div>
 
-<!-- 4. 今回のケースでの結論 -->
+<!-- 3. 3社の特徴 -->
 <div class="page">
-  <h2>5. 今回のケースでの総合評価</h2>
+  <h2>4. 3社の得意・不得意</h2>
+
+  <h3>🟢 Google Cloud（GCP）</h3>
+  <table>
+    <tr><th style="width:50%">👍 得意なこと</th><th>👎 苦手なこと</th></tr>
+    <tr><td>✅ <strong>AIが一番強い</strong>（Gemini・生成AI）</td><td>❌ Amazonほど「みんなが使ってる」感はない</td></tr>
+    <tr><td>✅ <strong>Gmail・Googleドライブと同じアカウントで管理</strong></td><td>❌ 機能の種類はAmazonより少ない</td></tr>
+    <tr><td>✅ <strong>小規模なら圧倒的に安い</strong></td><td></td></tr>
+    <tr><td>✅ <strong>画面がわかりやすい</strong>（操作が直感的）</td><td></td></tr>
+    <tr><td>✅ <strong>固定IPが安い</strong></td><td></td></tr>
+  </table>
+
+  <h3>🟠 Amazon（AWS）</h3>
+  <table>
+    <tr><th style="width:50%">👍 得意なこと</th><th>👎 苦手なこと</th></tr>
+    <tr><td>✅ <strong>世界で一番使われている</strong>（業界No.1）</td><td>❌ <strong>固定IPが異常に高い</strong>（月¥7,346）</td></tr>
+    <tr><td>✅ <strong>できることが一番多い</strong>（200以上のサービス）</td><td>❌ <strong>料金の仕組みが複雑</strong>でわかりにくい</td></tr>
+    <tr><td>✅ ネットに情報がたくさんある</td><td>❌ 使わなくても課金される（常時稼働前提）</td></tr>
+    <tr><td></td><td>❌ Google Workspaceとの連携はできない</td></tr>
+  </table>
+
+  <h3>🔵 Microsoft（Azure）</h3>
+  <table>
+    <tr><th style="width:50%">👍 得意なこと</th><th>👎 苦手なこと</th></tr>
+    <tr><td>✅ <strong>WordやExcel（Microsoft 365）と相性抜群</strong></td><td>❌ <strong>固定IPがやや高い</strong>（月¥5,413）</td></tr>
+    <tr><td>✅ <strong>ChatGPT（OpenAI）を法人利用できる</strong></td><td>❌ Google Workspaceとの連携はできない</td></tr>
+    <tr><td>✅ 使わない時は自動停止（省エネ）</td><td>❌ 画面が少し複雑</td></tr>
+  </table>
+</div>
+
+<!-- 4. 結論 -->
+<div class="page">
+  <h2>5. 結局どれがいい？</h2>
+  <p>社労士ポータルの場合で評価します。</p>
 
   <table>
-    <tr><th>評価項目</th><th style="color:var(--green)">GCP</th><th>AWS</th><th style="color:#0078d4">Azure</th></tr>
-    <tr><td>💰 コスト</td><td style="color:var(--green)"><strong>◎ 最安</strong></td><td>△ 高い</td><td>○ 中間</td></tr>
-    <tr><td>🔒 固定IP費用</td><td style="color:var(--green)"><strong>◎ ¥708</strong></td><td style="color:var(--red)">✕ ¥7,346</td><td>△ ¥5,413</td></tr>
-    <tr><td>⚡ 0スケール</td><td style="color:var(--green)"><strong>◎ 対応</strong></td><td style="color:var(--red)">✕ 非対応</td><td style="color:var(--green)">◎ 対応</td></tr>
-    <tr><td>📧 GWS連携</td><td style="color:var(--green)"><strong>◎ 同一アカウント</strong></td><td>✕ なし</td><td>△ M365は可</td></tr>
-    <tr><td>🤖 AI活用</td><td style="color:var(--green)"><strong>◎ Gemini</strong></td><td>○ Bedrock</td><td>○ Azure OpenAI</td></tr>
-    <tr><td>🔧 GASアドオン</td><td style="color:var(--green)"><strong>◎ ネイティブ</strong></td><td>✕ 不可</td><td>✕ 不可</td></tr>
-    <tr><td>🆓 無料クレジット</td><td style="color:var(--green)"><strong>◎ $300</strong></td><td>✕ なし</td><td>○ $200</td></tr>
-    <tr><td>📚 情報量</td><td>○ 十分</td><td style="color:var(--green)">◎ 最多</td><td>○ 十分</td></tr>
-    <tr><td>🇯🇵 東京リージョン</td><td style="color:var(--green)">◎ あり</td><td style="color:var(--green)">◎ あり</td><td style="color:var(--green)">◎ あり</td></tr>
-    <tr class="total-row"><td><strong>総合評価</strong></td><td style="color:var(--green)"><strong>★★★★★</strong></td><td>★★☆☆☆</td><td>★★★☆☆</td></tr>
+    <tr><th>チェックポイント</th><th style="color:var(--green)">Google</th><th>Amazon</th><th style="color:#0078d4">Microsoft</th></tr>
+    <tr><td>💰 安さ</td><td style="color:var(--green)"><strong>◎ 最安</strong></td><td>△ 高い</td><td>○ 中間</td></tr>
+    <tr><td>🔒 固定IPの安さ<br><span style="font-size:11px;color:#666">（KOT連携に必須）</span></td><td style="color:var(--green)"><strong>◎</strong></td><td style="color:var(--red)">✕ 10倍高い</td><td>△ 8倍高い</td></tr>
+    <tr><td>💤 使ってない時の料金</td><td style="color:var(--green)"><strong>◎ ¥0</strong></td><td style="color:var(--red)">✕ 課金される</td><td style="color:var(--green)">◎ ¥0</td></tr>
+    <tr><td>📧 Gmail・Googleドライブとの連携</td><td style="color:var(--green)"><strong>◎ 同じアカウント</strong></td><td>✕ できない</td><td>✕ できない</td></tr>
+    <tr><td>🤖 AI活用<br><span style="font-size:11px;color:#666">（将来の業務自動化）</span></td><td style="color:var(--green)"><strong>◎ Gemini</strong></td><td>○</td><td>○ ChatGPT系</td></tr>
+    <tr><td>🆓 お試し無料クレジット</td><td style="color:var(--green)"><strong>◎ ¥45,000分</strong></td><td>✕ なし</td><td>○ ¥30,000分</td></tr>
+    <tr><td>🔧 業務ツール（GASアドオン）</td><td style="color:var(--green)"><strong>◎ そのまま使える</strong></td><td>✕</td><td>✕</td></tr>
+    <tr class="total-row"><td><strong>今回のおすすめ度</strong></td><td style="color:var(--green)"><strong>★★★★★</strong></td><td>★★☆☆☆</td><td>★★★☆☆</td></tr>
   </table>
 
   <div class="highlight-box green">
-    <strong>✅ 結論: GCPが最適</strong>
-    ① コストが最安（AWSの1/3、Azureの1/2）<br>
-    ② Google Workspace利用中 → 同一アカウントで一元管理<br>
-    ③ 固定IPが圧倒的に安い → KOT API連携のコスト最適<br>
-    ④ GASアドオンとの連携が唯一可能<br>
-    ⑤ $300無料クレジットで約3ヶ月無料試用
+    <strong>✅ 結論: 今回は Google が最適です</strong>
+    <strong>理由はシンプルに5つ：</strong><br><br>
+    ① <strong>一番安い</strong>（Amazonの約1/4、Microsoftの約1/2）<br>
+    ② <strong>固定IPが安い</strong> → KOT連携のコスト最適<br>
+    ③ <strong>Google Workspaceと同じアカウント</strong>で全部管理できる<br>
+    ④ <strong>業務自動化ツール（GAS）がそのまま使える</strong><br>
+    ⑤ <strong>¥45,000分の無料お試し</strong>付き
   </div>
 
-  <h3>もしAzureを選ぶなら？</h3>
+  <h3>「Microsoftでもいいのでは？」への回答</h3>
   <div class="highlight-box blue">
-    <strong>💡 Azureが適するケース</strong>
-    Microsoft 365を全社で利用していて、Active DirectoryやTeamsとの連携が最優先の場合。<br>
-    今回のケースでは<strong>Google Workspaceを契約するため、GCPとの親和性が圧倒的に高い</strong>。
+    <strong>💡 Microsoftが向いているのは…</strong>
+    会社でWord・Excel・Teamsを中心に使っていて、その延長でクラウドも統一したい場合。<br>
+    今回は<strong>Google Workspace（Gmail・Googleドライブ）を使うので、Googleで統一する方が自然</strong>です。
   </div>
 
-  <h3>もしAWSを選ぶなら？</h3>
+  <h3>「Amazonが業界No.1なのに選ばないの？」への回答</h3>
   <div class="highlight-box orange">
-    <strong>⚠️ AWSが適するケース</strong>
-    大規模トラフィック・複数リージョン展開・豊富なAWSエンジニアが社内にいる場合。<br>
-    今回のような<strong>小規模1拠点のポータルには、コスト・機能ともにオーバースペック</strong>。
+    <strong>⚠️ Amazonが向いているのは…</strong>
+    大企業が大量のサーバーを管理する場合。Netflix や Airbnb のような大規模サービス向き。<br>
+    今回のような<strong>小規模ポータルでは「使ってない時も課金」「固定IPが高い」でコスパが悪い</strong>。
   </div>
 
   <div class="footer">
-    <p>※ 本比較表は2026年5月時点の公開料金に基づく概算です。</p>
-    <p>※ Azure NAT Gateway: $0.045/h × 730h + IP $0.005/h × 730h = $36.50 → ¥5,413</p>
-    <p>※ Azure PostgreSQL B1ms: $12.41/月 + ストレージ → 約¥1,862</p>
+    <p>※ 料金は2026年5月時点の概算です（為替 $1 = ¥150）。</p>
+    <p>※ 各社とも東京リージョン（日本国内のデータセンター）で計算しています。</p>
   </div>
 </div>
 </body>
