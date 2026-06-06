@@ -63,3 +63,7 @@ HANDOVER.md
 # MochiSync リダイレクト（ドライブアプリ回避）
 !mochisync/
 !mochisync/**
+
+# PDFuse Sync リダイレクト（ドライブアプリ回避）
+!pdfuse/
+!pdfuse/**
