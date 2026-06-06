@@ -55,3 +55,11 @@ HANDOVER.md
 # GCPインフラ提案書
 !proposal/
 !proposal/**
+
+# 任用試験学習ページ（非公開リンク）
+!ninyou/
+!ninyou/**
+
+# MochiSync リダイレクト（ドライブアプリ回避）
+!mochisync/
+!mochisync/**
