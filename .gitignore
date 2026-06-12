@@ -35,10 +35,14 @@
 開業届/
 gas/
 _backup/
-docs/
 HANDOVER.md
 *.pdf
 *.bak
+
+# docs は原則除外。react-migration の計画書のみ公開
+docs/*
+!docs/react-migration/
+!docs/react-migration/**
 
 # Yoom導入支援LP
 !yoom-lp/
