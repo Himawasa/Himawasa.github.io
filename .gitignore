@@ -52,9 +52,8 @@ HANDOVER.md
 !sharoushi-portal/
 !sharoushi-portal/**
 
-# GCPインフラ提案書
-!proposal/
-!proposal/**
+# GCPインフラ提案書（内部資料のため非公開）
+# proposal/ は追跡対象から除外済み（git rm --cached -r proposal/）
 
 # 任用試験学習ページ（非公開リンク）
 !ninyou/
