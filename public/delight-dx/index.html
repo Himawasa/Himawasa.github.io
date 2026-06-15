@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デライトDX 賃金データ変換プロジェクト | HiMaWaSa Sync</title>
+<meta name="description" content="社会保険労務士法人デライトコンサルティング様向け 賃金データ変換プロジェクトのご説明">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #0a0e1a;
+    --bg-card: #121827;
+    --bg-card2: #1a2236;
+    --border: #2a3450;
+    --text: #c9d1e0;
+    --text-light: #8892a8;
+    --accent-blue: #4f8ff7;
+    --accent-cyan: #38bdf8;
+    --accent-green: #34d399;
+    --accent-orange: #fb923c;
+    --accent-purple: #a78bfa;
+    --accent-pink: #f472b6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 15px;
+  }
+
+  /* ===== ヘッダー ===== */
+  .hero {
+    position: relative;
+    padding: 80px 20px 60px;
+    text-align: center;
+    background: linear-gradient(160deg, #0d1526 0%, #111b33 40%, #0f1729 100%);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(79,143,247,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(79,143,247,0.12);
+    border: 1px solid rgba(79,143,247,0.3);
+    border-radius: 20px;
+    padding: 4px 18px;
+    font-size: 0.8em;
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  .hero h1 {
+    font-size: 2.2em;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .hero .subtitle {
+    font-size: 1.05em;
+    color: var(--text-light);
+    margin-bottom: 6px;
+  }
+  .hero .client {
+    font-size: 0.9em;
+    color: var(--accent-cyan);
+  }
+
+  /* ===== ナビ ===== */
+  .nav-bar {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .nav-bar a {
+    display: inline-block;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 14px 18px;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-bar a:hover {
+    color: var(--accent-blue);
+    border-bottom-color: var(--accent-blue);
+  }
+
+  /* ===== コンテナ ===== */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== セクション ===== */
+  .section { padding: 50px 0; }
+  .section + .section { border-top: 1px solid rgba(42,52,80,0.5); }
+  .section-label {
+    display: inline-block;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    background: rgba(79,143,247,0.1);
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .section h2 {
+    font-size: 1.6em;
+    font-weight: 800;
+    color: #f0f4f8;
+    margin-bottom: 20px;
+  }
+
+  /* ===== フロー図 ===== */
+  .flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 30px 0;
+    flex-wrap: wrap;
+  }
+  .flow-item {
+    text-align: center;
+    padding: 18px 22px;
+    border-radius: 14px;
+    min-width: 150px;
+    position: relative;
+  }
+  .flow-item.input {
+    background: linear-gradient(135deg, #1a2236, #1e2a3f);
+    border: 1.5px solid var(--accent-orange);
+  }
+  .flow-item.process {
+    background: linear-gradient(135deg, #152040, #1a2d52);
+    border: 1.5px solid var(--accent-blue);
+  }
+  .flow-item.output {
+    background: linear-gradient(135deg, #142a24, #1a3630);
+    border: 1.5px solid var(--accent-green);
+  }
+  .flow-item .fi-label {
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .flow-item.input .fi-label { color: var(--accent-orange); }
+  .flow-item.process .fi-label { color: var(--accent-blue); }
+  .flow-item.output .fi-label { color: var(--accent-green); }
+  .flow-item .fi-title { font-weight: 700; font-size: 1em; color: #e8ecf2; }
+  .flow-item .fi-sub { font-size: 0.8em; color: var(--text-light); margin-top: 4px; }
+  .flow-connector {
+    font-size: 1.6em;
+    color: #3a4a6a;
+    padding: 0 10px;
+  }
+
+  /* ===== カード ===== */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0; }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent-blue); }
+  .card .card-icon { font-size: 1.8em; margin-bottom: 10px; }
+  .card h4 { font-size: 1em; font-weight: 700; color: #e0e6ef; margin-bottom: 8px; }
+  .card p { font-size: 0.9em; color: var(--text-light); }
+
+  /* ===== テーブル ===== */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.88em;
+  }
+  .data-table th {
+    background: var(--bg-card2);
+    color: var(--accent-cyan);
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+  .data-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid rgba(42,52,80,0.4);
+    color: var(--text);
+  }
+  .data-table tr:hover td { background: rgba(79,143,247,0.04); }
+  .badge-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 0.78em;
+    font-weight: 600;
+  }
+  .badge-tag.copy { background: rgba(56,189,248,0.12); color: var(--accent-cyan); }
+  .badge-tag.sum { background: rgba(167,139,250,0.12); color: var(--accent-purple); }
+  .badge-tag.manual { background: rgba(251,146,60,0.12); color: var(--accent-orange); }
+
+  /* ===== 比較ボックス ===== */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .compare-panel {
+    background: var(--bg-card);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .compare-panel .cp-header {
+    padding: 12px 18px;
+    font-weight: 700;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+  }
+  .compare-panel.blue .cp-header { background: rgba(79,143,247,0.1); color: var(--accent-blue); }
+  .compare-panel.purple .cp-header { background: rgba(167,139,250,0.1); color: var(--accent-purple); }
+  .compare-panel pre {
+    margin: 0;
+    padding: 16px 18px;
+    font-size: 0.82em;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+  }
+
+  /* ===== ハイライト ===== */
+  .insight {
+    background: linear-gradient(135deg, rgba(79,143,247,0.06), rgba(56,189,248,0.04));
+    border: 1px solid rgba(79,143,247,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .insight.green {
+    background: linear-gradient(135deg, rgba(52,211,153,0.06), rgba(52,211,153,0.02));
+    border-color: rgba(52,211,153,0.2);
+  }
+  .insight .ins-icon { font-size: 1.4em; margin-right: 6px; vertical-align: middle; }
+  .insight strong { color: #e8ecf2; }
+
+  /* ===== ステップ ===== */
+  .step-timeline { list-style: none; padding: 0; margin: 20px 0; }
+  .step-timeline li {
+    position: relative;
+    padding: 16px 16px 16px 54px;
+    margin-bottom: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .step-timeline li .step-num {
+    position: absolute;
+    left: 14px; top: 16px;
+    width: 28px; height: 28px;
+    background: var(--accent-blue);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-size: 0.82em;
+    font-weight: 700;
+  }
+  .step-timeline li strong { color: #e8ecf2; }
+  .step-timeline li .time-tag {
+    display: inline-block;
+    background: rgba(251,146,60,0.1);
+    color: var(--accent-orange);
+    padding: 1px 8px;
+    border-radius: 6px;
+    font-size: 0.75em;
+    margin-left: 6px;
+    font-weight: 600;
+  }
+
+  /* ===== ロードマップ ===== */
+  .roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+  .rm-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  .rm-card.active { border-color: var(--accent-green); }
+  .rm-card.active::after {
+    content: '← いまここ';
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7em;
+    color: var(--accent-green);
+    font-weight: 600;
+  }
+  .rm-card .rm-phase {
+    font-size: 0.7em;
+    color: var(--text-light);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .rm-card h4 { font-size: 0.95em; color: #e0e6ef; margin-bottom: 4px; }
+  .rm-card p { font-size: 0.8em; color: var(--text-light); }
+
+  /* ===== フッター ===== */
+  .footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--text-light);
+    font-size: 0.82em;
+    border-top: 1px solid var(--border);
+  }
+  .footer .logo {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--accent-blue);
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 1.6em; }
+    .flow-diagram { flex-direction: column; }
+    .flow-connector { transform: rotate(90deg); }
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== ヘッダー ===== -->
+<header class="hero">
+  <div class="hero-badge">DX PROJECT 2026</div>
+  <h1>賃金データ変換プロジェクト</h1>
+  <p class="subtitle">バラバラな賃金台帳を、ボタン1つでシャルフCSVに変換する</p>
+  <p class="client">社会保険労務士法人デライトコンサルティング 様</p>
+</header>
+
+<!-- ===== ナビ ===== -->
+<nav class="nav-bar">
+  <a href="#goal">ゴール</a>
+  <a href="#flow">処理の流れ</a>
+  <a href="#items">必要な項目</a>
+  <a href="#data">データの形</a>
+  <a href="#json">仕組み</a>
+  <a href="#demo">デモ</a>
+  <a href="#roadmap">今後の予定</a>
+</nav>
+
+<div class="container">
+
+<!-- ===== ゴール ===== -->
+<div class="section" id="goal">
+  <span class="section-label">GOAL</span>
+  <h2>このプロジェクトで何を実現するか</h2>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">😫</div>
+      <h4>現在の課題</h4>
+      <p>顧問先ごとにバラバラな形式の賃金データを、毎月手作業でシャルフに入力している。時間がかかり、ミスが起きやすく、新人への教育も大変。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h4>解決策</h4>
+      <p>Pythonプログラムで自動変換。どんな形式のデータでも、シャルフに取り込めるCSVファイルを自動生成する。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✨</div>
+      <h4>メリット</h4>
+      <p>作業時間の大幅短縮、入力ミスゼロ、スタッフの属人化を解消。新しい顧問先にも設定ファイルの追加だけで対応可能。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 処理の流れ ===== -->
+<div class="section" id="flow">
+  <span class="section-label">FLOW</span>
+  <h2>処理の流れ</h2>
+
+  <div class="flow-diagram">
+    <div class="flow-item input">
+      <div class="fi-label">INPUT</div>
+      <div class="fi-title">顧問先のデータ</div>
+      <div class="fi-sub">CSV / Excel<br>形式はバラバラ</div>
+    </div>
+    <div class="flow-connector">→</div>
+    <div class="flow-item process">
+      <div class="fi-label">CONVERT</div>
+      <div class="fi-title">変換プログラム</div>
+      <div class="fi-sub">Python + JSON<br>設定ファイルで制御</div>
+    </div>
+    <div class="flow-connector">→</div>
+    <div class="flow-item output">
+      <div class="fi-label">OUTPUT</div>
+      <div class="fi-title">シャルフCSV</div>
+      <div class="fi-sub">必要な10項目だけ<br>そのまま取り込み</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <span class="ins-icon">💡</span>
+    <strong>ポイント：</strong>変換ルール（どの列をどこに入れるか）はJSONファイルに書いてあります。新しい顧問先が増えたら、JSONを1つ追加するだけ。プログラム本体の変更は不要です。
+  </div>
+</div>
+
+<!-- ===== 必要な項目 ===== -->
+<div class="section" id="items">
+  <span class="section-label">ITEMS</span>
+  <h2>シャルフに入れる項目（10項目に絞り込み）</h2>
+
+  <p>シャルフのテンプレートは全54列ですが、東様の検証により<strong>必要なのは10項目だけ</strong>と判明しました。</p>
+
+  <table class="data-table">
+    <tr>
+      <th>#</th>
+      <th>シャルフの項目名</th>
+      <th>内容</th>
+      <th>給与奉行では</th>
+      <th>弥生給与では</th>
+      <th>変換</th>
+    </tr>
+    <tr><td>1</td><td>個人コード</td><td>従業員番号</td><td>社員番号</td><td>セルC7〜</td><td><span class="badge-tag copy">コピー</span></td></tr>
+    <tr><td>2</td><td>氏名</td><td>従業員名</td><td>氏名</td><td>セルC8〜</td><td><span class="badge-tag copy">コピー</span></td></tr>
+    <tr><td>3</td><td>支給月度</td><td>何月分か</td><td colspan="2" style="text-align:center">実行時に指定</td><td><span class="badge-tag manual">手入力</span></td></tr>
+    <tr><td>4</td><td>給与支給日</td><td>支給日</td><td>支給日</td><td>実行時に指定</td><td><span class="badge-tag copy">コピー</span></td></tr>
+    <tr><td>5</td><td>労働日数</td><td>出勤日数</td><td>出勤日数</td><td>出勤日数</td><td><span class="badge-tag copy">コピー</span></td></tr>
+    <tr><td>6</td><td>有給休暇日数</td><td>有給消化</td><td>有休日数</td><td>有休日数</td><td><span class="badge-tag copy">コピー</span></td></tr>
+    <tr><td>7</td><td>休日労働日数</td><td>休日出勤</td><td>休出日数</td><td>休日出勤+法休出勤</td><td><span class="badge-tag sum">合算</span></td></tr>
+    <tr><td>8</td><td>特別休暇日数</td><td>慶弔休暇等</td><td>特休日数</td><td>特別休暇日数</td><td><span class="badge-tag copy">コピー</span></td></tr>
+    <tr><td>9</td><td>欠勤日数</td><td>欠勤</td><td>欠勤日数</td><td>欠勤日数</td><td><span class="badge-tag copy">コピー</span></td></tr>
+    <tr><td>10</td><td>支給総額</td><td>総支給額</td><td>総支給金額</td><td>支給合計</td><td><span class="badge-tag copy">コピー</span></td></tr>
+  </table>
+
+  <div class="insight green">
+    <span class="ins-icon">⚡</span>
+    <strong>基本給・手当・控除は全部不要です。</strong>控除（健康保険、厚生年金など）はシャルフ側で計算するため、入力不要。「この人は何日出勤して、いくらもらった」がわかれば十分です。
+  </div>
+</div>
+
+<!-- ===== データの形 ===== -->
+<div class="section" id="data">
+  <span class="section-label">DATA FORMAT</span>
+  <h2>データの構造：縦並びと横並び</h2>
+
+  <p>今回の4つのサンプルは、実は<strong>2つのパターン</strong>だけです。</p>
+
+  <div class="compare-grid">
+    <div class="compare-panel blue">
+      <div class="cp-header">🟢 給与奉行 ＝ 縦並び（1行＝1人）</div>
+<pre>
+社員番号  氏名    出勤  支給総額
+────────────────────────
+   5    田中太郎  20   208,881
+  24    鈴木花子  20   373,984
+  26    佐藤一郎  20   481,931
+
+→ 上から順に読むだけでOK
+→ 普通のExcel表と同じ感覚
+</pre>
+    </div>
+    <div class="compare-panel purple">
+      <div class="cp-header">🟡 弥生給与 ＝ 横並び（1列＝1人）</div>
+<pre>
+            田中  鈴木  佐藤
+──────────────────────
+出勤日数     19    17    19
+有休日数      0     1     0
+支給合計  641554 512340 580000
+
+→ 行と列が逆！
+→ まず「縦に倒す」処理が必要
+</pre>
+    </div>
+  </div>
+
+  <div class="insight">
+    <span class="ins-icon">💡</span>
+    <strong>やることは同じ。</strong>どちらも最終的に「1人1行」にして、10項目を抜き出すだけ。弥生は「横→縦」に変換する処理が1つ加わるだけです。
+  </div>
+
+  <table class="data-table">
+    <tr>
+      <th>種類</th>
+      <th>ファイル</th>
+      <th>形式</th>
+      <th>構造</th>
+      <th>データ量</th>
+    </tr>
+    <tr><td>給与奉行</td><td>ALC社</td><td>CSV</td><td>縦並び</td><td>97列 × 404人</td></tr>
+    <tr><td>給与奉行</td><td>MRS社</td><td>CSV</td><td>縦並び</td><td>238列 × 148人</td></tr>
+    <tr><td>弥生給与</td><td>KAG社</td><td>Excel</td><td>横並び</td><td>73行 × 約40人</td></tr>
+    <tr><td>弥生給与</td><td>NZK社</td><td>Excel</td><td>横並び</td><td>（小規模）</td></tr>
+  </table>
+</div>
+
+<!-- ===== 仕組み ===== -->
+<div class="section" id="json">
+  <span class="section-label">ARCHITECTURE</span>
+  <h2>プログラムの仕組み</h2>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h4>convert.py（プログラム本体）</h4>
+      <p>データを読んで、変換して、CSVに出す処理。ここは変更不要。1つだけで全パターンに対応。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h4>JSON（設定ファイル）</h4>
+      <p>「出勤日数 → 労働日数にコピー」のような変換ルール。顧問先ごとに1ファイル作成。</p>
+    </div>
+  </div>
+
+  <p style="margin-top:20px">JSONファイルの中身はとてもシンプルです：</p>
+
+  <div class="compare-grid">
+    <div class="compare-panel blue">
+      <div class="cp-header">変換ルール①：そのままコピー</div>
+<pre>
+"労働日数": {
+  "元の列名": "出勤日数",
+  "方法": "そのままコピー"
+}
+
+→ 入力の「出勤日数」を
+  シャルフの「労働日数」にコピー
+</pre>
+    </div>
+    <div class="compare-panel purple">
+      <div class="cp-header">変換ルール②：複数列を合算</div>
+<pre>
+"休日労働日数": {
+  "元の列名": ["休日出勤日数",
+              "法休出勤日数"],
+  "方法": "足し算して合算"
+}
+
+→ 2つの列を足して1つにまとめる
+</pre>
+    </div>
+  </div>
+
+  <div class="insight green">
+    <span class="ins-icon">🔧</span>
+    <strong>新しい顧問先の追加方法：</strong>JSONファイルをコピーして、列名を書き換えるだけ。プログラムの知識がなくても対応できます。
+  </div>
+</div>
+
+<!-- ===== デモ ===== -->
+<div class="section" id="demo">
+  <span class="section-label">DEMO</span>
+  <h2>本日のデモ内容</h2>
+
+  <ol class="step-timeline">
+    <li>
+      <span class="step-num">1</span>
+      <strong>結論を先にお見せします</strong><span class="time-tag">2分</span><br>
+      給与奉行のCSVを入力 → シャルフのCSVが出力される様子
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <strong>仕組みのご説明</strong><span class="time-tag">5分</span><br>
+      入力→変換→出力のフロー。JSONファイルの役割
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <strong>実際に動かしてみます</strong><span class="time-tag">10分</span><br>
+      コマンド実行 → 出力CSVの確認 → 項目の突き合わせ
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <strong>今後の進め方をご相談</strong><span class="time-tag">5分</span><br>
+      弥生給与への対応、イレギュラーパターンのロードマップ
+    </li>
+    <li>
+      <span class="step-num">5</span>
+      <strong>質疑応答</strong><span class="time-tag">8分</span><br>
+      ご不明点、ご要望があればお聞かせください
+    </li>
+  </ol>
+</div>
+
+<!-- ===== ロードマップ ===== -->
+<div class="section" id="roadmap">
+  <span class="section-label">ROADMAP</span>
+  <h2>今後の予定</h2>
+
+  <div class="roadmap">
+    <div class="rm-card active">
+      <div class="rm-phase">PHASE 1</div>
+      <h4>給与奉行（基本形）</h4>
+      <p>縦並びCSV → シャルフCSV</p>
+    </div>
+    <div class="rm-card">
+      <div class="rm-phase">PHASE 2</div>
+      <h4>弥生給与（基本形）</h4>
+      <p>横並びExcel → シャルフCSV</p>
+    </div>
+    <div class="rm-card">
+      <div class="rm-phase">PHASE 3</div>
+      <h4>イレギュラー対応</h4>
+      <p>PDF変換・特殊形式</p>
+    </div>
+    <div class="rm-card">
+      <div class="rm-phase">FUTURE</div>
+      <h4>クラウド化</h4>
+      <p>Webアプリ化の検討</p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <span class="ins-icon">📌</span>
+    <strong>方針：</strong>基本形で8割の顧問先をカバーしてから、残りのイレギュラーに対応。1回30分のMTGで1パターンずつ確認しながら進めます。
+  </div>
+</div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+<footer class="footer">
+  <div class="logo">HiMaWaSa Sync</div>
+  ── 業務をもっと、シンプルに。──<br>
+  <p style="margin-top:8px">© 2026 HiMaWaSa Sync ─ 機密資料</p>
+</footer>
+
+</body>
+</html>
