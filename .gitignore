@@ -1,2 +1,25 @@
-﻿# React build output
-# すべてのファイルを公開します
+# 依存パッケージ（自動生成されるため管理不要）
+node_modules/
+
+# ビルド出力（npm run build で生成）
+dist/
+
+# gh-pages キャッシュ
+.cache/
+
+# 環境変数（シークレット情報）
+.env
+.env.local
+.env.production
+
+# エディタ設定
+.vscode/
+.idea/
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
+
+# ログ
+*.log
+npm-debug.log*
