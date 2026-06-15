@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>任用試験 暗記カード</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0f0f1a;
+    --bg-card: #1a1a2e;
+    --bg-card-back: #16213e;
+    --accent: #e94560;
+    --accent-glow: rgba(233, 69, 96, 0.3);
+    --gold: #f4c430;
+    --gold-glow: rgba(244, 196, 48, 0.3);
+    --text-primary: #eaeaea;
+    --text-secondary: #a0a0b0;
+    --text-dim: #666680;
+    --border: rgba(255,255,255,0.08);
+    --success: #2ecc71;
+    --cat-gosho: #e94560;
+    --cat-nyumon: #3498db;
+    --cat-sekai: #9b59b6;
+    --cat-goro: #f39c12;
+    --cat-jissen: #1abc9c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* ====== ヘッダー ====== */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,15,26,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .progress-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  /* ====== カテゴリフィルタ ====== */
+  .filters {
+    display: flex;
+    gap: 6px;
+    padding: 10px 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter-btn {
+    flex-shrink: 0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .filter-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: 0 2px 12px var(--accent-glow);
+  }
+  .filter-btn[data-cat="gosho"].active { background: var(--cat-gosho); border-color: var(--cat-gosho); }
+  .filter-btn[data-cat="nyumon"].active { background: var(--cat-nyumon); border-color: var(--cat-nyumon); }
+  .filter-btn[data-cat="sekai"].active { background: var(--cat-sekai); border-color: var(--cat-sekai); }
+  .filter-btn[data-cat="goro"].active { background: var(--cat-goro); border-color: var(--cat-goro); }
+  .filter-btn[data-cat="jissen"].active { background: var(--cat-jissen); border-color: var(--cat-jissen); }
+
+  /* ====== カードエリア ====== */
+  .card-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px 16px;
+    min-height: calc(100dvh - 200px);
+    perspective: 1200px;
+  }
+
+  .card-container {
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 3 / 4;
+    max-height: 520px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card.flipped { transform: rotateY(180deg); }
+
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .card-front {
+    background: linear-gradient(145deg, var(--bg-card), #1f1f3a);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .card-back {
+    background: linear-gradient(145deg, var(--bg-card-back), #0a3d62);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transform: rotateY(180deg);
+  }
+
+  .card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: white;
+    align-self: flex-start;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+  }
+  .badge-gosho { background: var(--cat-gosho); }
+  .badge-nyumon { background: var(--cat-nyumon); }
+  .badge-sekai { background: var(--cat-sekai); }
+  .badge-goro { background: var(--cat-goro); }
+  .badge-jissen { background: var(--cat-jissen); }
+
+  .card-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .card-number {
+    font-size: 40px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .card-question, .card-answer {
+    font-size: 16px;
+    line-height: 1.8;
+    flex: 1;
+  }
+  .card-question { color: var(--text-primary); }
+  .card-answer { color: #d0e8ff; }
+
+  .card-answer strong, .card-answer b {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .tap-hint {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: auto;
+    padding-top: 12px;
+  }
+  .tap-hint span { opacity: 0.7; }
+
+  /* ====== ナビゲーション ====== */
+  .nav-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 12px 16px 24px;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .nav-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04);
+    color: var(--text-primary);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .nav-btn:active {
+    transform: scale(0.92);
+    background: rgba(255,255,255,0.08);
+  }
+  .nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .mark-btn {
+    flex: 1;
+    height: 48px;
+    border-radius: 24px;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .mark-btn:active { transform: scale(0.96); }
+  .mark-ok {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    box-shadow: 0 4px 16px rgba(46,204,113,0.3);
+  }
+  .mark-ng {
+    background: rgba(231,76,60,0.15);
+    color: #e74c3c;
+    border: 1px solid rgba(231,76,60,0.3);
+  }
+
+  .shuffle-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--accent), #c0392b);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px var(--accent-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    transition: transform 0.3s;
+  }
+  .shuffle-btn:active { transform: rotate(180deg) scale(0.9); }
+
+  /* ====== 完了画面 ====== */
+  .complete-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    min-height: 60vh;
+  }
+  .complete-screen.show { display: flex; }
+  .complete-emoji { font-size: 64px; margin-bottom: 16px; }
+  .complete-title {
+    font-size: 24px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .complete-stats {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .restart-btn {
+    padding: 14px 36px;
+    border-radius: 28px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 4px 20px var(--accent-glow);
+  }
+
+  /* ====== スワイプアニメーション ====== */
+  .card-container.swipe-left {
+    animation: swipeLeft 0.3s ease forwards;
+  }
+  .card-container.swipe-right {
+    animation: swipeRight 0.3s ease forwards;
+  }
+  @keyframes swipeLeft {
+    to { transform: translateX(-120%) rotate(-8deg); opacity: 0; }
+  }
+  @keyframes swipeRight {
+    to { transform: translateX(120%) rotate(8deg); opacity: 0; }
+  }
+
+  /* ====== レスポンシブ ====== */
+  @media (max-height: 700px) {
+    .card-container { max-height: 380px; }
+    .card-number { font-size: 32px; }
+    .card-question, .card-answer { font-size: 14px; }
+  }
+  @media (min-width: 768px) {
+    .card-area { padding-top: 32px; }
+    .card-container { max-width: 480px; max-height: 560px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="header-top">
+    <h1>📚 任用試験 暗記カード</h1>
+    <span class="progress-text" id="progressText">1 / 110</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+  </div>
+</div>
+
+<!-- カテゴリフィルタ -->
+<div class="filters" id="filters">
+  <button class="filter-btn active" data-cat="all">すべて</button>
+  <button class="filter-btn" data-cat="gosho">📖 御書3編</button>
+  <button class="filter-btn" data-cat="nyumon">📘 教学入門</button>
+  <button class="filter-btn" data-cat="sekai">🌏 世界広布</button>
+  <button class="filter-btn" data-cat="goro">🧠 語呂合わせ</button>
+  <button class="filter-btn" data-cat="jissen">🔥 実戦問題</button>
+</div>
+
+<!-- カードエリア -->
+<div class="card-area" id="cardArea">
+  <div class="card-container" id="cardContainer">
+    <div class="card" id="card">
+      <div class="card-face card-front" id="cardFront">
+        <!-- 動的に挿入 -->
+      </div>
+      <div class="card-face card-back" id="cardBack">
+        <!-- 動的に挿入 -->
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-area">
+    <button class="nav-btn" id="prevBtn" title="前へ">◀</button>
+    <button class="mark-btn mark-ng" id="markNg">✕ もう一度</button>
+    <button class="mark-btn mark-ok" id="markOk">◎ 覚えた！</button>
+    <button class="nav-btn" id="nextBtn" title="次へ">▶</button>
+  </div>
+</div>
+
+<!-- 完了画面 -->
+<div class="complete-screen" id="completeScreen">
+  <div class="complete-emoji">🎉</div>
+  <div class="complete-title">全カード完了！</div>
+  <div class="complete-stats" id="completeStats"></div>
+  <button class="restart-btn" id="restartBtn">もう一周する</button>
+  <button class="restart-btn" id="retryBtn" style="margin-top:12px;background:rgba(231,76,60,0.2);color:#e74c3c;box-shadow:none">間違えたカードだけ復習</button>
+</div>
+
+<!-- シャッフルボタン -->
+<button class="shuffle-btn" id="shuffleBtn" title="シャッフル">🔀</button>
+
+<script>
+// ============================
+// カードデータ
+// ============================
+const allCards = [
+  // ── 御書3編 ──
+  {cat:"gosho", q:"諸法実相抄が著された年・場所・宛先は？", a:"文永10年（1273年）、<b>佐渡</b>で著述、<b>最蓮房</b>に与えられた"},
+  {cat:"gosho", q:"「行学の二道」の「行」と「学」はそれぞれ何？", a:"「行」＝実践（自行＝勤行・唱題、化他行＝弘教）<br>「学」＝教学の研鑽（御書を根本に仏法を学ぶ）"},
+  {cat:"gosho", q:"「行学は（　　）よりおこるべく候」空欄を埋めよ", a:"<b>信心</b>"},
+  {cat:"gosho", q:"「力あらば一文一句なりともかたらせ給うべし」の意味は？", a:"力の限り、たとえ<b>一文一句</b>であっても人に仏法を語っていきなさい"},
+  {cat:"gosho", q:"「行学たえなば（　）はあるべからず」", a:"<b>仏法</b>"},
+  {cat:"gosho", q:"妙一尼御前御消息が著された年・場所・宛先は？", a:"建治元年（1275年）、<b>身延</b>で著述、<b>妙一尼</b>に与えられた"},
+  {cat:"gosho", q:"「冬は必ず春となる」で「冬」と「春」は何を表す？", a:"「冬」＝<b>人生の逆境・苦難</b><br>「春」＝<b>勝利・幸福の境涯</b>"},
+  {cat:"gosho", q:"妙一尼はどのような状況にあった？", a:"<b>夫に先立たれ</b>、<b>幼い病気の子ら</b>を抱えながらも純粋な信心を貫いた"},
+  {cat:"gosho", q:"「いまだ昔よりきかずみず、冬の（　）とかえれることを」", a:"<b>秋</b>（冬が秋に戻ることはない＝必ず春へ向かう）"},
+  {cat:"gosho", q:"阿仏房御書で「末法に入って宝塔とは何」と示されている？", a:"「<b>法華経を持つ男女のすがた</b>」より外には宝塔はない"},
+  {cat:"gosho", q:"「貴賤上下をえらばず」とはどういう意味？", a:"<b>身分や立場、地位に関係なく</b>、南無妙法蓮華経と唱える人はわが身が宝塔"},
+  {cat:"gosho", q:"「宝塔また（　　）なり」", a:"<b>南無妙法蓮華経</b>"},
+  {cat:"gosho", q:"宝塔が出現するのは法華経の何品？", a:"<b>見宝塔品第11</b>"},
+
+  // ── 教学入門1：御生涯 ──
+  {cat:"nyumon", q:"日蓮大聖人の御誕生はいつ？", a:"<b>貞応元年（1222年）2月16日</b>"},
+  {cat:"nyumon", q:"立宗宣言はいつ・どこで行われた？", a:"<b>建長5年（1253年）4月28日</b>、<b>清澄寺</b>で。32歳の時"},
+  {cat:"nyumon", q:"「立正安国論」を誰に提出した？", a:"<b>北条時頼</b>（時の実質的な最高権力者）に、文応元年（1260年）7月16日に提出"},
+  {cat:"nyumon", q:"立正安国論で予言した二つの災難は？", a:"<b>自界叛逆難</b>（内乱）と<b>他国侵逼難</b>（他国からの侵略）"},
+  {cat:"nyumon", q:"「発迹顕本」とは何か？", a:"<b>竜の口の法難</b>を勝ち越えた時に、凡夫という迹（仮の姿）を開いて、<b>仏の境地（本地）</b>を顕されたこと"},
+  {cat:"nyumon", q:"「開目抄」と「観心本尊抄」の内容は？", a:"「開目抄」＝大聖人が末法の<b>御本仏</b>であることを明かす<br>「観心本尊抄」＝<b>御本尊</b>について説き明かす"},
+  {cat:"nyumon", q:"「三度の高名」とは？", a:"①<b>立正安国論</b>の提出 ②<b>竜の口の法難</b> ③<b>第3回国主諫暁</b>（蒙古襲来の予言的中）"},
+  {cat:"nyumon", q:"熱原の法難で処刑された3人は？", a:"<b>神四郎・弥五郎・弥六郎</b>"},
+  {cat:"nyumon", q:"大聖人は何歳で御入滅された？", a:"<b>61歳</b>。弘安5年（1282年）10月13日、<b>池上宗仲邸</b>にて"},
+  {cat:"nyumon", q:"大聖人の後を正しく受け継いだのは？", a:"<b>日興上人</b>"},
+
+  // ── 教学入門2：南無妙法蓮華経 ──
+  {cat:"nyumon", q:"「南無」の意味は？", a:"古代インドの言葉の音写で、「<b>帰命</b>」と訳される。全身全霊で教えを実践し体現すること"},
+  {cat:"nyumon", q:"南無妙法蓮華経は何と表現されている？", a:"宇宙と生命を貫く<b>根源の法</b>であり、大聖人の<b>仏の生命そのもの</b>"},
+  {cat:"nyumon", q:"「歓喜の中の大歓喜」とは何？", a:"自身の心が本来、<b>仏</b>である（＝南無妙法蓮華経そのもの）と知ること"},
+
+  // ── 教学入門3：一生成仏と広宣流布 ──
+  {cat:"nyumon", q:"成仏の「成」について御書ではどう示されている？", a:"「『成』は<b>開く</b>義なり」＝自身の内の仏界を開くこと"},
+  {cat:"nyumon", q:"「即身成仏」と「一生成仏」の違いは？", a:"<b>同じ法理</b>を表す。即身成仏＝凡夫の身のまま、一生成仏＝一生のうちに"},
+  {cat:"nyumon", q:"「煩悩即菩提」とは？", a:"煩悩に覆われた苦悩の身が、そのまま<b>菩提（覚り）の智慧</b>に輝く身となること"},
+  {cat:"nyumon", q:"「相対的幸福」と「絶対的幸福」を説いたのは？", a:"第2代会長・<b>戸田城聖</b>先生"},
+  {cat:"nyumon", q:"「立正安国」の意味は？", a:"立正＝人々が<b>正法を信受</b>すること<br>安国＝社会の<b>平和・繁栄と人々の生活の安穏</b>"},
+  {cat:"nyumon", q:"広宣流布を託されたのは何という菩薩？", a:"<b>地涌の菩薩</b>"},
+
+  // ── 教学入門4：十界 ──
+  {cat:"nyumon", q:"十界を順番に言えるか？", a:"<b>地獄界・餓鬼界・畜生界・修羅界・人界・天界・声聞界・縁覚界・菩薩界・仏界</b>"},
+  {cat:"nyumon", q:"「六道」と「四聖」はそれぞれ何？", a:"六道＝<b>地獄〜天界</b>の6つ<br>四聖＝<b>声聞〜仏界</b>の4つ"},
+  {cat:"nyumon", q:"「十界互具」とは？", a:"十界の各界が互いに<b>十界を具えている</b>こと。一個の生命に10種の境涯が全て具わっている"},
+  {cat:"nyumon", q:"「瞋るは地獄、貪るは餓鬼…」は何という御書？", a:"<b>観心本尊抄</b>"},
+  {cat:"nyumon", q:"修羅界の特徴は？", a:"他者に勝ろうとする「<b>勝他の念</b>」。内面と外面が異なり心に裏表がある（＝<b>諂曲</b>）"},
+  {cat:"nyumon", q:"菩薩界の根本は何？", a:"<b>慈悲</b>。他者の苦しみに同苦し、<b>抜苦与楽</b>の実践をする"},
+  {cat:"nyumon", q:"仏界の境涯を戸田先生はどう表現した？", a:"「<b>絶対的幸福</b>」＝生きていること自体が幸福であるという境涯"},
+
+  // ── 教学入門5：三証 ──
+  {cat:"nyumon", q:"三証とは何？", a:"正法を判定する基準で、<b>文証・理証・現証</b>の三つ"},
+  {cat:"nyumon", q:"大聖人が三証の中で最も重視されたのは？", a:"<b>現証</b>。「道理・証文よりも<b>現証にはすぎず</b>」"},
+  {cat:"nyumon", q:"「仏法と申すは（　）なり」", a:"<b>道理</b>"},
+
+  // ── 教学入門6：信行学 ──
+  {cat:"nyumon", q:"「信行学」の中で仏道修行の出発点であり帰着点は？", a:"<b>信</b>（御本尊を信ずること）"},
+  {cat:"nyumon", q:"「以信得入」とは？法華経の誰の例？", a:"信を以てのみ法理を体得できること。智慧第一と言われた<b>舎利弗</b>の例"},
+  {cat:"nyumon", q:"「自行」と「化他」はそれぞれ何？", a:"自行＝<b>勤行</b>（読経・唱題）<br>化他＝<b>折伏・弘教</b>"},
+
+  // ── 教学入門7：難を乗り越える信心 ──
+  {cat:"nyumon", q:"三障とは？", a:"<b>煩悩障・業障・報障</b>"},
+  {cat:"nyumon", q:"四魔とは？", a:"<b>陰魔・煩悩魔・死魔・天子魔</b>（第六天の魔王）"},
+  {cat:"nyumon", q:"四魔の中で最も本源的な魔は？", a:"<b>天子魔</b>（他化自在天子魔＝<b>第六天の魔王</b>）"},
+  {cat:"nyumon", q:"三類の強敵の中で最も悪質なのは？", a:"第3の<b>僭聖増上慢</b>（正体が見破りにくいため）"},
+  {cat:"nyumon", q:"三類の強敵が説かれているのは法華経の何品？", a:"<b>勧持品第13</b>"},
+
+  // ── 教学入門8：宿命転換 ──
+  {cat:"nyumon", q:"「転重軽受」とは何？", a:"「<b>重きを転じて軽く受く</b>」。重い罪業を、正法を信じ弘める功徳の力で軽く受け消滅させる"},
+  {cat:"nyumon", q:"「願兼於業」とは何？", a:"菩薩が悪世の人々を救うために、<b>わざわざ願って悪世に生まれる</b>こと"},
+  {cat:"nyumon", q:"池田先生が「願兼於業」をどう表現した？", a:"「<b>宿命を使命に変える</b>」"},
+
+  // ── 教学入門9：信心即生活 ──
+  {cat:"nyumon", q:"「異体同心なれば（　）を成じ」", a:"<b>万事</b>"},
+  {cat:"nyumon", q:"「御みやづかいを法華経とおぼしめせ」の意味は？", a:"日々の<b>仕事・生活</b>が、そのまま<b>仏道修行の場</b>であること"},
+  {cat:"nyumon", q:"「教主釈尊の出世の本懐は（　）にて候いけるぞ」", a:"<b>人の振る舞い</b>"},
+  {cat:"nyumon", q:"「神の護ると申すも、人の（　）つよきによる」", a:"<b>心</b>（＝信心の強弱で諸天の守護が変わる）"},
+  {cat:"nyumon", q:"法華経で万人を礼拝した菩薩は？", a:"<b>不軽菩薩</b>"},
+
+  // ── 世界広布と創価学会 ──
+  {cat:"sekai", q:"創価学会の創立記念日はいつ？何が起きた日？", a:"<b>1930年（昭和5年）11月18日</b>。牧口先生が『創価教育学体系』を発刊した日"},
+  {cat:"sekai", q:"「創価」の意味は？", a:"<b>「価値創造」</b>"},
+  {cat:"sekai", q:"戸田先生の「獄中の悟達」の内容は？", a:"「<b>仏とは生命である</b>」との悟達と、「<b>われ地涌の菩薩なり</b>」との確信（1944年11月）"},
+  {cat:"sekai", q:"戸田先生が第2代会長就任時に掲げた誓願は？", a:"<b>75万世帯</b>の折伏達成（1951年5月3日）"},
+  {cat:"sekai", q:"SGIが発足したのはいつ・どこで？", a:"<b>1975年1月26日</b>、<b>グアム</b>で51カ国・地域の代表が集まって発足"},
+  {cat:"sekai", q:"「3・16」広宣流布記念の日に何があった？", a:"1958年3月16日、戸田先生が池田先生をはじめ<b>青年部員6000人</b>に広宣流布の一切を託す儀式"},
+  {cat:"sekai", q:"池田先生が世界広布の第一歩を踏み出したのは？", a:"<b>1960年10月2日</b>、<b>南北アメリカ</b>へ出発"},
+  {cat:"sekai", q:"大阪事件とは？", a:"1957年7月3日、池田先生が<b>大阪府警に不当逮捕</b>された事件。4年半の法廷闘争を経て<b>無罪確定</b>"},
+  {cat:"sekai", q:"「魂の独立記念日」はいつ？", a:"<b>1991年11月28日</b>。日蓮正宗が破門通告書を送付した日"},
+  {cat:"sekai", q:"「信心の血脈なくんば、法華経を持つとも（　）なり」", a:"<b>無益</b>"},
+  {cat:"sekai", q:"学会の葬儀の形式は？", a:"<b>友人葬</b>。友人・同志が真心の題目で故人を送る"},
+  {cat:"sekai", q:"池田先生がハーバード大学で示した宗教を見極める基準は？", a:"人間を①<b>強くするか弱くするか</b> ②<b>善くするか悪くするか</b> ③<b>賢くするか愚かにするか</b>"},
+  {cat:"sekai", q:"三代会長の称号は？\n牧口先生→？\n戸田先生→？\n池田先生→？", a:"牧口先生＝<b>学会創立の先師</b><br>戸田先生＝<b>地涌75万の恩師</b><br>池田先生＝<b>世界広布の大師匠</b>"},
+  {cat:"sekai", q:"戸田先生が「原水爆禁止宣言」を発表したのは？", a:"<b>1957年9月8日</b>"},
+
+  // ── 語呂合わせ ──
+  {cat:"goro", q:"🧠 法難の順番の覚え方\n「まいこたつさ」とは？", a:"<b>ま</b>＝松葉ケ谷の法難（1260年）<br><b>い</b>＝伊豆流罪（1261年）<br><b>こ</b>＝小松原の法難（1264年）<br><b>たつ</b>＝竜の口の法難（1271年）<br><b>さ</b>＝佐渡流罪（1271年〜）"},
+  {cat:"goro", q:"🧠 法難の元号の覚え方\n「ぶんこぶんぶん」とは？", a:"元号の頭文字をリズムで覚える！<br><b>ぶん</b>＝<b>文</b>応元年（松葉ケ谷）<br><b>こ</b>＝<b>弘</b>長元年（伊豆流罪）<br><b>ぶん</b>＝<b>文</b>永元年（小松原）<br><b>ぶん</b>＝<b>文</b>永8年（竜の口）<br><br>💡「まいこたつさ」＝法難の名前<br>💡「ぶんこぶんぶん」＝法難の元号"},
+  {cat:"goro", q:"🧠 十界の覚え方\n「じ・が・ち・しゅ・にん・てん・しょう・えん・ぼ・ぶつ」", a:"<b>じ</b>獄・<b>が</b>き・<b>ち</b>くしょう・<b>しゅ</b>ら・<b>にん</b>・<b>てん</b>・<b>しょう</b>もん・<b>えん</b>がく・<b>ぼ</b>さつ・<b>ぶつ</b>"},
+  {cat:"goro", q:"🧠 三障の覚え方\n「ぼん・ごう・ほう」", a:"<b>ぼん</b>のうしょう（煩悩障）<br><b>ごう</b>しょう（業障）<br><b>ほう</b>しょう（報障）"},
+  {cat:"goro", q:"🧠 四魔の覚え方\n「おん・ぼん・し・てん」", a:"<b>おん</b>ま（陰魔）<br><b>ぼん</b>のうま（煩悩魔）<br><b>し</b>ま（死魔）<br><b>てん</b>じま（天子魔）"},
+  {cat:"goro", q:"🧠 創価学会の記念日セット\n1・26 / 3・16 / 5・3 / 7・3 / 10・2 / 11・18", a:"<b>1・26</b> SGI発足<br><b>3・16</b> 広宣流布記念の日<br><b>5・3</b> 戸田先生＆池田先生の会長就任<br><b>7・3</b> 戸田先生出獄 / 池田先生不当逮捕<br><b>10・2</b> 世界広布の第一歩<br><b>11・18</b> 創立記念日"},
+
+  // ── 実戦問題（選択肢形式） ──
+  {cat:"jissen", q:"「立宗宣言」が行われたのはどこ？\nア．鎌倉　イ．清澄寺　ウ．身延山", a:"<b>イ．清澄寺</b>"},
+  {cat:"jissen", q:"「立正安国論」は誰に提出された？\nア．北条時宗　イ．平左衛門尉　ウ．北条時頼", a:"<b>ウ．北条時頼</b>"},
+  {cat:"jissen", q:"竜の口の法難の後、流罪されたのは？\nア．伊豆　イ．佐渡　ウ．身延", a:"<b>イ．佐渡</b>"},
+  {cat:"jissen", q:"「発迹顕本」はどの法難の時？\nア．松葉ケ谷　イ．小松原　ウ．竜の口", a:"<b>ウ．竜の口の法難</b>"},
+  {cat:"jissen", q:"熱原の法難で農民門下は何人逮捕された？\nア．3人　イ．17人　ウ．20人", a:"<b>ウ．20人</b>（うち3人が処刑、17人が追放）"},
+  {cat:"jissen", q:"三証で大聖人が最も重視したのは？\nア．文証　イ．理証　ウ．現証", a:"<b>ウ．現証</b>"},
+  {cat:"jissen", q:"菩薩界の根本は何？\nア．智慧　イ．慈悲　ウ．勇気", a:"<b>イ．慈悲</b>"},
+  {cat:"jissen", q:"「桜梅桃李」は何を表す法理？\nア．即身成仏　イ．煩悩即菩提　ウ．転重軽受", a:"<b>ア．即身成仏</b>（それぞれの特質を改めずに仏と開き顕す）"},
+  {cat:"jissen", q:"【穴埋め】「（①）の二道をはげみ候べし。（①）たえなば（②）はあるべからず」", a:"①<b>行学</b> ②<b>仏法</b>"},
+  {cat:"jissen", q:"【穴埋め】「（①）を信ずる人は（②）のごとし。（②）は必ず（③）となる」", a:"①<b>法華経</b> ②<b>冬</b> ③<b>春</b>"},
+  {cat:"jissen", q:"【穴埋め】「（①）をえらばず、南無妙法蓮華経ととなうるものは、我が身（②）にして」", a:"①<b>貴賤上下</b> ②<b>宝塔</b>"},
+];
+
+// ============================
+// アプリロジック
+// ============================
+let currentCards = [...allCards];
+let currentIndex = 0;
+let masteredSet = new Set();
+let wrongSet = new Set();
+let isFlipped = false;
+
+const catNames = {
+  gosho: "御書", nyumon: "教学入門", sekai: "世界広布",
+  goro: "語呂合わせ", jissen: "実戦問題"
+};
+const badgeClass = {
+  gosho: "badge-gosho", nyumon: "badge-nyumon", sekai: "badge-sekai",
+  goro: "badge-goro", jissen: "badge-jissen"
+};
+
+function renderCard() {
+  if (currentIndex >= currentCards.length) {
+    showComplete();
+    return;
+  }
+  const c = currentCards[currentIndex];
+  const num = currentIndex + 1;
+  const total = currentCards.length;
+
+  document.getElementById('cardFront').innerHTML = `
+    <span class="card-badge ${badgeClass[c.cat]}">${catNames[c.cat]}</span>
+    <div class="card-label">QUESTION</div>
+    <div class="card-number">Q${num}</div>
+    <div class="card-question">${c.q.replace(/\n/g,'<br>')}</div>
+    <div class="tap-hint"><span>👆 タップで答えを見る</span></div>
+  `;
+  document.getElementById('cardBack').innerHTML = `
+    <span class="card-badge ${badgeClass[c.cat]}">${catNames[c.cat]}</span>
+    <div class="card-label">ANSWER</div>
+    <div class="card-number">A${num}</div>
+    <div class="card-answer">${c.a}</div>
+    <div class="tap-hint"><span>👆 タップで問題に戻る</span></div>
+  `;
+
+  document.getElementById('progressText').textContent = `${num} / ${total}`;
+  document.getElementById('progressFill').style.width = `${(num / total) * 100}%`;
+
+  // カードをリセット
+  isFlipped = false;
+  document.getElementById('card').classList.remove('flipped');
+  document.getElementById('prevBtn').disabled = currentIndex === 0;
+
+  // 完了画面を隠す
+  document.getElementById('completeScreen').classList.remove('show');
+  document.getElementById('cardArea').style.display = '';
+}
+
+function flipCard() {
+  isFlipped = !isFlipped;
+  document.getElementById('card').classList.toggle('flipped', isFlipped);
+}
+
+function nextCard() {
+  if (currentIndex >= currentCards.length - 1) {
+    showComplete();
+    return;
+  }
+  const container = document.getElementById('cardContainer');
+  container.classList.add('swipe-left');
+  setTimeout(() => {
+    container.classList.remove('swipe-left');
+    currentIndex++;
+    renderCard();
+  }, 250);
+}
+
+function prevCard() {
+  if (currentIndex <= 0) return;
+  const container = document.getElementById('cardContainer');
+  container.classList.add('swipe-right');
+  setTimeout(() => {
+    container.classList.remove('swipe-right');
+    currentIndex--;
+    renderCard();
+  }, 250);
+}
+
+function markOk() {
+  const key = currentCards[currentIndex].q;
+  masteredSet.add(key);
+  wrongSet.delete(key);
+  nextCard();
+}
+
+function markNg() {
+  const key = currentCards[currentIndex].q;
+  wrongSet.add(key);
+  masteredSet.delete(key);
+  nextCard();
+}
+
+function showComplete() {
+  document.getElementById('cardArea').style.display = 'none';
+  const screen = document.getElementById('completeScreen');
+  screen.classList.add('show');
+  const total = currentCards.length;
+  const ok = masteredSet.size;
+  const ng = wrongSet.size;
+  document.getElementById('completeStats').innerHTML =
+    `全 <b>${total}</b> カード完了！<br>◎ 覚えた：<b style="color:#2ecc71">${ok}</b> 枚<br>✕ もう一度：<b style="color:#e74c3c">${ng}</b> 枚`;
+  document.getElementById('retryBtn').style.display = ng > 0 ? '' : 'none';
+}
+
+function restart() {
+  masteredSet.clear();
+  wrongSet.clear();
+  currentIndex = 0;
+  renderCard();
+}
+
+function retryWrong() {
+  currentCards = allCards.filter(c => wrongSet.has(c.q));
+  wrongSet.clear();
+  masteredSet.clear();
+  currentIndex = 0;
+  renderCard();
+}
+
+function shuffle() {
+  for (let i = currentCards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [currentCards[i], currentCards[j]] = [currentCards[j], currentCards[i]];
+  }
+  currentIndex = 0;
+  masteredSet.clear();
+  wrongSet.clear();
+  renderCard();
+}
+
+function filterCards(cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  if (cat === 'all') {
+    currentCards = [...allCards];
+  } else {
+    currentCards = allCards.filter(c => c.cat === cat);
+  }
+  currentIndex = 0;
+  masteredSet.clear();
+  wrongSet.clear();
+  renderCard();
+}
+
+// ============================
+// イベント
+// ============================
+document.getElementById('cardContainer').addEventListener('click', flipCard);
+document.getElementById('prevBtn').addEventListener('click', prevCard);
+document.getElementById('nextBtn').addEventListener('click', nextCard);
+document.getElementById('markOk').addEventListener('click', markOk);
+document.getElementById('markNg').addEventListener('click', markNg);
+document.getElementById('shuffleBtn').addEventListener('click', shuffle);
+document.getElementById('restartBtn').addEventListener('click', restart);
+document.getElementById('retryBtn').addEventListener('click', retryWrong);
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => filterCards(btn.dataset.cat));
+});
+
+// スワイプ対応
+let touchStartX = 0;
+let touchStartY = 0;
+document.getElementById('cardContainer').addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+}, {passive: true});
+document.getElementById('cardContainer').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].screenX - touchStartX;
+  const dy = e.changedTouches[0].screenY - touchStartY;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+    if (dx < 0) nextCard();
+    else prevCard();
+    e.preventDefault();
+  }
+}, {passive: false});
+
+// 初期表示
+renderCard();
+</script>
+</body>
+</html>

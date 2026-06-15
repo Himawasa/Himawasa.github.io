@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>労務管理ポータル | 社労士とつながる安心のクラウドシステム</title>
+    <meta name="description" content="社会保険労務士事務所と顧問先企業をつなぐクラウド型労務管理ポータル。従業員管理・給与計算・タスク管理・AI労務相談をワンストップで。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a6b;
+            --primary-light: #2a5298;
+            --accent: #4fc3f7;
+            --accent-warm: #ff7043;
+            --bg: #f5f7fa;
+            --text: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #1a3a6b 0%, #2a5298 50%, #4fc3f7 100%);
+            --gradient-warm: linear-gradient(135deg, #ff7043 0%, #ff9800 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--bg); line-height: 1.8; }
+        img { max-width: 100%; height: auto; }
+
+        /* ========== ヘッダー ========== */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            position: sticky; top: 0; z-index: 100;
+            padding: 0.8rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header-logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+        .header-logo span { color: var(--accent-warm); }
+        .header-cta {
+            background: var(--gradient-warm);
+            color: white; padding: 0.5rem 1.5rem;
+            border-radius: 25px; text-decoration: none;
+            font-weight: 700; font-size: 0.85rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .header-cta:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255,112,67,0.4); }
+
+        /* ========== ヒーロー ========== */
+        .hero {
+            background: var(--gradient);
+            padding: 5rem 2rem 4rem;
+            color: white;
+            position: relative; overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute; top: 0; right: 0; bottom: 0;
+            width: 50%; background: url('img/hero.png') center/cover no-repeat;
+            opacity: 0.3;
+        }
+        .hero-inner {
+            max-width: 1100px; margin: 0 auto;
+            position: relative; z-index: 1;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem; border-radius: 20px;
+            font-size: 0.8rem; font-weight: 500;
+            margin-bottom: 1.5rem; backdrop-filter: blur(5px);
+        }
+        .hero h1 {
+            font-size: 2.5rem; font-weight: 900;
+            line-height: 1.4; margin-bottom: 1.2rem;
+        }
+        .hero h1 em { font-style: normal; color: var(--accent); }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin-bottom: 2rem; }
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-hero {
+            padding: 0.9rem 2rem; border-radius: 30px; font-weight: 700;
+            text-decoration: none; font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .btn-primary-hero { background: white; color: var(--primary); }
+        .btn-primary-hero:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .btn-outline-hero { border: 2px solid rgba(255,255,255,0.6); color: white; background: transparent; }
+        .btn-outline-hero:hover { background: rgba(255,255,255,0.15); }
+
+        /* ========== セクション共通 ========== */
+        .section { padding: 5rem 2rem; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-title {
+            text-align: center; font-size: 1.8rem; font-weight: 900;
+            color: var(--primary); margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            text-align: center; color: var(--text-light);
+            font-size: 1rem; margin-bottom: 3rem;
+        }
+
+        /* ========== 課題セクション ========== */
+        .problems { background: #fff5f0; }
+        .problem-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .problem-card {
+            background: white; border-radius: 12px; padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--accent-warm);
+        }
+        .problem-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .problem-card h3 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--primary); }
+        .problem-card p { font-size: 0.85rem; color: var(--text-light); }
+
+        /* ========== 機能セクション ========== */
+        .features { background: white; }
+        .feature-item {
+            display: flex; align-items: center; gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        .feature-item:nth-child(even) { flex-direction: row-reverse; }
+        .feature-img {
+            flex: 1; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .feature-img img { width: 100%; display: block; }
+        .feature-text { flex: 1; }
+        .feature-badge {
+            display: inline-block; background: #e3f2fd;
+            color: var(--primary-light); padding: 0.2rem 0.8rem;
+            border-radius: 15px; font-size: 0.75rem; font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+        .feature-text h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--primary); }
+        .feature-text p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1rem; }
+        .feature-list { list-style: none; }
+        .feature-list li {
+            padding: 0.3rem 0; font-size: 0.9rem; color: var(--text);
+        }
+        .feature-list li::before { content: '✅ '; }
+
+        /* ========== メニュー一覧 ========== */
+        .menu-section { background: var(--bg); }
+        .menu-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+        .menu-card {
+            background: white; border-radius: 12px; padding: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            display: flex; align-items: center; gap: 1rem;
+            transition: transform 0.2s;
+        }
+        .menu-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+        .menu-icon { font-size: 2rem; min-width: 2.5rem; text-align: center; }
+        .menu-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 0.2rem; }
+        .menu-card p { font-size: 0.75rem; color: var(--text-light); }
+        .menu-label {
+            display: block; font-size: 0.6rem; font-weight: 700;
+            padding: 2px 6px; border-radius: 8px; margin-top: 0.3rem; display: inline-block;
+        }
+        .label-common { background: #e3f2fd; color: #1565c0; }
+        .label-admin { background: #fce4ec; color: #c62828; }
+
+        /* ========== フロー ========== */
+        .flow { background: white; }
+        .flow-steps {
+            display: flex; justify-content: center; align-items: center;
+            gap: 0; flex-wrap: wrap; margin-bottom: 2rem;
+        }
+        .flow-step {
+            background: var(--bg); border-radius: 12px; padding: 1.5rem;
+            text-align: center; min-width: 180px; position: relative;
+        }
+        .flow-step .step-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .flow-step h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.3rem; }
+        .flow-step p { font-size: 0.75rem; color: var(--text-light); }
+        .flow-arrow { font-size: 2rem; color: var(--accent); padding: 0 0.5rem; }
+        .flow-img { max-width: 700px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* ========== セキュリティ ========== */
+        .security { background: var(--primary); color: white; }
+        .security .section-title { color: white; }
+        .security .section-subtitle { color: rgba(255,255,255,0.7); }
+        .security-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+        }
+        .security-list { list-style: none; }
+        .security-list li {
+            padding: 0.8rem 0; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .security-list li::before { content: '🔒 '; }
+        .security-img { border-radius: 16px; overflow: hidden; opacity: 0.9; }
+
+        /* ========== CTA ========== */
+        .cta {
+            background: var(--gradient);
+            padding: 4rem 2rem; text-align: center; color: white;
+        }
+        .cta h2 { font-size: 2rem; font-weight: 900; margin-bottom: 1rem; }
+        .cta p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-cta {
+            display: inline-block;
+            background: white; color: var(--primary); padding: 1rem 3rem;
+            border-radius: 30px; font-weight: 700; font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+        /* ========== フッター ========== */
+        .footer {
+            background: #0f1f3d; color: rgba(255,255,255,0.6);
+            padding: 2rem; text-align: center; font-size: 0.8rem;
+        }
+
+        /* ========== レスポンシブ ========== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.7rem; }
+            .feature-item, .feature-item:nth-child(even) { flex-direction: column; }
+            .security-grid { grid-template-columns: 1fr; }
+            .flow-steps { flex-direction: column; }
+            .flow-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="header">
+    <div class="header-logo">⚖️ 労務管理<span>ポータル</span></div>
+    <a href="https://shoroushi-portal.onrender.com" class="header-cta" target="_blank">デモを試す →</a>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge">☁️ クラウド型 労務管理システム</div>
+        <h1>社労士と顧問先をつなぐ<br><em>安心のプラットフォーム</em></h1>
+        <p>従業員管理・給与計算・タスク管理・AI労務相談。<br>
+        すべてをワンストップで。紙とExcelから解放されましょう。</p>
+        <div class="hero-btns">
+            <a href="https://shoroushi-portal.onrender.com" class="btn-hero btn-primary-hero" target="_blank">無料デモを体験する</a>
+            <a href="#features" class="btn-hero btn-outline-hero">機能を見る ↓</a>
+        </div>
+    </div>
+</section>
+
+<!-- 課題セクション -->
+<section class="section problems">
+    <div class="section-inner">
+        <h2 class="section-title">こんなお悩みありませんか？</h2>
+        <p class="section-subtitle">多くの社労士事務所・企業が抱える課題を解決します</p>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="icon">📮</div>
+                <h3>紙のやり取りが多すぎる</h3>
+                <p>郵送・FAXでの書類のやり取りに時間がかかり、紛失リスクもある</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">🔍</div>
+                <h3>情報の一元管理ができていない</h3>
+                <p>従業員データがExcelに散在し、最新版がわからなくなる</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">⏰</div>
+                <h3>問い合わせ対応に追われる</h3>
+                <p>「この手続きどうなってますか？」の電話が毎日何件も…</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">📊</div>
+                <h3>見積・請求の管理が煩雑</h3>
+                <p>見積書→受注→請求書のフローが手作業で、転記ミスが発生</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 機能セクション -->
+<section class="section features" id="features">
+    <div class="section-inner">
+        <h2 class="section-title">すべてが、ここに。</h2>
+        <p class="section-subtitle">社労士業務に必要な機能をワンストップで提供します</p>
+
+        <!-- 機能1: タスク管理 -->
+        <div class="feature-item">
+            <div class="feature-img"><img src="img/task.png" alt="タスク管理"></div>
+            <div class="feature-text">
+                <span class="feature-badge">⭐ 石橋さんイチオシ</span>
+                <h3>📋 タスク管理（カンバンボード）</h3>
+                <p>社労士事務所の業務をカンバンボード形式で一目で把握。
+                顧問先ごと・担当者ごとにタスクを管理できます。</p>
+                <ul class="feature-list">
+                    <li>未着手→進行中→完了の3列表示</li>
+                    <li>担当者・期限・優先度を設定</li>
+                    <li>顧問先企業ごとにフィルタリング</li>
+                    <li>ワンクリックでステータス変更</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 機能2: AI相談 -->
+        <div class="feature-item">
+            <div class="feature-img"><img src="img/ai.png" alt="AI労務相談"></div>
+            <div class="feature-text">
+                <span class="feature-badge">🤖 AI搭載</span>
+                <h3>💬 労務相談（AI一次回答）</h3>
+                <p>顧問先からの質問にAIが即座に一次回答。
+                社労士が後から確認・補足できるので、24時間対応が可能に。</p>
+                <ul class="feature-list">
+                    <li>Google Gemini AIによる高精度な回答</li>
+                    <li>労働法・社会保険の専門知識に対応</li>
+                    <li>社労士が回答を確認・修正可能</li>
+                    <li>相談履歴がすべて記録される</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 機能3: 従業員管理 -->
+        <div class="feature-item">
+            <div class="feature-img"><img src="img/employee.png" alt="従業員管理"></div>
+            <div class="feature-text">
+                <span class="feature-badge">👥 PCA連携想定</span>
+                <h3>👤 従業員マスター管理</h3>
+                <p>PCA給与ソフト風のタブUIで、基本情報・給与・家族・口座情報を
+                直感的に管理。将来的にPCA連携も可能です。</p>
+                <ul class="feature-list">
+                    <li>基本情報（氏名/入社日/部門/役職）</li>
+                    <li>給与情報（基本給/各種手当）</li>
+                    <li>家族情報（扶養の管理）</li>
+                    <li>口座情報（給与振込先）</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 機能4: 業務フロー -->
+        <div class="feature-item">
+            <div class="feature-img"><img src="img/workflow.png" alt="業務フロー"></div>
+            <div class="feature-text">
+                <span class="feature-badge">🔄 自動連動</span>
+                <h3>📄 見積→受注→請求 自動転記</h3>
+                <p>見積書を作成したら、ワンクリックで受注に転記。
+                受注が完了したら請求書に自動転記。転記ミスゼロ。</p>
+                <ul class="feature-list">
+                    <li>見積→受注→請求がワンクリック連動</li>
+                    <li>金額・件名・顧問先が自動転記</li>
+                    <li>ステータス管理（下書き→送付→入金済）</li>
+                    <li>支払期限の自動設定（30日後）</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- メニュー一覧 -->
+<section class="section menu-section">
+    <div class="section-inner">
+        <h2 class="section-title">全13メニューを標準搭載</h2>
+        <p class="section-subtitle">顧問先も社労士も、すべてこの1つのポータルで完結</p>
+        <div class="menu-grid">
+            <div class="menu-card"><div class="menu-icon">🏠</div><div><h4>ダッシュボード</h4><p>全機能へのハブ画面</p><span class="menu-label label-common">共通</span></div></div>
+            <div class="menu-card"><div class="menu-icon">📢</div><div><h4>お知らせ・情報発信</h4><p>既読/未読＋重要度管理</p><span class="menu-label label-common">共通</span></div></div>
+            <div class="menu-card"><div class="menu-icon">💬</div><div><h4>労務相談（AI）</h4><p>24時間AI一次回答</p><span class="menu-label label-common">共通</span></div></div>
+            <div class="menu-card"><div class="menu-icon">📋</div><div><h4>タスク管理</h4><p>業務依頼・進捗確認</p><span class="menu-label label-common">共通</span></div></div>
+            <div class="menu-card"><div class="menu-icon">👤</div><div><h4>従業員マスター</h4><p>PCA風タブUI</p><span class="menu-label label-common">共通</span></div></div>
+            <div class="menu-card"><div class="menu-icon">📤</div><div><h4>給与計算情報</h4><p>月別勤怠入力</p><span class="menu-label label-common">共通</span></div></div>
+            <div class="menu-card"><div class="menu-icon">🏢</div><div><h4>マスター管理</h4><p>部門/役職/手当</p><span class="menu-label label-admin">社労士専用</span></div></div>
+            <div class="menu-card"><div class="menu-icon">➕</div><div><h4>オプション販売</h4><p>サービスON/OFF</p><span class="menu-label label-admin">社労士専用</span></div></div>
+            <div class="menu-card"><div class="menu-icon">👥</div><div><h4>クライアント管理</h4><p>顧問先一覧・詳細</p><span class="menu-label label-admin">社労士専用</span></div></div>
+            <div class="menu-card"><div class="menu-icon">📋</div><div><h4>タスク管理</h4><p>カンバンボード</p><span class="menu-label label-admin">社労士専用</span></div></div>
+            <div class="menu-card"><div class="menu-icon">📄</div><div><h4>見積→受注→請求</h4><p>自動転記フロー</p><span class="menu-label label-admin">社労士専用</span></div></div>
+            <div class="menu-card"><div class="menu-icon">💹</div><div><h4>売上管理</h4><p>月別集計</p><span class="menu-label label-admin">社労士専用</span></div></div>
+            <div class="menu-card"><div class="menu-icon">📠</div><div><h4>FAX受信</h4><p>デジタル化管理</p><span class="menu-label label-admin">社労士専用</span></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- 業務フロー図 -->
+<section class="section flow">
+    <div class="section-inner">
+        <h2 class="section-title">業務の流れ</h2>
+        <p class="section-subtitle">見積から入金まで、すべてがつながります</p>
+        <div class="flow-steps">
+            <div class="flow-step">
+                <div class="step-icon">📄</div>
+                <h4>見積作成</h4>
+                <p>下書き→送付→承認</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="step-icon">📦</div>
+                <h4>受注</h4>
+                <p>ワンクリック転記</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="step-icon">🧾</div>
+                <h4>請求</h4>
+                <p>自動で請求書作成</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="step-icon">💰</div>
+                <h4>入金確認</h4>
+                <p>ステータス管理</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- セキュリティ -->
+<section class="section security">
+    <div class="section-inner">
+        <h2 class="section-title">安心のセキュリティ</h2>
+        <p class="section-subtitle">大切な従業員データを厳重に守ります</p>
+        <div class="security-grid">
+            <ul class="security-list">
+                <li>パスワード暗号化（BCrypt）</li>
+                <li>ロール別アクセス制御</li>
+                <li>CSRF攻撃対策</li>
+                <li>SSL/TLS暗号化通信</li>
+                <li>セッション管理（Spring Security）</li>
+                <li>顧問先ごとのデータ分離（マルチテナント）</li>
+            </ul>
+            <div class="security-img"><img src="img/security.png" alt="セキュリティ"></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>まずは無料でお試しください</h2>
+    <p>デモ環境で全機能をお試しいただけます。<br>導入のご相談もお気軽にどうぞ。</p>
+    <a href="https://shoroushi-portal.onrender.com" class="btn-cta" target="_blank">デモを体験する →</a>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+    <p>© 2026 HiMaWaSa事務所 × 石橋社労士事務所. All rights reserved.</p>
+    <p style="margin-top:0.5rem">Powered by Java / Spring Boot / PostgreSQL / Google AI</p>
+</footer>
+
+</body>
+</html>

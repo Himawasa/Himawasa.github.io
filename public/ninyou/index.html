@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>任用試験（仏法入門）学習教材</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --bg-quote: #fef9ef;
+  --bg-table-head: #2c3e50;
+  --text: #2c2c2c;
+  --text-sub: #666;
+  --accent: #c0392b;
+  --accent-light: #fdeaea;
+  --blue: #2980b9;
+  --blue-light: #ebf5fb;
+  --purple: #8e44ad;
+  --purple-light: #f4ecf7;
+  --gold: #d4a017;
+  --gold-light: #fef9e7;
+  --green: #27ae60;
+  --green-light: #e8f8f0;
+  --orange: #e67e22;
+  --orange-light: #fef5e7;
+  --border: #e0dcd5;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.9;
+  font-size: 15px;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ====== ヘッダー ====== */
+.site-header {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+  padding: 32px 20px 28px;
+  text-align: center;
+}
+.site-header h1 {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+.site-header .sub {
+  font-size: 13px;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+/* ====== ナビ（目次） ====== */
+.toc {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.toc-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent);
+  border: none;
+  background: none;
+  width: 100%;
+  font-family: inherit;
+  padding: 0;
+}
+.toc-toggle .arrow { transition: transform 0.3s; font-size: 12px; }
+.toc-toggle.open .arrow { transform: rotate(180deg); }
+.toc-list {
+  display: none;
+  list-style: none;
+  margin-top: 12px;
+  padding-left: 0;
+}
+.toc-list.open { display: block; }
+.toc-list li { margin-bottom: 6px; }
+.toc-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.toc-list a:hover, .toc-list a:active { background: #f0ede8; }
+.toc-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: white;
+  flex-shrink: 0;
+}
+.toc-badge.gosho { background: var(--accent); }
+.toc-badge.nyumon { background: var(--blue); }
+.toc-badge.sekai { background: var(--purple); }
+.toc-group-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 8px 4px;
+  margin-top: 8px;
+}
+
+/* ====== メインコンテンツ ====== */
+.content { max-width: 720px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* セクション */
+.section {
+  margin-top: 32px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.section-header {
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-cat {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  color: white;
+  margin-bottom: 8px;
+}
+.cat-gosho { background: var(--accent); }
+.cat-nyumon { background: var(--blue); }
+.cat-sekai { background: var(--purple); }
+.section-title {
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+.section-body { padding: 20px; }
+
+/* 小見出し */
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 28px 0 12px;
+  padding-left: 12px;
+  border-left: 4px solid var(--accent);
+  line-height: 1.5;
+}
+h3:first-child { margin-top: 0; }
+h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 20px 0 8px;
+  color: var(--blue);
+}
+
+/* 御文ブロック */
+.gosho-quote {
+  background: var(--bg-quote);
+  border-left: 4px solid var(--gold);
+  padding: 16px 16px;
+  margin: 16px 0;
+  border-radius: 0 12px 12px 0;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  line-height: 2;
+  color: #3d3017;
+}
+.gosho-quote .source {
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 11px;
+  color: var(--text-sub);
+  margin-top: 8px;
+  text-align: right;
+}
+
+/* 通解ブロック */
+.tsuge {
+  background: #f0f7ff;
+  border-left: 4px solid var(--blue);
+  padding: 12px 16px;
+  margin: 8px 0 16px;
+  border-radius: 0 12px 12px 0;
+  font-size: 14px;
+  color: #1a3a5c;
+}
+.tsuge::before {
+  content: "通解";
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--blue);
+  color: white;
+  padding: 1px 8px;
+  border-radius: 8px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* テーブル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 13px;
+}
+th {
+  background: var(--bg-table-head);
+  color: white;
+  font-weight: 700;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 12px;
+}
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #fafafa; }
+
+/* キーワード */
+.kw {
+  display: inline;
+  background: linear-gradient(transparent 60%, #ffeaa7 60%);
+  font-weight: 700;
+}
+.kw-red {
+  color: var(--accent);
+  font-weight: 700;
+}
+.kw-blue {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* ポイントボックス */
+.point-box {
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.point-box.red { background: var(--accent-light); border: 1px solid #f5c6cb; }
+.point-box.blue { background: var(--blue-light); border: 1px solid #bee5eb; }
+.point-box.gold { background: var(--gold-light); border: 1px solid #f0e1a0; }
+.point-box.green { background: var(--green-light); border: 1px solid #a3d9b1; }
+.point-box.orange { background: var(--orange-light); border: 1px solid #f5cba7; }
+.point-box .point-title {
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.point-box.red .point-title { color: var(--accent); }
+.point-box.blue .point-title { color: var(--blue); }
+.point-box.gold .point-title { color: #b8860b; }
+.point-box.green .point-title { color: var(--green); }
+.point-box.orange .point-title { color: var(--orange); }
+
+/* 語呂合わせカード */
+.goro-card {
+  background: linear-gradient(135deg, #fef9e7, #fdebd0);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 0;
+  text-align: center;
+}
+.goro-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #b8860b;
+  margin-bottom: 8px;
+}
+.goro-word {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 6px;
+  margin-bottom: 12px;
+}
+.goro-detail {
+  font-size: 14px;
+  text-align: left;
+  line-height: 2;
+}
+.goro-detail b { color: var(--accent); }
+
+/* タイムライン */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+  margin: 16px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 16px;
+  padding-left: 8px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--blue);
+}
+.tl-item.important::before { background: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.tl-year {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+.tl-item.important .tl-year { color: var(--accent); }
+.tl-text { font-size: 14px; }
+
+/* ページ内リンクボタン */
+.nav-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.nav-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text);
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+/* フッター */
+.site-footer {
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+/* ====== 音声リンク ====== */
+.audio-links {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #f8f6f2;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.audio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid;
+}
+.audio-link.video {
+  background: #fdeaea;
+  color: #c0392b;
+  border-color: #f5c6cb;
+}
+.audio-link.video:hover { background: #c0392b; color: white; }
+.audio-link.audio {
+  background: #ebf5fb;
+  color: #2980b9;
+  border-color: #bee5eb;
+}
+.audio-link.audio:hover { background: #2980b9; color: white; }
+
+/* ====== スマホ調整 ====== */
+@media (max-width: 480px) {
+  .site-header h1 { font-size: 18px; }
+  .section-title { font-size: 17px; }
+  .gosho-quote { font-size: 14px; padding: 12px; }
+  table { font-size: 12px; }
+  th, td { padding: 6px 8px; }
+  .goro-word { font-size: 24px; }
+  .audio-links { padding: 10px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <h1>📚 任用試験（仏法入門）</h1>
+  <div class="sub">2026年度 学習教材</div>
+</div>
+
+<!-- 目次 -->
+<div class="toc">
+  <button class="toc-toggle" id="tocToggle">
+    📑 目次 ― タップして開く
+    <span class="arrow">▼</span>
+  </button>
+  <ul class="toc-list" id="tocList">
+    <li class="toc-group-label">📖 御書3編</li>
+    <li><a href="#gosho1"><span class="toc-badge gosho">御書①</span>諸法実相抄</a></li>
+    <li><a href="#gosho2"><span class="toc-badge gosho">御書②</span>妙一尼御前御消息</a></li>
+    <li><a href="#gosho3"><span class="toc-badge gosho">御書③</span>阿仏房御書（宝塔御書）</a></li>
+    <li class="toc-group-label">📘 教学入門</li>
+    <li><a href="#ny1"><span class="toc-badge nyumon">入門1</span>日蓮大聖人の御生涯</a></li>
+    <li><a href="#ny2"><span class="toc-badge nyumon">入門2</span>南無妙法蓮華経</a></li>
+    <li><a href="#ny3"><span class="toc-badge nyumon">入門3</span>一生成仏と広宣流布</a></li>
+    <li><a href="#ny4"><span class="toc-badge nyumon">入門4</span>十界</a></li>
+    <li><a href="#ny5"><span class="toc-badge nyumon">入門5</span>三証</a></li>
+    <li><a href="#ny6"><span class="toc-badge nyumon">入門6</span>信行学</a></li>
+    <li><a href="#ny7"><span class="toc-badge nyumon">入門7</span>難を乗り越える信心</a></li>
+    <li><a href="#ny8"><span class="toc-badge nyumon">入門8</span>宿命転換</a></li>
+    <li><a href="#ny9"><span class="toc-badge nyumon">入門9</span>信心即生活</a></li>
+    <li class="toc-group-label">🌏 世界広布と創価学会</li>
+    <li><a href="#sk1"><span class="toc-badge sekai">世界1</span>創価学会の歴史</a></li>
+    <li><a href="#sk2"><span class="toc-badge sekai">世界2</span>創価学会の宗教改革</a></li>
+  </ul>
+</div>
+
+<div class="content">
+
+<!-- ===================== -->
+<!-- 御書① 諸法実相抄 -->
+<!-- ===================== -->
+<div class="section" id="gosho1">
+  <div class="section-header">
+    <span class="section-cat cat-gosho">御書①</span>
+    <div class="section-title">諸法実相抄</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=GvGBQZLuQOw" target="_blank" rel="noopener">▶ 動画で学ぶ（5:56）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web03.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <table>
+      <tr><th>著述年</th><td>文永10年（1273年）5月17日</td></tr>
+      <tr><th>場所</th><td>佐渡</td></tr>
+      <tr><th>宛先</th><td>最蓮房（天台宗の学僧→佐渡で大聖人の弟子に）</td></tr>
+      <tr><th>ページ</th><td>新1793・全1361</td></tr>
+    </table>
+
+    <h3>拝読御文</h3>
+    <div class="gosho-quote">
+      <span class="kw">行学</span>の二道をはげみ候べし。行学たえなば<span class="kw">仏法</span>はあるべからず。<span class="kw">我</span>もいたし、人をも<span class="kw">教化</span>候え。行学は<span class="kw">信心</span>よりおこるべく候。<span class="kw">力</span>あらば一文一句なりともかたらせ給うべし。
+      <span class="source">新1793・全1361</span>
+    </div>
+
+    <div class="tsuge">修行（行）と学問（学）の二つの道に励みなさい。行学が絶えれば仏法はない。自分も行い、人にも教えなさい。行学は信心から起こるものです。力があるなら一文一句でも人に語りなさい。</div>
+
+    <h3>ここが大事！</h3>
+
+    <div class="point-box red">
+      <div class="point-title">🔑 試験に出るポイント</div>
+      <strong>「行」</strong>とは実践のこと。<br>
+      ・<span class="kw">自行</span>＝勤行（読経・唱題）<br>
+      ・<span class="kw">化他行</span>＝弘教・広布活動（人に仏法を語る）<br><br>
+      <strong>「学」</strong>とは教学の研鑽。御書を根本に仏法の理解を深めること。<br><br>
+      行学の<span class="kw-red">根本は「信心」</span>です。信心がなければ行学は起こりません。
+    </div>
+
+    <p>大聖人は「我もいたし、人をも教化候え」と仰せです。<span class="kw">自分自身が実践し、さらに人にも教えていく</span>ことが大切。車の両輪のように、「自行」と「化他」は不可分です。</p>
+    <p>また「<span class="kw">力あらば一文一句なりとも</span>」とは、完璧でなくてもよい、力の限り少しでも人に語っていこうという姿勢を教えています。</p>
+  </div>
+</div>
+
+<!-- ===================== -->
+<!-- 御書② 妙一尼御前御消息 -->
+<!-- ===================== -->
+<div class="section" id="gosho2">
+  <div class="section-header">
+    <span class="section-cat cat-gosho">御書②</span>
+    <div class="section-title">妙一尼御前御消息<br><small style="font-size:13px;color:#666;">（冬は必ず春となるの事）</small></div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=GqbOEmYAbhM" target="_blank" rel="noopener">▶ 動画で学ぶ（5:44）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web04.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <table>
+      <tr><th>著述年</th><td>建治元年（1275年）5月</td></tr>
+      <tr><th>場所</th><td>身延</td></tr>
+      <tr><th>宛先</th><td>妙一尼（鎌倉の女性門下）</td></tr>
+      <tr><th>ページ</th><td>新1696・全1253</td></tr>
+    </table>
+
+    <p>妙一尼は、<span class="kw">夫に先立たれ、幼い病気の子ら</span>を抱えながらも純粋な信心を貫いた女性門下です。</p>
+
+    <h3>拝読御文</h3>
+    <div class="gosho-quote">
+      法華経を信ずる人は<span class="kw">冬</span>のごとし。<span class="kw">冬は必ず春となる</span>。いまだ昔よりきかずみず、冬の<span class="kw">秋</span>とかえれることを。いまだきかず、法華経を信ずる人の<span class="kw">凡夫</span>となることを。
+      <span class="source">新1696・全1253</span>
+    </div>
+
+    <div class="tsuge">法華経を信じる人の姿は「冬」のようです。冬は必ず春になります。冬が秋に戻ることは絶対にありません。法華経を信じる人が成仏できないということもありません。</div>
+
+    <h3>ここが大事！</h3>
+
+    <div class="point-box gold">
+      <div class="point-title">🌸 「冬は必ず春となる」の意味</div>
+      <strong>「冬」</strong>＝人生の逆境、苦難の時期<br>
+      <strong>「春」</strong>＝勝利、幸福の境涯<br><br>
+      冬が<span class="kw-red">秋に戻ることは絶対にない</span>ように、信心で進む人は必ず「春」（勝利・幸福）に向かいます。後退はないのです。<br><br>
+      法華経を信じる人が<span class="kw-red">凡夫のまま（成仏できない）</span>ということもありません。必ず成仏できるのです。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== -->
+<!-- 御書③ 阿仏房御書 -->
+<!-- ===================== -->
+<div class="section" id="gosho3">
+  <div class="section-header">
+    <span class="section-cat cat-gosho">御書③</span>
+    <div class="section-title">阿仏房御書（宝塔御書）</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=SEIds8smXiI" target="_blank" rel="noopener">▶ 動画で学ぶ（5:23）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web05.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <table>
+      <tr><th>宛先</th><td>阿仏房（佐渡の門下、妻は千日尼）</td></tr>
+      <tr><th>ページ</th><td>新1732・全1304</td></tr>
+      <tr><th>背景</th><td>「多宝如来や宝塔の涌現とは何を表すのか」という質問への返書</td></tr>
+    </table>
+
+    <p>阿仏房は妻の千日尼と共に、<span class="kw">流罪中の大聖人の生活を支え</span>、身延入山後も高齢ながら幾度もお訪ねした門下です。</p>
+
+    <h3>拝読御文</h3>
+    <div class="gosho-quote">
+      末法に入って法華経を持つ<span class="kw">男女</span>のすがたより外には<span class="kw">宝塔</span>なきなり。もししからば、<span class="kw">貴賤上下</span>をえらばず、南無妙法蓮華経ととなうるものは、我が身<span class="kw">宝塔</span>にして我が身また<span class="kw">多宝如来</span>なり。妙法蓮華経より外に宝塔なきなり。法華経の題目、宝塔なり。宝塔また<span class="kw">南無妙法蓮華経</span>なり。
+      <span class="source">新1732・全1304</span>
+    </div>
+
+    <div class="tsuge">末法で法華経を持つ男女の姿よりほかに宝塔はない。身分や地位に関係なく、南無妙法蓮華経と唱える人はわが身が宝塔であり、わが身がまた多宝如来です。宝塔とはすなわち南無妙法蓮華経です。</div>
+
+    <h3>ここが大事！</h3>
+
+    <div class="point-box gold">
+      <div class="point-title">💎 あなた自身が宝塔！</div>
+      <strong>宝塔</strong>＝宝物で飾られた塔。法華経<span class="kw-blue">見宝塔品第11</span>で大地から出現。<br>
+      <strong>多宝如来</strong>＝見宝塔品第11で釈尊の法華経が真実であると保証した仏。<br><br>
+      大聖人は、宝塔とは特別な塔のことではなく、<span class="kw-red">南無妙法蓮華経と唱える一人一人の生命そのもの</span>であると教えています。<br><br>
+      「<span class="kw">貴賤上下をえらばず</span>」＝身分や地位に関係なく、誰もが尊い宝塔です。
+    </div>
+  </div>
+</div>
+
+<!-- ===================== -->
+<!-- 教学入門1 御生涯 -->
+<!-- ===================== -->
+<div class="section" id="ny1">
+  <div class="section-header">
+    <span class="section-cat cat-nyumon">教学入門1</span>
+    <div class="section-title">日蓮大聖人の御生涯</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=y5vuUod-0FA" target="_blank" rel="noopener">▶ 動画で学ぶ（8:40）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web07.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <p>日蓮大聖人の御生涯は、全人類の幸福を願い、妙法を弘め抜いた壮絶な戦いの御一生でした。</p>
+
+    <h3>年表で学ぶ大聖人の御生涯</h3>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">貞応元年（1222年）2月16日</div>
+        <div class="tl-text">安房国（現在の千葉県）に<span class="kw">御誕生</span></div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">建長5年（1253年）4月28日 ― 32歳</div>
+        <div class="tl-text"><span class="kw">立宗宣言</span>。清澄寺で南無妙法蓮華経を唱え、末法の正法を宣言</div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">文応元年（1260年）7月16日 ― 39歳</div>
+        <div class="tl-text"><span class="kw">「立正安国論」</span>を<span class="kw">北条時頼</span>に提出。<span class="kw-red">自界叛逆難</span>と<span class="kw-red">他国侵逼難</span>を予言。直後に松葉ケ谷の法難</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">弘長元年（1261年） ― 40歳</div>
+        <div class="tl-text"><span class="kw">伊豆流罪</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">文永元年（1264年） ― 43歳</div>
+        <div class="tl-text"><span class="kw">小松原の法難</span></div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">文永8年（1271年）9月12日 ― 50歳</div>
+        <div class="tl-text"><span class="kw">竜の口の法難</span>＝<span class="kw-red">発迹顕本</span>。斬首されようとした時に光りものが出現し中止に</div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">文永8年（1271年）10月 ― 50歳</div>
+        <div class="tl-text"><span class="kw">佐渡流罪</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">文永9年（1272年） ― 51歳</div>
+        <div class="tl-text"><span class="kw">「開目抄」</span>著す＝大聖人が末法の御本仏であることを明かす</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">文永10年（1273年） ― 52歳</div>
+        <div class="tl-text"><span class="kw">「観心本尊抄」</span>著す＝御本尊について説き明かす</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">文永11年（1274年） ― 53歳</div>
+        <div class="tl-text">佐渡赦免→鎌倉帰還→<span class="kw">身延入山</span>。蒙古襲来（文永の役）で他国侵逼難の予言が的中</div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">弘安2年（1279年）9月 ― 58歳</div>
+        <div class="tl-text"><span class="kw">熱原の法難</span>。農民門下20人が逮捕、<span class="kw-red">神四郎・弥五郎・弥六郎</span>の3人が処刑→<span class="kw">出世の本懐</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">弘安5年（1282年）10月13日 ― 61歳</div>
+        <div class="tl-text">池上宗仲邸で<span class="kw">御入滅</span>。日興上人が後を正しく継承</div>
+      </div>
+    </div>
+
+    <div class="goro-card">
+      <div class="goro-title">🧠 語呂合わせで覚える法難の順番</div>
+      <div class="goro-word">まいこたつさ</div>
+      <div class="goro-detail">
+        <b>ま</b>＝<b>松</b>葉ケ谷の法難（1260年）<br>
+        <b>い</b>＝<b>伊</b>豆流罪（1261年）<br>
+        <b>こ</b>＝<b>小</b>松原の法難（1264年）<br>
+        <b>たつ</b>＝<b>竜</b>の口の法難（1271年）<br>
+        <b>さ</b>＝<b>佐</b>渡流罪（1271年〜）
+      </div>
+    </div>
+
+    <div class="goro-card">
+      <div class="goro-title">🧠 元号の順番</div>
+      <div class="goro-word">ぶんこぶんぶん</div>
+      <div class="goro-detail">
+        <b>ぶん</b>＝<b>文</b>応元年（松葉ケ谷）<br>
+        <b>こ</b>＝<b>弘</b>長元年（伊豆流罪）<br>
+        <b>ぶん</b>＝<b>文</b>永元年（小松原）<br>
+        <b>ぶん</b>＝<b>文</b>永8年（竜の口）
+      </div>
+    </div>
+
+    <h3>重要キーワード</h3>
+    <table>
+      <tr><th>用語</th><th>意味</th></tr>
+      <tr><td class="kw-red">発迹顕本</td><td>凡夫という仮の姿（迹）を開いて、仏の境地（本地）を顕すこと。竜の口の法難で実現</td></tr>
+      <tr><td class="kw-red">三度の高名</td><td>①立正安国論提出 ②竜の口の法難 ③第3回国主諫暁</td></tr>
+      <tr><td class="kw-red">三大秘法</td><td>本門の本尊、本門の戒壇、本門の題目</td></tr>
+      <tr><td class="kw-red">出世の本懐</td><td>熱原の法難で農民門下が不惜身命の信心を貫き、大聖人が「聖人御難事」で示された</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ===================== -->
+<!-- 教学入門2〜9、世界広布1〜2 -->
+<!-- ===================== -->
+<div class="section" id="ny2">
+  <div class="section-header">
+    <span class="section-cat cat-nyumon">教学入門2</span>
+    <div class="section-title">南無妙法蓮華経</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=Iw5R2J_qADE" target="_blank" rel="noopener">▶ 動画で学ぶ（4:37）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web08.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <p><span class="kw">南無妙法蓮華経</span>は、宇宙と生命を貫く<span class="kw-red">根源の法</span>であり、大聖人の仏の生命そのものです。</p>
+
+    <h3>「南無」の意味</h3>
+    <p>古代インドの言葉の音写で、「<span class="kw">帰命</span>」と訳されます。全身全霊で教えを実践し体現するという意味です。</p>
+
+    <h3>御本尊について</h3>
+    <p>大聖人は仏界の生命を<span class="kw">文字曼荼羅</span>として顕されました。これが御本尊です。</p>
+
+    <div class="gosho-quote">
+      この御本尊全く余所に求むることなかれ。ただ我ら衆生の法華経を持って南無妙法蓮華経と唱うる<span class="kw">胸中の肉団</span>におわしますなり。
+    </div>
+    <div class="tsuge">御本尊は外に求めるものではない。南無妙法蓮華経と唱える私たちの胸の中にこそある。</div>
+
+    <div class="point-box blue">
+      <div class="point-title">✨ 歓喜の中の大歓喜</div>
+      自分自身の心が本来、仏である（＝南無妙法蓮華経そのもの）と知ること。これが最高の喜びです。
+    </div>
+  </div>
+</div>
+
+<div class="section" id="ny3">
+  <div class="section-header">
+    <span class="section-cat cat-nyumon">教学入門3</span>
+    <div class="section-title">一生成仏と広宣流布</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=hVrSMnrt9SE" target="_blank" rel="noopener">▶ 動画で学ぶ（7:33）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web09.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <h3>成仏とは？</h3>
+    <p>成仏の「<span class="kw">成</span>」は「<span class="kw-red">開く義</span>なり」。自分の生命の中に元からある仏の境涯を<strong>開く</strong>ことです。</p>
+
+    <div class="point-box green">
+      <div class="point-title">🌸 桜梅桃李（おうばいとうり）</div>
+      桜は桜、梅は梅、桃は桃、李は李として、それぞれの特質を改めずにそのまま仏と開き顕す。＝<span class="kw-red">即身成仏</span>の法理
+    </div>
+
+    <h3>二つの幸福</h3>
+    <table>
+      <tr><th>種類</th><th>内容</th><th>特徴</th></tr>
+      <tr><td class="kw-red">相対的幸福</td><td>物質的に恵まれる、地位や名誉を得るなど</td><td>外の条件に左右され、<strong>永続しない</strong></td></tr>
+      <tr><td class="kw-red">絶対的幸福</td><td>何があっても「生きていること自体が幸福」</td><td>崩れない生命の境涯。<strong>仏界</strong></td></tr>
+    </table>
+    <p>※ この二つの幸福論を説いたのは<span class="kw">戸田先生</span>です。</p>
+
+    <h3>広宣流布とは？</h3>
+    <p>正法を広く人々に流布し、万人を仏の境涯に導くこと。末法の広宣流布を託されたのが<span class="kw">地涌の菩薩</span>です。</p>
+
+    <h3>立正安国</h3>
+    <div class="gosho-quote">
+      汝、すべからく一身の安堵を思わば、まず<span class="kw">四表</span>の静謐を禱るべきものか
+      <span class="source">立正安国論</span>
+    </div>
+    <div class="tsuge">自分の安穏を願うなら、まず社会全体の平和を祈るべきである。</div>
+  </div>
+</div>
+
+<div class="section" id="ny4">
+  <div class="section-header">
+    <span class="section-cat cat-nyumon">教学入門4</span>
+    <div class="section-title">十界</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=qHTNJg1NzKs" target="_blank" rel="noopener">▶ 動画で学ぶ（6:35）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web10.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <p>生命の状態を10種に分類したもの。一人の生命にこの10の境涯すべてが備わっています（<span class="kw">十界互具</span>）。</p>
+
+    <table>
+      <tr><th>#</th><th>境涯</th><th>観心本尊抄</th><th>特徴</th></tr>
+      <tr><td>1</td><td class="kw-red">地獄界</td><td>「瞋るは地獄」</td><td>苦しみに縛られた最低の境涯</td></tr>
+      <tr><td>2</td><td class="kw-red">餓鬼界</td><td>「貪るは餓鬼」</td><td>欲望に振り回される</td></tr>
+      <tr><td>3</td><td class="kw-red">畜生界</td><td>「癡かは畜生」</td><td>目先の利害にとらわれ愚か</td></tr>
+      <tr><td>4</td><td class="kw-red">修羅界</td><td>「諂曲なるは修羅」</td><td>勝他の念。心に裏表</td></tr>
+      <tr><td>5</td><td>人界</td><td>「平らかなるは人」</td><td>穏やかに善悪を判断</td></tr>
+      <tr><td>6</td><td>天界</td><td>「喜ぶは天」</td><td>喜びの境涯（永続しない）</td></tr>
+      <tr><td>7</td><td>声聞界</td><td>―</td><td>仏の教えを聞いて部分的に覚る</td></tr>
+      <tr><td>8</td><td>縁覚界</td><td>―</td><td>独力で部分的に覚る</td></tr>
+      <tr><td>9</td><td class="kw-blue">菩薩界</td><td>―</td><td>慈悲を根本に自他共の幸福を願う</td></tr>
+      <tr><td>10</td><td class="kw-blue">仏界</td><td>―</td><td>尊極の境涯。絶対的幸福</td></tr>
+    </table>
+
+    <div class="point-box blue">
+      <div class="point-title">📌 六道・四聖・二乗</div>
+      <strong>六道</strong>（地獄〜天）＝外の条件に左右される。六道輪廻。<br>
+      <strong>四聖</strong>（声聞〜仏）＝修行によって得られる覚りの境涯。<br>
+      <strong>二乗</strong>（声聞＋縁覚）＝部分的な覚りに安住。自分中心。
+    </div>
+
+    <div class="point-box red">
+      <div class="point-title">⚡ 十界互具が大事な理由</div>
+      たとえ今が「地獄」の境涯であっても、<span class="kw-red">仏界が自分の中に備わっている</span>から、信心によって仏界を開くことができる！
+    </div>
+  </div>
+</div>
+
+<div class="section" id="ny5">
+  <div class="section-header">
+    <span class="section-cat cat-nyumon">教学入門5</span>
+    <div class="section-title">三証</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=A_ImpfgevIc" target="_blank" rel="noopener">▶ 動画で学ぶ（1:27）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web11.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <p>正しい宗教かどうかを判定する<span class="kw">3つの基準</span>です。</p>
+    <table>
+      <tr><th>三証</th><th>意味</th><th>御書</th></tr>
+      <tr><td class="kw-red">文証</td><td>経典・聖典の裏づけがあるか</td><td>「文証無からんをば捨てよ」</td></tr>
+      <tr><td class="kw-red">理証</td><td>道理にかなっているか</td><td>「仏法と申すは<span class="kw">道理</span>なり」</td></tr>
+      <tr><td class="kw-red">現証</td><td>実際に結果が現れているか</td><td>「道理・証文よりも<span class="kw">現証にはすぎず</span>」</td></tr>
+    </table>
+
+    <div class="point-box red">
+      <div class="point-title">🔑 大聖人が最も重視したのは「現証」！</div>
+      どんなに立派な教えでも、実際に結果が出なければ意味がない。<br>
+      実践の結果が生活に現れること＝<span class="kw-red">現証</span>が最も大切です。
+    </div>
+  </div>
+</div>
+
+<div class="section" id="ny6">
+  <div class="section-header">
+    <span class="section-cat cat-nyumon">教学入門6</span>
+    <div class="section-title">信行学</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=3dVlUZ8r-i8" target="_blank" rel="noopener">▶ 動画で学ぶ（3:17）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web12.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <table>
+      <tr><th>信行学</th><th>意味</th><th>詳細</th></tr>
+      <tr><td class="kw-red">信</td><td>御本尊を信ずること</td><td>仏道修行の<span class="kw">出発点であり帰着点</span></td></tr>
+      <tr><td class="kw-red">行</td><td>具体的な実践</td><td>自行（勤行＝読経・唱題）＋化他（折伏・弘教）</td></tr>
+      <tr><td class="kw-red">学</td><td>教学の研鑽</td><td>御書を根本に仏法を学ぶ</td></tr>
+    </table>
+
+    <div class="point-box blue">
+      <div class="point-title">📌 以信得入（いしんとくにゅう）</div>
+      「信を以て入ることを得た」。智慧第一と言われた<span class="kw">舎利弗</span>でさえ、最終的には<strong>信</strong>によって法華経の真理を体得しました。<br><br>
+      戸田先生は「<span class="kw">信は理を求め、求めたる理は信を深からしむ</span>」と教えています。
+    </div>
+  </div>
+</div>
+
+<div class="section" id="ny7">
+  <div class="section-header">
+    <span class="section-cat cat-nyumon">教学入門7</span>
+    <div class="section-title">難を乗り越える信心</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=toZts2n-E7Y" target="_blank" rel="noopener">▶ 動画で学ぶ（3:22）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web13.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <p>仏道修行を進める時、必ず妨げが現れます。それが<span class="kw">三障四魔</span>と<span class="kw">三類の強敵</span>です。</p>
+
+    <h3>三障四魔</h3>
+    <table>
+      <tr><th colspan="2">三障（3つの障り）</th></tr>
+      <tr><td class="kw-red">煩悩障</td><td>貪り・瞋り・癡かなどの煩悩</td></tr>
+      <tr><td class="kw-red">業障</td><td>悪業（悪い行いの集積）</td></tr>
+      <tr><td class="kw-red">報障</td><td>過去世の悪業の報い</td></tr>
+    </table>
+    <table>
+      <tr><th colspan="2">四魔（4つの魔）</th></tr>
+      <tr><td>陰魔</td><td>五陰の不調和</td></tr>
+      <tr><td>煩悩魔</td><td>煩悩が信心を破壊する</td></tr>
+      <tr><td>死魔</td><td>命を絶つ、他の修行者の死で疑いを生じさせる</td></tr>
+      <tr><td class="kw-red">天子魔</td><td><span class="kw">最も本源的な魔</span>。権力者の生命に現れ迫害を加える（第六天の魔王）</td></tr>
+    </table>
+
+    <h3>三類の強敵（法華経 勧持品第13）</h3>
+    <table>
+      <tr><th>種類</th><th>正体</th><th>手段</th></tr>
+      <tr><td>俗衆増上慢</td><td>仏法に無智な人々</td><td>悪口罵詈・刀杖</td></tr>
+      <tr><td>道門増上慢</td><td>邪智の僧侶</td><td>自分が優れていると思い込む</td></tr>
+      <tr><td class="kw-red">僭聖増上慢</td><td>聖者のように見える高僧</td><td>権力者に讒言。<span class="kw-red">最も悪質</span></td></tr>
+    </table>
+
+    <div class="point-box orange">
+      <div class="point-title">💪 「賢者はよろこび愚者は退く」</div>
+      三障四魔が出現した時こそ成仏のチャンス！<br>
+      <span class="kw-red">賢者</span>＝喜んで前進する<br>
+      愚者＝恐れて退いてしまう
+    </div>
+  </div>
+</div>
+
+<div class="section" id="ny8">
+  <div class="section-header">
+    <span class="section-cat cat-nyumon">教学入門8</span>
+    <div class="section-title">宿命転換</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=N6S8BdKZRK0" target="_blank" rel="noopener">▶ 動画で学ぶ（2:03）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web14.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <h3>宿命転換の原理</h3>
+    <table>
+      <tr><th>用語</th><th>意味</th></tr>
+      <tr><td class="kw-red">転重軽受</td><td>「重きを転じて軽く受く」。重い罪業を正法の功徳で軽く受けて消滅させる</td></tr>
+      <tr><td class="kw-red">願兼於業</td><td>菩薩がわざわざ願って悪世に生まれ、人々を救うこと</td></tr>
+    </table>
+
+    <div class="point-box green">
+      <div class="point-title">🔄 「宿命を使命に変える」</div>
+      池田先生が「願兼於業」の法理をわかりやすく表現した言葉。<br>
+      苦しみや困難（宿命）を、人々を救うための<span class="kw-red">使命</span>ととらえ直すこと。<br>
+      宿命転換の実践の核心は<span class="kw-red">南無妙法蓮華経の題目</span>です。
+    </div>
+  </div>
+</div>
+
+<div class="section" id="ny9">
+  <div class="section-header">
+    <span class="section-cat cat-nyumon">教学入門9</span>
+    <div class="section-title">信心即生活</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=VgxGCFmLC8w" target="_blank" rel="noopener">▶ 動画で学ぶ（3:51）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web15.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <h3>妙法の功徳</h3>
+    <p>妙法の根本の功徳は<span class="kw">成仏</span>＝揺るぎない幸福境涯の確立です。</p>
+
+    <h3>諸天善神</h3>
+    <p>正法を実践する人を守護する種々のはたらき。特定の実体ではなく、私たちの善の生き方に応じて周囲に現れる善のはたらきです。</p>
+    <div class="gosho-quote">
+      神の護ると申すも、人の<span class="kw">心</span>つよきによるとみえて候
+    </div>
+    <div class="tsuge">諸天善神の守護も、その人の信心が強いかどうかによる。</div>
+
+    <h3>異体同心</h3>
+    <div class="gosho-quote">
+      <span class="kw">異体同心</span>なれば<span class="kw">万事</span>を成じ、同体異心なれば諸事叶うことなし
+    </div>
+    <p><span class="kw-red">異体</span>＝一人一人の個性や立場は異なる。<span class="kw-red">同心</span>＝広宣流布という大願に心を合わせること（信心）。</p>
+
+    <h3>信心即生活</h3>
+    <div class="gosho-quote">
+      <span class="kw">御みやづかい</span>を法華経とおぼしめせ
+    </div>
+    <div class="tsuge">日々の仕事・生活が、そのまま仏道修行の場である。</div>
+    <p>信仰と生活は切り離せません。<span class="kw">生活はその人の信心の表れ</span>です。</p>
+
+    <h3>人の振る舞い</h3>
+    <div class="gosho-quote">
+      教主釈尊の出世の本懐は<span class="kw">人の振る舞い</span>にて候いけるぞ
+    </div>
+    <div class="tsuge">釈尊がこの世に生まれて仏法を説いた根本の目的は、人間としてどう生きるべきかを示すことにあった。</div>
+
+    <p>法華経の<span class="kw">不軽菩薩</span>は、万人の中の仏の生命を敬い、あらゆる人を礼拝しました。万人尊重の精神こそ仏法の根幹です。</p>
+  </div>
+</div>
+
+<!-- ===================== -->
+<!-- 世界広布1 -->
+<!-- ===================== -->
+<div class="section" id="sk1">
+  <div class="section-header">
+    <span class="section-cat cat-sekai">世界広布1</span>
+    <div class="section-title">創価学会の歴史</div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=zTF1Wu9XSV4" target="_blank" rel="noopener">▶ 動画で学ぶ（9:59）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web17.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <h3>三代会長</h3>
+    <table>
+      <tr><th>会長</th><th>称号</th><th>主な業績</th></tr>
+      <tr><td class="kw-red">牧口常三郎<br>（初代）</td><td>学会創立の<span class="kw">先師</span></td><td>『創価教育学体系』発刊。神札拒否で投獄、獄中で逝去（73歳）</td></tr>
+      <tr><td class="kw-red">戸田城聖<br>（第2代）</td><td>地涌75万の<span class="kw">恩師</span></td><td>獄中の悟達、75万世帯達成、原水爆禁止宣言</td></tr>
+      <tr><td class="kw-red">池田大作<br>（第3代）</td><td>世界広布の<span class="kw">大師匠</span></td><td>世界192カ国へ展開、平和・文化・教育の運動</td></tr>
+    </table>
+
+    <h3>年表</h3>
+    <div class="timeline">
+      <div class="tl-item important">
+        <div class="tl-year">1930年11月18日</div>
+        <div class="tl-text">『創価教育学体系』発刊＝<span class="kw">創価学会創立記念日</span>。「創価」＝<span class="kw-red">価値創造</span></div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">1943年7月6日</div>
+        <div class="tl-text">牧口先生・戸田先生ら逮捕（治安維持法違反・不敬罪）</div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">1944年11月18日</div>
+        <div class="tl-text">牧口先生、獄中で逝去（73歳）。同月、戸田先生<span class="kw">「獄中の悟達」</span>＝「仏とは生命」「われ地涌の菩薩」</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1945年7月3日</div>
+        <div class="tl-text">戸田先生出獄。学会再建に着手</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1947年8月14日</div>
+        <div class="tl-text">池田先生、戸田先生と出会う</div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">1951年5月3日</div>
+        <div class="tl-text">戸田先生、第2代会長就任。<span class="kw">75万世帯</span>の誓願</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1957年7月3日</div>
+        <div class="tl-text">池田先生、<span class="kw">大阪事件</span>で不当逮捕→のち無罪確定</div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">1957年9月8日</div>
+        <div class="tl-text">戸田先生<span class="kw">「原水爆禁止宣言」</span></div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">1958年3月16日</div>
+        <div class="tl-text">戸田先生、青年6000人に広布を託す＝<span class="kw">広宣流布記念の日</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1958年4月2日</div>
+        <div class="tl-text">戸田先生逝去（58歳）</div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">1960年5月3日</div>
+        <div class="tl-text">池田先生、第3代会長就任</div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">1960年10月2日</div>
+        <div class="tl-text"><span class="kw">世界広布の第一歩</span>（南北アメリカへ出発）</div>
+      </div>
+      <div class="tl-item important">
+        <div class="tl-year">1975年1月26日</div>
+        <div class="tl-text"><span class="kw">SGI発足</span>（グアム、51カ国・地域）</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2023年11月15日</div>
+        <div class="tl-text">池田先生逝去（95歳）</div>
+      </div>
+    </div>
+
+    <div class="goro-card">
+      <div class="goro-title">🧠 記念日セットで覚えよう</div>
+      <div class="goro-detail" style="text-align:center; font-size:15px;">
+        <b>1・26</b> SGI発足 ／ <b>3・16</b> 広宣流布記念の日<br>
+        <b>5・3</b> 戸田＆池田先生の会長就任<br>
+        <b>7・3</b> 戸田先生出獄 / 池田先生逮捕<br>
+        <b>10・2</b> 世界広布の第一歩<br>
+        <b>11・18</b> 創立記念日
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== -->
+<!-- 世界広布2 -->
+<!-- ===================== -->
+<div class="section" id="sk2">
+  <div class="section-header">
+    <span class="section-cat cat-sekai">世界広布2</span>
+    <div class="section-title">創価学会の宗教改革<br><small style="font-size:13px;color:#666;">（日顕宗を破す）</small></div>
+  </div>
+  <div class="audio-links">
+    <a class="audio-link video" href="https://www.youtube.com/watch?v=RwGYzgShiaU" target="_blank" rel="noopener">▶ 動画で学ぶ（8:42）</a>
+    <a class="audio-link audio" href="https://www.sokanet.jp/recommend/ninyou2026/media/Ninyo_2026_web18.mp3" target="_blank" rel="noopener">🎧 音声で聴く</a>
+  </div>
+  <div class="section-body">
+    <h3>宗門事件の経過</h3>
+    <table>
+      <tr><th>事件</th><th>時期</th><th>内容</th></tr>
+      <tr><td class="kw-red">第1次宗門事件</td><td>1977年頃〜</td><td>末寺の僧侶が学会批判。池田先生は1979年に会長辞任し名誉会長に</td></tr>
+      <tr><td class="kw-red">第2次宗門事件</td><td>1990年〜</td><td>日顕が学会破壊工作。1990年12月 池田先生の法華講総講頭罷免→1991年11月28日 破門通告書</td></tr>
+    </table>
+
+    <div class="point-box red">
+      <div class="point-title">📅 魂の独立記念日 ― 11月28日</div>
+      1991年11月28日、宗門が破門通告書を送付。しかしこれは逆に、広宣流布の障害だった宗門から学会が名実ともに<span class="kw-red">独立</span>する契機となりました。
+    </div>
+
+    <h3>「人間のための宗教」5つの特徴</h3>
+
+    <h4>① 万人に開かれた仏法</h4>
+    <p>国籍・言語・文化を超え、誰もが平等に仏の境涯を開ける。僧俗差別を否定。</p>
+
+    <h4>② 「心こそ大切なれ」</h4>
+    <div class="gosho-quote">
+      ただ<span class="kw">心こそ大切なれ</span>。いかに日蓮いのり申すとも、不信ならば、ぬれたるほくちに火をうちかくるがごとくなるべし
+    </div>
+    <div class="tsuge">大切なのは正しい信心。いくら日蓮が祈っても、本人が不信であれば功徳は出ない。</div>
+    <div class="gosho-quote">
+      <span class="kw">信心の血脈</span>なくんば、法華経を持つとも<span class="kw">無益</span>なり
+    </div>
+
+    <h4>③ 異体同心の団結</h4>
+    <p>広宣流布の大願に向かって団結。「<span class="kw">破和合僧</span>」（教団を分裂させる行為）は五逆罪の一つで大罪。</p>
+
+    <h4>④ 仏教の本義に基づく葬儀等</h4>
+    <p><span class="kw">友人葬</span>＝友人・同志が真心の題目で故人を送る。僧侶による葬儀が成仏に不可欠というのは大聖人の教えではない。</p>
+
+    <h4>⑤ 「生命尊厳」「万人尊敬」</h4>
+    <p>池田先生は1993年ハーバード大学で宗教を見極める基準を示しました。</p>
+    <div class="point-box blue">
+      <div class="point-title">🎓 ハーバード講演（1993年）</div>
+      宗教をもつことが、人間を…<br>
+      ① <span class="kw-red">強くするのか、弱くするのか</span><br>
+      ② <span class="kw-red">善くするのか、悪くするのか</span><br>
+      ③ <span class="kw-red">賢くするのか、愚かにするのか</span>
+    </div>
+  </div>
+</div>
+
+<!-- フッター -->
+<div class="site-footer">
+  <p>この教材で学んだ後は、<br><a href="index.html" style="color:var(--accent);font-weight:700;">📱 暗記カードで仕上げ！</a></p>
+  <p style="margin-top:8px;">2026年度 任用試験（仏法入門）学習教材</p>
+</div>
+
+</div><!-- /content -->
+
+<script>
+// 目次の開閉
+const tocToggle = document.getElementById('tocToggle');
+const tocList = document.getElementById('tocList');
+tocToggle.addEventListener('click', () => {
+  tocToggle.classList.toggle('open');
+  tocList.classList.toggle('open');
+  tocToggle.innerHTML = tocList.classList.contains('open')
+    ? '📑 目次 ― タップして閉じる <span class="arrow">▼</span>'
+    : '📑 目次 ― タップして開く <span class="arrow">▼</span>';
+});
+
+// 目次リンクをクリックしたら閉じる
+tocList.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    tocToggle.classList.remove('open');
+    tocList.classList.remove('open');
+    tocToggle.innerHTML = '📑 目次 ― タップして開く <span class="arrow">▼</span>';
+  });
+});
+</script>
+</body>
+</html>

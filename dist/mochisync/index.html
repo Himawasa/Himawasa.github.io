@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MochiSync - 持ち物チェック | HiMaWaSa Sync</title>
+  <meta name="description" content="写真を撮るだけで持ち物リストを自動作成。MochiSync by HiMaWaSa Sync">
+  <meta http-equiv="refresh" content="0;url=https://script.google.com/a/macros/himawasa-sync.com/s/AKfycbzTE8X63ebcgBHDyXgkCrhlCN_Tgna0iNc4_jh9ANrs0IJc8mlneMTZoxvYp3H6u7I4/exec">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Helvetica Neue', 'Hiragino Sans', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e0e0e0;
+    }
+    .loading {
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+    .icon { font-size: 48px; margin-bottom: 16px; }
+    h1 {
+      font-size: 24px;
+      background: linear-gradient(90deg, #64b5f6, #ce93d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    .spinner {
+      width: 32px; height: 32px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #64b5f6;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 16px auto;
+    }
+    p { font-size: 14px; color: #999; }
+    a { color: #64b5f6; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="icon">📦</div>
+    <h1>MochiSync</h1>
+    <div class="spinner"></div>
+    <p>読み込み中...</p>
+    <p style="margin-top: 12px; font-size: 12px;">
+      自動で切り替わらない場合は
+      <a href="https://script.google.com/a/macros/himawasa-sync.com/s/AKfycbzTE8X63ebcgBHDyXgkCrhlCN_Tgna0iNc4_jh9ANrs0IJc8mlneMTZoxvYp3H6u7I4/exec">こちら</a>
+    </p>
+  </div>
+  <script>
+    // meta refreshが効かない場合のフォールバック
+    window.location.replace("https://script.google.com/a/macros/himawasa-sync.com/s/AKfycbzTE8X63ebcgBHDyXgkCrhlCN_Tgna0iNc4_jh9ANrs0IJc8mlneMTZoxvYp3H6u7I4/exec");
+  </script>
+</body>
+</html>

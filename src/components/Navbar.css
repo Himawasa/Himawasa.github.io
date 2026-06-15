@@ -1,0 +1,119 @@
+/* ===== ナビゲーション ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(26, 26, 26, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 3px solid var(--yellow);
+  padding: 0 24px;
+  transition: background 0.3s;
+}
+
+.nav.scrolled {
+  background: rgba(26, 26, 26, 0.98);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+}
+
+/* ロゴ */
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-logo-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.5));
+}
+
+.nav-logo .hi   { color: var(--hi-color); }
+.nav-logo .ma   { color: var(--ma-color); }
+.nav-logo .wa   { color: var(--wa-color); }
+.nav-logo .sa   { color: var(--sa-color); }
+.nav-logo .sync { color: var(--white); font-weight: 400; font-size: 16px; margin-left: 4px; }
+
+/* リンク */
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--yellow);
+}
+
+.nav-cta {
+  background: var(--yellow) !important;
+  color: var(--black) !important;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 700 !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: var(--yellow-dk) !important;
+}
+
+/* ハンバーガー */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 26px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* モバイルメニュー */
+.nav-mobile {
+  list-style: none;
+  background: rgba(26, 26, 26, 0.98);
+  padding: 16px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nav-mobile a {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  font-weight: 500;
+  display: block;
+  padding: 4px 0;
+}
+
+.nav-mobile a:hover {
+  color: var(--yellow);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .nav-links  { display: none; }
+  .hamburger  { display: block; }
+}
