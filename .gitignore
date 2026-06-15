@@ -70,3 +70,7 @@ docs/*
 # PDFuse Sync リダイレクト（ドライブアプリ回避）
 !pdfuse/
 !pdfuse/**
+
+# デライトDX 賃金データ変換プレゼン
+!delight-dx/
+!delight-dx/**
