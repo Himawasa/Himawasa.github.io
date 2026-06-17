@@ -340,13 +340,14 @@
   </div>
   <div class="tb-body">
     <div class="action">
-      画面共有 → VS Code（またはコマンドプロンプト）に切替<br>
-      converterフォルダで実行コマンドを入力
+      画面共有 → コマンドプロンプトに切替<br>
+      ※事前にconverterフォルダを開いておく
     </div>
     <div class="serif">
       では実際に動かしてみます。<br><br>
       コマンドはこれだけです。<br><br>
-      <strong>python convert.py 給与奉行ALC.csv --mapping bugyo_ALC.json</strong><br><br>
+      <strong>python convert.py ALC.csv ALC --month 2026-05 --pay-date 2026-05-25</strong><br><br>
+      「ALC.csv」が入力ファイル、「ALC」がマッピング定義の名前です。<br>
       実行しますね。
     </div>
 
