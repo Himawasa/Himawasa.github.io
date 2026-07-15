@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MochiSync2 - 持ち物チェック | HiMaWaSa Sync</title>
+  <meta name="description" content="写真を撮るだけで持ち物リストを自動作成。返却時はQRで照合。MochiSync2 by HiMaWaSa Sync">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Helvetica Neue', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e0e0e0;
+      padding: 24px 16px;
+    }
+    .box {
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      animation: fadeIn 0.45s ease;
+    }
+    .icon { font-size: 48px; margin-bottom: 12px; }
+    h1 {
+      font-size: 26px;
+      background: linear-gradient(90deg, #64b5f6, #ce93d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      color: #b39ddb;
+      border: 1px solid rgba(179,157,219,0.35);
+      border-radius: 999px;
+      padding: 2px 10px;
+      margin-bottom: 14px;
+    }
+    .spinner {
+      width: 32px; height: 32px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #64b5f6;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 12px auto;
+    }
+    p { font-size: 14px; color: #999; line-height: 1.6; }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    a.btn {
+      display: block;
+      text-decoration: none;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+    }
+    a.btn.mobile { background: linear-gradient(90deg, #43a047, #2e7d32); }
+    a.btn.admin { background: linear-gradient(90deg, #0288d1, #01579b); }
+    a.btn.ghost {
+      background: transparent;
+      border: 1px solid rgba(100,181,246,0.5);
+      color: #64b5f6;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .dest { margin-top: 8px; font-size: 12px; color: #7e8a9a; }
+    .foot { margin-top: 28px; font-size: 11px; color: #666; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="icon">📦</div>
+    <h1>MochiSync2</h1>
+    <div class="tag">HiMaWaSa Sync</div>
+    <div class="spinner" id="spinner"></div>
+    <p id="status">端末を判定して開いています…</p>
+    <p class="dest" id="destHint"></p>
+
+    <div class="actions">
+      <a class="btn mobile" id="linkMobile" href="#">📱 撮影画面（スマホ）</a>
+      <a class="btn admin" id="linkAdmin" href="#">🖥 持物確認画面（PC）</a>
+      <a class="btn ghost" id="linkManual" href="#" style="display:none;">自動で切り替わらない場合はこちら</a>
+    </div>
+
+    <p class="foot">© 2026 HiMaWaSa Sync</p>
+  </div>
+
+  <script>
+    /**
+     * ★ GASの公開URL（ユーザーがデプロイした exec）
+     * 新しいデプロイに変えたら、ここの URL だけ更新してください。
+     */
+    var GAS_EXEC = 'https://script.google.com/a/macros/himawasa-sync.com/s/AKfycbxSO6RWbzVncW3gAkcl5pOZALybWXDAjaiwUsW1gbwTDowMFdbSFJHet36pl1P6oCkQBQ/exec';
+
+    var urlMobile = GAS_EXEC;
+    var urlAdmin = GAS_EXEC + (GAS_EXEC.indexOf('?') >= 0 ? '&' : '?') + 'page=admin';
+
+    document.getElementById('linkMobile').href = urlMobile;
+    document.getElementById('linkAdmin').href = urlAdmin;
+    document.getElementById('linkManual').href = urlMobile;
+
+    function isMobileDevice() {
+      var ua = navigator.userAgent || '';
+      if (/Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua)) {
+        return true;
+      }
+      // iPadOS など UA が Macintosh になる端末向け
+      if (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
+        return true;
+      }
+      return false;
+    }
+
+    function getForcedTarget() {
+      try {
+        var q = window.location.search || '';
+        if (/[?&]page=admin\b/i.test(q) || /[?&]view=admin\b/i.test(q)) return 'admin';
+        if (/[?&]page=mobile\b/i.test(q) || /[?&]view=mobile\b/i.test(q)) return 'mobile';
+      } catch (e) {}
+      return '';
+    }
+
+    var forced = getForcedTarget();
+    var target = forced || (isMobileDevice() ? 'mobile' : 'admin');
+    var goUrl = target === 'admin' ? urlAdmin : urlMobile;
+
+    document.getElementById('status').textContent =
+      target === 'admin'
+        ? 'PC向け：持物確認画面を開きます…'
+        : 'スマホ向け：撮影画面を開きます…';
+    document.getElementById('destHint').textContent =
+      '違う画面に行きたいときは下のボタンを押してください';
+    document.getElementById('linkManual').href = goUrl;
+    document.getElementById('linkManual').style.display = 'block';
+
+    // 少し待ってから自動遷移（誤判定時にボタンを押せる余白）
+    setTimeout(function () {
+      window.location.replace(goUrl);
+    }, 700);
+  </script>
+</body>
+</html>
