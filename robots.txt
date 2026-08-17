@@ -1,0 +1,13 @@
+# HiMaWaSa Sync
+User-agent: *
+Allow: /
+Disallow: /caresync/
+Disallow: /kz-metal/
+Disallow: /delight-dx/
+Disallow: /ninyou/
+Disallow: /sharoushi-portal/confirm/
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://himawasa-sync.com/sitemap.xml

@@ -1,0 +1,24 @@
+# HiMaWaSa Sync
+
+> 今のExcelのまま、士業・介護・医療・中小企業の現場手作業を自動化する伴走型の開発チーム。
+
+- 公式サイト: https://himawasa-sync.com/
+- 相談: https://himawasa-sync.com/#contact
+- note: https://note.com/himawasa_sync
+
+## できること
+- 今使っているExcel・スプレッドシートの様式を変えずに自動化
+- GAS / Google Workspace / kintone / Yoom を使った現場向けの仕組み
+- 士業事務所、介護・医療現場、中小企業の毎月の転記・集計・帳票
+
+## 公開ページ
+- [トップ](https://himawasa-sync.com/): 方針・料金目安・よくある質問
+- [士業DX](https://himawasa-sync.com/pro-dx/): 社労士・税理士向け
+- [kintone導入支援](https://himawasa-sync.com/kintone-dx/)
+- [ShiftSync](https://himawasa-sync.com/shiftsync/): 勤務表の自動作成
+- [Yoom導入支援](https://himawasa-sync.com/yoom-lp/)
+- [労務管理ポータル](https://himawasa-sync.com/sharoushi-portal/)
+
+## 方針
+- 売り込みの電話はしない。初回相談は無料。
+- 顧客専用アプリ（CareSync など）はトップからリンクしない。
