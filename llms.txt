@@ -1,6 +1,6 @@
 # HiMaWaSa Sync
 
-> 今のExcelのまま、士業・介護・医療・中小企業の現場手作業を自動化する伴走型の開発チーム。
+> 個人事業 HiMaWaSa Sync。代表・岩城 弘。今のExcelのまま、士業・介護・医療・中小企業の現場手作業を自動化する。案件は代表が責任を持つ。
 
 - 公式サイト: https://himawasa-sync.com/
 - 相談: https://himawasa-sync.com/contact/
@@ -23,7 +23,7 @@
 - [トップ](https://himawasa-sync.com/): 方針・お悩み別・サービス概要
 - [サービス](https://himawasa-sync.com/services/): メニュー・料金
 - [実績](https://himawasa-sync.com/works/): 導入効果・開発実績
-- [私たち](https://himawasa-sync.com/about/): 代表・屋号の由来
+- [私たち](https://himawasa-sync.com/about/): 事業概要（個人事業）・代表・屋号の由来
 - [AI時代の開発](https://himawasa-sync.com/ai/)
 - [無料体験](https://himawasa-sync.com/try/): ミニアプリを先に試す
 - [無料相談](https://himawasa-sync.com/contact/)
