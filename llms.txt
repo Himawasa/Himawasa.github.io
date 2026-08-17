@@ -19,7 +19,12 @@
 - https://himawasa-sync.com/#ai-era
 
 ## 公開ページ
-- [トップ](https://himawasa-sync.com/): 方針・料金目安・よくある質問
+- [トップ](https://himawasa-sync.com/): 方針・お悩み別・サービス概要
+- [サービス](https://himawasa-sync.com/services/): メニュー・料金
+- [実績](https://himawasa-sync.com/works/): 導入効果・開発実績
+- [私たち](https://himawasa-sync.com/about/): 代表・屋号の由来
+- [AI時代の開発](https://himawasa-sync.com/ai/)
+- [無料相談](https://himawasa-sync.com/contact/)
 - [士業DX](https://himawasa-sync.com/pro-dx/): 社労士・税理士向け
 - [kintone導入支援](https://himawasa-sync.com/kintone-dx/)
 - [ShiftSync](https://himawasa-sync.com/shiftsync/): 勤務表の自動作成
