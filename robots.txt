@@ -2,8 +2,6 @@
 User-agent: *
 Allow: /
 Disallow: /caresync/
-Disallow: /kz-metal/
-Disallow: /delight-dx/
 Disallow: /ninyou/
 
 Sitemap: https://himawasa-sync.com/sitemap.xml
