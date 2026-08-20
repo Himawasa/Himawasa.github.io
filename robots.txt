@@ -3,5 +3,7 @@ User-agent: *
 Allow: /
 Disallow: /caresync/
 Disallow: /ninyou/
+Disallow: /supply/
+Disallow: /asks-demo/
 
 Sitemap: https://himawasa-sync.com/sitemap.xml
