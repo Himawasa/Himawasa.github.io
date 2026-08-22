@@ -1,11 +1,16 @@
 # HiMaWaSa Sync
 
-> 個人事業 HiMaWaSa Sync。代表・岩城 弘。今のExcelのまま、士業・介護・医療・中小企業の現場手作業を自動化する。案件は代表が責任を持つ。
+> 個人事業 HiMaWaSa Sync。代表・岩城 弘。今のExcelのまま、現場の手作業を自動化する。相談は無料。売り込みの電話はしない。
 
 - 公式サイト: https://himawasa-sync.com/
 - 相談: https://himawasa-sync.com/contact/
 - 無料体験: https://himawasa-sync.com/try/
 - note: https://note.com/himawasa_sync
+
+## 現場から選ぶ
+- [士業事務所](https://himawasa-sync.com/for/pro/): 期日管理・請求書自動化。社労士・税理士
+- [介護・医療](https://himawasa-sync.com/for/care/): シフト表・持ち物チェック・施設カレンダー
+- [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS・AI
 
 ## できること
 - 今使っているExcel・スプレッドシートの様式を変えずに自動化
@@ -14,25 +19,21 @@
 - AIは隙間を埋めるパートナー。使い方がわからない企業もサポート
 - AIで作ったシステムの点検・保守。わかる人がそばに残る
 
-## AI時代の方針
-- 作るのは速くなった。本番は、動いたあとに中身がわかる人が残ること
-- 道具の名前から始めなくてよい。「毎月これが面倒」から相談できる
-- https://himawasa-sync.com/#ai-era
-
 ## 公開ページ
-- [トップ](https://himawasa-sync.com/): 方針・お悩み別・サービス概要
+- [トップ](https://himawasa-sync.com/): 現場を選ぶ入口
 - [サービス](https://himawasa-sync.com/services/): メニュー・料金
 - [実績](https://himawasa-sync.com/works/): 導入効果・開発実績
-- [私たち](https://himawasa-sync.com/about/): 事業概要（個人事業）・代表・屋号の由来
+- [私たち](https://himawasa-sync.com/about/): 事業概要・代表
 - [AI時代の開発](https://himawasa-sync.com/ai/)
-- [無料体験](https://himawasa-sync.com/try/): ミニアプリを先に試す
+- [無料体験](https://himawasa-sync.com/try/)
 - [無料相談](https://himawasa-sync.com/contact/)
-- [士業DX](https://himawasa-sync.com/pro-dx/): 社労士・税理士向け
+- [士業DX](https://himawasa-sync.com/pro-dx/)
 - [kintone導入支援](https://himawasa-sync.com/kintone-dx/)
-- [ShiftSync](https://himawasa-sync.com/shiftsync/): 勤務表の自動作成
+- [ShiftSync](https://himawasa-sync.com/shiftsync/)
 - [Yoom導入支援](https://himawasa-sync.com/yoom-lp/)
 - [労務管理ポータル](https://himawasa-sync.com/sharoushi-portal/)
+- [医療DX](https://himawasa-sync.com/medical-dx/)
 
 ## 方針
-- 売り込みの電話はしない。初回相談は無料。
+- 売り込みの電話はしない。初回相談は無料・30分。
 - 顧客専用アプリ（CareSync など）はトップからリンクしない。
