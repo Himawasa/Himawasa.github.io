@@ -8,7 +8,7 @@
 - note: https://note.com/himawasa_sync
 
 ## 現場から選ぶ
-- [士業事務所](https://himawasa-sync.com/for/pro/): 期日管理・請求書自動化。社労士・税理士
+- [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳・期日のお知らせ・請求/FAX整理。社労士・税理士
 - [介護・医療](https://himawasa-sync.com/for/care/): シフト表・持ち物チェック・施設カレンダー
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS・AI
 

@@ -61,7 +61,22 @@
     <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-cover.jpg</image:loc>
+      <image:title>士業事務所。顧客台帳・期日・請求の手作業を軽くする</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-client.jpg</image:loc>
+      <image:title>士業事務所の顧客台帳。連絡先と履歴を一画面にまとめる</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-deadline.jpg</image:loc>
+      <image:title>届出・申請の期日を数日前から知らせる画面</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-docs.jpg</image:loc>
+      <image:title>請求書作成とFAX・届いた書類の整理</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/care/</loc>
