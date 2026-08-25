@@ -11,9 +11,11 @@
 - [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳・期日のお知らせ・請求/FAX整理。社労士・税理士
 - [介護・医療](https://himawasa-sync.com/for/care/): シフト表・持ち物チェック・施設カレンダー
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS・AI
+- [キーエンスRK](https://himawasa-sync.com/rk/): 作成に壁を感じている人向け。作成代行1万円から。代理店ではない
 
 ## できること
 - 今使っているExcel・スプレッドシートの様式を変えずに自動化
+- キーエンス製RPA「RKシリーズ」のシナリオ作成・保守（工場 / 病院 / 介護 / 士業 / 中小企業 / クリック起動）
 - GAS / Google Workspace / kintone / Yoom を使った現場向けの仕組み
 - 士業事務所、介護・医療現場、中小企業の毎月の転記・集計・帳票
 - AIは隙間を埋めるパートナー。使い方がわからない企業もサポート
@@ -22,6 +24,13 @@
 ## 公開ページ
 - [トップ](https://himawasa-sync.com/): 現場を選ぶ入口
 - [サービス](https://himawasa-sync.com/services/): メニュー・料金
+- [キーエンスRK](https://himawasa-sync.com/rk/)
+- [工場RK](https://himawasa-sync.com/rk/factory/)
+- [病院RK](https://himawasa-sync.com/rk/hospital/)
+- [介護RK](https://himawasa-sync.com/rk/care/)
+- [士業RK](https://himawasa-sync.com/rk/pro/)
+- [中小企業RK](https://himawasa-sync.com/rk/biz/)
+- [クリックRK](https://himawasa-sync.com/rk/click/)
 - [実績](https://himawasa-sync.com/works/): 導入効果・開発実績
 - [私たち](https://himawasa-sync.com/about/): 事業概要・代表
 - [AI時代の開発](https://himawasa-sync.com/ai/)
