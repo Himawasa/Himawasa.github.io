@@ -80,12 +80,12 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/care/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
     <image:image>
       <image:loc>https://himawasa-sync.com/dm/dm-cover.jpg</image:loc>
-      <image:title>介護施設の現場。シフト表と持ち物、予定の手作業を軽くする</image:title>
+      <image:title>介護施設と病院の現場。シフト表と持ち物、日計の手作業を軽くする</image:title>
     </image:image>
     <image:image>
       <image:loc>https://himawasa-sync.com/dm/dm-mochi.jpg</image:loc>
@@ -177,8 +177,8 @@
   <url>
     <loc>https://himawasa-sync.com/rk/hospital/</loc>
     <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://himawasa-sync.com/dm/dm-calendar.jpg</image:loc>
       <image:title>病院の日計や予定の集計</image:title>
@@ -203,8 +203,8 @@
   <url>
     <loc>https://himawasa-sync.com/rk/care/</loc>
     <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://himawasa-sync.com/dm/dm-cover.jpg</image:loc>
       <image:title>介護施設のシフトと勤怠の手作業</image:title>
@@ -320,9 +320,9 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/shiftsync/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
 
   </url>
   <url>
@@ -341,9 +341,9 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/medical-dx/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
 
   </url>
   <url>
