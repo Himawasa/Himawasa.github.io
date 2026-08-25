@@ -1,12 +1,10 @@
 /**
- * 経費撮影 PWA サンプル
- * 本番では Microsoft ログイン → SharePoint へアップロード
- * このサンプルはブラウザ内に保存（デモ）
+ * 経費撮影 PWA デモ
+ * 操作確認のみ。画像はサーバーにもブラウザにも保存しない。
  */
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'empazy_expense_demo_v1';
   const payButtons = document.querySelectorAll('.pay-btn');
   const fileInput = document.getElementById('photo-input');
   const btnCapture = document.getElementById('btn-capture');
@@ -16,11 +14,10 @@
   const previewWrap = document.getElementById('preview-wrap');
   const statusEl = document.getElementById('status');
   const memoEl = document.getElementById('memo');
-  const recentList = document.getElementById('recent-list');
 
   let selectedPay = '';
-  let currentBlob = null;
-  let currentDataUrl = null;
+  let hasPreview = false;
+  let objectUrl = null;
 
   function showStatus(text, isError) {
     statusEl.textContent = text;
@@ -32,43 +29,18 @@
     statusEl.classList.add('hidden');
   }
 
-  function loadEntries() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : [];
-    } catch {
-      return [];
+  function clearPreview() {
+    if (objectUrl) {
+      URL.revokeObjectURL(objectUrl);
+      objectUrl = null;
     }
+    hasPreview = false;
+    previewImg.removeAttribute('src');
+    previewWrap.hidden = true;
   }
 
-  function saveEntries(entries) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-  }
-
-  function renderRecent() {
-    const entries = loadEntries().slice(0, 8);
-    if (!entries.length) {
-      recentList.innerHTML = '<p class="hint">まだ保存がありません</p>';
-      return;
-    }
-    recentList.innerHTML = entries
-      .map((e) => {
-        const when = new Date(e.at).toLocaleString('ja-JP');
-        return `
-          <div class="list-item">
-            <img src="${e.thumb}" alt="" />
-            <div>
-              <strong>${e.payLabel}</strong><br>
-              ${when}<br>
-              <span class="hint">${e.note || 'メモなし'}</span>
-            </div>
-          </div>`;
-      })
-      .join('');
-  }
-
-  function updateSaveButton() {
-    btnSave.disabled = !selectedPay || !currentBlob;
+  function updateConfirmButton() {
+    btnSave.disabled = !selectedPay || !hasPreview;
   }
 
   payButtons.forEach((btn) => {
@@ -76,7 +48,7 @@
       payButtons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
       btn.setAttribute('aria-pressed', 'true');
       selectedPay = btn.dataset.pay;
-      updateSaveButton();
+      updateConfirmButton();
     });
   });
 
@@ -95,86 +67,46 @@
       showStatus('画像ファイルを選んでください', true);
       return;
     }
-    currentBlob = file;
-    const reader = new FileReader();
-    reader.onload = () => {
-      currentDataUrl = reader.result;
-      previewImg.src = currentDataUrl;
-      previewWrap.hidden = false;
-      hideStatus();
-      updateSaveButton();
-    };
-    reader.readAsDataURL(file);
+    clearPreview();
+    objectUrl = URL.createObjectURL(file);
+    previewImg.src = objectUrl;
+    previewWrap.hidden = false;
+    hasPreview = true;
+    hideStatus();
+    updateConfirmButton();
     fileInput.value = '';
   });
 
   btnClear.addEventListener('click', () => {
-    currentBlob = null;
-    currentDataUrl = null;
-    previewImg.removeAttribute('src');
-    previewWrap.hidden = true;
+    clearPreview();
     memoEl.value = '';
     hideStatus();
-    updateSaveButton();
+    updateConfirmButton();
   });
 
-  btnSave.addEventListener('click', async () => {
-    if (!selectedPay || !currentDataUrl) return;
-
+  btnSave.addEventListener('click', () => {
+    if (!selectedPay || !hasPreview) return;
     const payLabel =
-      document.querySelector(`.pay-btn[data-pay="${selectedPay}"]`)?.textContent?.trim() ||
+      document.querySelector(`.pay-btn[data-pay="${selectedPay}"]`)?.querySelector('small')?.previousSibling?.textContent?.trim() ||
+      document.querySelector(`.pay-btn[data-pay="${selectedPay}"]`)?.childNodes[0]?.textContent?.trim() ||
       selectedPay;
 
-    // デモ：SharePoint の代わりにブラウザ内へ保存
-    const thumb = await makeThumb(currentDataUrl, 120);
-    const entries = loadEntries();
-    entries.unshift({
-      id: Date.now(),
-      pay: selectedPay,
-      payLabel,
-      note: memoEl.value.trim(),
-      at: new Date().toISOString(),
-      thumb,
-    });
-    saveEntries(entries.slice(0, 20));
-    renderRecent();
-
     showStatus(
-      'デモ保存しました。このサンプルではブラウザ内のみ。本番は Microsoft ログイン後、SharePoint の経費フォルダへ保存します。',
+      '操作確認OKです。デモ環境のため、画像は保存されていません。本番では Microsoft ログイン後、SharePoint の経費フォルダへ保存します。',
       false
     );
 
-    currentBlob = null;
-    currentDataUrl = null;
-    previewWrap.hidden = true;
+    // プレビューもすぐ消して、端末に残さない
+    clearPreview();
     memoEl.value = '';
-    updateSaveButton();
+    updateConfirmButton();
   });
 
-  function makeThumb(dataUrl, maxSize) {
-    return new Promise((resolve) => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
-        canvas.width = Math.round(img.width * scale);
-        canvas.height = Math.round(img.height * scale);
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        resolve(canvas.toDataURL('image/jpeg', 0.7));
-      };
-      img.onerror = () => resolve(dataUrl);
-      img.src = dataUrl;
-    });
-  }
-
-  // Service Worker
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/empazy-expense/sw.js').catch(() => {});
     });
   }
 
-  renderRecent();
-  updateSaveButton();
+  updateConfirmButton();
 })();
