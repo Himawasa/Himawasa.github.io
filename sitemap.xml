@@ -127,49 +127,182 @@
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-cover.jpg</image:loc>
+      <image:title>事務所のデスク。RKのシナリオ作成で手が止まっている人向け</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-cover.jpg</image:loc>
+      <image:title>事務所のデスク。RKのシナリオ作成で手が止まっている人向けの案内</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-docs.jpg</image:loc>
+      <image:title>残っている手作業を紙と画面で確認する</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-pdf.jpg</image:loc>
+      <image:title>帳票とExcelを行き来する操作をシナリオにする</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-auto.jpg</image:loc>
+      <image:title>止まったシナリオを戻す保守</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/factory/</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-cover.jpg</image:loc>
+      <image:title>工場事務所で試験データや実績をExcelへ転記する</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-cover.jpg</image:loc>
+      <image:title>工場事務所のデスク。試験データや実績をExcelへ転記する作業</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-pdf.jpg</image:loc>
+      <image:title>試験データや帳票をExcelへ載せる作業</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-auto.jpg</image:loc>
+      <image:title>実績数字を決まった資料へまとめる</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-docs.jpg</image:loc>
+      <image:title>発注と在庫の書類を画面へ移す作業</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/hospital/</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-calendar.jpg</image:loc>
+      <image:title>病院の日計や予定の集計</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-calendar.jpg</image:loc>
+      <image:title>病院・施設の予定と数字を一画面で見るような集計作業</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-docs.jpg</image:loc>
+      <image:title>夜間に帳票やCSVを出す作業</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-pdf.jpg</image:loc>
+      <image:title>日計や帳票をExcelへ集計する</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-kintone.jpg</image:loc>
+      <image:title>複数のExcelを一つにまとめる作業</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/care/</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-cover.jpg</image:loc>
+      <image:title>介護施設のシフトと勤怠の手作業</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-cover.jpg</image:loc>
+      <image:title>介護施設の現場。勤怠とシフトの手作業が残っている</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-shift.jpg</image:loc>
+      <image:title>介護施設のシフト表をExcel様式へ載せる作業</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-mochi.jpg</image:loc>
+      <image:title>記録や持ち物など、決まった項目の確認</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-calendar.jpg</image:loc>
+      <image:title>施設の予定と実績を一画面で見る</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/pro/</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-cover.jpg</image:loc>
+      <image:title>士業事務所の顧客台帳と請求</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-cover.jpg</image:loc>
+      <image:title>士業事務所。顧客台帳と請求の手作業が残っている</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-client.jpg</image:loc>
+      <image:title>士業事務所の顧客台帳と書類</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-deadline.jpg</image:loc>
+      <image:title>期日をカレンダーと手帳で確認する</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-docs.jpg</image:loc>
+      <image:title>請求書と届いた書類の整理</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/biz/</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-cover.jpg</image:loc>
+      <image:title>中小企業の帳票転記</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-cover.jpg</image:loc>
+      <image:title>中小企業の事務所。帳票をExcelへ移す手作業</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-pdf.jpg</image:loc>
+      <image:title>PDFの帳票をExcelへ転記する</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-auto.jpg</image:loc>
+      <image:title>繰り返しの集計とメール</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-kintone.jpg</image:loc>
+      <image:title>散らばったExcelを整える</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/click/</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-auto.jpg</image:loc>
+      <image:title>ボタン一回で繰り返し作業を回す</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-auto.jpg</image:loc>
+      <image:title>ボタン一つで繰り返し作業を回すイメージ</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-pro-deadline.jpg</image:loc>
+      <image:title>決まった時刻と予定で回す</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-auto.jpg</image:loc>
+      <image:title>簡単な操作で繰り返しを回す</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/dm/dm-smb-pdf.jpg</image:loc>
+      <image:title>届いた帳票をきっかけにする</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/kintone-dx/</loc>
