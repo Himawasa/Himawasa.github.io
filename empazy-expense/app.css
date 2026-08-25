@@ -1,0 +1,240 @@
+:root {
+  --ink: #1a1a1a;
+  --muted: #5a5a5a;
+  --line: #d8d8d8;
+  --bg: #f7f2e4;
+  --card: #fffdf8;
+  --accent: #2f5d4a;
+  --accent-dk: #1e3d30;
+  --gold: #c4a035;
+  --ok-bg: #eef6f2;
+  --danger: #b42318;
+  --font: "BIZ UDPGothic", "BIZ UDGothic", "Yu Gothic UI", sans-serif;
+  --tap: 56px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  padding: 0 0 24px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+header {
+  background: var(--accent);
+  color: #fff;
+  padding: 16px 16px 14px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+header h1 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+header p {
+  font-size: 12px;
+  opacity: 0.92;
+  margin-top: 4px;
+}
+
+.badge-sample {
+  display: inline-block;
+  background: var(--gold);
+  color: #1a1a1a;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+main { padding: 16px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.card h2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-dk);
+  margin-bottom: 10px;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.pay-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.pay-btn {
+  display: block;
+  width: 100%;
+  min-height: var(--tap);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.pay-btn small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.pay-btn[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--ok-bg);
+  color: var(--accent-dk);
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  min-height: var(--tap);
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.preview-wrap {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.preview-wrap img {
+  max-width: 100%;
+  max-height: 220px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.status {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--ok-bg);
+  border: 1px solid #c5ddd2;
+}
+
+.status.error {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: var(--danger);
+}
+
+.status.hidden { display: none; }
+
+.list-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.list-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
+
+.list-item:last-child { border-bottom: none; }
+
+.install-hint {
+  font-size: 12px;
+  color: var(--muted);
+  background: #fff;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+footer.note {
+  padding: 0 16px;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+}
+
+input[type="file"] { display: none; }
+
+textarea {
+  width: 100%;
+  min-height: 72px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.ms-box {
+  background: #f0f4f8;
+  border: 1px dashed #94a3b8;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.ms-box strong { color: var(--ink); }
