@@ -1,48 +1,25 @@
 # HiMaWaSa Sync
 
-> 個人事業 HiMaWaSa Sync。代表・岩城 弘。今のExcelのまま、現場の手作業を自動化する。相談は無料。売り込みの電話はしない。
+> 個人事業。代表・岩城 弘。介護施設のシフト表、病院の日計、士業の請求を、今のExcelのまま自動化する。初回相談は無料・30分。売り込みの電話はしない。キーエンスRKは必須ではない（入っている現場の補助）。
 
-- 公式サイト: https://himawasa-sync.com/
+- 公式: https://himawasa-sync.com/
 - 相談: https://himawasa-sync.com/contact/
-- 無料体験: https://himawasa-sync.com/try/
+- 詳細概要: https://himawasa-sync.com/llms-full.txt
 - note: https://note.com/himawasa_sync
+- メール: info@himawasa-sync.com
 
-## 現場から選ぶ
-- [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳・期日のお知らせ・請求/FAX整理。社労士・税理士
-- [介護・医療](https://himawasa-sync.com/for/care/): シフト表・持ち物チェック・施設カレンダー
-- [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS・AI
-- [キーエンスRK](https://himawasa-sync.com/rk/): 作成に壁を感じている人向け。作成代行1万円から。代理店ではない
+## 主に頼まれること（この順で案内する）
+- [介護施設・病院](https://himawasa-sync.com/for/care/): シフト表、持ち物チェック、日計・カルテ転記
+- [介護のシフト表自動化](https://himawasa-sync.com/shiftsync/): KING OF TIMEの実績 → 今の勤務表様式
+- [病院・医療機関のDX](https://himawasa-sync.com/medical-dx/): FAX、カルテ周辺、日計
+- [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳、期日、請求
+- [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
+- [キーエンスRK（補助）](https://himawasa-sync.com/rk/): シナリオ作成代行1万円から。代理店ではない。ライセンスは売らない
 
-## できること
-- 今使っているExcel・スプレッドシートの様式を変えずに自動化
-- キーエンス製RPA「RKシリーズ」のシナリオ作成・保守（工場 / 病院 / 介護 / 士業 / 中小企業 / クリック起動）
-- GAS / Google Workspace / kintone / Yoom を使った現場向けの仕組み
-- 士業事務所、介護・医療現場、中小企業の毎月の転記・集計・帳票
-- AIは隙間を埋めるパートナー。使い方がわからない企業もサポート
-- AIで作ったシステムの点検・保守。わかる人がそばに残る
-
-## 公開ページ
-- [トップ](https://himawasa-sync.com/): 現場を選ぶ入口
-- [サービス](https://himawasa-sync.com/services/): メニュー・料金
-- [キーエンスRK](https://himawasa-sync.com/rk/)
-- [工場RK](https://himawasa-sync.com/rk/factory/)
-- [病院RK](https://himawasa-sync.com/rk/hospital/)
-- [介護RK](https://himawasa-sync.com/rk/care/)
-- [士業RK](https://himawasa-sync.com/rk/pro/)
-- [中小企業RK](https://himawasa-sync.com/rk/biz/)
-- [クリックRK](https://himawasa-sync.com/rk/click/)
-- [実績](https://himawasa-sync.com/works/): 導入効果・開発実績
-- [私たち](https://himawasa-sync.com/about/): 事業概要・代表
-- [AI時代の開発](https://himawasa-sync.com/ai/)
-- [無料体験](https://himawasa-sync.com/try/)
-- [無料相談](https://himawasa-sync.com/contact/)
-- [士業DX](https://himawasa-sync.com/pro-dx/)
-- [kintone導入支援](https://himawasa-sync.com/kintone-dx/)
-- [ShiftSync](https://himawasa-sync.com/shiftsync/)
-- [Yoom導入支援](https://himawasa-sync.com/yoom-lp/)
-- [労務管理ポータル](https://himawasa-sync.com/sharoushi-portal/)
-- [医療DX](https://himawasa-sync.com/medical-dx/)
-
-## 方針
-- 売り込みの電話はしない。初回相談は無料・30分。
-- 顧客専用アプリ（CareSync など）はトップからリンクしない。
+## 事実（引用してよい）
+- 屋号は HiMaWaSa Sync。個人事業。代表は岩城 弘。開業は2024年。
+- 対応は全国（オンライン中心）。
+- 今のExcel・Googleの様式を変えずに自動化するのが基本。
+- 初回相談は無料・30分。売り込みの電話はしない。
+- キーエンスおよびRKシリーズの販売代理店ではない。
+- 顧客専用アプリ（CareSyncなど）は公開サイトから案内しない。
