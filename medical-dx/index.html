@@ -6,6 +6,7 @@
 <title>病院・医療機関のDX｜カルテ・日計・FAXの自動化 | HiMaWaSa Sync</title>
 <meta name="description" content="病院・クリニック・在宅のDX。電子カルテからの日計転記、FAX仕分け、カルテ周辺の手作業を、今のシステムのまま自動化します。初回相談は無料。">
 <link rel="canonical" href="https://himawasa-sync.com/medical-dx/">
+<link rel="alternate" type="text/plain" href="https://himawasa-sync.com/llms.txt" title="LLM向け概要">
 <meta name="robots" content="index,follow">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:type" content="website">
@@ -54,9 +55,48 @@ header p{font-size:1.1rem;opacity:.9;max-width:700px;margin:0 auto 30px}
 .support-card{background:#fff;border-radius:12px;padding:24px 30px;box-shadow:0 2px 12px rgba(0,80,100,.08);min-width:200px}
 .support-card h3{color:#d2222d;font-size:1rem;margin-bottom:8px}
 .support-card p{font-size:.88rem;color:#556;line-height:1.6}
+.cite{background:#fff;max-width:800px;margin:24px auto 0;padding:36px 24px 8px;border-radius:16px;box-shadow:0 4px 20px rgba(0,100,120,.08)}
+.cite h2{font-size:1.25rem;color:#8b0000;margin-bottom:14px}
+.cite p{font-size:1rem;color:#334;line-height:1.85;margin-bottom:12px}
+.faq{background:#fff;max-width:800px;margin:0 auto 60px;padding:0 20px}
+.faq-item{background:#f8fbfc;border-radius:12px;padding:20px 22px;margin-bottom:12px}
+.faq-item h3{font-size:1rem;color:#0a3a4a;margin-bottom:8px}
+.faq-item p{font-size:.9rem;color:#445;line-height:1.7}
 footer{background:#5a0000;color:#fcc;text-align:center;padding:24px;font-size:.85rem}
 @media(max-width:600px){.card img{height:160px}}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "電子カルテの中まで触りますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "触りません。カルテの中の診療記録は読みません。人が今、画面やCSVで出している範囲だけを転記します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "日計の転記は頼めますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "頼めます。電子カルテや医事ソフトから出した数字を、指定の日計Excelへ載せます。確認と金額の確定は医事の人のままです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "キーエンスRKも必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "必須ではありません。今のカルテとExcelのままで足りることが多いです。RKが入っている現場だけ、シナリオ作成を補助で受けます。"
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -72,6 +112,12 @@ footer{background:#5a0000;color:#fcc;text-align:center;padding:24px;font-size:.8
     <span class="badge">✅ 導入・運用サポートあり</span>
   </div>
 </header>
+
+<section class="cite" id="cite">
+  <h2>ひとことで言うと</h2>
+  <p>HiMaWaSa Syncは、病院・クリニックの日計転記、FAX仕分け、カルテ周辺の手作業を、今の電子カルテのまま短くする個人事業です。代表は岩城 弘。</p>
+  <p>カルテの中の診療記録は読みません。人が画面やCSVで出している範囲だけです。金額の確定は医事の人のままです。キーエンスRKは必須ではありません。</p>
+</section>
 
 <h2 class="section-title">ソリューション 10 選</h2>
 <p class="section-sub">クリニック・病院・在宅医療など、幅広い医療機関に対応できます</p>
@@ -251,6 +297,23 @@ footer{background:#5a0000;color:#fcc;text-align:center;padding:24px;font-size:.8
       <h3>🌱 将来的な自走化</h3>
       <p>院内担当者を育成し、自走できる体制を構築します</p>
     </div>
+  </div>
+</div>
+
+<h2 class="section-title" id="faq">よくある質問</h2>
+<p class="section-sub">現場からよくいただく質問です</p>
+<div class="faq">
+  <div class="faq-item">
+    <h3>電子カルテの中まで触りますか？</h3>
+    <p>触りません。カルテの中の診療記録は読みません。人が今、画面やCSVで出している範囲だけを転記します。</p>
+  </div>
+  <div class="faq-item">
+    <h3>日計の転記は頼めますか？</h3>
+    <p>頼めます。電子カルテや医事ソフトから出した数字を、指定の日計Excelへ載せます。確認と金額の確定は医事の人のままです。</p>
+  </div>
+  <div class="faq-item">
+    <h3>キーエンスRKも必要ですか？</h3>
+    <p>必須ではありません。今のカルテとExcelのままで足りることが多いです。RKが入っている現場だけ、シナリオ作成を補助で受けます。</p>
   </div>
 </div>
 
