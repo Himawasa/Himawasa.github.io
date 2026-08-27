@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>経費撮影（サンプル）｜HiMaWaSa Sync</title>
-  <meta name="description" content="経費撮影PWAの操作デモ。デモ環境のため画像は保存されません。" />
+  <title>経費撮影｜HiMaWaSa Sync</title>
+  <meta name="description" content="経費撮影PWA。デモ時は保存しません。本番は Microsoft ログイン後に SharePoint へ保存します。" />
   <meta name="theme-color" content="#2f5d4a" />
   <link rel="manifest" href="/empazy-expense/manifest.webmanifest" />
   <link rel="icon" href="/empazy-expense/icons/icon.svg" type="image/svg+xml" />
@@ -17,13 +17,13 @@
 </head>
 <body>
   <header>
-    <span class="badge-sample">デモ環境</span>
+    <span class="badge-sample" id="env-badge">デモ環境</span>
     <h1>経費撮影</h1>
-    <p>操作確認用です。画像は保存されません</p>
+    <p id="header-sub">操作確認用です。画像は保存されません</p>
   </header>
 
   <main>
-    <p class="install-hint">
+    <p class="install-hint" id="install-hint">
       📱 ホーム画面に追加すると、アプリのように開けます（Safari：共有 → ホーム画面に追加）<br>
       ⚠️ <strong>デモ環境のため、撮影した画像はどこにも保存されません。</strong>
     </p>
@@ -49,13 +49,13 @@
 
     <section class="card">
       <h2>2. 領収書を撮る</h2>
-      <p class="hint">スマホのカメラで撮影します（プレビューのみ）</p>
+      <p class="hint">スマホのカメラで撮影します</p>
       <input type="file" id="photo-input" accept="image/*" capture="environment" />
       <button type="button" class="btn-primary" id="btn-capture">📷 撮影する</button>
       <div class="preview-wrap" id="preview-wrap" hidden>
         <img id="preview" alt="プレビュー" />
       </div>
-      <label class="hint" for="memo" style="display:block;margin-top:12px;">メモ（任意・プレビュー用）</label>
+      <label class="hint" for="memo" style="display:block;margin-top:12px;">メモ（任意）</label>
       <textarea id="memo" placeholder="例：会議費・タクシーなど"></textarea>
       <button type="button" class="btn-primary" id="btn-save" disabled>操作を確認する</button>
       <button type="button" class="btn-secondary" id="btn-clear">やり直す</button>
@@ -63,24 +63,23 @@
     </section>
 
     <section class="card">
-      <h2>3. Microsoft ログイン（本番）</h2>
-      <div class="ms-box">
-        <strong>このデモでは未接続です。</strong><br>
-        本番では、ここで<strong>御社の Microsoft アカウント</strong>にログインし、
-        撮影した画像を<strong>SharePoint の経費フォルダへ書き込み</strong>します。<br>
-        ログインは「データを取りに行く」ためではなく、「保存してよいか」の確認です。<br>
-        <br>
-        デモ環境では画像は保存されません。
+      <h2>3. Microsoft ログイン</h2>
+      <p class="hint">写真を保存してよいか、御社アカウントで確認します</p>
+      <div class="ms-box" id="login-box">
+        <div class="account-line">接続中: <span id="account-name">未ログイン</span></div>
+        <button type="button" class="btn-primary" id="btn-login">Microsoft でログイン</button>
+        <button type="button" class="btn-secondary" id="btn-logout" hidden>ログアウト</button>
       </div>
     </section>
   </main>
 
   <footer class="note">
-    HiMaWaSa Sync — EMPAZY向け経費撮影PWAデモ<br>
-    URL: https://himawasa-sync.com/empazy-expense/<br>
-    デモ環境のため、画像は保存されません
+    HiMaWaSa Sync — EMPAZY向け経費撮影PWA<br>
+    URL: https://himawasa-sync.com/empazy-expense/
   </footer>
 
+  <script src="https://alcdn.msauth.net/browser/3.27.0/js/msal-browser.min.js"></script>
+  <script src="/empazy-expense/config.js"></script>
   <script src="/empazy-expense/app.js" defer></script>
 </body>
 </html>

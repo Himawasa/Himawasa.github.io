@@ -1,10 +1,11 @@
 /* 経費撮影PWA — 最小の Service Worker（ホーム画面追加用） */
-const CACHE = 'empazy-expense-v2';
+const CACHE = 'empazy-expense-v3';
 const ASSETS = [
   '/empazy-expense/',
   '/empazy-expense/index.html',
   '/empazy-expense/app.css',
   '/empazy-expense/app.js',
+  '/empazy-expense/config.js',
   '/empazy-expense/manifest.webmanifest',
   '/empazy-expense/icons/icon.svg',
 ];

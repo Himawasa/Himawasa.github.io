@@ -238,3 +238,10 @@ textarea {
 }
 
 .ms-box strong { color: var(--ink); }
+
+.account-line {
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 10px;
+  word-break: break-all;
+}
