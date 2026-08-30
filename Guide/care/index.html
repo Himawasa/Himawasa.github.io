@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>介護施設で改善できること｜HiMaWaSa Sync</title>
+  <meta name="description" content="持ち物・シフト・予定カレンダーから、常勤換算・面談の文字起こし・チラシやホームページまで。介護施設の手作業を、ひとつずつ軽くする案内です。" />
+  <link rel="canonical" href="https://himawasa-sync.com/Guide/care/" />
+  <style>
+    :root {
+      --ink: #1f2a24;
+      --muted: #5a675f;
+      --cream: #f4f8f5;
+      --line: #d5e4d9;
+      --care: #2F9E44;
+      --care-dark: #1f7a32;
+      --care-bg: #E8F6EB;
+      --blue: #1a73e8;
+      --hi: #2196F3;
+      --ma: #4CAF50;
+      --wa: #FF4081;
+      --sa: #FFD700;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Noto Sans JP", "Helvetica Neue", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px 64px; }
+    .brand { font-weight: 700; font-size: 14px; }
+    .brand .hi { color: var(--hi); }
+    .brand .ma { color: var(--ma); }
+    .brand .wa { color: var(--wa); }
+    .brand .sa { color: var(--sa); }
+
+    .hero {
+      background: linear-gradient(180deg, #fff 0%, #eef7f0 100%);
+      border-bottom: 1px solid var(--line);
+      padding: 28px 16px 34px;
+    }
+    .hero-inner { max-width: 960px; margin: 0 auto; }
+    .badge {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--care-dark);
+      background: var(--care-bg);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+    .hero h1 {
+      font-size: clamp(22px, 4.8vw, 32px);
+      line-height: 1.35;
+      margin: 12px 0 10px;
+      max-width: 16em;
+    }
+    .hero .lead {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 36em;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+    }
+    .btn-primary { background: var(--care); color: #fff; }
+    .btn-secondary {
+      background: #fff;
+      color: var(--blue);
+      border: 1px solid #b7d0f5;
+    }
+
+    section { margin: 36px 0; }
+    section h2 {
+      font-size: clamp(18px, 3.5vw, 24px);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .sec-lead {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 680px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    a.card:hover {
+      border-color: #a8d4b2;
+      box-shadow: 0 6px 18px rgba(47,158,68,0.12);
+    }
+    .card .pic {
+      height: 140px;
+      background: #e8f0ea center/cover no-repeat;
+    }
+    .card .body { padding: 14px 14px 16px; flex: 1; display: flex; flex-direction: column; }
+    .card .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+    .tag {
+      font-size: 11px;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 3px 9px;
+    }
+    .tag-try { background: #e3f2fd; color: #1565c0; }
+    .tag-talk { background: var(--care-bg); color: var(--care-dark); }
+    .tag-soon { background: #fff8e1; color: #f57f17; }
+    .card h3 { font-size: 17px; margin-bottom: 6px; line-height: 1.3; }
+    .card p { font-size: 13px; color: var(--muted); flex: 1; }
+    .card .more {
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--care-dark);
+    }
+
+    .promise {
+      background: linear-gradient(135deg, #eef8f0, #e8f1fc);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 16px;
+      font-size: 15px;
+    }
+    .promise ul {
+      margin-top: 10px;
+      padding-left: 1.2em;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .promise li { margin: 4px 0; }
+
+    .cta-end {
+      text-align: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 16px;
+      margin-top: 28px;
+    }
+    .cta-end h2 { font-size: 20px; margin-bottom: 8px; }
+    .cta-end p { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+
+    footer {
+      max-width: 960px;
+      margin: 20px auto 0;
+      padding: 0 16px 36px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand"><span class="hi">Hi</span><span class="ma">Ma</span><span class="wa">Wa</span><span class="sa">Sa</span> Sync</div>
+      <span class="badge">介護施設向け · 改善メニュー一覧</span>
+      <h1>施設で、改善できそうなこと。<br />ひとつずつ、軽くします。</h1>
+      <p class="lead">
+        持ち物・シフト・予定から、常勤換算・面談の文字起こし・チラシやホームページまで。
+        今のやり方を壊さず、残っている手作業だけを短くする相談です。
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:iwaki@himawasa-sync.com?subject=%E4%BB%8B%E8%AD%B7%E6%96%BD%E8%A8%AD%E3%81%AE%E6%94%B9%E5%96%84%E7%9B%B8%E8%AB%87">無料で相談する（30分）</a>
+        <a class="btn btn-secondary" href="https://himawasa-sync.com/for/care/">介護・病院向けの案内</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <section>
+      <h2>現場の記録・予定</h2>
+      <p class="sec-lead">毎日・入退所のたびに残る作業を、短くします。</p>
+      <div class="cards">
+        <a class="card" href="/Guide/mochisync2/">
+          <div class="pic" style="background-image:url('/dm/dm-mochi.jpg')"></div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-try">体験可</span></div>
+            <h3>入所の持ち物チェック</h3>
+            <p>写真からリスト化し、退所時の返却確認までつなぎます。</p>
+            <span class="more">詳しく見る →</span>
+          </div>
+        </a>
+        <a class="card" href="/Guide/caresync/">
+          <div class="pic" style="background-image:url('/dm/dm-calendar.jpg')"></div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-talk">相談</span></div>
+            <h3>施設の予定カレンダー</h3>
+            <p>予定・往診・残薬を一画面に。申し送りのズレを減らします。</p>
+            <span class="more">詳しく見る →</span>
+          </div>
+        </a>
+        <a class="card" href="/pdfuse/">
+          <div class="pic" style="background-image:url('/dm/dm-smb-pdf.jpg')"></div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-try">体験可</span></div>
+            <h3>書類の写真・PDF整理</h3>
+            <p>帳票や通知をテキスト化・Excel化して、転記を減らします。</p>
+            <span class="more">試してみる →</span>
+          </div>
+        </a>
+        <a class="card" href="mailto:iwaki@himawasa-sync.com?subject=%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%B7%E3%83%BC%E3%83%88%E3%81%AE%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E5%8C%96">
+          <div class="pic" style="background:#e8f6eb;display:flex;align-items:center;justify-content:center;font-size:42px;">📋</div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-talk">相談</span></div>
+            <h3>チェックシートのデジタル化</h3>
+            <p>紙の確認表を、スマホで回せる形に整えます。</p>
+            <span class="more">相談する →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>シフト・人員</h2>
+      <p class="sec-lead">毎月の勤務表と、提出用の数字づくり。</p>
+      <div class="cards">
+        <a class="card" href="/shiftsync/">
+          <div class="pic" style="background-image:url('/dm/dm-shift.jpg')"></div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-talk">相談</span></div>
+            <h3>勤務表の自動作成</h3>
+            <p>勤怠データ（KING OF TIMEなど）を、今のExcel勤務表へ載せます。</p>
+            <span class="more">詳しく見る →</span>
+          </div>
+        </a>
+        <a class="card" href="mailto:iwaki@himawasa-sync.com?subject=%E5%B8%B8%E5%8B%A4%E6%8F%9B%E7%AE%97%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">
+          <div class="pic" style="background:#eef6ff;display:flex;align-items:center;justify-content:center;font-size:42px;">📐</div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-talk">相談</span><span class="tag tag-soon">個別対応</span></div>
+            <h3>勤務実績から常勤換算</h3>
+            <p>勤怠から、提出用の常勤換算・勤務形態一覧づくりを支援します。</p>
+            <span class="more">相談する →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>ご家族・面談</h2>
+      <p class="sec-lead">話した内容を、あとから探しやすく。</p>
+      <div class="cards">
+        <a class="card" href="mailto:iwaki@himawasa-sync.com?subject=%E9%9D%A2%E8%AB%87%E3%81%AE%E6%96%87%E5%AD%97%E8%B5%B7%E3%81%93%E3%81%97%E7%9B%B8%E8%AB%87">
+          <div class="pic" style="background:#fff4e8;display:flex;align-items:center;justify-content:center;font-size:42px;">🎙</div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-soon">準備中</span><span class="tag tag-talk">相談可</span></div>
+            <h3>家族・利用者との面談の文字起こし</h3>
+            <p>録音から文字起こし・要約し、清書の負担を減らします。</p>
+            <span class="more">相談する →</span>
+          </div>
+        </a>
+        <a class="card" href="/Guide/mochisync2/">
+          <div class="pic" style="background-image:url('/dm/dm-mochi.jpg')"></div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-try">体験可</span></div>
+            <h3>ご家族への持ち物の説明</h3>
+            <p>入所時のリストを共有し、「言った・言わない」を減らします。</p>
+            <span class="more">持ち物チェックへ →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>集客・発信</h2>
+      <p class="sec-lead">見学・入所の案内を、紙とネットの両方で。</p>
+      <div class="cards">
+        <a class="card" href="mailto:iwaki@himawasa-sync.com?subject=%E6%96%BD%E8%A8%AD%E3%83%81%E3%83%A9%E3%82%B7%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">
+          <div class="pic" style="background-image:url('/dm/dm-cover.jpg')"></div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-talk">相談</span></div>
+            <h3>施設のチラシづくり</h3>
+            <p>見学・入所の案内を、紙とQRで届く形に整えます。</p>
+            <span class="more">相談する →</span>
+          </div>
+        </a>
+        <a class="card" href="mailto:iwaki@himawasa-sync.com?subject=%E6%96%BD%E8%A8%AD%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">
+          <div class="pic" style="background:#eef7ff;display:flex;align-items:center;justify-content:center;font-size:42px;">🌐</div>
+          <div class="body">
+            <div class="tags"><span class="tag tag-soon">準備中</span><span class="tag tag-talk">相談可</span></div>
+            <h3>施設のホームページ</h3>
+            <p>施設の顔になる1枚〜数ページを、一緒に整えます。</p>
+            <span class="more">相談する →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="promise">
+      <strong>進め方の約束</strong>
+      <ul>
+        <li>今のExcel・紙の様式を、できるだけ壊しません</li>
+        <li>全部いっきにやらなくて大丈夫。ひとつずつでOKです</li>
+        <li>初回相談は無料・約30分。売り込みの電話はしません</li>
+      </ul>
+    </section>
+
+    <section class="cta-end">
+      <h2>「うちの施設だと、どれから？」も一緒に考えます</h2>
+      <p>困っている順番で大丈夫です。まずは話を聞かせてください。</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="mailto:iwaki@himawasa-sync.com?subject=%E4%BB%8B%E8%AD%B7%E6%96%BD%E8%A8%AD%E3%81%AE%E6%94%B9%E5%96%84%E7%9B%B8%E8%AB%87">無料で相談する（30分）</a>
+        <a class="btn btn-secondary" href="https://himawasa-sync.com/">トップへ</a>
+      </div>
+      <p style="margin-top:14px;font-size:13px;">
+        <a href="mailto:iwaki@himawasa-sync.com">iwaki@himawasa-sync.com</a>
+        ／ 080-5568-6398
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="brand"><span class="hi">Hi</span><span class="ma">Ma</span><span class="wa">Wa</span><span class="sa">Sa</span> Sync</div>
+    <p>介護施設で改善できること｜メニュー一覧</p>
+    <p>© 2026 HiMaWaSa Sync</p>
+  </footer>
+</body>
+</html>
