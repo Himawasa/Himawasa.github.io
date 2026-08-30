@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>施設の予定・往診・残薬をひと目で｜CareSync</title>
+  <meta name="description" content="CareSyncは、介護施設の予定・往診・利用変更・残薬を一画面のカレンダーにまとめ、現場が同じ情報を見ながら動けるようにする予定管理支援ツールです。" />
+  <link rel="canonical" href="https://himawasa-sync.com/Guide/caresync/" />
+  <style>
+    :root {
+      --ink: #1f2a24;
+      --muted: #5a675f;
+      --cream: #f4f8f5;
+      --line: #d5e4d9;
+      --care: #2F9E44;
+      --care-dark: #1f7a32;
+      --care-bg: #E8F6EB;
+      --teal: #1f6b5a;
+      --teal-mid: #2a9d8f;
+      --blue: #1a73e8;
+      --hi: #2196F3;
+      --ma: #4CAF50;
+      --wa: #FF4081;
+      --sa: #FFD700;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Noto Sans JP", "Helvetica Neue", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    a { color: var(--blue); }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px 64px; }
+    .brand { font-weight: 700; font-size: 14px; }
+    .brand .hi { color: var(--hi); }
+    .brand .ma { color: var(--ma); }
+    .brand .wa { color: var(--wa); }
+    .brand .sa { color: var(--sa); }
+
+    .hero {
+      background: linear-gradient(180deg, #fff 0%, #eef7f0 100%);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 16px 32px;
+    }
+    .hero-inner { max-width: 920px; margin: 0 auto; }
+    .badge {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--care-dark);
+      background: var(--care-bg);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+    .hero h1 {
+      font-size: clamp(22px, 4.8vw, 32px);
+      line-height: 1.35;
+      margin: 12px 0 10px;
+      max-width: 15em;
+    }
+    .hero .lead {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 34em;
+      margin-bottom: 18px;
+    }
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    @media (max-width: 720px) {
+      .hero-visual { grid-template-columns: 1fr; }
+    }
+    .hero-visual .scene,
+    .hero-visual .ui-shot {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      min-height: 240px;
+      background: #fff;
+    }
+    .hero-visual .scene img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 240px;
+    }
+
+    /* CareSync-like calendar mock (no real names) */
+    .cal-mock {
+      background: #f7faf8;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+    }
+    .cal-head {
+      background: linear-gradient(90deg, var(--teal), var(--teal-mid));
+      color: #fff;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .cal-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 8px 10px;
+      background: #fff;
+      border-bottom: 1px solid #e5eee8;
+    }
+    .cal-filters span {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #eef2f0;
+      color: #4a5c54;
+    }
+    .cal-filters span.on {
+      background: var(--teal);
+      color: #fff;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1px;
+      background: #e5eee8;
+      flex: 1;
+      padding: 1px;
+    }
+    .cal-cell {
+      background: #fff;
+      min-height: 52px;
+      padding: 4px;
+      font-size: 10px;
+    }
+    .cal-cell .d { color: #889890; font-weight: 700; margin-bottom: 2px; }
+    .chip {
+      display: block;
+      border-radius: 4px;
+      padding: 2px 4px;
+      margin-top: 2px;
+      font-size: 9px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .chip.v { background: #ede7f6; color: #5e35b1; }
+    .chip.u { background: #e3f2fd; color: #1565c0; }
+    .chip.m { background: #fff3e0; color: #ef6c00; }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      border: none;
+    }
+    .btn-primary { background: var(--care); color: #fff; }
+    .btn-secondary {
+      background: #fff;
+      color: var(--blue);
+      border: 1px solid #b7d0f5;
+    }
+
+    section { margin: 36px 0; }
+    section h2 {
+      font-size: clamp(18px, 3.5vw, 24px);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .pain {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 680px) {
+      .pain { grid-template-columns: 1fr; }
+    }
+    .pain li {
+      list-style: none;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 14px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .pain li span {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .flow {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px 16px 26px;
+    }
+    .flow-phase {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--care-dark);
+      margin: 8px 0 10px;
+    }
+    .flow-phase.alt { color: var(--teal); margin-top: 16px; }
+    .flow-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    @media (max-width: 680px) {
+      .flow-track { grid-template-columns: 1fr; }
+    }
+    .flow-step {
+      background: var(--care-bg);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .flow-track.alt .flow-step { background: #e6f5f2; }
+    .flow-step .ico { font-size: 28px; margin-bottom: 6px; }
+    .flow-step strong { display: block; font-size: 15px; }
+    .flow-step small { display: block; font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .flow-arrow {
+      text-align: center;
+      font-size: 22px;
+      color: var(--care);
+      font-weight: 800;
+      padding: 6px 0;
+    }
+
+    .screens {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 680px) {
+      .screens { grid-template-columns: 1fr; }
+    }
+    .screen-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .screen-card figcaption {
+      padding: 12px 14px 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .screen-card figcaption span {
+      display: block;
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .screen-card .ui-shot { border: none; border-radius: 0; min-height: 220px; }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 680px) {
+      .compare { grid-template-columns: 1fr; }
+    }
+    .compare .col {
+      border-radius: 16px;
+      padding: 16px 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+    .compare .col.after {
+      background: var(--care-bg);
+      border-color: #c6e8cd;
+    }
+    .compare h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+    .compare .after h3 { color: var(--care-dark); }
+    .compare ul { padding-left: 1.1em; font-size: 14px; }
+    .compare li { margin: 6px 0; }
+
+    .trust {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .trust strong { color: var(--ink); }
+
+    .cta-end {
+      text-align: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 16px;
+      margin-top: 28px;
+    }
+    .cta-end h2 { font-size: 20px; margin-bottom: 8px; }
+    .cta-end p { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+
+    footer {
+      max-width: 920px;
+      margin: 20px auto 0;
+      padding: 0 16px 36px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .note-mini {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand"><span class="hi">Hi</span><span class="ma">Ma</span><span class="wa">Wa</span><span class="sa">Sa</span> Sync</div>
+      <span class="badge">介護施設向け · CareSync（施設のカレンダー）</span>
+      <h1>予定・往診・残薬を、<br />ひと目で。</h1>
+      <p class="lead">施設全体の予定を一画面にまとめ、現場が同じ情報を見ながら動けます。</p>
+
+      <div class="hero-visual">
+        <div class="scene">
+          <img src="images/scene-calendar.jpg" alt="施設の予定を確認する場面のイメージ" width="800" height="600" />
+        </div>
+        <div class="ui-shot cal-mock" aria-label="CareSyncのカレンダー画面イメージ">
+          <div class="cal-head">
+            <span>CareSync</span>
+            <span>2026年8月</span>
+          </div>
+          <div class="cal-filters">
+            <span class="on">すべて</span>
+            <span>受診・往診</span>
+            <span>利用変更</span>
+            <span>薬・残薬</span>
+          </div>
+          <div class="cal-grid">
+            <div class="cal-cell"><div class="d">1</div><span class="chip v">往診</span></div>
+            <div class="cal-cell"><div class="d">2</div></div>
+            <div class="cal-cell"><div class="d">3</div><span class="chip m">残薬確認</span></div>
+            <div class="cal-cell"><div class="d">4</div><span class="chip u">利用変更</span></div>
+            <div class="cal-cell"><div class="d">5</div></div>
+            <div class="cal-cell"><div class="d">6</div><span class="chip v">受診</span></div>
+            <div class="cal-cell"><div class="d">7</div></div>
+            <div class="cal-cell"><div class="d">8</div><span class="chip m">処方日</span></div>
+            <div class="cal-cell"><div class="d">9</div><span class="chip v">往診</span></div>
+            <div class="cal-cell"><div class="d">10</div></div>
+            <div class="cal-cell"><div class="d">11</div><span class="chip u">ショート</span></div>
+            <div class="cal-cell"><div class="d">12</div></div>
+            <div class="cal-cell"><div class="d">13</div><span class="chip v">受診</span></div>
+            <div class="cal-cell"><div class="d">14</div><span class="chip m">残薬</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:iwaki@himawasa-sync.com?subject=CareSync%20%E5%B0%8E%E5%85%A5%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">導入について相談する</a>
+        <a class="btn btn-secondary" href="https://himawasa-sync.com/Guide/mochisync2/">持ち物チェックの説明も見る</a>
+      </div>
+      <p class="note-mini">※CareSyncは施設ごとの導入アプリです。まずは相談からご案内します。</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <section>
+      <h2>こんな経験、ありませんか？</h2>
+      <ul class="pain">
+        <li><span>🗂</span>予定・往診・残薬が、口頭と紙と別シートに散らばっている</li>
+        <li><span>💬</span>「言った・聞いていない」が起きる</li>
+        <li><span>👀</span>今日何があるか、ひと目で分からない</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>CareSyncなら、こうつながります</h2>
+      <div class="flow">
+        <div class="flow-phase">【毎日の現場】</div>
+        <div class="flow-track">
+          <div class="flow-step">
+            <div class="ico">📅</div>
+            <strong>施設全体を一画面</strong>
+            <small>予定・往診・残薬</small>
+          </div>
+          <div class="flow-step">
+            <div class="ico">🔎</div>
+            <strong>フィルターで絞る</strong>
+            <small>受診／利用変更／薬</small>
+          </div>
+          <div class="flow-step">
+            <div class="ico">👥</div>
+            <strong>同じ画面を共有</strong>
+            <small>申し送りのズレを減らす</small>
+          </div>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">↓</div>
+
+        <div class="flow-phase alt">【登録・確認】</div>
+        <div class="flow-track alt">
+          <div class="flow-step">
+            <div class="ico">📷</div>
+            <strong>写真・PDFを読取</strong>
+            <small>AIが予定案を作成</small>
+          </div>
+          <div class="flow-step">
+            <div class="ico">✅</div>
+            <strong>確認して登録</strong>
+            <small>職員が最終確認</small>
+          </div>
+          <div class="flow-step">
+            <div class="ico">🔔</div>
+            <strong>確認待ちを処理</strong>
+            <small>承認／却下</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>画面のイメージ</h2>
+      <div class="screens">
+        <figure class="screen-card">
+          <div class="ui-shot cal-mock">
+            <div class="cal-head"><span>カレンダー</span><span>フィルター：すべて</span></div>
+            <div class="cal-filters">
+              <span class="on">すべて</span>
+              <span>受診・往診</span>
+              <span>利用変更</span>
+              <span>薬・残薬</span>
+            </div>
+            <div class="cal-grid">
+              <div class="cal-cell"><div class="d">15</div><span class="chip v">往診</span></div>
+              <div class="cal-cell"><div class="d">16</div><span class="chip m">残薬</span></div>
+              <div class="cal-cell"><div class="d">17</div></div>
+              <div class="cal-cell"><div class="d">18</div><span class="chip u">利用変更</span></div>
+              <div class="cal-cell"><div class="d">19</div><span class="chip v">受診</span></div>
+              <div class="cal-cell"><div class="d">20</div></div>
+              <div class="cal-cell"><div class="d">21</div><span class="chip m">処方</span></div>
+            </div>
+          </div>
+          <figcaption>
+            月カレンダー
+            <span>施設全体の予定を色分けして表示</span>
+          </figcaption>
+        </figure>
+        <figure class="screen-card">
+          <div class="ui-shot cal-mock">
+            <div class="cal-head"><span>📷 AI読取</span><span>確認して登録</span></div>
+            <div style="padding:18px 14px;font-size:13px;line-height:1.7;color:#334;">
+              <p style="font-weight:700;margin-bottom:8px;">読取結果（例）</p>
+              <p>・往診　○月○日</p>
+              <p>・利用変更　通い→泊まり</p>
+              <p>・残薬確認　切れ目の目安</p>
+              <p style="margin-top:12px;color:#1f6b5a;font-weight:700;">→ 職員が確認してOK</p>
+            </div>
+          </div>
+          <figcaption>
+            写真・PDFからの登録
+            <span>AIは案を作り、最終は職員が確認</span>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="note-mini">※画面はイメージです。公開ページには個人が特定できる実データは載せていません。</p>
+    </section>
+
+    <section>
+      <h2>導入前／導入後</h2>
+      <div class="compare">
+        <div class="col">
+          <h3>これまで</h3>
+          <ul>
+            <li>口頭・紙・別シートに散らばる</li>
+            <li>今日の予定を探すのに時間がかかる</li>
+            <li>申し送りで抜けが出やすい</li>
+          </ul>
+        </div>
+        <div class="col after">
+          <h3>CareSync</h3>
+          <ul>
+            <li>予定・往診・残薬を一画面に</li>
+            <li>フィルターで今見たい情報だけ</li>
+            <li>同じ画面を見ながら動ける</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>安心のために</h2>
+      <div class="trust">
+        <p><strong>AIの読取結果は、職員による確認を前提とした支援情報です。</strong></p>
+        <p style="margin-top:8px;">データの保存方法や本運用時の取り扱いについては、導入前にご説明します。</p>
+      </div>
+    </section>
+
+    <section class="cta-end">
+      <h2>実際の施設業務に合うか、一緒に確認できます</h2>
+      <p>まずはお気軽にご相談ください。初回相談は無料・約30分です。</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="mailto:iwaki@himawasa-sync.com?subject=CareSync%20%E5%B0%8E%E5%85%A5%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">導入について相談する</a>
+        <a class="btn btn-secondary" href="https://himawasa-sync.com/">HiMaWaSa Sync トップ</a>
+      </div>
+      <p style="margin-top:14px;font-size:13px;">
+        <a href="mailto:iwaki@himawasa-sync.com">iwaki@himawasa-sync.com</a>
+        ／ 080-5568-6398
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="brand"><span class="hi">Hi</span><span class="ma">Ma</span><span class="wa">Wa</span><span class="sa">Sa</span> Sync</div>
+    <p>CareSync｜施設のカレンダー（予定・往診・残薬）</p>
+    <p>© 2026 HiMaWaSa Sync</p>
+  </footer>
+</body>
+</html>
