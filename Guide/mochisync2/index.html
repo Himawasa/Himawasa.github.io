@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>介護施設の持ち物管理を写真とAIで効率化｜MochiSync2</title>
+  <meta name="description" content="MochiSync2は、介護施設の入所時の持ち物を写真からリスト化し、記録・印刷・退所時の返却照合までを支援します。" />
+  <link rel="canonical" href="https://himawasa-sync.com/Guide/mochisync2/" />
+  <style>
+    :root {
+      --ink: #1f2a24;
+      --muted: #5a675f;
+      --cream: #f4f8f5;
+      --paper: #fff;
+      --line: #d5e4d9;
+      --care: #2F9E44;
+      --care-dark: #1f7a32;
+      --care-bg: #E8F6EB;
+      --blue: #1a73e8;
+      --hi: #2196F3;
+      --ma: #4CAF50;
+      --wa: #FF4081;
+      --sa: #FFD700;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Noto Sans JP", "Helvetica Neue", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    a { color: var(--blue); }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px 64px; }
+    .brand { font-weight: 700; font-size: 14px; }
+    .brand .hi { color: var(--hi); }
+    .brand .ma { color: var(--ma); }
+    .brand .wa { color: var(--wa); }
+    .brand .sa { color: var(--sa); }
+
+    /* ===== FV ===== */
+    .hero {
+      background: linear-gradient(180deg, #fff 0%, #eef7f0 100%);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 16px 32px;
+    }
+    .hero-inner { max-width: 920px; margin: 0 auto; }
+    .badge {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--care-dark);
+      background: var(--care-bg);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+    .hero h1 {
+      font-size: clamp(22px, 4.8vw, 32px);
+      line-height: 1.35;
+      margin: 12px 0 10px;
+      max-width: 14em;
+    }
+    .hero .lead {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 32em;
+      margin-bottom: 18px;
+    }
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 8px;
+    }
+    @media (max-width: 720px) {
+      .hero-visual { grid-template-columns: 1fr; }
+    }
+    .hero-visual .scene,
+    .hero-visual .phone-shot {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #111;
+      min-height: 220px;
+    }
+    .hero-visual .scene img,
+    .hero-visual .phone-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 240px;
+    }
+    .hero-visual .phone-shot img { object-fit: contain; background: #0f0c29; }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      border: none;
+    }
+    .btn-primary { background: var(--care); color: #fff; }
+    .btn-secondary {
+      background: #fff;
+      color: var(--blue);
+      border: 1px solid #b7d0f5;
+    }
+
+    /* ===== sections ===== */
+    section { margin: 36px 0; }
+    section h2 {
+      font-size: clamp(18px, 3.5vw, 24px);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    /* pain — 3 only */
+    .pain {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 680px) {
+      .pain { grid-template-columns: 1fr; }
+    }
+    .pain li {
+      list-style: none;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 14px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .pain li span {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    /* ===== FLOW DIAGRAM — the hero of the page ===== */
+    .flow {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px 16px 26px;
+    }
+    .flow-phase {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--care-dark);
+      letter-spacing: 0.04em;
+      margin: 8px 0 10px;
+    }
+    .flow-phase.out { color: var(--blue); margin-top: 18px; }
+    .flow-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      align-items: stretch;
+    }
+    @media (max-width: 680px) {
+      .flow-track { grid-template-columns: 1fr; }
+    }
+    .flow-step {
+      background: var(--care-bg);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+      position: relative;
+    }
+    .flow-track.out .flow-step { background: #e8f1fc; }
+    .flow-step .ico { font-size: 28px; line-height: 1; margin-bottom: 6px; }
+    .flow-step strong { display: block; font-size: 15px; }
+    .flow-step small { display: block; font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .flow-arrow {
+      text-align: center;
+      font-size: 22px;
+      color: var(--care);
+      font-weight: 800;
+      padding: 6px 0;
+    }
+    .flow-arrow.blue { color: var(--blue); }
+    @media (min-width: 681px) {
+      .flow-arrow.mobile-only { display: none; }
+      .flow-track { position: relative; }
+    }
+
+    /* screens large */
+    .screens {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 680px) {
+      .screens { grid-template-columns: 1fr; }
+    }
+    .screen-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .screen-card figcaption {
+      padding: 12px 14px 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .screen-card figcaption span {
+      display: block;
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .screen-card img {
+      width: 100%;
+      background: #0f0c29;
+      max-height: 360px;
+      object-fit: contain;
+    }
+    .screen-card.admin img { background: #f0f2f5; }
+
+    /* compare compact */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 680px) {
+      .compare { grid-template-columns: 1fr; }
+    }
+    .compare .col {
+      border-radius: 16px;
+      padding: 16px 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+    .compare .col.after {
+      background: var(--care-bg);
+      border-color: #c6e8cd;
+    }
+    .compare h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+    .compare .after h3 { color: var(--care-dark); }
+    .compare ul { padding-left: 1.1em; font-size: 14px; }
+    .compare li { margin: 6px 0; }
+
+    /* trust short */
+    .trust {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .trust strong { color: var(--ink); }
+
+    /* CTA end */
+    .cta-end {
+      text-align: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 16px;
+      margin-top: 28px;
+    }
+    .cta-end h2 { font-size: 20px; margin-bottom: 8px; }
+    .cta-end p { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+
+    footer {
+      max-width: 920px;
+      margin: 20px auto 0;
+      padding: 0 16px 36px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand"><span class="hi">Hi</span><span class="ma">Ma</span><span class="wa">Wa</span><span class="sa">Sa</span> Sync</div>
+      <span class="badge">介護施設向け · MochiSync2</span>
+      <h1>持ち物を撮るだけ。<br />入所の記録から、退所の返却確認まで。</h1>
+      <p class="lead">写真を起点に、リスト作成・保存・印刷・返却照合をつなげます。</p>
+
+      <div class="hero-visual">
+        <div class="scene">
+          <img src="images/scene-mochi.jpg" alt="持ち物を確認する場面のイメージ" width="800" height="600" />
+        </div>
+        <div class="phone-shot">
+          <img src="images/screen-shoot.png" alt="MochiSync2の撮影画面" width="800" height="600" />
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://himawasa-sync.com/mochisync2/" target="_blank" rel="noopener">無料で試してみる</a>
+        <a class="btn btn-secondary" href="mailto:iwaki@himawasa-sync.com?subject=MochiSync2%20%E5%B0%8E%E5%85%A5%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">導入について相談する</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <section>
+      <h2>こんな経験、ありませんか？</h2>
+      <ul class="pain">
+        <li><span>✍</span>入所時、持ち物を一つずつ手書きしている</li>
+        <li><span>🔍</span>退所時、何を預かっていたか探し直している</li>
+        <li><span>😰</span>返却漏れがないか、何度も確認している</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>MochiSync2なら、こうつながります</h2>
+      <div class="flow" aria-label="入所から退所までの流れ">
+        <div class="flow-phase">【入所時】</div>
+        <div class="flow-track">
+          <div class="flow-step">
+            <div class="ico">📷</div>
+            <strong>持ち物を撮影</strong>
+            <small>複数枚OK</small>
+          </div>
+          <div class="flow-step">
+            <div class="ico">🤖</div>
+            <strong>AIがリスト化</strong>
+            <small>品名・数量・記名など</small>
+          </div>
+          <div class="flow-step">
+            <div class="ico">💾</div>
+            <strong>保存・印刷</strong>
+            <small>写真＋一覧／QRつき</small>
+          </div>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">↓</div>
+
+        <div class="flow-phase out">【退所時】</div>
+        <div class="flow-track out">
+          <div class="flow-step">
+            <div class="ico">📱</div>
+            <strong>QRを読み取り</strong>
+            <small>記録をすぐ開く</small>
+          </div>
+          <div class="flow-step">
+            <div class="ico">📷</div>
+            <strong>返却品を撮影</strong>
+            <small>その場で再確認</small>
+          </div>
+          <div class="flow-step">
+            <div class="ico">✅</div>
+            <strong>AIで照合</strong>
+            <small>見つかった／要確認 など</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>実際の画面</h2>
+      <div class="screens">
+        <figure class="screen-card">
+          <img src="images/screen-shoot.png" alt="撮影画面の実スクリーンショット" width="960" height="540" />
+          <figcaption>
+            撮影画面（スマホ）
+            <span>撮る → 解析 → 保存まで</span>
+          </figcaption>
+        </figure>
+        <figure class="screen-card admin">
+          <img src="images/screen-admin.png" alt="持物確認画面の実スクリーンショット" width="960" height="540" />
+          <figcaption>
+            持物確認画面（パソコン）
+            <span>番号で開いて編集・印刷</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>導入前／導入後</h2>
+      <div class="compare">
+        <div class="col">
+          <h3>これまで</h3>
+          <ul>
+            <li>一点ずつ手書き</li>
+            <li>紙と写真がバラバラ</li>
+            <li>退所時に記録を探し直す</li>
+          </ul>
+        </div>
+        <div class="col after">
+          <h3>MochiSync2</h3>
+          <ul>
+            <li>写真からリスト作成を支援</li>
+            <li>写真と一覧をまとめて保存</li>
+            <li>QRから開いて返却照合</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>安心のために</h2>
+      <div class="trust">
+        <p><strong>AIの解析結果は、職員による確認を前提とした支援情報です。</strong></p>
+        <p style="margin-top:8px;">データの保存方法や本運用時の取り扱いについては、導入前にご説明します。</p>
+      </div>
+    </section>
+
+    <section class="cta-end">
+      <h2>まず、無料で試してみてください</h2>
+      <p>実際の入退所業務に合うか、画面を触りながら確認できます。</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="https://himawasa-sync.com/mochisync2/" target="_blank" rel="noopener">無料で試してみる</a>
+        <a class="btn btn-secondary" href="mailto:iwaki@himawasa-sync.com?subject=MochiSync2%20%E5%B0%8E%E5%85%A5%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">導入について相談する</a>
+      </div>
+      <p style="margin-top:14px;font-size:13px;">
+        <a href="mailto:iwaki@himawasa-sync.com">iwaki@himawasa-sync.com</a>
+        ／ 080-5568-6398
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="brand"><span class="hi">Hi</span><span class="ma">Ma</span><span class="wa">Wa</span><span class="sa">Sa</span> Sync</div>
+    <p>MochiSync2｜持ち物管理支援</p>
+    <p>© 2026 HiMaWaSa Sync</p>
+  </footer>
+</body>
+</html>
