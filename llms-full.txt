@@ -14,6 +14,7 @@
 
 ## 介護施設
 入口: https://himawasa-sync.com/for/care/
+一覧: https://himawasa-sync.com/Guide/care/
 - シフト表: 勤怠データ（例: KING OF TIME）を、施設指定のExcel様式へ載せる。https://himawasa-sync.com/shiftsync/
 - 持ち物チェック: 写真から一覧にする。
 - 施設カレンダー: 予定・往診・残薬。
