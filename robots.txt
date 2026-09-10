@@ -6,6 +6,7 @@ Disallow: /ninyou/
 Disallow: /supply/
 Disallow: /asks-demo/
 Disallow: /empazy-expense/
+Disallow: /EMPAZY/
 
 User-agent: GPTBot
 Allow: /

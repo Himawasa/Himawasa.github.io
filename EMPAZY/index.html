@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>経費フォルダの作り方｜EMPAZY合同会社様｜HiMaWaSa Sync</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a5a5a;
+    --line: #d8d8d8;
+    --bg: #fafafa;
+    --accent: #c4a035;
+    --accent-dk: #8a7020;
+    --soft: #f7f2e4;
+    --ok: #2f5d4a;
+    --ok-bg: #eef6f2;
+    --num: #2f5d4a;
+    --font: "BIZ UDPGothic", "BIZ UDGothic", "Yu Gothic UI", sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    background: #e0e0e0;
+    color: var(--ink);
+    line-height: 1.9;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+  }
+  .page {
+    max-width: 820px;
+    margin: 16px auto 40px;
+    background: var(--bg);
+    padding: 36px 40px 40px;
+    box-shadow: 0 2px 14px rgba(0,0,0,.12);
+  }
+  .doc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+  .brand { font-weight: 700; font-size: 15px; }
+  .brand span { color: var(--accent-dk); }
+  .doc-meta {
+    text-align: right;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .lead {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  .why {
+    background: var(--ok-bg);
+    border: 1px solid #c5ddd2;
+    padding: 16px 18px;
+    margin-bottom: 28px;
+  }
+  .why strong { color: var(--ok); }
+  .flow {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 16px 16px;
+    margin: 0 0 28px;
+    text-align: center;
+  }
+  .flow h2 {
+    font-size: 15px;
+    color: var(--ok);
+    margin-bottom: 6px;
+  }
+  .flow-note {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .flow-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .flow-card {
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px 10px;
+    width: 200px;
+    text-align: center;
+  }
+  .flow-card.now {
+    background: #fff3b0;
+    border: 2px solid var(--accent);
+  }
+  .flow-card .ico { font-size: 26px; line-height: 1.3; }
+  .flow-card strong { display: block; font-size: 14px; margin: 2px 0 4px; }
+  .flow-card small { display: block; font-size: 12px; color: #555; line-height: 1.5; }
+  .flow-arrow {
+    align-self: center;
+    font-size: 22px;
+    color: var(--accent-dk);
+    padding: 0 2px;
+  }
+  .marks {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .mark {
+    flex: 1;
+    min-width: 200px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+  .mark .ico { font-size: 28px; }
+  .mark strong { display: block; margin: 4px 0; }
+  .mark small { color: var(--muted); font-size: 13px; }
+
+  .toc {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 16px 18px;
+    margin-bottom: 20px;
+  }
+  .toc h2 {
+    font-size: 14px;
+    color: var(--accent-dk);
+    margin-bottom: 8px;
+  }
+  .toc ol { padding-left: 1.4em; }
+  .toc li { margin-bottom: 4px; }
+
+  .step {
+    margin-bottom: 36px;
+    break-inside: avoid;
+  }
+  .step-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .num {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--num);
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step h2 { font-size: 20px; line-height: 1.4; }
+  .step p { margin-bottom: 10px; }
+  .step ol, .step ul {
+    padding-left: 1.4em;
+    margin: 8px 0 14px;
+  }
+  .step li { margin-bottom: 6px; }
+
+  .hint {
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+    padding: 12px 14px;
+    font-size: 15px;
+    margin: 12px 0;
+  }
+  .warn {
+    background: #fff6f0;
+    border-left: 4px solid #c45c2a;
+    padding: 12px 14px;
+    font-size: 15px;
+    margin: 12px 0;
+  }
+
+  .mock {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 14px 0 8px;
+  }
+  .mock-cap {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .browser {
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f3f3f3;
+  }
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: #ececec;
+  }
+  .dots { display: flex; gap: 4px; }
+  .dots i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #c8c8c8;
+    display: block;
+  }
+  .addr {
+    flex: 1;
+    background: #fff;
+    border: 2px solid var(--ok);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+    word-break: break-all;
+    color: #1a4d8c;
+  }
+  .addr em {
+    font-style: normal;
+    background: #fff3b0;
+    padding: 0 2px;
+  }
+  .folder-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 14px;
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+  }
+  .folder-icon {
+    width: 36px;
+    height: 28px;
+    background: #f4c542;
+    border-radius: 3px 3px 2px 2px;
+    position: relative;
+  }
+  .folder-icon::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 14px;
+    height: 8px;
+    background: #e0b030;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .copy-box {
+    background: #fff;
+    border: 1px dashed var(--ok);
+    padding: 12px 14px;
+    font-size: 14px;
+    word-break: break-all;
+    color: #1a4d8c;
+    margin: 8px 0 12px;
+  }
+
+  .check {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 16px 18px;
+    margin: 8px 0 24px;
+  }
+  .check h2 { font-size: 18px; margin-bottom: 10px; }
+  .check p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+  }
+  .box {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--ink);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .next {
+    background: var(--ok);
+    color: #fff;
+    padding: 16px 18px;
+    margin-bottom: 20px;
+  }
+  .next h2 { font-size: 18px; margin-bottom: 8px; }
+  .foot {
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; max-width: none; }
+    * {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+  @media (max-width: 640px) {
+    .page { padding: 22px 16px 28px; margin: 0; }
+    h1 { font-size: 22px; }
+    .doc-head { flex-direction: column; }
+    .doc-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+  <article class="page">
+    <header class="doc-head">
+      <div class="brand">HiMaWaSa <span>Sync</span></div>
+      <div class="doc-meta">
+        EMPAZY合同会社 様<br>
+        <strong>経費レシート 保存先の準備</strong><br>
+        2026年9月
+      </div>
+    </header>
+
+    <h1>かんたん3ステップ！<br>経費レシート保存先の準備手順</h1>
+    <p class="lead">
+      所要時間の目安は <strong>5〜10分</strong> です。アプリをお渡しする前に、写真の置き場所だけ先に決めます。<br>
+      3つとも、普段のフォルダ操作と大きくは変わりません。途中で止まっても大丈夫です。<br>
+      分からないときは、岩城まで電話してください。<strong>080-5568-6398</strong>
+    </p>
+
+    <div class="why">
+      <strong>なぜ先にフォルダを決めるの？</strong><br>
+      レシートの原本（写真そのもの）は、御社の SharePoint に置いたままにします。<br>
+      Google など、別の場所にはコピーしません。置き場所が分かってから、アプリをお送りします。<br>
+      ※レシート写真にはカード情報なども含まれるため、情報保護とプライバシーの観点から、岩城が直接フォルダの中身を見ることはいたしません。そのためフォルダの共有（招待）手続きは不要です。画面上のURLだけを教えていただければ設定できますのでご安心くださいね。
+    </div>
+
+    <nav class="toc">
+      <h2>今日やること</h2>
+      <ol>
+        <li>SharePoint に「経費レシート」フォルダを作る</li>
+        <li>池田様のパソコンに、そのフォルダを同期する</li>
+        <li>ブラウザで開き、画面上の URL をコピーしてメールする</li>
+      </ol>
+    </nav>
+
+    <div class="flow">
+      <h2>今回の準備でできるようになること</h2>
+      <p class="flow-note">
+        今回お願いしているのは、真ん中の<strong>「写真が集まるお部屋（フォルダ）」を1つ作ること</strong>です。
+      </p>
+      <div class="flow-row">
+        <div class="flow-card">
+          <div class="ico">📱</div>
+          <strong>① スマホで撮影</strong>
+          <small>石村様・池田様が<br>どこからでもパシャリ</small>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">➔</div>
+        <div class="flow-card now">
+          <div class="ico">📁</div>
+          <strong>② 御社 SharePoint</strong>
+          <small>【今回作るフォルダ】<br>原本はずっとここに保管</small>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">➔</div>
+        <div class="flow-card">
+          <div class="ico">💻</div>
+          <strong>③ 池田様PCで Excel 化</strong>
+          <small>同期で写真が届き<br>ボタン1つで一覧に</small>
+        </div>
+      </div>
+    </div>
+
+    <section class="step">
+      <div class="step-head">
+        <div class="num">1</div>
+        <h2>「経費レシート」フォルダを作る</h2>
+      </div>
+      <p>SharePoint は、会社のみんなで使える「インターネット上の書類棚」のような場所です。</p>
+      <ol>
+        <li>パソコンで <strong>Microsoft Edge</strong> か <strong>Google Chrome</strong> を開きます。</li>
+        <li>いつもの会社の SharePoint（または「ドキュメント」「共有フォルダ」）を開きます。</li>
+        <li>経費を置きたい場所で、<strong>「新規」→「フォルダー」</strong> を押します。</li>
+        <li>名前は <strong>経費レシート</strong> と入力して作成します。</li>
+      </ol>
+      <div class="hint">
+        すでに経費用のフォルダがある場合は、新しく作らなくて大丈夫です。<br>
+        そのフォルダを使う旨と、次の手順の URL を教えてください。
+      </div>
+      <div class="mock">
+        <div class="mock-cap">できあがりのイメージ</div>
+        <div class="folder-row">
+          <div class="folder-icon" aria-hidden="true"></div>
+          <div>
+            <strong>経費レシート</strong><br>
+            <span style="font-size:13px;color:#5a5a5a;">ここに、あとから写真を置きます</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="step-head">
+        <div class="num">2</div>
+        <h2>池田様のパソコンに同期する</h2>
+      </div>
+      <p>
+        「同期」とは、<strong>インターネット上のフォルダが、自分のパソコンのエクスプローラーにも見える</strong>ことです。<br>
+        一度設定すれば、スマホやブラウザで入れた写真が、パソコンにも出てきます。
+      </p>
+      <ol>
+        <li>手順1のフォルダを、ブラウザで開いたままにします。</li>
+        <li>画面の上のほうにある <strong>「同期」</strong> を押します。</li>
+        <li>「OneDrive を開きますか？」と出たら <strong>「開く」</strong> を押します。<br>
+            少し待つと白い画面が出ることがあります。サインインを求められたら、会社のメールで入ってください。<br>
+            ※裏でパソコンが準備しているため、画面が変わるまで十数秒ほど時間がかかることがあります。そのまま少し待ってみてくださいね。</li>
+        <li>パソコンの「エクスプローラー」（黄色いフォルダのアイコン）を開きます。</li>
+        <li>左の一覧に <strong>会社名や OneDrive / SharePoint</strong> が出て、その中に <strong>経費レシート</strong> があれば成功です。</li>
+      </ol>
+      <div class="hint">
+        できたかどうかの目印です。フォルダの横や、名前の右に次のどちらかが出ていれば大丈夫です。
+      </div>
+      <div class="marks">
+        <div class="mark">
+          <div class="ico">☁️</div>
+          <strong>青い雲マーク</strong>
+          <small>クラウドとつながっています</small>
+        </div>
+        <div class="mark">
+          <div class="ico">✅</div>
+          <strong>緑のチェック</strong>
+          <small>パソコンにもコピーできています</small>
+        </div>
+      </div>
+      <div class="warn">
+        「同期」ボタンが見当たらないとき<br>
+        ・画面を横にスクロールする、または「…（その他）」の中を見てください。<br>
+        ・それでも無いときは、IT担当の方か岩城まで、画面の写真を送ってください。無理に進めなくて大丈夫です。
+      </div>
+      <p style="font-size:14px;color:#5a5a5a;margin-top:12px;">
+        会社の画面が少し違うときや、もう少し詳しく見たいときは、Microsoft の公式の説明もあります。<br>
+        <a href="https://support.microsoft.com/ja-jp/onedrive/sync/sharepoint-training/sync-sharepoint-files-and-folders" target="_blank" rel="noopener noreferrer">SharePoint のファイルとフォルダーを同期する（Microsoft サポート）</a><br>
+        全部読む必要はありません。上の手順で進めて、行き詰まったときだけ開いてください。
+      </p>
+    </section>
+
+    <section class="step">
+      <div class="step-head">
+        <div class="num">3</div>
+        <h2>ブラウザの URL をコピーして送る</h2>
+      </div>
+      <p>
+        いよいよ最後のステップです。ここでコピーしていただくアドレスをもとに、スマホ撮影アプリとフォルダをつなぎます。
+      </p>
+      <ol>
+        <li>もう一度、ブラウザで <strong>経費レシート</strong> フォルダを開きます。<br>
+            （フォルダをダブルクリックして、中に入った状態です）</li>
+        <li>画面のいちばん上、長い文字が並んでいる欄を見てください。ここが <strong>URL（アドレス）</strong> です。</li>
+        <li>その欄を <strong>1回クリック</strong> すると、全体が青くなります。<br>
+            青くなったら、<strong>右クリック → コピー</strong> します。<br>
+            （青くならないときだけ、マウスでなぞって選んでください）</li>
+        <li>岩城へのメールに貼り付けて送ってください。<br>
+            いただいた URL をもとに、スマホ撮影アプリの送信先をこちらでつなぎます。</li>
+      </ol>
+
+      <div class="mock">
+        <div class="mock-cap">ここをコピーします（黄色い部分のイメージ）</div>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="addr">https://<em>御社の名前.sharepoint.com/sites/…/経費レシート</em></div>
+          </div>
+          <div class="folder-row">
+            <div class="folder-icon" aria-hidden="true"></div>
+            <strong>経費レシート</strong>
+          </div>
+        </div>
+      </div>
+
+      <p>送っていただく文字の例です。御社の名前の部分は、実際と違っていて大丈夫です。</p>
+      <div class="copy-box">https://contoso.sharepoint.com/sites/keiri/Shared%20Documents/経費レシート</div>
+      <div class="hint">
+        URL は、必ず <strong>https://</strong> から始まります。<br>
+        コピーすると「%」や英数字がずらりと並んで暗号のように見えることがありますが、文字化けではありませんのでご安心ください。そのままメールに貼り付けて送っていただければ大丈夫です。<br>
+        ※「C:\」などから始まるパソコン内の場所とは異なりますので、そちらは送らなくて大丈夫です。
+      </div>
+    </section>
+
+    <section class="check">
+      <h2>送る前の確認</h2>
+      <p>印刷した紙では、左の四角をペンで塗って使ってください。</p>
+      <div class="check-item"><span class="box" aria-hidden="true"></span><span>SharePoint に、経費用のフォルダがある</span></div>
+      <div class="check-item"><span class="box" aria-hidden="true"></span><span>池田様のパソコンのエクスプローラーに、同じフォルダが見える</span></div>
+      <div class="check-item"><span class="box" aria-hidden="true"></span><span>メールに貼った文字が、https:// から始まっている</span></div>
+      <div class="check-item"><span class="box" aria-hidden="true"></span><span>フォルダの共有（招待）はせず、URLだけをメールに貼った（岩城が見ることはありませんのでご安心ください）</span></div>
+    </section>
+
+    <section class="next">
+      <h2>URL をいただいたあと</h2>
+      URLをいただいたあと、岩城の方でスマホアプリの設定を完了させ、Windowsアプリ（読取ソフト）と一緒にお届けします。<br>
+      準備が整い次第、いよいよトライアルスタートです。
+    </section>
+
+    <footer class="foot">
+      ご不明点は、このページを印刷して手元に置きながら聞いても大丈夫です。<br>
+      HiMaWaSa Sync（岩城）　電話 080-5568-6398　／　メール iwaki@himawasa-sync.com
+    </footer>
+  </article>
+</body>
+</html>
