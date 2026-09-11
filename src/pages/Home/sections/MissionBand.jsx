@@ -21,7 +21,7 @@ export default function MissionBand() {
             <motion.span
               key={t}
               className="mb-chip"
-              whileHover={{ scale: 1.08, backgroundColor: 'rgba(255,215,0,0.18)' }}
+              whileHover={{ scale: 1.08, backgroundColor: '#fff8cc' }}
             >
               {t}
             </motion.span>

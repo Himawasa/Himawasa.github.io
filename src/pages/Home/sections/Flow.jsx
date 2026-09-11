@@ -3,10 +3,9 @@ import Reveal from '../../../components/Reveal'
 
 /** ⑫ 導入の流れ */
 const steps = [
-  { num: 1, icon: '💬', title: '無料ヒアリング', desc: 'まず「困っていること」をお聞かせください。noteメッセージ・メールどちらでもOK。初回相談は無料です。' },
-  { num: 2, icon: '📋', title: 'ご提案・お見積り', desc: '1週間以内に具体的なご提案書とお見積りをご提示。小さく始めて育てる方針です。' },
-  { num: 3, icon: '⚡', title: '高速プロトタイプ', desc: 'GAS・Python・AIを活用し、最短1週間で動くものをお見せします。使いながら改善していきます。' },
-  { num: 4, icon: '🚀', title: '本番運用・保守', desc: '現場スタッフへのレクチャーも込み。運用後もチャットで気軽に相談いただけます。' },
+  { num: 1, icon: '💬', title: 'まず、話を聞く', desc: '売り込みはありません。困っている作業と、今のExcelを見せてください。初回は無料です。' },
+  { num: 2, icon: '📂', title: '今のファイルで試す', desc: '様式を変えずに動くかを、一緒に確認します。「合わなければ縮小」が前提です。' },
+  { num: 3, icon: '🚀', title: '現場で使い始める', desc: 'レクチャー込み。使いながら直します。作って放置はしません。' },
 ]
 
 const stepV = (i) => ({
@@ -21,7 +20,7 @@ export default function Flow() {
         <Reveal direction="up" className="section-header">
           <span className="section-label">HOW IT WORKS</span>
           <h2 className="section-title">導入の流れ</h2>
-          <p className="section-desc">初めての方も安心。相談から運用開始まで<strong>最短2週間</strong>で対応します。</p>
+          <p className="section-desc">相談から現場稼働まで。ステップは3つだけです。</p>
         </Reveal>
         <div className="flow-grid">
           {steps.map(({ num, icon, title, desc }, i) => (
@@ -43,7 +42,7 @@ export default function Flow() {
             </motion.div>
           ))}
         </div>
-        <p className="flow-period">初回相談から本番稼働まで <strong>最短2週間〜</strong>。まずはお気軽にご連絡ください。</p>
+        <p className="flow-period">途中で合わないと感じたらいつでもやめられます。まずはステップ1の「お話を聞く」ところからお気軽にどうぞ。</p>
       </div>
     </section>
   )

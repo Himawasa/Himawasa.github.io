@@ -4,9 +4,9 @@ import Reveal from '../../../components/Reveal'
 /** ③ ブランドストーリー */
 const brandCards = [
   { icon: '🌻', title: 'Sync = 「つなぐ」', text: 'ソフトウェアで仕事と生活をつなぐ。現場のスタッフと最新技術をつなぐ。そして、家族との時間をもっと大切にできる未来をつなぐ。' },
-  { icon: '📐', title: 'シンプルさへのこだわり', text: '「難しくて使えない」ITは意味がありません。どんな現場でも、初日から誰でも使えるシンプルさを最優先に設計します。' },
-  { icon: '⚡', title: '低コスト・高速開発', text: 'Google Apps Script・Gemini AIを活用し、高額なシステム投資なしに業務を自動化。中小規模の事業所でも導入しやすい価格を実現します。' },
-  { icon: '🤝', title: '作って終わりにしない', text: '現場に寄り添い、使い続けてもらえるシステムを一緒に育てていきます。導入後の改善・保守も責任を持って対応します。' },
+  { icon: '📐', title: 'シンプルさへのこだわり', text: '難しいITは、使われません。初日から、現場の人が触れる形にします。' },
+  { icon: '⚡', title: '低コスト・高速開発', text: '大きなシステムは入れません。今のGoogleとExcelのまま、安く早く動かします。' },
+  { icon: '🤝', title: '作って終わりにしない', text: '万が一不具合が起きてもすぐに元の状態へ戻し、使い始めてからの微調整や修正も責任を持って対応します。' },
 ]
 
 const cardV = (i) => ({
@@ -38,10 +38,10 @@ export default function BrandStory() {
             </table>
             <div className="num-box">
               <img src="/logo.png" alt="HiMaWaSa Sync ロゴ"
-                style={{ width: '80px', marginBottom: '12px', mixBlendMode: 'lighten', filter: 'drop-shadow(0 2px 12px rgba(255,215,0,0.4))' }} />
-              <div className="num-box-desc" style={{ fontSize: '15px', lineHeight: '1.8', color: 'rgba(255,255,255,0.85)' }}>
+                style={{ width: '80px', marginBottom: '12px', filter: 'drop-shadow(0 2px 12px rgba(255,215,0,0.4))' }} />
+              <div className="num-box-desc" style={{ fontSize: '15px', lineHeight: '1.8', color: '#333' }}>
                 「4人家族の絆でできた名前。」<br />
-                <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)' }}>
+                <span style={{ fontSize: '12px', color: '#888' }}>
                   HiMaWaSa の4文字は、大切な家族の頭文字を並べたものです。<br />
                   詳しくは、仕事でご縁ができた際にでもこっそりお話しします。😊
                 </span>

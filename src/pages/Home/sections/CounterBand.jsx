@@ -3,18 +3,20 @@ import { useReducedMotion } from 'framer-motion'
 import Reveal from '../../../components/Reveal'
 
 const counters = [
-  { target: 45, suffix: '+', label: '開発プロジェクト総数', icon: '🚀', color: '#FFD700' },
-  { target: 17, suffix: '+', label: '現在稼働中のシステム', icon: '⚡', color: '#69DB7C' },
-  { target: 8,  suffix: '',  label: '使用技術・言語数',     icon: '🛠️', color: '#64b5f6' },
-  { target: 25, suffix: '年+', label: 'IT業界キャリア',    icon: '🏆', color: '#FFA500' },
+  { target: 45, suffix: '+', label: '現場自動化の実績', icon: '🚀', color: '#C99700' },
+  { target: 17, suffix: '+', label: '現在稼働中のシステム', icon: '⚡', color: '#2F9E44' },
+  { target: 1,  suffix: '週間〜', label: '最短での稼働目安',     icon: '🛠️', color: '#1C7ED6' },
+  { target: 25, suffix: '年+', label: 'IT業界キャリア',    icon: '🏆', color: '#E67700' },
 ]
 
 function CountItem({ target, suffix, label, icon, color, active }) {
   const prefersReduced = useReducedMotion()
-  const [count, setCount] = useState(prefersReduced ? target : 0)
+  const [count, setCount] = useState(0)
+  // アニメーションを止めている人には最終値をそのまま見せる
+  const shown = prefersReduced ? target : count
 
   useEffect(() => {
-    if (!active || prefersReduced) { setCount(target); return }
+    if (!active || prefersReduced) return
     const duration = 2000
     const step = 16
     const increment = target / (duration / step)
@@ -31,7 +33,7 @@ function CountItem({ target, suffix, label, icon, color, active }) {
     <div className="counter-item">
       <div className="counter-icon" style={{ color }}>{icon}</div>
       <div className="counter-num" style={{ color }}>
-        <span>{count}</span>
+        <span>{shown}</span>
         <span className="counter-suffix">{suffix}</span>
       </div>
       <div className="counter-label">{label}</div>

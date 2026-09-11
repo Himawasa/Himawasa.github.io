@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import './Hero.css'
 
@@ -14,12 +15,12 @@ function ParticleCanvas() {
     const ctx = canvas.getContext('2d')
     let raf, W, H
 
-    const particles = Array.from({ length: 55 }, () => ({
+    const particles = Array.from({ length: 40 }, () => ({
       x: Math.random(), y: Math.random(),
-      vx: (Math.random() - 0.5) * 0.00025,
-      vy: (Math.random() - 0.5) * 0.00025,
-      r: Math.random() * 1.8 + 0.4,
-      alpha: Math.random() * 0.45 + 0.15,
+      vx: (Math.random() - 0.5) * 0.0002,
+      vy: (Math.random() - 0.5) * 0.0002,
+      r: Math.random() * 1.6 + 0.4,
+      alpha: Math.random() * 0.28 + 0.08,
     }))
 
     const resize = () => {
@@ -37,25 +38,9 @@ function ParticleCanvas() {
         if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0
         ctx.beginPath()
         ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(255,215,0,${p.alpha})`
+        ctx.fillStyle = `rgba(230,192,0,${p.alpha})`
         ctx.fill()
       })
-      // 近い粒子を線でつなぐ（O(n²) だが 55粒子なら十分軽い）
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = (particles[i].x - particles[j].x) * W
-          const dy = (particles[i].y - particles[j].y) * H
-          const d  = Math.sqrt(dx * dx + dy * dy)
-          if (d < 130) {
-            ctx.beginPath()
-            ctx.moveTo(particles[i].x * W, particles[i].y * H)
-            ctx.lineTo(particles[j].x * W, particles[j].y * H)
-            ctx.strokeStyle = `rgba(255,215,0,${0.07 * (1 - d / 130)})`
-            ctx.lineWidth = 0.5
-            ctx.stroke()
-          }
-        }
-      }
       raf = requestAnimationFrame(draw)
     }
     draw()
@@ -66,23 +51,23 @@ function ParticleCanvas() {
   }, [prefersReduced])
 
   if (prefersReduced) return null
-  return <canvas id="hero-canvas" ref={ref} />
+  return <canvas id="hero-canvas" ref={ref} aria-hidden="true" />
 }
 
-/* ===== タイピングエフェクト ===== */
+/* ===== タイピングエフェクト（成果ベース） ===== */
 const PHRASES = [
-  '現場の手作業を自動化する',
-  'GAS・Python・AIで実現する',
-  '介護・医療・士業を変える',
+  '毎月の手作業をゼロへ。',
+  '現場の事務を低価格で自動化。',
+  '始められます。',
 ]
 function TypingText() {
   const prefersReduced = useReducedMotion()
   const [idx, setIdx]   = useState(0)
   const [text, setText]  = useState('')
-  const [phase, setPhase] = useState('typing') // 'typing' | 'pause' | 'erasing'
+  const [phase, setPhase] = useState('typing')
 
   useEffect(() => {
-    if (prefersReduced) { setText(PHRASES[0]); return }
+    if (prefersReduced) return
     const target = PHRASES[idx]
     let t
     if (phase === 'typing') {
@@ -97,8 +82,10 @@ function TypingText() {
       if (text.length > 0) {
         t = setTimeout(() => setText(text.slice(0, -1)), 30)
       } else {
-        setIdx((idx + 1) % PHRASES.length)
-        setPhase('typing')
+        t = setTimeout(() => {
+          setIdx((i) => (i + 1) % PHRASES.length)
+          setPhase('typing')
+        }, 30)
       }
     }
     return () => clearTimeout(t)
@@ -112,7 +99,6 @@ function TypingText() {
   )
 }
 
-/* ===== アニメーション設定 ===== */
 const fadeUp = {
   hidden:  { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94] } },
@@ -126,102 +112,106 @@ const cardVariant = (i) => ({
   visible: { opacity: 1, y: 0, scale: 1, transition: { delay: i * 0.18 + 0.3, duration: 0.65, ease: 'easeOut' } },
 })
 
-/* ===== グラスカードデータ（サイト全体と統一） ===== */
 const cards = [
   {
-    icon: '⚡', iconClass: 'icon-gold', label: '業務時間の最大削減率',
-    value: '97%', valueClass: 'gold',
-    sub: '30分 → 1分（持ち物確認業務）',
-    barWidth: '97%', barColor: 'linear-gradient(90deg, #FFD700, #FFA500)',
+    icon: '💻', iconClass: 'icon-gold', label: '今お使いの道具のまま',
+    value: '乗り換え不要', valueClass: 'gold',
+    sub: '新しいソフトの勉強は不要。ExcelとPCを活かします。',
   },
   {
-    icon: '🤖', iconClass: 'icon-blue', label: '自動化・効率化実績',
-    value: '45+', valueClass: 'blue',
-    sub: '介護 / 医療 / 士業 / 中小企業',
-    barWidth: '75%', barColor: 'linear-gradient(90deg, #64b5f6, #2196F3)',
+    icon: '🌻', iconClass: 'icon-blue', label: '現場で動かしてきた実績',
+    value: '45件以上', valueClass: 'blue',
+    sub: '現場45件以上。公開できるのはその一部です。',
   },
   {
-    icon: '🚀', iconClass: 'icon-green', label: '公開中サービス・LP',
-    value: '7本', valueClass: 'green',
-    sub: 'GAS × AI × Python × Java',
-    barWidth: '55%', barColor: 'linear-gradient(90deg, #69DB7C, #40C057)',
+    icon: '🤝', iconClass: 'icon-green', label: '始め方',
+    value: '小さく伴走', valueClass: 'green',
+    sub: '低価格から。使いながら、一緒に育てます。',
   },
 ]
 
-/* ===== メイン ===== */
+const paths = [
+  { href: '/for/pro', label: '士業の方' },
+  { href: '/for/care', label: '介護・医療の方' },
+  { href: '/for/biz', label: '中小企業の方' },
+]
+
 export default function Hero() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       <ParticleCanvas />
       <div className="hero-glow hero-glow-1" />
       <div className="hero-glow hero-glow-2" />
-      <div className="hero-glow hero-glow-3" />
 
       <div className="hero-content">
-        {/* ----- 左：テキスト ----- */}
         <motion.div
           className="hero-left"
           variants={stagger}
-          initial="hidden"
+          initial={prefersReduced ? false : 'hidden'}
           animate="visible"
         >
-          {/* ロゴ */}
           <motion.div variants={fadeUp} className="hero-logo-wrap">
             <img src="/logo.png" alt="HiMaWaSa Sync" className="hero-logo-img" />
             <span className="hero-logo-text">HiMaWaSa Sync</span>
           </motion.div>
 
-          {/* バッジ */}
           <motion.div variants={fadeUp} className="hero-badge">
             <span className="hero-badge-dot" />
-            現場のDXを、シンプルに。
+            毎月の手作業を、今のExcelのまま。
           </motion.div>
 
-          {/* メインキャッチ */}
           <motion.h1 variants={fadeUp} className="hero-title">
-            <span className="hero-title-line">ソフトウェアで</span>
-            <span className="hero-title-line hero-title-typing">
+            <span className="hero-title-static">今のExcelのまま、</span>
+            <span className="hero-title-typing" aria-hidden="true">
               <TypingText />
             </span>
+            <span className="sr-only">現場の手作業を自動化。</span>
           </motion.h1>
 
           <motion.p variants={fadeUp} className="hero-sub">
-            面倒な手作業をAI・GAS・Pythonで自動化。<br />
-            <strong>大切な時間と、現場の笑顔</strong>を取り戻します。
+            まずはあなたの現場をお選びください。IT業界25年の現場エンジニアが、面倒な手作業だけを引き受けます。
           </motion.p>
 
-          {/* CTA ボタン */}
           <motion.div variants={fadeUp} className="hero-cta">
-            <a href="#try-apps" className="btn-hero-primary">
-              🚀 無料で試す
-            </a>
-            <a href="#contact" className="btn-hero-secondary">
-              無料相談はこちら →
-            </a>
+            <Link to="/contact" className="btn-hero-primary">
+              まずは話してみる（無料）
+            </Link>
+            <Link to="/works" className="btn-hero-secondary">
+              どれくらい楽になるか見る
+            </Link>
+          </motion.div>
+          <motion.p variants={fadeUp} className="hero-micro">
+            営業の電話はしません。返信はメールかフォームです。
+          </motion.p>
+
+          <motion.div variants={fadeUp} className="hero-trust">
+            <span className="hero-trust-item">現場 45件以上</span>
+            <span className="hero-trust-sep">·</span>
+            <span className="hero-trust-item">シフト 5時間→3分</span>
+            <span className="hero-trust-sep">·</span>
+            <span className="hero-trust-item">請求 半日→0分</span>
+            <span className="hero-trust-sep">·</span>
+            <span className="hero-trust-item">今のExcelのまま</span>
           </motion.div>
 
-          {/* 信頼バッジ列 */}
-          <motion.div variants={fadeUp} className="hero-trust">
-            <span className="hero-trust-item">✅ アカウント登録不要</span>
-            <span className="hero-trust-sep">·</span>
-            <span className="hero-trust-item">✅ 初回相談 無料</span>
-            <span className="hero-trust-sep">·</span>
-            <span className="hero-trust-item">✅ 最短1週間で稼働</span>
+          <motion.div variants={fadeUp} className="hero-paths">
+            {paths.map(p => (
+              <Link key={p.href} to={p.href} className="hero-path-chip">{p.label}</Link>
+            ))}
           </motion.div>
         </motion.div>
 
-        {/* ----- 右：グラスカード ----- */}
         <div className="hero-right">
-          {cards.map(({ icon, iconClass, label, value, valueClass, sub, barWidth, barColor }, i) => (
+          {cards.map(({ icon, iconClass, label, value, valueClass, sub }, i) => (
             <motion.div
               key={label}
               className="hero-glass-card"
               variants={cardVariant(i)}
-              initial="hidden"
+              initial={prefersReduced ? false : 'hidden'}
               animate="visible"
-              whileHover={prefersReduced ? {} : { scale: 1.04, y: -4 }}
+              whileHover={prefersReduced ? {} : { scale: 1.03, y: -4 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
               <div className="hero-glass-card-top">
@@ -230,27 +220,11 @@ export default function Hero() {
               </div>
               <div className={`hero-card-value ${valueClass}`}>{value}</div>
               <div className="hero-card-sub">{sub}</div>
-              <div className="hero-card-bar">
-                <div className="hero-card-bar-fill" style={{ width: barWidth, background: barColor }} />
-              </div>
             </motion.div>
           ))}
-
-          {/* 追加：テクノロジーバッジ */}
-          <motion.div
-            className="hero-tech-badges"
-            variants={cardVariant(3)}
-            initial="hidden"
-            animate="visible"
-          >
-            {['GAS', 'Python', 'Gemini AI', 'Java', 'React'].map(t => (
-              <span key={t} className="hero-tech-badge">{t}</span>
-            ))}
-          </motion.div>
         </div>
       </div>
 
-      {/* ----- スクロールダウン ----- */}
       {!prefersReduced && (
         <div className="hero-scroll">
           <div className="hero-scroll-mouse">

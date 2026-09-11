@@ -3,7 +3,7 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(26, 26, 26, 0.85);
+  background: rgba(255, 251, 240, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 3px solid var(--yellow);
@@ -12,7 +12,7 @@
 }
 
 .nav.scrolled {
-  background: rgba(26, 26, 26, 0.98);
+  background: rgba(255, 251, 240, 0.98);
 }
 
 .nav-inner {
@@ -29,7 +29,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 900;
-  color: var(--white);
+  color: var(--black);
   letter-spacing: -0.02em;
   display: flex;
   align-items: center;
@@ -46,24 +46,27 @@
 .nav-logo .ma   { color: var(--ma-color); }
 .nav-logo .wa   { color: var(--wa-color); }
 .nav-logo .sa   { color: var(--sa-color); }
-.nav-logo .sync { color: var(--white); font-weight: 400; font-size: 16px; margin-left: 4px; }
+.nav-logo .sync { color: var(--black); font-weight: 400; font-size: 16px; margin-left: 4px; }
 
 /* リンク */
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 16px;
   list-style: none;
+  align-items: center;
 }
 
 .nav-links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: #444;
   font-size: 14px;
   font-weight: 500;
   transition: color 0.2s;
 }
 
-.nav-links a:hover {
-  color: var(--yellow);
+.nav-links a:hover,
+.nav-links a.active {
+  color: #8A6D00;
+  font-weight: 700;
 }
 
 .nav-cta {
@@ -84,7 +87,7 @@
   display: none;
   background: none;
   border: none;
-  color: var(--white);
+  color: var(--black);
   font-size: 26px;
   cursor: pointer;
   padding: 4px 8px;
@@ -93,7 +96,7 @@
 /* モバイルメニュー */
 .nav-mobile {
   list-style: none;
-  background: rgba(26, 26, 26, 0.98);
+  background: #FFFBF0;
   padding: 16px 24px 24px;
   display: flex;
   flex-direction: column;
@@ -101,7 +104,7 @@
 }
 
 .nav-mobile a {
-  color: rgba(255, 255, 255, 0.85);
+  color: #333;
   font-size: 15px;
   font-weight: 500;
   display: block;
@@ -110,6 +113,23 @@
 
 .nav-mobile a:hover {
   color: var(--yellow);
+}
+
+.nav-mobile-cta {
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cream-bd);
+}
+
+.nav-mobile .nav-cta {
+  display: block;
+  text-align: center;
+  padding: 12px 20px;
+}
+
+.nav-mobile .nav-cta:hover {
+  color: var(--black) !important;
+  background: var(--yellow-dk) !important;
 }
 
 /* レスポンシブ */

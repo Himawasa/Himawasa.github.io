@@ -23,3 +23,8 @@ Thumbs.db
 # ログ
 *.log
 npm-debug.log*
+
+# ローカル確認用
+.playwright-mcp/
+_backup/
+

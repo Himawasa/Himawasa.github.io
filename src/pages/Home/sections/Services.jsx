@@ -1,8 +1,16 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Reveal from '../../../components/Reveal'
+import '../../rk/Rk.css'
 
 /** ⑤ サービス */
 const services = [
+  {
+    icon: '⚙️', title: 'RKシナリオ作成代行',
+    desc: 'キーエンスRKシリーズ／RK-10のシナリオ作成を代行します。工場の試験転記、病院の日計、介護のシフト、士業の請求など、「自分でシナリオを組む時間がない」という現場を代行支援します。',
+    list: ['シナリオ作成代行 1万円から', '運用保守代行 月5,000円から', '業種ごとの覚える操作を掲載'],
+    to: '/rk',
+  },
   {
     icon: '📱', title: '業務アプリ開発',
     desc: '写真撮影→テキスト化、チェックリスト自動作成など、スマホで使えるシンプルなツールを低コストで開発します。',
@@ -10,23 +18,23 @@ const services = [
   },
   {
     icon: '🔄', title: '業務自動化（GAS・AI）',
-    desc: '手入力・コピペ・転記作業など、毎日繰り返す業務を自動化。属人化しない仕組みを低コストで実現します。',
+    desc: '手入力・コピペ・転記など、毎日の繰り返し作業を自動化します。特定の担当者しか使えない属人化を防ぎ、誰でも使える形に整えます。',
     list: ['帳票・書類の自動作成', 'スプレッドシート自動集計', 'Yoom設定・保守'],
   },
   {
     icon: '⚖️', title: '士業向けDX支援',
-    desc: '社労士・税理士・弁護士など、DXが遅れている士業現場をGAS＋AIでシンプルに自動化します。',
+    desc: '社労士・税理士・弁護士など、紙や手作業が多く残る士業の現場を、GASとAIでシンプルに効率化します。',
     list: ['給与計算処理の自動化', '帳票・契約書・議事録の自動生成', 'Google Workspaceフル活用支援'],
   },
   {
     icon: '💡', title: '業務改善コンサルティング',
-    desc: '「何から始めればいいか分からない」そんなご相談も歓迎。現場の課題を一緒に整理し、最適なシステムを設計します。',
+    desc: '「何から始めればいいか分からない」でも大丈夫です。現場の困りごとを一緒に整理して、小さく作ります。',
     list: ['DX推進の方向性相談', '既存システムの改善提案', 'コスト最小・効果最大の設計'],
   },
   {
     icon: '🛡️', title: 'システム保守・運用',
-    desc: '作って終わりではなく、運用しながら育てるのが現場DXの基本。継続的なサポートを提供します。',
-    list: ['既存GASシステムの改修・追加', '障害対応・ログ確認', '機能改善の提案・優先度整理'],
+    desc: 'AIで作った仕組みの点検も対応します。作って終わりではなく、仕組みを理解しているエンジニアが継続して保守・運用をサポートします。',
+    list: ['既存GAS・AI製システムの改修', '障害対応・ログ確認', '機能改善の提案・優先度整理'],
   },
   {
     icon: '🤖', title: 'AI活用コンサルティング',
@@ -50,25 +58,32 @@ export default function Services() {
           <p className="section-desc">現場が抱える「困った」をソフトウェアで解決します</p>
         </Reveal>
         <div className="services-grid">
-          {services.map(({ icon, title, desc, list }, i) => (
-            <motion.div
-              className="service-card"
-              key={title}
-              variants={cardV(i)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-              whileHover={{ y: -10, boxShadow: '0 28px 64px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,215,0,0.25)' }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-            >
-              <div className="service-icon">{icon}</div>
-              <h3>{title}</h3>
-              <p>{desc}</p>
-              <ul className="service-list">
-                {list.map(item => <li key={item}>{item}</li>)}
-              </ul>
-            </motion.div>
-          ))}
+          {services.map(({ icon, title, desc, list, to }, i) => {
+            const inner = (
+              <>
+                <div className="service-icon">{icon}</div>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+                <ul className="service-list">
+                  {list.map(item => <li key={item}>{item}</li>)}
+                </ul>
+              </>
+            )
+            return (
+              <motion.div
+                className="service-card"
+                key={title}
+                variants={cardV(i)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-60px' }}
+                whileHover={{ y: -10, boxShadow: '0 16px 40px rgba(180,140,40,0.16)' }}
+                transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              >
+                {to ? <Link to={to} className="service-card-link">{inner}</Link> : inner}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

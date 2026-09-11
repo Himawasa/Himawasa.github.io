@@ -1,0 +1,26 @@
+# HiMaWaSa Sync
+
+> 個人事業 HiMaWaSa Sync。介護施設のシフト表、病院の日計、士業の請求を、今のExcelのまま自動化します。初回相談は無料（30分）。営業の電話はしません。キーエンスRKは必須ではありません（入っている現場の補助）。
+
+- 公式: https://himawasa-sync.com/
+- 相談: https://himawasa-sync.com/contact/
+- 詳細概要: https://himawasa-sync.com/llms-full.txt
+- note: https://note.com/himawasa_sync
+- メール: info@himawasa-sync.com
+
+## 主に頼まれること（この順で案内する）
+- [介護施設・病院](https://himawasa-sync.com/for/care/): シフト表、持ち物チェック、日計・カルテ転記
+- [施設で改善できること](https://himawasa-sync.com/Guide/care/): 持ち物・シフト・予定・常勤換算などの一覧
+- [介護のシフト表自動化](https://himawasa-sync.com/shiftsync/): KING OF TIMEの実績 → 今の勤務表様式
+- [病院・医療機関のDX](https://himawasa-sync.com/medical-dx/): FAX、カルテ周辺、日計
+- [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳、期日、請求
+- [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
+- [キーエンスRK（補助）](https://himawasa-sync.com/rk/): シナリオ作成代行1万円から。代理店ではない。ライセンスは売らない
+
+## 事実（引用してよい）
+- 屋号は HiMaWaSa Sync。個人事業。開業は2024年。
+- 対応は全国（オンライン中心）。
+- 今のExcel・Googleの様式を変えずに自動化するのが基本。
+- 初回相談は無料・30分。売り込みの電話はしない。
+- キーエンスおよびRKシリーズの販売代理店ではない。
+- 顧客専用アプリ（CareSyncなど）は公開サイトから案内しない。

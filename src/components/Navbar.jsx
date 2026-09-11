@@ -1,33 +1,30 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 
-/**
- * 全ページ共通ナビゲーション
- * - スクロール64px以上でクラス .scrolled を付与（背景が濃くなる）
- * - モバイルでハンバーガーメニュー表示
- */
-export default function Navbar() {
-  const [scrolled,     setScrolled]     = useState(false)
-  const [menuOpen,     setMenuOpen]     = useState(false)
-  const { pathname } = useLocation()
+const links = [
+  { to: '/for/pro', label: '士業' },
+  { to: '/for/care', label: '介護・医療' },
+  { to: '/for/biz', label: '中小企業' },
+  { to: '/services', label: 'サービス' },
+  { to: '/works', label: '実績' },
+]
 
-  // スクロール検知
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const closeMenu = () => setMenuOpen(false)
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 64)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // ページ遷移でメニューを閉じる
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [pathname])
-
   return (
-    <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
+    <nav className={`nav${scrolled ? ' scrolled' : ''}`} aria-label="メイン">
+      <a href="#main-content" className="skip-link">本文へスキップ</a>
       <div className="nav-inner">
-        {/* ロゴ */}
         <Link to="/" className="nav-logo">
           <img src="/logo.png" alt="" className="nav-logo-img" aria-hidden="true" />
           <span className="hi">Hi</span>
@@ -37,36 +34,36 @@ export default function Navbar() {
           <span className="sync"> Sync</span>
         </Link>
 
-        {/* PCナビリンク */}
         <ul className="nav-links">
-          <li><a href="/#brand">ブランドについて</a></li>
-          <li><a href="/#services">サービス</a></li>
-          <li><a href="/#about">代表紹介</a></li>
-          <li><a href="/#projects">実績</a></li>
-          <li><a href="/#gallery">サービスページ</a></li>
-          <li><a href="/#contact" className="nav-cta">お問い合わせ</a></li>
+          {links.map(({ to, label }) => (
+            <li key={to}>
+              <NavLink to={to}>{label}</NavLink>
+            </li>
+          ))}
+          <li><Link to="/contact" className="nav-cta">お問い合わせ</Link></li>
         </ul>
 
-        {/* ハンバーガー（モバイル） */}
         <button
           className="hamburger"
-          aria-label="メニューを開く"
+          aria-label={menuOpen ? 'メニューを閉じる' : 'メニューを開く'}
           aria-expanded={menuOpen}
+          aria-controls="nav-mobile"
           onClick={() => setMenuOpen(prev => !prev)}
         >
           {menuOpen ? '✕' : '☰'}
         </button>
       </div>
 
-      {/* モバイルメニュー */}
       {menuOpen && (
-        <ul className="nav-mobile">
-          <li><a href="/#brand"    onClick={() => setMenuOpen(false)}>ブランドについて</a></li>
-          <li><a href="/#services" onClick={() => setMenuOpen(false)}>サービス</a></li>
-          <li><a href="/#about"    onClick={() => setMenuOpen(false)}>代表紹介</a></li>
-          <li><a href="/#projects" onClick={() => setMenuOpen(false)}>実績</a></li>
-          <li><a href="/#gallery"  onClick={() => setMenuOpen(false)}>サービスページ</a></li>
-          <li><a href="/#contact"  onClick={() => setMenuOpen(false)}>お問い合わせ</a></li>
+        <ul className="nav-mobile" id="nav-mobile">
+          {links.map(({ to, label }) => (
+            <li key={to}>
+              <NavLink to={to} onClick={closeMenu}>{label}</NavLink>
+            </li>
+          ))}
+          <li className="nav-mobile-cta">
+            <Link to="/contact" className="nav-cta" onClick={closeMenu}>無料相談・お問い合わせ</Link>
+          </li>
         </ul>
       )}
     </nav>

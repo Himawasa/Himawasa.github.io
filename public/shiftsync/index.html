@@ -3,17 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>勤務表自動作成ツール ShiftSync｜KING OF TIME連携で行政提出資料を自動生成</title>
-  <meta name="description" content="KING OF TIME連携の勤務表自動作成ツール。勤務体制一覧表・実績勤務表をボタンひとつで自動生成。シフト記号変換・常勤/非常勤の○付けも全自動。毎月の転記作業をゼロにします。" />
+  <title>介護施設のシフト表自動化｜KING OF TIME連携 | HiMaWaSa Sync</title>
+  <meta name="description" content="介護施設のシフト表を自動化。KING OF TIMEの実績から、今の勤務表・行政提出様式へ。手入力の残業を減らします。初回相談は無料。" />
 
-  <meta property="og:title" content="勤務表自動作成ツール ShiftSync｜KING OF TIME連携で行政提出資料を自動生成" />
-  <meta property="og:description" content="KING OF TIME連携の勤務表自動作成ツール。行政提出資料をボタンひとつで自動生成。" />
+  <link rel="canonical" href="https://himawasa-sync.com/shiftsync/" />
+  <link rel="alternate" type="text/plain" href="https://himawasa-sync.com/llms.txt" title="LLM向け概要" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="HiMaWaSa Sync" />
+  <meta property="og:url" content="https://himawasa-sync.com/shiftsync/" />
+  <meta property="og:title" content="介護施設のシフト表自動化｜KING OF TIME連携 | HiMaWaSa Sync" />
+  <meta property="og:description" content="介護施設のシフト表。KING OF TIMEの実績から、今の様式へ自動作成。" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://himawasa-sync.com/ogp.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>📋</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "KING OF TIMEのデータを、今のExcel勤務表のまま使えますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "使えます。KING OF TIMEの実績データから、施設指定の勤務表・行政提出様式へ載せます。様式は作り直しません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "勤務表の様式を作り直す必要がありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ありません。今お使いのExcelフォーマットに合わせます。通所介護・訪問介護など、複数様式にも対応します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "キーエンスRKも必要ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "必須ではありません。今の勤怠ソフトとExcelのままで足りることが多いです。RKが入っている現場だけ、シナリオ作成を補助で受けます。"
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     /* ===== リセット & 変数 ===== */
@@ -237,6 +278,23 @@
     .footer-sub { margin-bottom: 16px; font-size: 12px; }
     .footer-copy { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; }
 
+    /* ===== 引用ブロック / FAQ ===== */
+    .cite {
+      background: #fff;
+      padding: 56px 0 40px;
+      border-bottom: 1px solid #e8eee8;
+    }
+    .cite h2 { font-size: 22px; font-weight: 900; margin-bottom: 16px; }
+    .cite p { color: var(--gray); font-size: 16px; line-height: 1.85; max-width: 760px; margin: 0 0 14px; }
+    .faq { background: var(--gray-lt); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      background: #fff; border-radius: var(--radius); padding: 22px 24px;
+      margin-bottom: 14px; box-shadow: var(--shadow);
+    }
+    .faq-item h3 { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+    .faq-item p { color: var(--gray); font-size: 14px; line-height: 1.75; }
+
     /* ===== レスポンシブ ===== */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -257,8 +315,10 @@
       <span><span class="shift">Shift</span><span class="sync">Sync</span></span>
     </div>
     <ul class="nav-links">
+      <li><a href="/for/care/">介護・医療の案内</a></li>
       <li><a href="#pain">課題</a></li>
       <li><a href="#features">機能</a></li>
+      <li><a href="#faq">よくある質問</a></li>
       <li><a href="#flow">導入の流れ</a></li>
       <li><a href="#cta" class="nav-cta">お問い合わせ</a></li>
     </ul>
@@ -270,7 +330,7 @@
   <div class="hero-pattern"></div>
   <div class="hero-grid"></div>
   <div class="hero-content container">
-    <div class="hero-badge"><span class="badge-dot"></span>KING OF TIME 連携</div>
+    <div class="hero-badge"><span class="badge-dot"></span>シフトシンク（ShiftSync）｜KING OF TIME 連携</div>
     <h1 class="hero-title">
       毎月の勤務表転記、<br>
       まだ<span class="highlight">手作業</span>ですか？
@@ -294,6 +354,15 @@
 <div class="band">
   <h2>転記作業 <span class="num">数時間</span> → <span class="num">数分</span> へ</h2>
 </div>
+
+<!-- 引用できる一文 -->
+<section class="cite" id="cite">
+  <div class="container">
+    <h2>ひとことで言うと</h2>
+    <p>ShiftSyncは、KING OF TIMEの実績データを、施設が今使っているExcel勤務表・行政提出様式へそのまま載せるサービスです。様式は作り直しません。</p>
+    <p>キーエンスRKは必須ではありません。今の勤怠ソフトとExcelのままで始められます。</p>
+  </div>
+</section>
 
 <!-- 課題 -->
 <section class="pain" id="pain">
@@ -375,12 +444,12 @@
       <div class="feat-card reveal">
         <div class="feat-icon">🔄</div>
         <div class="feat-title">シフト記号<br>自動変換</div>
-        <p class="feat-text">KingOfTimeの出退勤データをＢ1・Ｂ2・P半・公休などのシフト記号に自動変換します。</p>
+        <p class="feat-text">KingOfTimeの出退勤データをB1・B2・P半・公休などのシフト記号に自動変換します。</p>
       </div>
       <div class="feat-card reveal">
         <div class="feat-icon">⭕</div>
         <div class="feat-title">常勤/非常勤<br>自動○付け</div>
-        <p class="feat-text">KOTの雇用区分から常勤・非常勤、専従・兼務を自動判定。手書きの○付けとサヨナラ。</p>
+        <p class="feat-text">KOTの雇用区分から常勤・非常勤、専従・兼務を自動判定。手書きの○付けの手間をなくします。</p>
       </div>
       <div class="feat-card reveal">
         <div class="feat-icon">📄</div>
@@ -437,6 +506,30 @@
         <div class="flow-num">3</div>
         <div class="flow-step-title">運用開始</div>
         <p class="flow-step-text">ツールを納品。毎月ボタンひとつで勤務表が完成します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">faq</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>KING OF TIMEのデータを、今のExcel勤務表のまま使えますか？</h3>
+        <p>使えます。KING OF TIMEの実績データから、施設指定の勤務表・行政提出様式へ載せます。様式は作り直しません。</p>
+      </div>
+      <div class="faq-item">
+        <h3>勤務表の様式を作り直す必要がありますか？</h3>
+        <p>ありません。今お使いのExcelフォーマットに合わせます。通所介護・訪問介護など、複数様式にも対応します。</p>
+      </div>
+      <div class="faq-item">
+        <h3>キーエンスRKも必要ですか？</h3>
+        <p>必須ではありません。今の勤怠ソフトとExcelのままで足りることが多いです。RKが入っている現場だけ、シナリオ作成を補助で受けます。</p>
       </div>
     </div>
   </div>
