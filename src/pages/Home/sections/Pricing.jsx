@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import Reveal from '../../../components/Reveal'
+import { SITE } from '../../../seo/site'
 import '../../rk/Rk.css'
 
-const FORM = 'https://docs.google.com/forms/d/e/1FAIpQLScsWdmeXdZLbboyxVXzILMIzxCVOOVtbIQuYhaRo10Fnm_kcw/viewform'
+const FORM = SITE.formUrl
 
 const plans = [
   {
@@ -19,7 +20,7 @@ const plans = [
     price: '25,000',
     unit: '円 / 月',
     desc: '現場の主要業務をまとめて',
-    features: ['自動化機能を3つ組み合わせ', '月1回の業務改善メンテナンス', '専任エンジニアが伴走'],
+    features: ['自動化機能を3つ組み合わせ', '月1回の業務改善メンテナンス', '代表が直接伴走'],
     highlight: true,
   },
   {

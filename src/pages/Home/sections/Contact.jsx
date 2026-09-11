@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import Reveal from '../../../components/Reveal'
+import { SITE } from '../../../seo/site'
 
 /** ⑬ お問い合わせ — リッチ版 */
 const contactCards = [
@@ -7,7 +8,7 @@ const contactCards = [
     icon: '📋', title: '無料相談フォーム', titleColor: '#69DB7C',
     desc: '3分で終わります。\n返信はメールです',
     link: 'フォームを開く →', linkColor: '#69DB7C',
-    href: 'https://docs.google.com/forms/d/e/1FAIpQLScsWdmeXdZLbboyxVXzILMIzxCVOOVtbIQuYhaRo10Fnm_kcw/viewform',
+    href: SITE.formUrl,
     external: true, highlight: true,
     glowColor: 'rgba(105,219,124,0.15)',
   },

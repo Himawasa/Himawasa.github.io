@@ -48,6 +48,9 @@ export const SITE = {
   ogImageAlt: 'HiMaWaSa Sync — 今のExcelのまま、現場の手作業を自動化',
   logo: `${SITE_URL}/logo.png`,
   email: 'info@himawasa-sync.com',
+  /** 無料相談フォーム（Contact / Pricing で共用） */
+  formUrl:
+    'https://docs.google.com/forms/d/e/1FAIpQLScsWdmeXdZLbboyxVXzILMIzxCVOOVtbIQuYhaRo10Fnm_kcw/viewform',
   foundingDate: '2024',
   areaServed: 'JP',
   verification: 'R9gFxYt7rLiAvSMDrxDMYlkiwvSY08qfplXtgm046Uw',

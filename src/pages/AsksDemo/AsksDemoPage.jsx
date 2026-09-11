@@ -851,7 +851,7 @@ function OrderHistory({ orders, forCustomer = false, fillCart }) {
               {o.memo && <p>メモ　{o.memo}</p>}
               <p>
                 {typeof o.total === 'number' ? yen(o.total) : '—'}
-                {o.trackingNumber ? `　伝票 ${o.trackingNumber}` : ''}
+                {o.trackingNumber ? `\u3000伝票 ${o.trackingNumber}` : ''}
               </p>
               {fillCart && (
                 <div className="asks-actions asks-no-print">
