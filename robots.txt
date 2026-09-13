@@ -3,10 +3,9 @@ User-agent: *
 Allow: /
 Disallow: /caresync/
 Disallow: /ninyou/
-Disallow: /supply/
-Disallow: /asks-demo/
 Disallow: /empazy-expense/
 Disallow: /EMPAZY/
+# /supply/ /asks-demo/ はページ側の noindex だけで除外（robots で塞ぐと noindex を読めない）
 
 User-agent: GPTBot
 Allow: /
