@@ -1,5 +1,8 @@
-/* 経費撮影PWA — 最小の Service Worker（ホーム画面追加用） */
-const CACHE = 'empazy-expense-v3';
+/* 経費撮影PWA — Service Worker
+ * 画面ファイルはネット優先（更新がすぐ届く）。つながらないときだけ保存済みを出す。
+ * 画面ファイルを変えたら CACHE の版名を上げる。
+ */
+const CACHE = 'empazy-expense-v5';
 const ASSETS = [
   '/empazy-expense/',
   '/empazy-expense/index.html',
@@ -25,8 +28,20 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
+  const req = event.request;
+  if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  // Microsoft ログインや SharePoint への通信には関わらない
+  if (url.origin !== self.location.origin || !url.pathname.startsWith('/empazy-expense/')) return;
   event.respondWith(
-    caches.match(event.request).then((cached) => cached || fetch(event.request))
+    fetch(req)
+      .then((res) => {
+        if (res.ok) {
+          const copy = res.clone();
+          caches.open(CACHE).then((cache) => cache.put(req, copy));
+        }
+        return res;
+      })
+      .catch(() => caches.match(req).then((cached) => cached || caches.match('/empazy-expense/')))
   );
 });
