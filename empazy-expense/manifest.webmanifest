@@ -1,7 +1,7 @@
 {
-  "name": "経費撮影（サンプル）",
+  "name": "経費撮影",
   "short_name": "経費撮影",
-  "description": "経費撮影PWAの操作デモ。デモ環境のため画像は保存されません。",
+  "description": "経費の領収書を撮影し、御社の SharePoint に直接保存します。",
   "start_url": "/empazy-expense/",
   "scope": "/empazy-expense/",
   "display": "standalone",

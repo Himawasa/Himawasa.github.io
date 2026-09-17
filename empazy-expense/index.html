@@ -4,15 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>経費撮影｜HiMaWaSa Sync</title>
-  <meta name="description" content="経費撮影PWA。デモ時は保存しません。本番は Microsoft ログイン後に SharePoint へ保存します。" />
+  <title>経費撮影</title>
+  <meta name="description" content="経費撮影アプリ。写真は御社の SharePoint に直接保存します。" />
   <meta name="theme-color" content="#2f5d4a" />
   <link rel="manifest" href="/empazy-expense/manifest.webmanifest" />
   <link rel="icon" href="/empazy-expense/icons/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/empazy-expense/icons/icon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/empazy-expense/app.css" />
 </head>
 <body>
@@ -24,13 +21,66 @@
 
   <main>
     <p class="install-hint" id="install-hint">
-      📱 ホーム画面に追加すると、アプリのように開けます（Safari：共有 → ホーム画面に追加）<br>
-      ⚠️ <strong>デモ環境のため、撮影した画像はどこにも保存されません。</strong>
+      ホーム画面に追加すると、アプリのように開けます（Safari：共有 → ホーム画面に追加）
+      <span id="demo-note"><br><strong>デモ環境のため、撮影した画像はどこにも保存されません。</strong></span>
     </p>
 
     <section class="card">
-      <h2>1. 支払区分を選ぶ</h2>
-      <p class="hint">コーポレート／個人／現金のどれかをタップ</p>
+      <h2>1. Microsoft ログイン</h2>
+      <p class="hint">会社の Microsoft アカウント（いつもの Outlook と同じ）でログインします</p>
+      <div class="ms-box" id="login-box">
+        <div class="account-line">接続中: <span id="account-name">未ログイン</span></div>
+        <button type="button" class="btn-primary" id="btn-login">Microsoft でログイン</button>
+        <button type="button" class="btn-secondary" id="btn-logout" hidden>ログアウト</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. 保存先</h2>
+      <p class="hint">最初に一度だけ選びます。月が変わっても選び直す必要はありません</p>
+      <div class="dest-box" id="dest-box">
+        <div class="dest-to">送信先：御社の SharePoint</div>
+        <div class="dest-path" id="dest-path">まだ保存先を選んでいません</div>
+      </div>
+      <button type="button" class="btn-secondary" id="btn-pick">保存先を選ぶ</button>
+
+      <div class="picker" id="picker" hidden>
+        <div class="picker-head">
+          <strong id="picker-title">サイトを選ぶ</strong>
+          <button type="button" class="link-btn" id="btn-pick-close">閉じる</button>
+        </div>
+        <p class="hint" id="picker-hint"></p>
+        <div class="crumbs" id="picker-crumbs"></div>
+        <div class="pick-list" id="picker-list"></div>
+        <div id="picker-actions"></div>
+
+        <details class="url-fallback" id="url-fallback">
+          <summary>一覧で見つからないとき（URLで指定）</summary>
+          <p class="hint">経費のフォルダのアドレス（URL）を貼り付けてください。このスマホの中だけで使い、どこにも送りません。</p>
+          <input type="url" class="inline-input" id="url-input" placeholder="https://…sharepoint.com/…" autocomplete="off" />
+          <div class="url-check" id="url-check" hidden></div>
+          <button type="button" class="btn-secondary" id="btn-url">このURLのフォルダを使う</button>
+
+          <details class="url-hint">
+            <summary>URL が分からないとき（調べ方）</summary>
+            <ol>
+              <li>パソコンのブラウザ（Edge や Chrome）で、いつもの SharePoint を開く</li>
+              <li>経費のフォルダを開く。<strong>月のフォルダ（例：26年10月経費報告）が並んで見える画面</strong>にする</li>
+              <li>画面のいちばん上の細長い欄（アドレスバー）を1回クリックする。文字が全部青く選ばれます</li>
+              <li>コピーして（Ctrl＋C。Mac は ⌘＋C）、自分あてのメールや Teams のメモでスマホへ送る</li>
+              <li>スマホでその文字を長押し →「コピー」→ 上の欄に貼り付ける</li>
+            </ol>
+            <p class="hint">正しい URL の目印：<strong>https://</strong> で始まり、途中に <strong>sharepoint.com</strong> が入っています。</p>
+            <p class="hint">「共有」→「リンクのコピー」で出るリンクでも使えます。</p>
+            <p class="hint">図つきの手順：<a href="https://himawasa-sync.com/EMPAZY/" target="_blank" rel="noopener">https://himawasa-sync.com/EMPAZY/</a>（3番目「ブラウザの URL をコピーして送る」）</p>
+          </details>
+        </details>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. 支払区分を選ぶ</h2>
+      <p class="hint">どれか1つをタップ</p>
       <div class="pay-grid">
         <button type="button" class="pay-btn" data-pay="corporate" aria-pressed="false">
           コーポレート
@@ -44,14 +94,18 @@
           現金
           <small>現金払い</small>
         </button>
+        <button type="button" class="pay-btn" data-pay="bank" aria-pressed="false">
+          銀行口座引き落とし
+          <small>口座から支払い</small>
+        </button>
       </div>
     </section>
 
     <section class="card">
-      <h2>2. 領収書を撮る</h2>
+      <h2>4. 領収書を撮る</h2>
       <p class="hint">スマホのカメラで撮影します</p>
       <input type="file" id="photo-input" accept="image/*" capture="environment" />
-      <button type="button" class="btn-primary" id="btn-capture">📷 撮影する</button>
+      <button type="button" class="btn-primary" id="btn-capture">撮影する</button>
       <div class="preview-wrap" id="preview-wrap" hidden>
         <img id="preview" alt="プレビュー" />
       </div>
@@ -61,21 +115,11 @@
       <button type="button" class="btn-secondary" id="btn-clear">やり直す</button>
       <div id="status" class="status hidden" role="status"></div>
     </section>
-
-    <section class="card">
-      <h2>3. Microsoft ログイン</h2>
-      <p class="hint">写真を保存してよいか、御社アカウントで確認します</p>
-      <div class="ms-box" id="login-box">
-        <div class="account-line">接続中: <span id="account-name">未ログイン</span></div>
-        <button type="button" class="btn-primary" id="btn-login">Microsoft でログイン</button>
-        <button type="button" class="btn-secondary" id="btn-logout" hidden>ログアウト</button>
-      </div>
-    </section>
   </main>
 
   <footer class="note">
-    HiMaWaSa Sync — EMPAZY向け経費撮影PWA<br>
-    URL: https://himawasa-sync.com/empazy-expense/
+    この画面は HiMaWaSa Sync が配信しています（画面の仕組みのみ）。<br>
+    撮った写真は、このスマホから御社の SharePoint へ直接保存され、弊社には届きません。
   </footer>
 
   <script src="https://alcdn.msauth.net/browser/3.27.0/js/msal-browser.min.js"></script>
