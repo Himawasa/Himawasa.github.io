@@ -89,7 +89,7 @@ main { padding: 16px; }
 
 .pay-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
@@ -421,4 +421,49 @@ textarea {
   margin-top: 6px;
   color: var(--accent);
   font-weight: 700;
+}
+
+/* ---------- 2画面 ---------- */
+
+.btn-go { margin: 4px 0 6px; }
+
+.setup-next {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.summary {
+  background: #fff;
+  border: 1px solid #e6d7a8;
+  border-left: 4px solid var(--gold);
+  border-radius: 10px;
+  padding: 8px 12px 4px;
+  margin-bottom: 14px;
+}
+
+.summary table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.summary th {
+  width: 5.5em;
+  text-align: left;
+  font-weight: 700;
+  color: #8a7020;
+  vertical-align: top;
+  padding: 4px 0;
+  white-space: nowrap;
+}
+
+.summary td {
+  padding: 4px 0;
+  word-break: break-all;
+}
+
+.summary .link-btn {
+  display: block;
+  margin-left: auto;
+  font-size: 13px;
 }

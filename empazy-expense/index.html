@@ -20,6 +20,8 @@
   </header>
 
   <main>
+    <!-- 設定画面：ログインと保存先（最初だけ） -->
+    <div id="screen-setup">
     <p class="install-hint" id="install-hint">
       ホーム画面に追加すると、アプリのように開けます（Safari：共有 → ホーム画面に追加）
       <span id="demo-note"><br><strong>デモ環境のため、ログインはせず、撮影した画像もどこにも保存されません。</strong></span>
@@ -27,7 +29,7 @@
     </p>
 
     <section class="card">
-      <h2>1. Microsoft ログイン</h2>
+      <h2>設定 1. Microsoft ログイン</h2>
       <p class="hint" id="login-hint">お一人ずつ、ご自分の会社の Microsoft アカウント（いつもの Outlook や Teams と同じ）でログインします。一度ログインすれば、このスマホが覚えています</p>
       <div class="ms-box" id="login-box">
         <div class="account-line"><span id="account-label">状態</span>: <span id="account-name">まだログインしていません</span></div>
@@ -39,7 +41,7 @@
     </section>
 
     <section class="card">
-      <h2>2. 保存先</h2>
+      <h2>設定 2. 保存先</h2>
       <p class="hint">最初に一度だけ選びます。月が変わっても選び直す必要はありません</p>
       <div class="dest-box" id="dest-box">
         <div class="dest-to">送信先：御社の SharePoint</div>
@@ -81,8 +83,22 @@
       </div>
     </section>
 
+    <button type="button" class="btn-primary btn-go" id="btn-go" hidden>撮影をはじめる</button>
+    <p class="hint setup-next" id="setup-next"></p>
+    </div>
+
+    <!-- 撮影画面：設定が済んでいたら最初からここ -->
+    <div id="screen-shoot" hidden>
+    <section class="summary" id="summary">
+      <table>
+        <tr><th>ログイン</th><td id="sum-account"></td></tr>
+        <tr><th>保存先</th><td id="sum-dest"></td></tr>
+      </table>
+      <button type="button" class="link-btn" id="btn-settings">設定を変える</button>
+    </section>
+
     <section class="card">
-      <h2>3. 支払区分を選ぶ</h2>
+      <h2>1. 支払区分を選ぶ</h2>
       <p class="hint">どれか1つをタップ</p>
       <div class="pay-grid">
         <button type="button" class="pay-btn" data-pay="corporate" aria-pressed="false">
@@ -105,7 +121,7 @@
     </section>
 
     <section class="card">
-      <h2>4. 領収書を撮る</h2>
+      <h2>2. 領収書を撮る</h2>
       <p class="hint">スマホのカメラで撮影します</p>
       <input type="file" id="photo-input" accept="image/*" capture="environment" />
       <button type="button" class="btn-primary" id="btn-capture">撮影する</button>
@@ -118,6 +134,7 @@
       <button type="button" class="btn-secondary" id="btn-clear">やり直す</button>
       <div id="status" class="status hidden" role="status"></div>
     </section>
+    </div>
   </main>
 
   <footer class="note">

@@ -75,6 +75,7 @@
   let msalApp = null;
   let account = isProd ? null : { name: "見本の利用者（デモ）", username: "" };
   let loginProblem = "";
+  let screen = "";
   let saving = false;
   let dest = loadDest();
 
@@ -225,6 +226,41 @@
       return "通信がつながりませんでした。電波の良いところで、もう一度お試しください。";
     }
     return "ログインできませんでした" + (code ? "（" + code + "）" : "") + "。もう一度お試しください。続くときは HiMaWaSa Sync へご連絡ください。";
+  }
+
+  function isReady() {
+    return !!(account && (account.username || account.name) && dest);
+  }
+
+  function showScreen(name) {
+    if (screen === name || (screen === "setup-forced" && name === "setup")) return;
+    screen = name;
+    $("screen-setup").hidden = name !== "setup";
+    $("screen-shoot").hidden = name !== "shoot";
+    window.scrollTo(0, 0);
+  }
+
+  // ログイン済み＋保存先あり → 撮影画面へ自動で移る。足りなければ設定画面
+  function route() {
+    const ready = isReady();
+    $("btn-go").hidden = !ready;
+    const next = $("setup-next");
+    if (ready) {
+      next.textContent = "設定は済んでいます。";
+    } else if (!(account && (account.username || account.name))) {
+      next.textContent = "ログインすると、保存先を選べます。";
+    } else {
+      next.textContent = "保存先を選ぶと、撮影画面に進みます。";
+    }
+    renderSummary();
+    showScreen(ready && screen !== "setup-forced" ? "shoot" : "setup");
+  }
+
+  function renderSummary() {
+    const who = account ? (account.name || account.username || "") : "";
+    const mail = account && account.name && account.username ? "（" + account.username + "）" : "";
+    $("sum-account").textContent = who ? who + mail : "未ログイン";
+    $("sum-dest").textContent = destPathEl.textContent;
   }
 
   function updateConfirmButton() {
@@ -605,6 +641,8 @@
       person: person,
     });
     closePicker();
+    if (screen === "setup-forced") screen = "setup";
+    route();
     showStatus("保存先を記録しました（このスマホの中だけに記録しています）", false);
   }
 
@@ -962,6 +1000,17 @@
   });
 
   btnPick.addEventListener("click", openPicker);
+  $("btn-go").addEventListener("click", function () {
+    screen = "setup";
+    route();
+  });
+  $("btn-settings").addEventListener("click", function () {
+    screen = "setup-forced";
+    $("screen-setup").hidden = false;
+    $("screen-shoot").hidden = true;
+    route();
+    window.scrollTo(0, 0);
+  });
   $("btn-pick-close").addEventListener("click", closePicker);
   $("btn-url").addEventListener("click", useUrl);
   urlInput.addEventListener("input", function () { showUrlCheck(checkUrlText(urlInput.value)); });
@@ -1014,5 +1063,6 @@
     .then(function () {
       updateLoginUi();
       updateConfirmButton();
+      route();
     });
 })();
