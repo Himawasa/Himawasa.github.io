@@ -2,7 +2,7 @@
  * 画面ファイルはネット優先（更新がすぐ届く）。つながらないときだけ保存済みを出す。
  * 画面ファイルを変えたら CACHE の版名を上げる。
  */
-const CACHE = 'empazy-expense-v7';
+const CACHE = 'empazy-expense-v8';
 const ASSETS = [
   '/empazy-expense/',
   '/empazy-expense/index.html',

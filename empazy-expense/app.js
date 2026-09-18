@@ -202,7 +202,11 @@
     btnLogin.hidden = loggedIn || !isProd;
     btnLogout.hidden = !loggedIn || !isProd;
     btnPick.disabled = !loggedIn;
-    showLoginMsg(loginProblem, false);
+    if (adminConsent && !loginProblem) {
+      showLoginMsg(adminConsent.msg, adminConsent.ok);
+    } else {
+      showLoginMsg(loginProblem, false);
+    }
   }
 
   // Microsoft から返ってきたエラーを、事務の方が読める言葉にする
@@ -280,9 +284,31 @@
 
   // ---------- Microsoft ログイン ----------
 
+  // ファイルの読み書き（本人が開ける範囲）＋サイトの一覧を読むだけ。サイトへの書き込み権限は求めない
   function scopes() {
-    return ["User.Read", "Files.ReadWrite.All", "Sites.ReadWrite.All"];
+    return ["User.Read", "Files.ReadWrite.All", "Sites.Read.All"];
   }
+
+  // 管理者の承認（adminconsent）から戻ってきたときの案内。URL の ? は消しておく
+  function readAdminConsentResult() {
+    let q;
+    try {
+      q = new URLSearchParams(window.location.search);
+    } catch (e) {
+      return null;
+    }
+    if (!q.has("admin_consent") && !(q.has("error") && q.has("tenant"))) return null;
+    const ok = /^true$/i.test(q.get("admin_consent") || "") && !q.get("error");
+    try {
+      window.history.replaceState(null, "", window.location.pathname);
+    } catch (e) {
+      /* 消せなくても動作に影響なし */
+    }
+    return ok
+      ? { ok: true, msg: "管理者の承認が完了しました。ありがとうございます。これで、御社の皆さまが会社の Microsoft アカウントでログインできます。" }
+      : { ok: false, msg: "管理者の承認は完了していません（取りやめ、または管理者ではないアカウント）。管理者のアカウントで、もう一度お願いのリンクを開いてください。" };
+  }
+  const adminConsent = readAdminConsentResult();
 
   async function initMsal() {
     if (!isProd) return;
