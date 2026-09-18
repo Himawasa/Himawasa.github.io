@@ -337,14 +337,66 @@
     if (account) msalApp.setActiveAccount(account);
   }
 
+  function needsInteraction(err) {
+    return !!(err && typeof msal !== "undefined" && err instanceof msal.InteractionRequiredAuthError);
+  }
+
+  const RENEW_KEY = "empazy.renewAt";
+
+  // Microsoft のログイン画面へ移ってログインを更新する（短時間に何度も飛ばない）
+  function renewByRedirect() {
+    try {
+      const last = parseInt(sessionStorage.getItem(RENEW_KEY) || "0", 10);
+      if (Date.now() - last < 60000) return false;
+      sessionStorage.setItem(RENEW_KEY, String(Date.now()));
+    } catch (e) {
+      /* 記録できなくても続ける */
+    }
+    msalApp.acquireTokenRedirect({ scopes: scopes(), account: account });
+    return true;
+  }
+
+  // 撮影の前にログインを確かめておく。期限切れならここで更新（まだ写真を撮っていないので消えるものがない）
+  let warming = false;
+  async function warmToken() {
+    if (!isProd || !msalApp || !account || warming || saving || photoBlob) return;
+    warming = true;
+    try {
+      await msalApp.acquireTokenSilent({ account: account, scopes: scopes() });
+    } catch (err) {
+      if (needsInteraction(err)) {
+        showLoginMsg("ログインの期限が切れたため、更新しています…", true);
+        renewByRedirect();
+      }
+    } finally {
+      warming = false;
+    }
+  }
+
   async function getToken() {
     if (!msalApp || !account) throw new Error("ログインしてください");
     try {
       const silent = await msalApp.acquireTokenSilent({ account: account, scopes: scopes() });
       return silent.accessToken;
     } catch (err) {
-      await msalApp.acquireTokenRedirect({ scopes: scopes(), account: account });
-      throw err;
+      if (!needsInteraction(err)) {
+        throw new Error("通信がつながりませんでした。電波の良いところで、もう一度「保存」を押してください。写真はこのまま残っています。");
+      }
+      // ここで Microsoft の画面へ移ると、撮った写真は消える。先に知らせて選んでもらう
+      const go = window.confirm(
+        "ログインの期限が切れています。\n" +
+        "ログインし直すと、いま撮った写真は保存されずに消えます（戻ったあと、もう一度撮影してください）。\n\n" +
+        "ログインし直しますか？"
+      );
+      if (go) {
+        try {
+          sessionStorage.removeItem(RENEW_KEY);
+        } catch (e) {
+          /* なくても続ける */
+        }
+        renewByRedirect();
+      }
+      throw new Error("ログインの期限が切れています。写真はまだ保存されていません。");
     }
   }
 
@@ -1090,5 +1142,11 @@
       updateLoginUi();
       updateConfirmButton();
       route();
+      warmToken();
     });
+
+  // アプリに戻ってきたとき（ホーム画面から開き直したときなど）も、先にログインを確かめる
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") warmToken();
+  });
 })();
