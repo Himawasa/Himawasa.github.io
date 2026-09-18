@@ -1,7 +1,7 @@
 /**
  * 経費撮影 PWA
- * mode=demo: 操作確認のみ（保存しない）。保存先の選び方は見本のフォルダで体験できる
- * mode=prod: Microsoft ログイン後、SharePoint へ画像+JSON を保存
+ * mode=prod（既定）: 一人ずつ会社の Microsoft アカウントでログインし、SharePoint へ画像+JSON を保存
+ * mode=demo: 操作確認のみ（保存しない）。?mode=demo で入る。保存先の選び方は見本のフォルダで体験できる
  *
  * 保存先の考え方（EMPAZY様）:
  *   1つ上のフォルダ / 26年10月経費報告 / 池田分 / receipt_…jpg
@@ -24,7 +24,26 @@
   const MAX_SIDE = 2000;
 
   const cfg = window.EMPAZY_CONFIG || {};
-  const isProd = cfg.mode === "prod" && !!(cfg.msalClientId || "").trim();
+  const MODE_KEY = "empazy.mode";
+
+  // ?mode=demo / ?mode=prod で切り替え。ログインの行き来で URL の ? が消えても覚えておく
+  function resolveMode() {
+    let mode = "";
+    try {
+      const q = new URLSearchParams(window.location.search).get("mode");
+      if (q === "demo" || q === "prod") {
+        sessionStorage.setItem(MODE_KEY, q);
+        mode = q;
+      } else {
+        mode = sessionStorage.getItem(MODE_KEY) || "";
+      }
+    } catch (e) {
+      mode = "";
+    }
+    return mode || cfg.mode || "prod";
+  }
+
+  const isProd = resolveMode() === "prod" && !!(cfg.msalClientId || "").trim();
 
   const $ = (id) => document.getElementById(id);
   const payButtons = document.querySelectorAll(".pay-btn");
@@ -54,7 +73,8 @@
   let photoBlob = null;
   let objectUrl = null;
   let msalApp = null;
-  let account = isProd ? null : { username: "demo@example.co.jp（見本）" };
+  let account = isProd ? null : { name: "見本の利用者（デモ）", username: "" };
+  let loginProblem = "";
   let saving = false;
   let dest = loadDest();
 
@@ -148,20 +168,63 @@
   // ---------- 画面の状態 ----------
 
   function updateChrome() {
-    $("env-badge").textContent = isProd ? "本番" : "デモ環境";
+    const badge = $("env-badge");
+    badge.textContent = "デモ環境";
+    badge.hidden = isProd;
     $("header-sub").textContent = isProd
       ? "撮影して御社の SharePoint に保存します"
-      : "操作確認用です。画像は保存されません";
+      : "操作確認用です。ログインせず、画像も保存されません";
     $("demo-note").hidden = isProd;
+    const link = $("mode-link");
+    link.textContent = isProd ? "ログインせずにデモで試す" : "← デモをやめて、ログインして使う";
+    link.href = isProd ? "?mode=demo" : "?mode=prod";
+    $("login-hint").textContent = isProd
+      ? "お一人ずつ、ご自分の会社の Microsoft アカウント（いつもの Outlook や Teams と同じ）でログインします。一度ログインすれば、このスマホが覚えています"
+      : "デモのため、実際にはログインしません。本番では、お一人ずつ会社の Microsoft アカウントでログインします";
     btnSave.textContent = isProd ? "SharePoint に保存" : "操作を確認する";
   }
 
+  function showLoginMsg(text, isInfo) {
+    const box = $("login-msg");
+    box.hidden = !text;
+    box.textContent = text || "";
+    box.className = "login-msg" + (isInfo ? " info" : "");
+  }
+
   function updateLoginUi() {
-    const loggedIn = !!(account && account.username);
-    accountEl.textContent = loggedIn ? account.username : "未ログイン";
-    btnLogin.hidden = loggedIn;
+    const loggedIn = !!(account && (account.username || account.name));
+    $("account-label").textContent = !isProd ? "デモ" : loggedIn ? "ログイン中" : "状態";
+    accountEl.textContent = loggedIn ? (account.name || account.username) : "まだログインしていません";
+    const mail = $("account-mail");
+    mail.hidden = !(isProd && loggedIn && account.username && account.name);
+    mail.textContent = account && account.username ? account.username : "";
+    btnLogin.hidden = loggedIn || !isProd;
     btnLogout.hidden = !loggedIn || !isProd;
     btnPick.disabled = !loggedIn;
+    showLoginMsg(loginProblem, false);
+  }
+
+  // Microsoft から返ってきたエラーを、事務の方が読める言葉にする
+  function friendlyLoginError(err) {
+    const code = (err && (err.errorCode || err.code)) || "";
+    const text = code + " " + ((err && (err.errorMessage || err.message)) || "");
+    if (/user_cancelled|AADSTS65004|access_denied/i.test(text)) {
+      return "ログインを取りやめました。使うときは、もう一度「Microsoft でログイン」を押してください。";
+    }
+    if (/AADSTS65001|AADSTS90094|AADSTS90008|AADSTS900941|consent_required|admin/i.test(text)) {
+      return "御社の Microsoft 365 の管理者による承認（最初の1回だけ）が、まだ済んでいないようです。" +
+        "承認が済むまでは、上の「ログインせずにデモで試す」で操作をご確認ください。";
+    }
+    if (/AADSTS50020|AADSTS500200|AADSTS50194|personal/i.test(text)) {
+      return "このアカウントでは使えません。会社の Microsoft アカウント（Outlook や Teams と同じもの）でログインしてください。";
+    }
+    if (/AADSTS50105|AADSTS53003|AADSTS53000/i.test(text)) {
+      return "会社の設定で、このアプリへのログインが制限されています。御社の管理者にご確認ください。";
+    }
+    if (/network|Failed to fetch|timed_out/i.test(text)) {
+      return "通信がつながりませんでした。電波の良いところで、もう一度お試しください。";
+    }
+    return "ログインできませんでした" + (code ? "（" + code + "）" : "") + "。もう一度お試しください。続くときは HiMaWaSa Sync へご連絡ください。";
   }
 
   function updateConfirmButton() {
@@ -197,13 +260,19 @@
       cache: { cacheLocation: "localStorage" },
     });
     await msalApp.initialize();
-    const result = await msalApp.handleRedirectPromise();
+    let result = null;
+    try {
+      result = await msalApp.handleRedirectPromise();
+    } catch (err) {
+      loginProblem = friendlyLoginError(err);
+    }
     if (result && result.account) {
       account = result.account;
     } else {
       const accounts = msalApp.getAllAccounts();
       account = accounts[0] || null;
     }
+    if (account) msalApp.setActiveAccount(account);
   }
 
   async function getToken() {
@@ -872,15 +941,19 @@
   });
 
   btnLogin.addEventListener("click", async function () {
-    if (!isProd) {
-      showStatus("デモ環境です。本番では会社の Microsoft アカウントでログインします。", false);
-      return;
-    }
+    if (!isProd) return;
     if (!msalApp) {
-      showStatus("Microsoft ログインの準備ができていません", true);
+      showLoginMsg("Microsoft ログインの準備ができていません。画面を読み込み直してください。", false);
       return;
     }
-    await msalApp.loginRedirect({ scopes: scopes() });
+    loginProblem = "";
+    showLoginMsg("Microsoft のログイン画面へ移動します…", true);
+    try {
+      await msalApp.loginRedirect({ scopes: scopes() });
+    } catch (err) {
+      loginProblem = friendlyLoginError(err);
+      updateLoginUi();
+    }
   });
 
   btnLogout.addEventListener("click", async function () {
@@ -917,7 +990,8 @@
       clearPreview();
       memoEl.value = "";
     } catch (err) {
-      showStatus(err && err.message ? err.message : String(err), true);
+      const text = err && err.errorCode ? friendlyLoginError(err) : (err && err.message ? err.message : String(err));
+      showStatus(text, true);
     } finally {
       saving = false;
       updateConfirmButton();
@@ -934,7 +1008,8 @@
   renderDest();
   initMsal()
     .catch(function (err) {
-      showStatus("ログイン初期化エラー: " + (err && err.message ? err.message : err), true);
+      loginProblem = "Microsoft ログインの準備ができませんでした。電波を確認して、画面を読み込み直してください。" +
+        (err && err.message ? "（" + err.message + "）" : "");
     })
     .then(function () {
       updateLoginUi();

@@ -391,3 +391,34 @@ textarea {
 .url-hint ol { margin: 4px 0 10px 1.3em; }
 .url-hint li { margin-bottom: 6px; line-height: 1.6; }
 .url-hint a { color: var(--accent); word-break: break-all; }
+
+.account-mail {
+  font-size: 12px;
+  color: var(--muted);
+  margin: -6px 0 10px;
+  word-break: break-all;
+}
+
+.login-msg {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: var(--danger);
+}
+
+.login-msg.info {
+  background: var(--ok-bg);
+  border-color: #c5ddd2;
+  color: var(--accent-dk);
+}
+
+.mode-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--accent);
+  font-weight: 700;
+}
