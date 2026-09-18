@@ -2,7 +2,7 @@
  * 画面ファイルはネット優先（更新がすぐ届く）。つながらないときだけ保存済みを出す。
  * 画面ファイルを変えたら CACHE の版名を上げる。
  */
-const CACHE = 'empazy-expense-v5';
+const CACHE = 'empazy-expense-v6';
 const ASSETS = [
   '/empazy-expense/',
   '/empazy-expense/index.html',
@@ -11,6 +11,7 @@ const ASSETS = [
   '/empazy-expense/config.js',
   '/empazy-expense/manifest.webmanifest',
   '/empazy-expense/icons/icon.svg',
+  '/empazy-expense/vendor/msal-browser-3.30.0.min.js',
 ];
 
 self.addEventListener('install', (event) => {
