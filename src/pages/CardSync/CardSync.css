@@ -2,6 +2,23 @@
 
 .cs-narrow { max-width: 760px; }
 
+/* 見出しが「積み重なっていませ／んか」のように語の途中で折り返さないようにする。
+   auto-phrase は文節で折り返す指定（対応していないブラウザは balance が効く）。 */
+.cs-hero .section-title,
+.cs-pains .section-title,
+.cs-why .section-title,
+.cs-features .section-title,
+.cs-templates .section-title,
+.cs-steps .section-title,
+.cs-rules .section-title,
+.cs-pain h3,
+.cs-feature h3,
+.cs-template h3,
+.cs-step h3 {
+  text-wrap: balance;
+  word-break: auto-phrase;
+}
+
 /* ── 最初の画面：言葉を左、カードの見本を右に ── */
 .cs-hero { padding: 40px 0 56px; }
 .cs-hero-inner {
