@@ -69,7 +69,7 @@ export default defineConfig({
         // GH Pages が未知のURLに返すページ。ホームのtitle/canonicalを名乗らせない
         writeFileSync(join(dist, '404.html'), generateRouteHtml(PAGES.notFound, assets))
         for (const key of [
-          'services', 'works', 'about', 'ai', 'contact', 'try', 'privacy', 'supply', 'card',
+          'services', 'works', 'about', 'ai', 'contact', 'try', 'privacy', 'supply', 'card', 'cardsync',
           'forPro', 'forCare', 'forBiz',
           'rk', 'rkFactory', 'rkHospital', 'rkCare', 'rkPro', 'rkBiz', 'rkClick',
         ]) {

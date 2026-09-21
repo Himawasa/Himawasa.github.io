@@ -321,7 +321,22 @@ export const PAGES = {
     noindex: true,
     nofollow: true,
   },
+  cardsync: {
+    key: 'cardsync',
+    path: '/cardsync/',
+    title: 'CardSync｜名簿から、社員証や来訪者証を作れます | HiMaWaSa Sync',
+    h1: '名簿から、社員証や来訪者証を',
+    description:
+      'Excel の名簿を読み込んで、社員証・来訪者証・立入許可証をブラウザで作れます。登録なしで体験できます。作ったものは24時間で自動で消えます。',
+    og: '目で見て分かるカードを、名簿からすぐ作る。登録なしで体験できます。',
+    crumb: 'CardSync',
+    // 公開の可否を確認するまで、検索には出さない（体験一覧からのリンクで開ける）
+    noindex: true,
+  },
 }
+
+// CardSync の体験版（Cloud Run）の URL。空のあいだは、説明ページは「まもなく公開」と出し、体験一覧にも載せない。
+export const CARDSYNC_TRIAL_URL = ''
 
 export const TRY_APPS = [
   {
@@ -356,6 +371,16 @@ export const TRY_APPS = [
     btn: '📷 スマホで試す →', btnColor: '#4ecdc4',
     borderColor: 'rgba(78,205,196,0.4)',
   },
+  ...(CARDSYNC_TRIAL_URL
+    ? [{
+        icon: '🪪', name: 'CardSync',
+        desc: '名簿から、社員証や来訪者証を作れます',
+        note: '職員証・来訪者証・面会証に',
+        href: 'https://himawasa-sync.com/cardsync/',
+        btn: '💻 PCで試す →', btnColor: '#64b5f6',
+        borderColor: 'rgba(100,180,246,0.4)',
+      }]
+    : []),
 ]
 
 export const SERVICE_ITEMS = [

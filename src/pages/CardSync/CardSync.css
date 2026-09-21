@@ -1,0 +1,82 @@
+/* CardSync の説明ページ。色は index.css のひまわりの変数を使う。 */
+
+.cs-narrow { max-width: 760px; }
+
+/* 見本のカードを、少しずつずらして重ねる */
+.cs-hero { padding: 48px 0 24px; }
+.cs-cards {
+  position: relative;
+  width: min(560px, 100%);
+  aspect-ratio: 1011 / 760;
+  margin: 0 auto;
+}
+.cs-card {
+  position: absolute;
+  width: 78%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--cream-bd);
+  box-shadow: var(--shadow);
+  background: var(--white);
+}
+.cs-card--0 { left: 0; top: 0; z-index: 3; }
+.cs-card--1 { left: 11%; top: 17%; z-index: 2; }
+.cs-card--2 { left: 22%; top: 34%; z-index: 1; }
+
+.cs-cta { text-align: center; margin-top: 28px; display: grid; gap: 12px; justify-items: center; }
+.cs-start { font-size: 1.1rem; }
+.cs-start--soon {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 2px dashed var(--cream-bd);
+  color: var(--gray);
+  background: var(--white);
+  font-weight: 700;
+}
+.cs-cta-note { color: var(--gray); font-size: 0.9rem; }
+
+.cs-why { padding: 56px 0; background: var(--white); }
+.cs-why .section-title { margin-bottom: 20px; }
+.cs-why p { line-height: 2; color: var(--black-s); }
+.cs-why p + p { margin-top: 1rem; }
+
+.cs-features { padding: 56px 0; }
+.cs-features .section-title { margin-bottom: 28px; }
+.cs-feature-list { display: grid; gap: 40px; }
+.cs-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 32px;
+  align-items: center;
+}
+.cs-feature:nth-child(even) .cs-feature-text { order: 2; }
+.cs-feature h3 { font-size: 1.35rem; font-weight: 900; margin-bottom: 10px; }
+.cs-feature p { color: var(--gray); line-height: 1.95; }
+.cs-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--cream-bd);
+  box-shadow: var(--shadow);
+  background: var(--white);
+}
+
+.cs-rules { padding: 56px 0; background: var(--cream-dk); }
+.cs-rules .section-title { margin-bottom: 20px; }
+.cs-rule-list { list-style: none; display: grid; gap: 12px; }
+.cs-rule-list li {
+  background: var(--white);
+  border: 1px solid var(--cream-bd);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  line-height: 1.85;
+  color: var(--black-s);
+}
+
+@media (max-width: 760px) {
+  .cs-hero { padding: 32px 0 16px; }
+  .cs-feature { grid-template-columns: 1fr; gap: 16px; }
+  .cs-feature:nth-child(even) .cs-feature-text { order: 0; }
+  .cs-why, .cs-features, .cs-rules { padding: 40px 0; }
+}

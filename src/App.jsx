@@ -14,6 +14,7 @@ import TryPage from './pages/TryPage'
 import PrivacyPage from './pages/PrivacyPage'
 import AsksDemoPage from './pages/AsksDemo/AsksDemoPage'
 import CardDemoPage from './pages/CardDemo/CardDemoPage'
+import CardSyncPage from './pages/CardSync/CardSyncPage'
 import NotFoundPage from './pages/NotFoundPage'
 import IndustryPage from './pages/for/IndustryPage'
 import RkPage from './pages/rk/RkPage'
@@ -101,6 +102,8 @@ function AppShell() {
           <Route path="/asks-demo/" element={<Navigate to="/supply/" replace />} />
           <Route path="/card" element={<CardDemoPage />} />
           <Route path="/card/" element={<CardDemoPage />} />
+          <Route path="/cardsync" element={<CardSyncPage />} />
+          <Route path="/cardsync/" element={<CardSyncPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
