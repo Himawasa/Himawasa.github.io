@@ -214,10 +214,7 @@
     const code = (err && (err.errorCode || err.code)) || "";
     const text = code + " " + ((err && (err.errorMessage || err.message)) || "");
     if (/user_cancelled|AADSTS65004|access_denied/i.test(text)) {
-      return "ログインが完了しませんでした。Microsoft の画面に「管理者の承認が必要」と出ていた場合は、" +
-        "御社の Microsoft 365 の管理者による承認（最初の1回だけ）がまだ済んでいません。" +
-        "承認が済むまでは、上の「ログインせずにデモで試す」で操作をご確認ください。" +
-        "ご自分で取りやめた場合は、もう一度「Microsoft でログイン」を押してください。";
+      return "ログインを取りやめました。使うときは、もう一度「Microsoft でログイン」を押してください。";
     }
     if (/AADSTS65001|AADSTS90094|AADSTS90008|AADSTS900941|consent_required|admin/i.test(text)) {
       return "御社の Microsoft 365 の管理者による承認（最初の1回だけ）が、まだ済んでいないようです。" +
@@ -739,17 +736,12 @@
     const u = new URL(url);
     const idParam = u.searchParams.get("id") || u.searchParams.get("RootFolder");
     const serverPath = idParam ? decodeURIComponent(idParam) : decodeURIComponent(u.pathname);
-    let m = /^(\/(?:sites|teams|personal)\/[^/]+)\/([^/]+)\/?(.*)$/.exec(serverPath);
-    if (!m) {
-      // 会社のトップのサイト直下（例: /Shared Documents/経費）
-      const top = /^\/([^/]+)\/?(.*)$/.exec(serverPath);
-      if (!top || /^_layouts$/i.test(top[1])) throw new Error("URL からフォルダの場所を読み取れませんでした");
-      m = [serverPath, "", top[1], top[2]];
-    }
+    const m = /^(\/(?:sites|teams|personal)\/[^/]+)\/([^/]+)\/?(.*)$/.exec(serverPath);
+    if (!m) throw new Error("URL からフォルダの場所を読み取れませんでした");
     const sitePath = m[1];
     const library = m[2];
-    const rest = m[3].replace(/\/?Forms\/[^/]*\.aspx$/i, "");
-    const site = await graph("/sites/" + u.hostname + (sitePath ? ":" + encodeURI(sitePath) : ""));
+    const rest = m[3].replace(/\/Forms\/.*$/, "");
+    const site = await graph("/sites/" + u.hostname + ":" + encodeURI(sitePath));
     const drives = (await graph("/sites/" + site.id + "/drives?$select=id,name,webUrl")).value || [];
     const drive = drives.find(function (d) {
       try {
