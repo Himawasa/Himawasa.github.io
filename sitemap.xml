@@ -151,6 +151,16 @@
 
   </url>
   <url>
+    <loc>https://himawasa-sync.com/cardsync/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://himawasa-sync.com/cardsync/og-cardsync.png</image:loc>
+      <image:title>CardSync。いつもの名簿から、社員証・来訪者証・立入許可証をそのまま発行</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://himawasa-sync.com/privacy/</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>yearly</changefreq>
