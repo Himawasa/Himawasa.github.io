@@ -329,6 +329,9 @@ export const PAGES = {
     description:
       'Excel や CSV の名簿と顔写真の ZIP をドラッグ＆ドロップするだけで、社員証・来訪者証・立入許可証をブラウザ上で発行できます。登録不要でお試しいただけ、体験データは24時間で自動消去されます。',
     og: '見てすぐ分かるカードを、お手元の名簿から。登録不要でお試しいただけます。',
+    ogImage: '/cardsync/og-cardsync.png',
+    ogImageAlt: 'CardSync。いつもの名簿から、社員証・来訪者証・立入許可証をそのまま発行',
+    keywords: '社員証 作成,職員証 作成,IDカード 作成,来訪者証,入館証,立入許可証,名簿 Excel 差し込み,顔写真 一括,カード発行 ソフト,社内発行',
     crumb: 'CardSync',
     // 公開の可否を確認するまで、検索には出さない（体験一覧からのリンクで開ける）
     noindex: true,
@@ -337,6 +340,39 @@ export const PAGES = {
 
 // CardSync の体験版（Cloud Run）の URL。空のあいだは、説明ページは「まもなく公開」と出し、体験一覧にも載せない。
 export const CARDSYNC_TRIAL_URL = 'https://card.himawasa-sync.com'
+
+// よくあるご質問。ページの本文と、検索向けの構造化データ（FAQPage）で同じものを使う。
+// 検索で見せる答えと、ページに書いてある答えが違うと、検索側に嫌われるため。
+export const CARDSYNC_FAQS = [
+  {
+    q: '社員証を作るのに、専用のソフトは必要ですか？',
+    a: '必要ありません。ブラウザだけで、名簿の取り込みからデザイン、発行までを行えます。インストールも、アカウント登録も不要です。',
+  },
+  {
+    q: 'いま使っている Excel の名簿を、そのまま使えますか？',
+    a: 'そのままお使いいただけます。Excel（.xlsx）と CSV に対応し、文字化けしやすい Shift_JIS のファイルも自動で判別します。和暦の日付や、EMP-0001 のような通し番号の自動採番にも対応しています。',
+  },
+  {
+    q: '顔写真は、一人ずつ登録しないといけませんか？',
+    a: '一括で登録できます。「社員番号.jpg」のように名簿の値をファイル名にした写真を ZIP にまとめて置くと、全員分が自動でそれぞれのカードに配置されます。',
+  },
+  {
+    q: 'どんなカードプリンタで印刷できますか？',
+    a: '実寸（85.6 × 54 mm）で印刷できるプリンタであればお使いいただけます。印刷の細かさは 300dpi と 600dpi から選べるため、600dpi の再転写プリンタでもその細かさのまま出力できます。PDF に保存して、印刷を外部に依頼することもできます。',
+  },
+  {
+    q: '来訪者証や、立入許可証も作れますか？',
+    a: '作れます。社員証・来訪者証・立入許可証の3種類の見本が用意されており、社名・配色・項目の位置を画面の上で調整できます。表と裏の両面に対応しています。',
+  },
+  {
+    q: '体験で入力したデータは、どうなりますか？',
+    a: '24時間後に自動で消去されます。ほかの方から見えることもありません。なお、体験では実在する方の氏名や顔写真の登録はお控えください。',
+  },
+  {
+    q: '個人情報を外部のクラウドに置きたくないのですが。',
+    a: '社内のネットワークだけで動かす構成もご用意できます。PostgreSQL を同梱した一式をお渡しし、社内のパソコンだけで完結させられます。導入をご検討の際にご相談ください。',
+  },
+]
 
 export const TRY_APPS = [
   {
@@ -478,6 +514,9 @@ export const PUBLIC_PAGES = [
   { path: '/ai/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.6' },
   { path: '/contact/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.7' },
   { path: '/try/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.6' },
+  // CardSync は、誓約書（秘密保持）の確認が済むまで noindex のまま。
+  // 下の1行と PAGES.cardsync.noindex を外せば、検索にも sitemap にも出る。
+  // { path: '/cardsync/', lastmod: '2026-09-21', changefreq: 'weekly', priority: '0.85' },
   { path: '/privacy/', lastmod: '2026-08-17', changefreq: 'yearly', priority: '0.2' },
   { path: '/kintone-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
   { path: '/pro-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
@@ -800,6 +839,70 @@ export function buildPageJsonLd(page) {
         })),
       },
     })
+  } else if (page.key === 'cardsync') {
+    graph.push({
+      '@type': 'WebPage',
+      '@id': `${url}#webpage`,
+      name: page.title,
+      headline: page.h1,
+      description: page.description,
+      url,
+      inLanguage: 'ja',
+      isPartOf: { '@id': `${SITE.url}/#website` },
+      primaryImageOfPage: page.ogImage
+        ? { '@type': 'ImageObject', url: pageOgUrl(page), caption: page.ogImageAlt }
+        : undefined,
+    })
+    graph.push({
+      '@type': 'WebApplication',
+      '@id': `${url}#app`,
+      name: 'CardSync',
+      description: page.description,
+      url,
+      applicationCategory: 'BusinessApplication',
+      applicationSubCategory: 'IDカード発行',
+      operatingSystem: 'ウェブブラウザ（Windows / macOS）',
+      inLanguage: 'ja',
+      browserRequirements: 'JavaScript が使えるブラウザ',
+      publisher: { '@id': `${SITE.url}/#organization` },
+      featureList: [
+        'Excel（.xlsx）・CSV の名簿の取り込み（Shift_JIS 自動判別）',
+        '顔写真の ZIP 一括取り込み（ファイル名で名簿と自動照合）',
+        '表裏のカードデザイン（文字・写真・バーコード・QRコード）',
+        '和暦の日付・通し番号の自動採番',
+        '実寸 85.6 × 54 mm・300dpi / 600dpi での印刷と PDF 保存',
+        '再発行の履歴（理由つき）',
+      ],
+      offers: {
+        '@type': 'Offer',
+        name: '体験版',
+        price: '0',
+        priceCurrency: 'JPY',
+        description: '登録不要。作成したデータは24時間で自動消去されます。',
+        url: CARDSYNC_TRIAL_URL || url,
+      },
+    })
+    graph.push({
+      '@type': 'HowTo',
+      '@id': `${url}#howto`,
+      name: '名簿から社員証を発行する手順',
+      description: '名簿と顔写真から、社員証・来訪者証・立入許可証を発行するまでの3つの手順。',
+      totalTime: 'PT10M',
+      step: [
+        { '@type': 'HowToStep', position: 1, name: 'デザインを選ぶ', text: '3つの見本から選び、自社の社名やロゴ、テーマカラーを設定します。' },
+        { '@type': 'HowToStep', position: 2, name: '名簿と写真を入れる', text: 'Excel の名簿と写真の ZIP を置きます。社員番号などのキーを指定すれば、名簿を更新しても重複して登録されません。' },
+        { '@type': 'HowToStep', position: 3, name: '仕上がりを確認して発行する', text: '画面で1人ずつのプレビューを確認し、社内のプリンタまたは PDF 保存でまとめて発行します。' },
+      ],
+    })
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${url}#faq`,
+      mainEntity: CARDSYNC_FAQS.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    })
   } else if (page.key === 'rk' || page.key.startsWith('rk')) {
     const rk = RK_BY_PAGE[page.key]
     graph.push({
@@ -1085,7 +1188,9 @@ export function generateSeoHead(page = PAGES.home) {
     SITE.gaId
       ? `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${esc(SITE.gaId)}');</script>`
       : '',
-    `<script type="application/ld+json">${json}</script>`,
+    // 検索に出さないページ（noindex）では、構造化データも出さない。
+    // React 側（components/Seo.jsx）と揃える。
+    page.noindex ? '' : `<script type="application/ld+json">${json}</script>`,
   ].filter(Boolean).join('\n    ')
 }
 

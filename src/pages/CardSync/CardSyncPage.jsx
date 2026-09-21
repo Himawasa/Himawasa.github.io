@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Seo from '../../components/Seo'
 import PageHead from '../../components/PageHead'
-import { PAGES, CARDSYNC_TRIAL_URL } from '../../seo/site'
+import { PAGES, CARDSYNC_TRIAL_URL, CARDSYNC_FAQS } from '../../seo/site'
 import './CardSync.css'
 
 // 本文は1行にまとめて書くこと。JSX の中で改行すると、日本語の文のあいだに
@@ -203,6 +203,20 @@ export default function CardSyncPage() {
             <li>体験でご利用いただけるのは、<strong>画面でのプレビュー確認と印刷（PDF 保存）まで</strong>です。顔写真は1枚 1MB・10枚まで、案件は5つまでとなります。</li>
             <li><strong>社内ネットワーク（オンプレミス）での導入にも対応します。</strong>個人情報を外部のクラウドに出さず、社内のパソコンだけで完結する構成もご用意できます。お気軽にご相談ください。</li>
           </ul>
+        </div>
+      </section>
+
+      <section className="cs-faq">
+        <div className="container cs-narrow">
+          <h2 className="section-title">よくあるご質問</h2>
+          <div className="cs-faq-list">
+            {CARDSYNC_FAQS.map((f) => (
+              <details className="cs-faq-item" key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -142,6 +142,26 @@
 .cs-step h3 { font-size: 1.05rem; font-weight: 900; margin-bottom: 8px; }
 .cs-step p { color: var(--gray); line-height: 1.95; font-size: 0.95rem; }
 
+/* ── よくあるご質問 ── */
+.cs-faq { padding: 56px 0; }
+.cs-faq .section-title { margin-bottom: 20px; text-wrap: balance; word-break: auto-phrase; }
+.cs-faq-list { display: grid; gap: 10px; }
+.cs-faq-item {
+  background: var(--white);
+  border: 1px solid var(--cream-bd);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+}
+.cs-faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1.75;
+  color: var(--black-s);
+  word-break: auto-phrase;
+}
+.cs-faq-item summary::marker { color: #8a6a3d; }
+.cs-faq-item p { margin-top: 10px; color: var(--gray); line-height: 1.95; }
+
 /* ── お約束 ── */
 .cs-rules { padding: 56px 0; background: var(--cream-dk); }
 .cs-rules .section-title { margin-bottom: 20px; }
@@ -162,5 +182,5 @@
   .cs-feature { grid-template-columns: 1fr; gap: 16px; }
   .cs-feature:nth-child(even) .cs-feature-text { order: 0; }
   .cs-hero { padding: 28px 0 40px; }
-  .cs-pains, .cs-why, .cs-features, .cs-templates, .cs-steps, .cs-rules { padding: 40px 0; }
+  .cs-pains, .cs-why, .cs-features, .cs-templates, .cs-steps, .cs-faq, .cs-rules { padding: 40px 0; }
 }
