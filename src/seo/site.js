@@ -333,8 +333,6 @@ export const PAGES = {
     ogImageAlt: 'CardSync。いつもの名簿から、社員証・来訪者証・立入許可証をそのまま発行',
     keywords: '社員証 作成,職員証 作成,IDカード 作成,来訪者証,入館証,立入許可証,名簿 Excel 差し込み,顔写真 一括,カード発行 ソフト,社内発行',
     crumb: 'CardSync',
-    // 公開の可否を確認するまで、検索には出さない（体験一覧からのリンクで開ける）
-    noindex: true,
   },
 }
 
@@ -514,9 +512,7 @@ export const PUBLIC_PAGES = [
   { path: '/ai/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.6' },
   { path: '/contact/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.7' },
   { path: '/try/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.6' },
-  // CardSync は、誓約書（秘密保持）の確認が済むまで noindex のまま。
-  // 下の1行と PAGES.cardsync.noindex を外せば、検索にも sitemap にも出る。
-  // { path: '/cardsync/', lastmod: '2026-09-21', changefreq: 'weekly', priority: '0.85' },
+  { path: '/cardsync/', lastmod: '2026-09-21', changefreq: 'weekly', priority: '0.85' },
   { path: '/privacy/', lastmod: '2026-08-17', changefreq: 'yearly', priority: '0.2' },
   { path: '/kintone-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
   { path: '/pro-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },

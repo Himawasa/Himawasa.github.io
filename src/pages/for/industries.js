@@ -114,6 +114,7 @@ export const INDUSTRIES = {
       { href: '/shiftsync/', title: '介護のシフト表自動化', desc: 'KING OF TIMEの実績から、今の勤務表様式へ。', cta: '介護のシフト表自動化を見る' },
       { href: '/medical-dx/', title: '病院・医療機関のDX', desc: 'FAX、カルテ、日計、画像。現場で動かしてきた道具。', cta: '病院・医療機関のDXを見る' },
       { href: '/rk/care/', title: 'RKが入っている施設は', desc: '補助です。勤怠→シフトのシナリオ作成だけ。', cta: '介護RK（補助）の案内を見る' },
+      { href: '/cardsync/', title: '職員証・面会証をご自分で', desc: '名簿と顔写真から、職員証や面会証をその場で発行。登録なしで試せます。', cta: 'CardSync を見る' },
     ],
     faqs: [
       {
@@ -177,6 +178,7 @@ export const INDUSTRIES = {
       { href: '/rk/biz/', title: '中小企業RK', desc: 'キーエンスRKで帳票転記とExcel整理。工場RKも。', cta: '中小企業RKの案内を見る' },
       { href: '/kintone-dx/', title: 'kintone導入支援', desc: '業務をkintoneでまとめ、コピペを減らす。', cta: 'kintone導入支援を見る' },
       { href: '/yoom-lp/', title: 'Yoom導入・保守', desc: '設定から月額の運用まで。', cta: 'Yoom導入・保守を見る' },
+      { href: '/cardsync/', title: '社員証・来訪者証の社内発行', desc: 'Excel の名簿から、社員証や来訪者証をその場で。登録なしで試せます。', cta: 'CardSync を見る' },
     ],
     faqs: [
       {
