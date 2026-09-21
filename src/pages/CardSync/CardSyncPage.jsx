@@ -12,38 +12,38 @@ const CARDS = [
 
 const PAINS = [
   {
-    title: '新しい人が入るたび、1枚ずつ位置合わせ',
-    body: 'Word や PowerPoint で作ったひな形は、名前が長いと枠からはみ出します。直しているうちに、ほかの人の分がずれる。そのくり返しです。',
+    title: '新しい方が入るたび、1枚ずつ位置合わせ',
+    body: 'Word や PowerPoint のひな形は、氏名の文字数で枠が崩れたり、書体が変わってしまったりします。直しているうちに、ほかの方のレイアウトまでずれてしまう。その手戻りが、毎回の負担になります。',
   },
   {
-    title: '顔写真を1枚ずつ貼り替える',
-    body: '撮った写真をトリミングして、名簿と見比べて、間違えないように貼る。10人でも大仕事、50人なら丸一日かかります。',
+    title: '顔写真を、一人ずつ貼り替える',
+    body: '撮影した写真をトリミングし、名簿と見比べながら間違えないように貼っていく。数人であれば何とかなっても、十数人から数十人ともなると、半日がかりの作業になってしまいます。',
   },
   {
-    title: '外に頼むと、待つことになる',
-    body: '来週から来る人、今日決まったアルバイト、急な見学者。そのたびに納期と最低枚数の話をするのは、現場の速さに合いません。',
+    title: '外部に依頼すると、納期が読めない',
+    body: '来週から勤務される方、急に決まったアルバイトの方、当日お越しになる見学者。そのたびに納期と最低枚数を調整していては、現場の動き方に追いつきません。',
   },
 ]
 
 const REASONS = [
   {
     kicker: '01',
-    title: 'いつもの名簿を、そのまま置くだけ',
-    body: 'お手元の Excel（.xlsx）や CSV を、そのまま読み込めます。文字化けしやすい Shift_JIS のファイルも、中を見て自動で見分けます。和暦の日付も、EMP-0001 のような通し番号の自動採番も、そのまま扱えます。',
+    title: 'お手元の名簿を、そのまま読み込めます',
+    body: '普段お使いの Excel（.xlsx）や CSV を、画面にドラッグ＆ドロップするだけで取り込めます。Windows で文字化けしやすい Shift_JIS のファイルも、中身を見て自動で判別します。和暦の日付や、「EMP-0001」のような通し番号の自動採番にも、そのまま対応しています。',
     img: '/cardsync/screen-import.webp',
     alt: '名簿の取り込み画面。ファイルを置く枠と、同じ人を見分ける項目の選び方',
   },
   {
     kicker: '02',
-    title: '顔写真は、ZIP にまとめて一度に',
-    body: '「社員番号.jpg」のように、名簿の値をファイル名にした写真を ZIP にまとめて置くだけ。全員分が、それぞれのカードの枠に自動で入ります。どれと結びつかなかったかも、その場で分かります。文字・写真のほか、バーコード（CODE128・JAN-13 など）や QR コードも、置きたい場所に置けます。',
+    title: '顔写真は、ZIP にまとめて一括で登録',
+    body: '「社員番号.jpg」のように名簿の値をファイル名にした写真を、ZIP にまとめて置くだけです。名簿と照合し、全員分の顔写真をそれぞれのカードの枠へ自動で配置します。結びつかなかった写真もその場で分かるため、取りこぼしがありません。文字や写真のほか、バーコード（CODE128・JAN-13 など）や QR コードも、必要な位置に配置できます。',
     img: '/cardsync/screen-designer.webp',
     alt: 'カードのデザイン画面。中央に社員証、左に道具、右に項目の設定',
   },
   {
     kicker: '03',
-    title: '刷る前に、一人ずつ目で確かめる',
-    body: '実寸 85.6 × 54 mm・300dpi で、表と裏の仕上がりをそのまま画面に出します。確かめてから、まとめて印刷（PDF に保存）へ。なくした・壊れたときの再発行は、理由と一緒に記録が残ります。',
+    title: '実寸・300dpi の仕上がりを、画面で確かめてから',
+    body: '実寸 85.6 × 54 mm・300dpi で、表と裏の仕上がりをそのまま画面に再現します。一人ずつ確かめたうえで、社内のプリンタで印刷、または PDF に保存してまとめて発行できます。紛失や破損による再発行は、その理由とともに記録が残ります。',
     img: '/cardsync/screen-print.webp',
     alt: '発行の画面。左に名簿、右にその人のカードの仕上がり',
   },
@@ -52,25 +52,37 @@ const REASONS = [
 const TEMPLATES = [
   {
     name: '社員証・職員証',
-    where: '会社・病院・介護施設',
-    has: '顔写真／氏名／部署／社員番号／裏面の案内・内線',
+    where: '企業・病院・介護施設',
+    has: '顔写真／氏名／部署／社員番号／裏面に注意事項・内線',
   },
   {
     name: '来訪者証',
     where: '受付・工場見学・面会',
-    has: '顔写真／氏名／所属会社／訪問日／担当者／裏面に受付番号・退館予定',
+    has: '顔写真／氏名／所属会社／訪問日／ご案内担当者／裏面に受付番号・退館予定',
   },
   {
     name: '立入許可証',
     where: '工事現場・サーバ室・区域の管理',
-    has: '顔写真／氏名／区域名／許可番号／有効期限／裏面に緊急連絡先',
+    has: '顔写真／氏名／許可区域名／許可番号／有効期限／裏面に緊急連絡先',
   },
 ]
 
 const STEPS = [
-  { n: '1', title: '見本を選ぶ', body: '社員証・来訪者証・立入許可証の3つから選んで、会社名や色を直すところから始められます。' },
-  { n: '2', title: '名簿を入れる', body: 'Excel や CSV を置き、顔写真の ZIP を置きます。同じ人を見分ける項目（社員番号など）を選んでおけば、入れ直しても二重に増えません。' },
-  { n: '3', title: '確かめて刷る', body: '一人ずつ仕上がりを見て、まとめて印刷します。PDF に保存して、印刷を外に頼むこともできます。' },
+  {
+    n: '1',
+    title: 'デザインを選ぶ',
+    body: '3つの見本から選び、自社の社名・配色・ロゴを置き換えるところから始められます。',
+  },
+  {
+    n: '2',
+    title: '名簿と写真を入れる',
+    body: 'Excel や CSV の名簿と、顔写真の ZIP を置きます。社員番号などを目印に指定しておけば、同じ方を入れ直しても二重に増えません。',
+  },
+  {
+    n: '3',
+    title: '確かめて発行する',
+    body: '一人ずつ仕上がりを確認し、社内のプリンタまたは PDF でまとめて発行します。',
+  },
 ]
 
 export default function CardSyncPage() {
@@ -86,22 +98,25 @@ export default function CardSyncPage() {
         <div className="container cs-hero-inner">
           <div className="cs-hero-text">
             <p className="cs-lead">
-              専用のソフトも、難しい設定も要りません。お手元の名簿を置くだけで、
-              社員証・来訪者証・立入許可証を、ブラウザの中で作って発行できます。
+              Excel や CSV の名簿と、顔写真の ZIP をドラッグ＆ドロップするだけ。
+              社員証・来訪者証・立入許可証を、ブラウザ上で発行できます。
+            </p>
+            <p className="cs-lead-sub">
+              専用のソフトも、難しい初期設定も要りません。登録なしで、そのままお試しいただけます。
             </p>
             <div className="cs-cta">
               {ready ? (
-                <a className="btn-yellow cs-start" href={CARDSYNC_TRIAL_URL} rel="noopener">登録なしで体験する（無料）</a>
+                <a className="btn-yellow cs-start" href={CARDSYNC_TRIAL_URL} rel="noopener">登録不要で体験してみる（無料）</a>
               ) : (
                 <span className="cs-start cs-start--soon" aria-disabled="true">体験版は、まもなく公開します</span>
               )}
-              <Link to="/contact" className="cs-sub-cta">導入について相談する</Link>
+              <Link to="/contact" className="cs-sub-cta">導入のご相談はこちら</Link>
             </div>
             <p className="cs-cta-note">
-              体験で作ったものは、24時間であなたの分だけ自動で消えます。パソコンの広い画面がおすすめです。
+              体験でお使いになったデータは、24時間後に自動で消去されます。パソコンの広い画面での操作をおすすめします。
             </p>
           </div>
-          <div className="cs-cards" aria-label="作れるカードの見本">
+          <div className="cs-cards" aria-label="発行できるカードの見本">
             {CARDS.map((c, i) => (
               <img key={c.src} className={`cs-card cs-card--${i}`} src={c.src} alt={c.alt} width="1011" height="637" loading={i === 0 ? 'eager' : 'lazy'} />
             ))}
@@ -111,7 +126,7 @@ export default function CardSyncPage() {
 
       <section className="cs-pains">
         <div className="container">
-          <h2 className="section-title">カード作りの「ちょっとした手間」、重なっていませんか</h2>
+          <h2 className="section-title">カード作りの「ちょっとした手間」、積み重なっていませんか</h2>
           <div className="cs-pain-list">
             {PAINS.map((x) => (
               <article className="cs-pain" key={x.title}>
@@ -125,22 +140,23 @@ export default function CardSyncPage() {
 
       <section className="cs-why">
         <div className="container cs-narrow">
-          <h2 className="section-title">目で見て分かるカードは、まだまだ要ります</h2>
+          <h2 className="section-title">デジタル化が進む今だからこそ、見てすぐ分かる安心を</h2>
           <p>
-            首から下げていれば、機械が無くても、誰でも、その場で確かめられます。受付の人も、入所者のご家族も、初めて来た業者の方も。
-            電池は切れません。アプリを入れてもらう必要もありません。
+            首から下げたカードは、特別な機器がなくても、誰が見てもその場で所属と身元が分かります。
+            受付のご担当者も、施設をご利用になるご家族も、初めて出入りされる業者の方も、同じように確かめられます。
+            電池も、アプリの用意も要りません。
           </p>
           <p>
-            スマホや IC が広がっても、介護・医療・工場・学校のように、スマホを出せない現場はたくさんあります。
-            CardSync は、まず「見て分かるカード」を、名簿からすぐ・間違いなく・何度でも作れるようにしました。
-            スマホや IC は、その土台の上に重ねていきます。
+            介護や医療の現場、工場、建設現場、学校など、スマートフォンを常に持ち歩けない場所はまだ数多くあります。
+            CardSync は、そうした現場で実際に使われるカードを、お手元の名簿から迷わず・手早く・何度でも発行できるようにしました。
+            スマートフォンや IC との連携は、この土台の上に重ねてまいります。
           </p>
         </div>
       </section>
 
       <section className="cs-features">
         <div className="container">
-          <h2 className="section-title">できること</h2>
+          <h2 className="section-title">CardSync でできること</h2>
           <div className="cs-feature-list">
             {REASONS.map((f) => (
               <article className="cs-feature" key={f.title}>
@@ -158,8 +174,8 @@ export default function CardSyncPage() {
 
       <section className="cs-templates">
         <div className="container">
-          <h2 className="section-title">3つの見本から始められます</h2>
-          <p className="cs-templates-note">どれも、会社名・色・項目の位置を、画面の上で動かして直せます。表と裏を別々に作れます。</p>
+          <h2 className="section-title">用途に合わせて選べる、3つの見本</h2>
+          <p className="cs-templates-note">社名・配色・ロゴ・項目の位置は、画面の上で動かしながら調整できます。表と裏の両面に対応しています。</p>
           <div className="cs-template-list">
             {TEMPLATES.map((t) => (
               <article className="cs-template" key={t.name}>
@@ -174,7 +190,7 @@ export default function CardSyncPage() {
 
       <section className="cs-steps">
         <div className="container">
-          <h2 className="section-title">使い方は、3つだけ</h2>
+          <h2 className="section-title">発行までは、3つの手順だけ</h2>
           <ol className="cs-step-list">
             {STEPS.map((s) => (
               <li className="cs-step" key={s.n}>
@@ -193,19 +209,19 @@ export default function CardSyncPage() {
         <div className="container cs-narrow">
           <h2 className="section-title">安心してお試しいただくために</h2>
           <ul className="cs-rule-list">
-            <li><strong>登録もパスワードも要りません。</strong>押すと、あなただけの場所が作られます。ほかの人からは見えません。</li>
-            <li><strong>24時間で、あなたの分だけ自動で消えます。</strong>名簿も、写真も、作ったデザインも残りません。</li>
-            <li><strong>実在の人の名前や写真は入れないでください。</strong>見本の人（架空）が最初から入っています。</li>
-            <li>体験でできるのは、<strong>画面での確認と印刷（PDF 保存）まで</strong>です。写真は1枚1MB・10枚まで、案件は5つまで。</li>
-            <li><strong>社内だけで動かす形もあります。</strong>個人情報や顔写真を外に出さず、社内のパソコンだけで動かす一式をご用意できます。導入時にご相談ください。</li>
+            <li><strong>アカウント登録は不要です。</strong>ボタンを押すと、あなた専用のお試し環境が用意されます。ほかの方から見えることはありません。</li>
+            <li><strong>24時間で自動的に消去されます。</strong>お入れになった名簿も、顔写真も、作成されたデザインも残りません。</li>
+            <li><strong>実在の方の氏名や写真はお入れにならないでください。</strong>お試し用に、架空の人物の名簿があらかじめ入っています。</li>
+            <li>体験でご利用いただけるのは、<strong>画面での確認と印刷（PDF への保存）まで</strong>です。顔写真は1枚 1MB・10枚まで、案件は5つまでとなります。</li>
+            <li><strong>社内ネットワークだけで動かす形にも対応します。</strong>個人情報や顔写真を外部に出さず、社内のパソコンだけで完結する一式をご用意できます。導入をご検討の際にご相談ください。</li>
           </ul>
         </div>
       </section>
 
       <section className="home-cta">
         <div className="container">
-          <h2>職員証・来訪者証・面会証の作り直しを考えている方へ</h2>
-          <p>今お使いの名簿やカードの様式に合わせて、形にします。まずは状況をお聞かせください。</p>
+          <h2>社員証・来訪者証・面会証の運用を見直してみませんか</h2>
+          <p>「今の名簿のまま使えるか知りたい」「自社の様式に合わせて作ってほしい」など、現場の運用に合わせた形をご提案します。</p>
           <Link to="/contact" className="btn-yellow">話してみる（無料）</Link>
         </div>
       </section>

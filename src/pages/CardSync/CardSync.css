@@ -10,7 +10,8 @@
   gap: 48px;
   align-items: center;
 }
-.cs-lead { font-size: 1.08rem; line-height: 2.1; color: var(--black-s); }
+.cs-lead { font-size: 1.1rem; line-height: 2.1; color: var(--black-s); }
+.cs-lead-sub { margin-top: 0.9rem; line-height: 2; color: var(--gray); }
 
 .cs-cta { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
 .cs-start { font-size: 1.05rem; }
