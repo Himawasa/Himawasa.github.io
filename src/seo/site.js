@@ -336,7 +336,7 @@ export const PAGES = {
 }
 
 // CardSync の体験版（Cloud Run）の URL。空のあいだは、説明ページは「まもなく公開」と出し、体験一覧にも載せない。
-export const CARDSYNC_TRIAL_URL = ''
+export const CARDSYNC_TRIAL_URL = 'https://card.himawasa-sync.com'
 
 export const TRY_APPS = [
   {

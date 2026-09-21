@@ -13,7 +13,6 @@ import ContactPage from './pages/ContactPage'
 import TryPage from './pages/TryPage'
 import PrivacyPage from './pages/PrivacyPage'
 import AsksDemoPage from './pages/AsksDemo/AsksDemoPage'
-import CardDemoPage from './pages/CardDemo/CardDemoPage'
 import CardSyncPage from './pages/CardSync/CardSyncPage'
 import NotFoundPage from './pages/NotFoundPage'
 import IndustryPage from './pages/for/IndustryPage'
@@ -100,8 +99,9 @@ function AppShell() {
           <Route path="/supply/" element={<AsksDemoPage />} />
           <Route path="/asks-demo" element={<Navigate to="/supply/" replace />} />
           <Route path="/asks-demo/" element={<Navigate to="/supply/" replace />} />
-          <Route path="/card" element={<CardDemoPage />} />
-          <Route path="/card/" element={<CardDemoPage />} />
+          {/* 合言葉つきの見本は役目を終えた。同じ中身を、登録なしで開ける CardSync の案内へ送る。 */}
+          <Route path="/card" element={<Navigate to="/cardsync/" replace />} />
+          <Route path="/card/" element={<Navigate to="/cardsync/" replace />} />
           <Route path="/cardsync" element={<CardSyncPage />} />
           <Route path="/cardsync/" element={<CardSyncPage />} />
           <Route path="*" element={<NotFoundPage />} />
