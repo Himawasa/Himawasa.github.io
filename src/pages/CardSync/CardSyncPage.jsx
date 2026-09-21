@@ -160,6 +160,34 @@ export default function CardSyncPage() {
         </div>
       </section>
 
+      <section className="cs-verify">
+        <div className="container">
+          <p className="cs-kicker cs-verify-kicker">CardSync ならではの機能</p>
+          <h2 className="section-title">見て分かるカードに、「確かめられる」を足しました</h2>
+          <div className="cs-verify-grid">
+            <div className="cs-verify-text">
+              <p>カードの裏面に、署名入りの QR コードを印刷できます。スマートフォンのカメラで読み取るだけで、そのカードが本当に発行されたものか、有効期限内かを、その場で確認できます。</p>
+              <p>専用のアプリは必要ありません。受付のご担当者も、施設をご利用になるご家族も、標準のカメラで読み取るだけです。</p>
+              <ul className="cs-verify-points">
+                <li><strong>偽造は、すぐに分かります。</strong>QR を1文字でも書き換えると「確かめられませんでした」と表示されます。</li>
+                <li><strong>退職された方のカードは、自動的に使えなくなります。</strong>名簿から削除すると「すでに使われていません」に変わります。</li>
+                <li><strong>QR コードに氏名は入れていません。</strong>読み取っただけで個人情報が漏れることはありません。氏名は確認画面で名簿から表示されます。</li>
+              </ul>
+            </div>
+            <div className="cs-verify-shots">
+              <figure>
+                <img src="/cardsync/card-access-back.webp" alt="立入許可証の裏面。緊急連絡先と、確認用のQRコード" width="1011" height="637" loading="lazy" />
+                <figcaption>カードの裏面に印刷される QR</figcaption>
+              </figure>
+              <figure>
+                <img className="cs-verify-phone" src="/cardsync/verify-phone.webp" alt="スマートフォンでQRを読み取った確認画面。「このカードは本物です」と、お名前・所属・番号・有効期限" width="824" height="862" loading="lazy" />
+                <figcaption>読み取ると、この画面が開きます</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="cs-templates">
         <div className="container">
           <h2 className="section-title">用途に合わせて選べる、3つの見本</h2>

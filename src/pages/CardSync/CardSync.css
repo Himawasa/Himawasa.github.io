@@ -108,6 +108,38 @@
   background: var(--white);
 }
 
+/* ── 確認用QR（ここだけ濃い色で、他と違うことを示す） ── */
+.cs-verify { padding: 60px 0; background: #1f2a24; color: #eef3ef; }
+.cs-verify .section-title { color: #fff; margin-bottom: 28px; text-wrap: balance; word-break: auto-phrase; }
+.cs-verify-kicker { color: #9ccc9f; margin-bottom: 8px; }
+.cs-verify-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+.cs-verify-text p { line-height: 2; color: #d3ded6; }
+.cs-verify-text p + p { margin-top: 1rem; }
+.cs-verify-points { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 12px; }
+.cs-verify-points li {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  line-height: 1.9;
+  color: #d3ded6;
+  font-size: 0.95rem;
+}
+.cs-verify-points strong { color: #fff; }
+.cs-verify-shots { display: grid; gap: 20px; justify-items: center; }
+.cs-verify-shots figure { margin: 0; width: 100%; }
+.cs-verify-shots img {
+  width: 100%; height: auto; display: block;
+  border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.cs-verify-shots .cs-verify-phone { width: min(220px, 60%); margin: 0 auto; }
+.cs-verify-shots figcaption { margin-top: 10px; text-align: center; font-size: .85rem; color: #9fb0a5; }
+
 /* ── 見本の一覧 ── */
 .cs-templates { padding: 56px 0; }
 .cs-templates .section-title { margin-bottom: 12px; }
@@ -182,5 +214,6 @@
   .cs-feature { grid-template-columns: 1fr; gap: 16px; }
   .cs-feature:nth-child(even) .cs-feature-text { order: 0; }
   .cs-hero { padding: 28px 0 40px; }
-  .cs-pains, .cs-why, .cs-features, .cs-templates, .cs-steps, .cs-faq, .cs-rules { padding: 40px 0; }
+  .cs-verify-grid { grid-template-columns: 1fr; gap: 28px; }
+  .cs-pains, .cs-why, .cs-features, .cs-verify, .cs-templates, .cs-steps, .cs-faq, .cs-rules { padding: 40px 0; }
 }
