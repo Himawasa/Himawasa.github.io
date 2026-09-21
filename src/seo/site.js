@@ -599,6 +599,7 @@ export function generateLlmsTxt() {
 - [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳、期日、請求
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
 - [キーエンスRK（補助）](https://himawasa-sync.com/rk/): シナリオ作成代行1万円から。代理店ではない。ライセンスは売らない
+- [社員証・来訪者証の社内発行 CardSync](https://himawasa-sync.com/cardsync/): Excelの名簿と顔写真ZIPから、社員証・来訪者証・立入許可証をブラウザで発行。登録不要で体験できる
 
 ## 事実（引用してよい）
 - 屋号は HiMaWaSa Sync。個人事業。開業は2024年。
@@ -1126,6 +1127,20 @@ function pageBodyHtml(page) {
   }
   if (page.key === 'try') {
     return TRY_APPS.map((a) => `<h2>${esc(a.name)}</h2><p>${esc(a.desc)}</p><p><a href="${esc(a.href)}">試す</a></p>`).join('')
+  }
+  if (page.key === 'cardsync') {
+    // 本文は画面側（React）で描くので、JS を動かさない相手向けに同じ中身の控えを出す。
+    return [
+      `<h2>できること</h2>`,
+      `<p>Excel（.xlsx）や CSV の名簿をそのまま読み込めます。Shift_JIS も自動で判別し、和暦の日付や通し番号の自動採番にも対応します。</p>`,
+      `<p>顔写真は「社員番号.jpg」のようにファイル名を付けて ZIP にまとめると、全員分が自動で配置されます。</p>`,
+      `<p>実寸 85.6 × 54 mm・300dpi / 600dpi で、表裏の仕上がりを確認してから、社内のプリンタまたは PDF で発行できます。</p>`,
+      `<h2>用途に合わせて選べる、3つの見本</h2>`,
+      `<p>社員証・職員証／来訪者証／立入許可証。社名・配色・ロゴ・項目の位置は画面の上で調整できます。</p>`,
+      CARDSYNC_TRIAL_URL ? `<p><a href="${esc(CARDSYNC_TRIAL_URL)}">登録不要で体験してみる（無料）</a></p>` : '',
+      `<h2>よくあるご質問</h2>`,
+      CARDSYNC_FAQS.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join(''),
+    ].filter(Boolean).join('')
   }
   return ''
 }
