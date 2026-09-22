@@ -131,6 +131,7 @@
   font-size: 0.95rem;
 }
 .cs-verify-points strong { color: #fff; }
+.cs-verify-caveat { margin-top: 1rem; font-size: .88rem; line-height: 1.9; color: #9fb0a5; }
 .cs-verify-shots { display: grid; gap: 20px; justify-items: center; }
 .cs-verify-shots figure { margin: 0; width: 100%; }
 .cs-verify-shots img {
