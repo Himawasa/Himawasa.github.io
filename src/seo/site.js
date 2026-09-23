@@ -503,7 +503,8 @@ export const AI_ERA = {
 export const PUBLIC_PAGES = [
   { path: '/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '1.0' },
   { path: '/for/care/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '0.95' },
-  { path: '/Guide/care/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '0.7' },
+  { path: '/Guide/care/', lastmod: '2026-09-23', changefreq: 'weekly', priority: '0.7' },
+  { path: '/temasui/', lastmod: '2026-09-23', changefreq: 'weekly', priority: '0.7' },
   { path: '/shiftsync/', lastmod: '2026-08-26', changefreq: 'weekly', priority: '0.9' },
   { path: '/medical-dx/', lastmod: '2026-08-26', changefreq: 'weekly', priority: '0.9' },
   { path: '/Guide/mochisync2/', lastmod: '2026-08-30', changefreq: 'monthly', priority: '0.55' },
