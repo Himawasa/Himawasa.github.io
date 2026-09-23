@@ -86,6 +86,24 @@
   .result-card .t { font-weight: 900; margin-bottom: 8px; }
   .result-card .n { font-size: 12px; color: var(--gray); margin-top: 10px; }
 
+  /* ②-2 話して入力 */
+  .voice-sec { background: var(--white); }
+  .voice-row { display: grid; grid-template-columns: auto auto auto 1fr; gap: 24px; align-items: center; }
+  .voice-row figure { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .voice-row .phone { width: 210px; }
+  .voice-row figcaption { font-weight: 700; font-size: 15px; }
+  .voice-points { list-style: none; display: grid; gap: 12px; }
+  .voice-points li { background: var(--cream); border-radius: 16px; padding: 14px 16px; font-size: 15px; }
+  .voice-points b { display: block; font-size: 16px; }
+  .voice-ex { margin-top: 20px; text-align: center; font-size: 15px; color: var(--gray); }
+  .voice-ex q { font-weight: 700; color: var(--ink); }
+  @media (max-width: 860px) {
+    .voice-row { grid-template-columns: 1fr 1fr; }
+    .voice-row .phone { width: 150px; }
+    .voice-row > .arrow { display: none; }
+    .voice-points { grid-column: 1 / -1; }
+  }
+
   /* ③ 3ステップ（本物の画面を3つ並べる） */
   .steps { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
   .step { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 250px; }
@@ -191,7 +209,7 @@
         <a class="btn light" href="#apply">1か月無料で申し込む</a>
       </div>
       <p class="btn-note">見本で3つの機能を試せます。お名前の登録はいらず、入れた内容も保存されません。</p>
-      <div class="chips"><span class="chip">ダウンロード不要</span><span class="chip">1か月無料</span><span class="chip">機械が苦手でも安心</span></div>
+      <div class="chips"><span class="chip">ダウンロード不要</span><span class="chip">🎤 話すだけでもOK</span><span class="chip">1か月無料</span><span class="chip">機械が苦手でも安心</span></div>
     </div>
     <div class="visual">
       <div class="photo" data-alt="写真：職員さんと利用者さんが笑顔で話している様子"><img src="img/photo-hero.jpg" alt="職員さんと利用者さんが笑顔で話している様子（イメージ）" onerror="this.parentNode.classList.add('noimg')"></div>
@@ -217,6 +235,26 @@
         <div class="n">※ 実際にてますいで作った文面です。できあがりをサッと確かめて、必要なら手直ししてお使いください。</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ②-2 話して入力 -->
+<section class="voice-sec">
+  <div class="inner">
+    <h2>手がふさがっていても、<span class="mark">話すだけで下書きに</span></h2>
+    <p class="lead">「🎤 話して入力」を押して、いつもの申し送りのように話すだけ。聞き取った内容を書類の欄に振り分けて、そのまま下書きまで作ります。</p>
+    <div class="voice-row">
+      <figure><div class="phone"><div class="screen"><img src="img/screen-rec.jpg" alt="「話して入力」を押して録音している画面"></div></div><figcaption>① 押して話す</figcaption></figure>
+      <div class="arrow">➜</div>
+      <figure><div class="phone"><div class="screen"><img src="img/screen-filled.jpg" alt="話した内容が欄に入り、音声の印がついた画面"></div></div><figcaption>② 欄が埋まる</figcaption></figure>
+      <ul class="voice-points">
+        <li><b>話した内容を、該当する欄へ</b>時間帯・場面・様子・対応などに振り分けます。</li>
+        <li><b>名前は「Aさん」に</b>話の中の名前は、「Aさん」「Bさん」のように置き換えます。</li>
+        <li><b>音声は残しません</b>聞き取りに使うだけで、保存しません。</li>
+        <li><b>確かめて、直せます</b>音声で入った欄には印がつき、手で直すと消えます。</li>
+      </ul>
+    </div>
+    <p class="voice-ex">たとえば <q>Aさん、お昼ごはんは半分。途中でむせたので、とろみのお茶にしました</q> と話すだけ。</p>
   </div>
 </section>
 
