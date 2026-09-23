@@ -110,6 +110,7 @@ export const INDUSTRIES = {
       { title: '複数拠点のExcel統合', text: '病院ごと・科ごとの野良ファイルを、本部の1枚へ。' },
     ],
     links: [
+      { href: '/temasui/', title: 'てますい（介護施設のアシスタント）', desc: '書類の下書き（話すだけでも）・持ち物チェック・予定カレンダーを1つの画面で。1か月無料。', cta: 'てますいを見る' },
       { href: '/Guide/care/', title: '施設で改善できること', desc: '持ち物・シフト・予定・常勤換算・チラシなど、一覧で見る。', cta: '施設で改善できること一覧を見る' },
       { href: '/shiftsync/', title: '介護のシフト表自動化', desc: 'KING OF TIMEの実績から、今の勤務表様式へ。', cta: '介護のシフト表自動化を見る' },
       { href: '/medical-dx/', title: '病院・医療機関のDX', desc: 'FAX、カルテ、日計、画像。現場で動かしてきた道具。', cta: '病院・医療機関のDXを見る' },

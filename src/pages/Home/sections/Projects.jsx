@@ -4,6 +4,14 @@ import Reveal from '../../../components/Reveal'
 /** ⑨ 主な開発実績 */
 const projects = [
   {
+    icon: '🌻', status: '稼働中', badge: '介護DX', badgeClass: 'cat-kaigo',
+    title: 'てますい ─ 介護施設のアシスタント',
+    desc: 'メモを入れるか話すだけで、介護記録・申し送り・事故報告書の下書きを数秒で。持ち物チェックと予定カレンダーも1つの画面にまとめました。1か月無料でお試しいただけます。',
+    tags: ['PWA', 'Vertex AI', '音声入力'],
+    domain: '介護 / 書類・持ち物・予定', version: 'v0.1',
+    href: '/temasui/', highlight: true,
+  },
+  {
     icon: '🗓️', status: '稼働中', badge: '介護DX', badgeClass: 'cat-kaigo',
     title: 'CareSync ─ 介護予定カレンダー',
     desc: '施設全体の予定・利用変更・往診・残薬をひと目で確認できます。現場の「どこを見ればいいか分からない」を一画面にまとめます。',
