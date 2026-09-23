@@ -142,6 +142,11 @@
   footer { padding: 32px 0; text-align: center; font-size: 14px; color: var(--gray); }
   footer a { color: var(--gray); }
 
+  /* 日本語を言葉の切れ目で折り返す。2行以上になる説明文は左ぞろえで読みやすくする */
+  body { word-break: auto-phrase; }
+  .step p, .price .d { text-align: left; }
+  .price .d ul { list-style: none; margin-top: 4px; }
+  .price .d li::before { content: "・"; }
   @media (max-width: 860px) {
     section { padding: 52px 0; }
     .hero .inner { grid-template-columns: 1fr; }
@@ -284,7 +289,7 @@
     <p class="lead">大切な介護の記録を扱うからこそ、最初から気をつけて作っています。</p>
     <div class="qa">
       <div><span class="i">🙆</span><p class="q">利用者さんの本名は入れなくていい？</p><p class="a">はい、本名はいりません。「Aさん」「80代の女性」のままで、きれいな文章ができあがります。</p></div>
-      <div><span class="i">🏠</span><p class="q">ほかの施設から見られる心配は？</p><p class="a">施設ごとに専用の入口を分けているので、ほかの施設からは見えません。</p></div>
+      <div><span class="i">🏠</span><p class="q">ほかの施設から見られる心配は？</p><p class="a">施設ごとの専用ページになっていますので、ほかの施設からは見えません。</p></div>
       <div><span class="i">🔒</span><p class="q">入れた内容はどうなるの？</p><p class="a">書類の下書きに入れたメモは、てますいには保存しません。AIの勉強（学習）に使われることもありません。処理は国内で行っています。</p></div>
       <div><span class="i">👀</span><p class="q">間違った文章ができることはある？</p><p class="a">完璧ではありません。あくまで「下書きのお手伝い」なので、できあがった文面を職員さんの目でサッと確かめてお使いください（一から考えるより、ずっと早く終わります）。</p></div>
     </div>
@@ -299,9 +304,9 @@
     <div class="prices">
       <div class="price hl"><div class="t">まずは</div><div class="p">1か月<br>無料</div><div class="d">標準の設定で、すぐにお試しいただけます</div></div>
       <div class="arrow">➜</div>
-      <div class="price"><div class="t">ご契約時（初期サポート）</div><div class="p">30,000<small>円（税別）</small></div><div class="t">＋交通費</div><div class="d">現場に合わせた初期設定<br>職員さま向けの使い方説明会／名簿や予定の移し替え／事故報告書などを施設のいつもの様式に</div></div>
+      <div class="price"><div class="t">ご契約時（初期サポート）</div><div class="p">30,000<small>円（税別）</small></div><div class="t">＋交通費</div><div class="d">現場に合わせた初期設定<ul><li>職員さま向けの使い方説明会</li><li>名簿や予定の移し替え</li><li>事故報告書などを施設の様式に</li></ul></div></div>
       <div class="arrow">➜</div>
-      <div class="price"><div class="t">月額</div><div class="p">15,000<small>円（税別）</small></div><div class="d">施設全体で定額。3つの機能すべて<br>体験中のデータも、そのまま引き継げます</div></div>
+      <div class="price"><div class="t">月額</div><div class="p">15,000<small>円（税別）</small></div><div class="d">施設全体で定額<ul><li>3つの機能すべて</li><li>体験中のデータも引き継げます</li></ul></div></div>
     </div>
   </div>
 </section>
