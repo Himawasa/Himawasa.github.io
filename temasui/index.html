@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>てますい ─ 介護施設の書類アシスタント | HiMaWaSa Sync</title>
+<title>てますい ─ 介護施設のアシスタント | HiMaWaSa Sync</title>
 <meta name="description" content="メモを入れるだけで、介護記録・申し送り・ご家族への連絡・事故報告の下書きが数秒でできます。パソコン・タブレット・スマホで使えて、インストール不要。1か月無料でお試しいただけます。">
 <link rel="canonical" href="https://himawasa-sync.com/temasui/">
 <meta name="robots" content="index,follow">
@@ -142,6 +142,11 @@
   footer { padding: 32px 0; text-align: center; font-size: 14px; color: var(--gray); }
   footer a { color: var(--gray); }
 
+  /* 日本語を言葉の切れ目で折り返す。2行以上になる説明文は左ぞろえで読みやすくする */
+  body { word-break: auto-phrase; }
+  .step p, .price .d { text-align: left; }
+  .price .d ul { list-style: none; margin-top: 4px; }
+  .price .d li::before { content: "・"; }
   @media (max-width: 860px) {
     section { padding: 52px 0; }
     .hero .inner { grid-template-columns: 1fr; }
@@ -166,7 +171,7 @@
 <header class="hero">
   <div class="inner">
     <div class="copy">
-      <div class="by">介護施設の書類アシスタント ／ by HiMaWaSa Sync</div>
+      <div class="by">介護施設のアシスタント ／ by HiMaWaSa Sync</div>
       <h1 class="round">てますい</h1>
       <p class="tag">介護の手間が、すいすい減っていく。</p>
       <p class="sub">メモを入れるだけで、記録や連絡の文章が数秒で整います。<br>事務所のパソコンでも、タブレットでも、スマホでも。</p>
@@ -174,8 +179,8 @@
         <a class="btn dark" href="https://care.himawasa-sync.com/demo">▶ いますぐ試してみる</a>
         <a class="btn light" href="#apply">1か月無料で申し込む</a>
       </div>
-      <p class="btn-note">いま試せるのは「書類の下書き」です。登録なし・入力は保存されません。</p>
-      <div class="chips"><span class="chip">インストール不要</span><span class="chip">1か月無料</span><span class="chip">機械が苦手でもOK</span></div>
+      <p class="btn-note">いま試せるのは「書類の下書き」です。お名前の登録はいらず、入れた内容も保存されません。</p>
+      <div class="chips"><span class="chip">ダウンロード不要</span><span class="chip">1か月無料</span><span class="chip">機械が苦手でも安心</span></div>
     </div>
     <div class="visual">
       <div class="photo" data-alt="写真：職員さんと利用者さんが笑顔で話している様子"><img src="img/photo-hero.jpg" alt="職員さんと利用者さんが笑顔で話している様子（イメージ）" onerror="this.parentNode.classList.add('noimg')"></div>
@@ -187,8 +192,8 @@
 <!-- ② メモ → 下書き -->
 <section class="change">
   <div class="inner">
-    <h2>走り書きのメモが、<span class="mark">そのまま記録の文章に</span></h2>
-    <p class="lead">単語や箇条書きでかまいません。ボタンを押すと、数秒で整った文章になります。</p>
+    <h2>走り書きのメモが、<span class="mark">そのまま丁寧な文章に</span></h2>
+    <p class="lead">単語や箇条書きで十分です。ボタンを押すだけで、読みやすく整った文章に清書します。</p>
     <div class="change-row">
       <div class="memo">
         <div class="t">入れたメモ</div>
@@ -198,7 +203,7 @@
       <div class="result-card">
         <div class="t">できあがった下書き</div>
         昼食時、Aさんは主食を半分ほど摂取されたところで、途中でむせ込みが見られた。そのため、提供する水分をとろみ付きのお茶に変更して対応した。変更後は、むせ込むことなく食事を終えられた。
-        <div class="n">※ 実際にてますいで作った文章です。出てくるのは下書きなので、確かめてからお使いください。</div>
+        <div class="n">※ 実際にてますいで作った文面です。できあがりをサッと確かめて、必要なら手直ししてお使いください。</div>
       </div>
     </div>
   </div>
@@ -207,17 +212,17 @@
 <!-- ③ 3ステップ -->
 <section>
   <div class="inner">
-    <h2>使い方は、3つだけ</h2>
-    <p class="lead">アプリのダウンロードはいりません。お渡しするQRを読むだけで始められます。</p>
+    <h2>使い方は、かんたん3ステップ</h2>
+    <p class="lead">アプリのダウンロードはいりません。お渡しするQRを開くだけで、すぐに使い始められます。</p>
     <div class="steps">
       <div class="step"><div class="num">1</div><div class="phone"><div class="screen"><img src="img/screen-list.jpg" alt="書類の種類を選ぶ画面"></div></div><h3>書類を選ぶ</h3><p>介護記録、申し送り、ご家族への連絡など8種類</p></div>
-      <div class="step"><div class="num">2</div><div class="phone"><div class="screen"><img src="img/screen-form.jpg" alt="メモを入れる画面"></div></div><h3>メモを入れる</h3><p>選ぶ欄と、短いメモだけ。「Aさん」のままでOK</p></div>
-      <div class="step"><div class="num">3</div><div class="phone bottom"><div class="screen"><img src="img/screen-result.jpg" alt="下書きができた画面"></div></div><h3>下書きができる</h3><p>コピーして記録に貼るだけ。「短く」「ていねいに」も1タップ</p></div>
+      <div class="step"><div class="num">2</div><div class="phone"><div class="screen"><img src="img/screen-form.jpg" alt="メモを入れる画面"></div></div><h3>メモを入れる</h3><p>「Aさん」「昼食」など、思いついた短いメモを入れるだけ</p></div>
+      <div class="step"><div class="num">3</div><div class="phone bottom"><div class="screen"><img src="img/screen-result.jpg" alt="下書きができた画面"></div></div><h3>文章がパッと完成</h3><p>コピーしていつもの記録に貼るだけ。「もう少し短く」「ていねいに」もボタン1つ</p></div>
     </div>
     <div class="big-facts">
-      <div class="fact"><b>数秒</b><span>で下書き</span></div>
+      <div class="fact"><b>数秒</b><span>でパッと完成</span></div>
       <div class="fact"><b>8種類</b><span>の書類に対応</span></div>
-      <div class="fact"><b>0件</b><span>インストールするもの</span></div>
+      <div class="fact"><b>不要</b><span>アプリのダウンロード</span></div>
       <div class="fact"><b>1か月</b><span>無料でお試し</span></div>
     </div>
   </div>
@@ -226,12 +231,12 @@
 <!-- ④ 夕方の景色 -->
 <section class="scene">
   <div class="inner">
-    <h2>書類の時間を短くして、<br>その分を利用者さんとの時間へ</h2>
-    <p class="lead">てますいが目指しているのは、夕方の景色を変えることです。</p>
+    <h2>書類の時間をギュッと短くして、<br>利用者さんと笑顔で話せる時間へ</h2>
+    <p class="lead">てますいが目指しているのは、夕方の記録に追われる時間を減らすことです。</p>
     <div class="scene-row">
       <figure><div class="photo" data-alt="写真：夕方、事務所で記録に追われる職員さん"><img src="img/photo-before.jpg" alt="夕方、事務所で記録に追われる職員さん（イメージ）" onerror="this.parentNode.classList.add('noimg')"></div><figcaption>夕方、記録が終わらない…</figcaption></figure>
       <div class="arrow">➜</div>
-      <figure><div class="photo" data-alt="写真：利用者さんとゆっくり話す職員さん"><img src="img/photo-after.jpg" alt="利用者さんとゆっくり話す職員さん（イメージ）" onerror="this.parentNode.classList.add('noimg')"></div><figcaption>利用者さんと話す時間に</figcaption></figure>
+      <figure><div class="photo" data-alt="写真：利用者さんとゆっくり話す職員さん"><img src="img/photo-after.jpg" alt="利用者さんとゆっくり話す職員さん（イメージ）" onerror="this.parentNode.classList.add('noimg')"></div><figcaption>利用者さんとゆっくり話せる時間に</figcaption></figure>
     </div>
     <p class="imgnote">※ 写真はイメージです。</p>
   </div>
@@ -240,17 +245,17 @@
 <!-- ⑤ 作れる書類 -->
 <section>
   <div class="inner">
-    <h2>毎日の、この書類に</h2>
-    <p class="lead">現場でよく書く8つの書類に対応しています。</p>
+    <h2>毎日の、こんな書類にお使いいただけます</h2>
+    <p class="lead">現場で毎日書く、8つの書類に対応しています。</p>
     <div class="docs">
       <div class="doc"><span class="i">📝</span>介護記録</div>
       <div class="doc"><span class="i">🔁</span>申し送りの要約</div>
       <div class="doc"><span class="i">💌</span>ご家族への連絡</div>
       <div class="doc"><span class="i">⚠️</span>事故報告書</div>
       <div class="doc"><span class="i">💡</span>ヒヤリハット</div>
-      <div class="doc"><span class="i">🗒️</span>議事録の整理</div>
+      <div class="doc"><span class="i">🗒️</span>会議・カンファレンスの議事録</div>
       <div class="doc"><span class="i">📣</span>お知らせ・掲示</div>
-      <div class="doc"><span class="i">✉️</span>関係機関へのメール</div>
+      <div class="doc"><span class="i">✉️</span>ケアマネさん・病院へのメール</div>
     </div>
   </div>
 </section>
@@ -258,20 +263,20 @@
 <!-- ⑥ 3つの機能 -->
 <section style="padding-top:0">
   <div class="inner">
-    <h2>これから、ひとつの画面に3つの機能</h2>
-    <p class="lead">持ち物チェックと予定カレンダーは、同じ画面に順次追加します。</p>
+    <h2>これから、ひとつの画面に3つの便利機能</h2>
+    <p class="lead">持ち物チェックと予定カレンダーも、同じ画面に順次追加されます（追加料金なし・画面のURLも変わりません）。</p>
     <div class="apps">
       <div class="app">
         <div class="photo"><img src="img/card.jpg" alt="書類の下書きの画面"></div>
-        <div class="body"><span class="badge ok">いま試せます</span><h3>書類の下書き</h3><p>メモから、記録・連絡・報告の下書きを数秒で。</p></div>
+        <div class="body"><span class="badge ok">今すぐ使えます</span><h3>書類の下書き</h3><p>メモから、記録・連絡・報告の文章を数秒で清書。</p></div>
       </div>
       <div class="app">
         <div class="photo" data-alt="写真：広げた荷物をスマホで撮る手元"><img src="img/photo-mochi.jpg" alt="広げた荷物をスマホで撮る手元（イメージ）" onerror="this.parentNode.classList.add('noimg')"></div>
-        <div class="body"><span class="badge soon">準備中</span><h3>持ち物チェック</h3><p>広げたお荷物を撮るだけで、持ち物リストに。お返しの照合まで。</p></div>
+        <div class="body"><span class="badge soon">順次追加</span><h3>持ち物チェック</h3><p>広げたお荷物をスマホでパシャッと撮るだけで、持ち物リストに。退所時のお返しの照合までラクに。</p></div>
       </div>
       <div class="app">
         <div class="photo" data-alt="写真：事務所のパソコンで予定を確認する様子"><img src="img/photo-calendar.jpg" alt="事務所のパソコンで予定を確認する様子（イメージ）" onerror="this.parentNode.classList.add('noimg')"></div>
-        <div class="body"><span class="badge soon">準備中</span><h3>予定カレンダー</h3><p>利用変更・往診・受診・残薬を、ひと目で全員に。</p></div>
+        <div class="body"><span class="badge soon">順次追加</span><h3>予定カレンダー</h3><p>急な利用変更・往診・受診・残薬の確認など、「今日の予定」が全員の画面でひと目でそろいます。</p></div>
       </div>
     </div>
   </div>
@@ -281,12 +286,12 @@
 <section class="safe">
   <div class="inner">
     <h2>安心してお使いいただくために</h2>
-    <p class="lead">介護の記録を扱うものだからこそ、はじめから気をつけています。</p>
+    <p class="lead">大切な介護の記録を扱うからこそ、最初から気をつけて作っています。</p>
     <div class="qa">
-      <div><span class="i">🙆</span><p class="q">利用者さんの名前は入れなくていい？</p><p class="a">はい。「Aさん」「80代の女性」のままで、きちんとした文章になります。</p></div>
-      <div><span class="i">🏠</span><p class="q">ほかの施設から見えない？</p><p class="a">施設ごとに入口を分けているので、ほかの施設からは見えません。</p></div>
-      <div><span class="i">🔒</span><p class="q">入れた内容はどうなる？</p><p class="a">書類の下書きに入れた内容は保存しません。AIの学習にも使われない仕組み（Google Cloud・国内で処理）を使っています。</p></div>
-      <div><span class="i">👀</span><p class="q">間違えることはある？</p><p class="a">あります。出てくるのは「下書き」です。職員さんが確かめてからお使いください。</p></div>
+      <div><span class="i">🙆</span><p class="q">利用者さんの本名は入れなくていい？</p><p class="a">はい、本名はいりません。「Aさん」「80代の女性」のままで、きれいな文章ができあがります。</p></div>
+      <div><span class="i">🏠</span><p class="q">ほかの施設から見られる心配は？</p><p class="a">施設ごとの専用ページになっていますので、ほかの施設からは見えません。</p></div>
+      <div><span class="i">🔒</span><p class="q">入れた内容はどうなるの？</p><p class="a">書類の下書きに入れたメモは、てますいには保存しません。AIの勉強（学習）に使われることもありません。処理は国内で行っています。</p></div>
+      <div><span class="i">👀</span><p class="q">間違った文章ができることはある？</p><p class="a">完璧ではありません。あくまで「下書きのお手伝い」なので、できあがった文面を職員さんの目でサッと確かめてお使いください（一から考えるより、ずっと早く終わります）。</p></div>
     </div>
   </div>
 </section>
@@ -295,13 +300,13 @@
 <section>
   <div class="inner">
     <h2>料金</h2>
-    <p class="lead">まずは1か月、現場で使ってみてからお決めください。</p>
+    <p class="lead">まずは1か月、現場の皆さまで使ってみてからご判断ください。</p>
     <div class="prices">
-      <div class="price hl"><div class="t">まずは</div><div class="p">1か月<br>無料</div><div class="d">標準の設定でお試しいただけます</div></div>
+      <div class="price hl"><div class="t">まずは</div><div class="p">1か月<br>無料</div><div class="d">標準の設定で、すぐにお試しいただけます</div></div>
       <div class="arrow">➜</div>
-      <div class="price"><div class="t">ご契約時</div><div class="p">30,000<small>円（税別）</small></div><div class="t">＋交通費</div><div class="d">施設に合わせた設定<br>職員さま向けの説明会／名簿や予定の移し替え／事故報告書などを施設の様式に</div></div>
+      <div class="price"><div class="t">ご契約時（初期サポート）</div><div class="p">30,000<small>円（税別）</small></div><div class="t">＋交通費</div><div class="d">現場に合わせた初期設定<ul><li>職員さま向けの使い方説明会</li><li>名簿や予定の移し替え</li><li>事故報告書などを施設の様式に</li></ul></div></div>
       <div class="arrow">➜</div>
-      <div class="price"><div class="t">月額</div><div class="p">15,000<small>円（税別）</small></div><div class="d">3つの機能すべて<br>体験中のデータも、そのまま引き継げます</div></div>
+      <div class="price"><div class="t">月額</div><div class="p">15,000<small>円（税別）</small></div><div class="d">施設全体で定額<ul><li>3つの機能すべて</li><li>体験中のデータも引き継げます</li></ul></div></div>
     </div>
   </div>
 </section>
@@ -309,16 +314,16 @@
 <!-- ⑨ 申し込み -->
 <section class="apply" id="apply">
   <div class="inner">
-    <h2>まずは、試してみてください</h2>
-    <p class="lead" style="color:var(--ink)">スマホのカメラでQRを読むと、すぐに開きます。</p>
+    <h2>まずは、手元の画面で試してみてください</h2>
+    <p class="lead" style="color:var(--ink)">スマホのカメラでQRを読むか、ボタンを押すだけで、すぐに開きます。</p>
     <div class="apply-row">
       <div class="apply-box">
         <img src="img/qr-demo.png" alt="見本ページのQRコード">
-        <div><h3>いますぐ試す</h3><p>登録なしで、書類の下書きを試せます。入力は保存されません。</p><a class="btn dark" href="https://care.himawasa-sync.com/demo">見本を開く</a></div>
+        <div><h3>今すぐ画面を試す</h3><p>お名前の登録なしで、書類の下書きを試せます（入れた内容は保存されません）。</p><a class="btn dark" href="https://care.himawasa-sync.com/demo">見本を開く</a></div>
       </div>
       <div class="apply-box">
         <img src="img/qr-mail.png" alt="無料体験の申し込みメールのQRコード">
-        <div><h3>1か月無料で申し込む</h3><p>メール1通で。施設名・ご担当者さまのお名前・始めたい日をお送りください。施設専用のQRをお届けします。</p><a class="btn dark" href="mailto:info@himawasa-sync.com?subject=%E3%81%A6%E3%81%BE%E3%81%99%E3%81%84%20%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93">メールで申し込む</a></div>
+        <div><h3>1か月無料で申し込む</h3><p>メール1通でお申し込みいただけます。「施設名」「ご担当者さまのお名前」「ご連絡先の電話番号」「始めたい日（おおよそでOK）」をお送りください。施設専用の入口をご案内します。</p><a class="btn dark" href="mailto:info@himawasa-sync.com?subject=%E3%81%A6%E3%81%BE%E3%81%99%E3%81%84%20%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93">メールで申し込む</a></div>
       </div>
     </div>
   </div>
