@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>お預かりのお薬と、毎日の連絡帳｜HiMaWaSa Sync</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD700;
+    --yellow-lt: #FFF9D6;
+    --cream: #FFFDF7;
+    --cream-bd: #EFE6D2;
+    --ink: #222222;
+    --gray: #555555;
+    --light-gray: #777777;
+    --green: #2B8A3E;
+    --green-lt: #F4FBF6;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "BIZ UDPGothic", "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    background: #F7F3E9;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: #1a5c32; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { color: #0d381c; }
+
+  /* ヘッダー */
+  header {
+    background: var(--yellow);
+    padding: 44px 24px 38px;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+  }
+  header .inner, main {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+  .by {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #443a00;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 36px);
+    line-height: 1.45;
+    margin: 12px 0 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .lead-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 18px;
+    line-height: 1.85;
+  }
+  .profile-box {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    padding: 18px 20px;
+    font-size: 15px;
+    line-height: 1.85;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* メインコンテンツ */
+  main { padding: 16px 20px 72px; }
+  .card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px 26px 32px;
+    margin-top: 22px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(0,0,0,0.03);
+  }
+  h2 {
+    font-size: 23px;
+    line-height: 1.45;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .sub-lead {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--yellow-lt);
+    border: 1px solid #E5C300;
+    color: #554100;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 2px 10px;
+    margin-bottom: 8px;
+  }
+
+  /* 2カラムレイアウト */
+  .cols {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 20px;
+    align-items: center;
+  }
+  .shot {
+    background: #111;
+    border-radius: 14px;
+    padding: 6px;
+    text-align: center;
+  }
+  .shot img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+  }
+  .shot-caption {
+    display: block;
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  /* 2つの箱 */
+  .two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .box {
+    background: var(--cream);
+    border: 1px solid var(--cream-bd);
+    border-radius: 14px;
+    padding: 20px 20px 22px;
+  }
+  .box-tag {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  .box h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .box-lead {
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  .task-list {
+    margin: 10px 0 10px 1.2em;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  .task-list li { margin-bottom: 6px; }
+  .box-note {
+    font-size: 13px;
+    color: var(--light-gray);
+    margin-top: 10px;
+  }
+
+  /* 入力と出力の対比 */
+  .ex {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 16px;
+  }
+  .memo {
+    background: #FFFDF2;
+    border: 1px dashed #E2D3A8;
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .out {
+    background: var(--green-lt);
+    border: 2px solid var(--green);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .memo-label { color: #8C701E; }
+  .out-label { color: var(--green); }
+  .memo-content {
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 500;
+    background: #fff;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #EFE4CA;
+  }
+  .memo-sub {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 10px;
+  }
+  .out-block {
+    background: #fff;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #D6EBDC;
+  }
+  .out-block strong {
+    display: block;
+    font-size: 13px;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  .out-block p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* 操作の流れ */
+  .flow-guide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #FAF7EE;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .step span {
+    display: inline-block;
+    background: var(--yellow);
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 13px;
+    margin-right: 4px;
+  }
+  .step-arrow { color: #999; font-weight: 900; }
+  .note-text {
+    font-size: 13px;
+    color: var(--gray);
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  /* お試し画面へのリンク */
+  .try-link {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .try-link a { font-weight: 700; font-size: 16px; }
+
+  /* 補助機能カード（整理版） */
+  .sub-features {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--cream-bd);
+  }
+  .sub-features-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 12px;
+  }
+  .sub-apps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .sub-app {
+    display: flex;
+    gap: 12px;
+    background: var(--cream);
+    border: 1px solid var(--cream-bd);
+    border-radius: 12px;
+    padding: 10px;
+    align-items: center;
+  }
+  .sub-app img {
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  .sub-app div strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .sub-app div p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* テーブル */
+  .sec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  .sec-table tr { border-bottom: 1px solid var(--cream-bd); }
+  .sec-table th {
+    width: 26%;
+    padding: 14px 12px;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 700;
+    color: #333;
+    background: var(--cream);
+  }
+  .sec-table td {
+    padding: 14px 12px;
+    vertical-align: top;
+    color: #444;
+    line-height: 1.75;
+  }
+
+  /* お伺いボックス */
+  .point-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .point-card {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--cream-bd);
+  }
+  .point-card h4 {
+    font-size: 15px;
+    color: #222;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .point-card p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+  .visit-box {
+    background: var(--green-lt);
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-top: 18px;
+  }
+  .visit-box strong {
+    display: block;
+    font-size: 16px;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+  .visit-box p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+
+  /* CTA */
+  .cta {
+    background: var(--yellow);
+    border-radius: 18px;
+    padding: 26px 26px 28px;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 20px;
+    align-items: center;
+    box-shadow: var(--card-shadow);
+  }
+  .cta h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .cta p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #222;
+  }
+  .cta-qr {
+    text-align: center;
+  }
+  .cta-qr img {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    padding: 6px;
+    border-radius: 12px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+  .cta-qr span {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #443a00;
+    margin-top: 6px;
+  }
+  .sign {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0,0,0,0.12);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 760px) {
+    header { padding: 32px 18px 28px; }
+    main { padding: 12px 14px 48px; }
+    .card { padding: 22px 18px 24px; }
+    .cols, .two, .ex, .sub-apps, .point-cards, .cta {
+      grid-template-columns: 1fr;
+    }
+    .flow-guide { flex-direction: column; text-align: center; gap: 8px; }
+    .step-arrow { transform: rotate(90deg); margin: 2px 0; }
+    .sec-table th { width: 100%; display: block; border-bottom: none; padding-bottom: 4px; }
+    .sec-table td { width: 100%; display: block; padding-top: 4px; }
+    .cta { text-align: center; }
+    .cta-qr { margin-top: 10px; }
+  }
+
+  /* メール添付用。印刷幅が狭いと携帯用の1列になり、余白だらけになるので画面と同じ2列に戻す */
+  @media print {
+    @page { size: A4; margin: 10mm 11mm 12mm; }
+    html, body {
+      background: #fff;
+      line-height: 1.5;
+      zoom: 0.92;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    header { padding: 4mm 0 3mm; }
+    header .inner, main { max-width: none; }
+    main { padding: 0; }
+    h1 { font-size: 16pt; margin: 2mm 0; }
+    h2 { font-size: 13pt; margin-bottom: 2mm; }
+    .lead-text, .profile-box, .card p { font-size: 10pt; }
+    .profile-box { padding: 2.5mm 3.5mm; }
+    .card {
+      box-shadow: none;
+      border: 1px solid #e6e0d0;
+      margin-top: 3.5mm;
+      padding: 3.5mm 4mm;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+    .cols { grid-template-columns: 1.15fr 0.85fr !important; gap: 10px; align-items: start; }
+    .two, .point-cards, .sub-apps { grid-template-columns: 1fr 1fr !important; }
+    .ex { grid-template-columns: 1fr 1.05fr !important; }
+    .box, .memo, .out { padding: 3mm 3.2mm; }
+    .box h3 { font-size: 11.5pt; margin-bottom: 1.5mm; }
+    .box p, .box-note, .task-list, .memo-content, .out-block p { font-size: 9pt; line-height: 1.45; }
+    .cta {
+      grid-template-columns: 1fr 28mm !important;
+      text-align: left !important;
+      box-shadow: none;
+      margin-top: 3.5mm;
+      padding: 4mm;
+    }
+    .flow-guide { flex-direction: row !important; text-align: left !important; }
+    .step-arrow { transform: none !important; margin: 0 !important; }
+    .sec-table th, .sec-table td { display: table-cell !important; }
+    .sec-table th { width: 32% !important; padding: 2.5mm !important; font-size: 9pt; line-height: 1.4; }
+    .sec-table td { padding: 2.5mm !important; }
+    .shot img { height: 46mm; object-fit: cover; object-position: top; }
+    .sub-app img { width: 16mm !important; height: 16mm !important; }
+    .box, .memo, .out, .point-card, .sub-app, .visit-box, .cta, .sec-table tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .cta-qr { margin-top: 0 !important; }
+    .cta-qr img { width: 26mm; height: 26mm; }
+    main > section.card:last-of-type {
+      break-before: page;
+      page-break-before: always;
+    }
+    a { color: #1a5c32; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>お預かりしているお薬を、<br>切れる前にご家族へ伝えられるようにします。</h1>
+    <p class="lead-text">
+      デイサービスでは、お薬を施設でお預かりしている方が多いと思います。<br>
+      残りの回数と、次の利用日に間に合うかを、その日にいる職員が同じ画面で見られるようにします。<br>
+      飲んだという声と、切れそうなときの連絡帳は、今作っています。今ある画面で先に試せるところからお伝えします。
+    </p>
+    <div class="profile-box">
+      私、HiMaWaSa Sync の岩城 弘（いわき ひろし）と申します。<br>
+      平日は医療法人で、記録や事務の手作業を短くする仕組みづくりを担当しています。<br>
+      土日は小規模多機能で介護の仕事をしており、介助の合間に記録や申し送りを書く時間の重さを、現場で見ています。
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="card">
+    <div class="cols">
+      <div>
+        <span class="badge">お薬のこと</span>
+        <h2>預かり薬の残数を、<br>次の利用日で見ます。</h2>
+        <p>
+          来る日は、利用者さんによって違います。<br>
+          カレンダーの日数だけでなく、<strong>次にいらっしゃる日に残りの回数が足りるか</strong>で見ます。
+        </p>
+      </div>
+      <div class="shot">
+        <img src="img/screen-result.jpg" alt="短いメモが、連絡文の下書きになる画面">
+        <span class="shot-caption">メモから連絡文の下書きを作る画面（てますい）</span>
+      </div>
+    </div>
+
+    <div class="two" style="margin-top: 20px;">
+      <div class="box">
+        <div class="box-tag">今、試せること</div>
+        <h3>残数と、連絡帳の下書き</h3>
+        <ul class="task-list">
+          <li><strong>薬の残数と、切れる日</strong>を、事務所と現場が同じ画面で見る</li>
+          <li>薬の書類の写真から、<strong>予定の下書き</strong>を作る（名前は人が確認する）</li>
+          <li>短いメモから、<strong>介護記録とご家族への連絡文</strong>の下書きを作る</li>
+        </ul>
+        <p class="box-note">今お使いの記録や連絡帳は、そのままです。できた文をコピーして貼ります。</p>
+      </div>
+      <div class="box">
+        <div class="box-tag">今、作っていること</div>
+        <h3>飲んだら残回数を減らす</h3>
+        <ul class="task-list">
+          <li>補充の薬袋を撮ると、<strong>預かりの残回数</strong>の下書きになる</li>
+          <li>「飲みました」と話すと、その預かりの残回数が1つ減る</li>
+          <li>次の利用日に足りない方だけ、<strong>連絡帳の下書き</strong>を出す</li>
+        </ul>
+        <p class="box-note">音声そのものは残しません。職員がそう話した記録です。袋の中まで見た証明にはしません。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="badge">連絡帳の見本</span>
+    <h2>切れそうなときは、この文をいつもの連絡帳に貼る</h2>
+    <p class="sub-lead">下の文は、てますいの見本画面に入れたメモと、お渡しするときの文面の形です。お名前は「Aさん」のような仮名です。</p>
+
+    <div class="ex">
+      <div class="memo">
+        <span class="label memo-label">職員が入れるメモ</span>
+        <div class="memo-content">
+          昼の預かり薬<br>
+          Aさん　あと2回<br>
+          次の利用までに家族へ
+        </div>
+      </div>
+      <div class="out">
+        <span class="label out-label">ご家族への連絡文の下書き</span>
+        <div class="out-block">
+          <p>お預かりしている昼のお薬が、あと2回分になりました。<br>次のご利用までにお持ちください。<br>ご不明な点は、施設までご連絡ください。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex" style="margin-top: 16px;">
+      <div class="memo">
+        <span class="label memo-label">飲んだあとのメモ</span>
+        <div class="memo-content">
+          昼食後　Aさん<br>
+          昼の薬　飲まれた<br>
+          むせなし
+        </div>
+      </div>
+      <div class="out">
+        <span class="label out-label">介護記録の下書き</span>
+        <div class="out-block">
+          <p>昼食後、Aさんが昼のお薬を飲まれた。<br>むせは見られなかった。</p>
+        </div>
+      </div>
+    </div>
+    <p class="memo-sub">メモにない薬の名前や量は書き足しません。足りないところは【要確認】と空けます。ご家族への送信は、てますいからは行いません。</p>
+
+    <div class="flow-guide">
+      <div class="step"><span>1</span> 預かった薬袋を撮る</div>
+      <div class="step-arrow">→</div>
+      <div class="step"><span>2</span> 飲んだら声で残す</div>
+      <div class="step-arrow">→</div>
+      <div class="step"><span>3</span> 切れそうなら連絡帳に貼る</div>
+    </div>
+    <p class="note-text">
+      2の「声で残す」と、残回数を自動で減らすところは、今作っています。<br>
+      1の書類の写真と、3の連絡文の下書きは、今の画面で試せます。<br>
+      同じ画面を、お名前の登録なしで試せます（入れた内容は保存されません）。
+    </p>
+    <p class="try-link">
+      <a href="https://care.himawasa-sync.com/demo" target="_blank" rel="noopener">care.himawasa-sync.com/demo</a>
+    </p>
+  </section>
+
+  <section class="card">
+    <span class="badge">安心してお使いいただくために</span>
+    <h2>お薬の画面で、しないこと</h2>
+    <table class="sec-table">
+      <tbody>
+        <tr>
+          <th>誤薬を止める機能</th>
+          <td>薬袋とご本人の自動の照合や、飲み間違いを止める判定はしません。確認は、これまでどおり職員の皆様です。</td>
+        </tr>
+        <tr>
+          <th>ご家族への自動送信</th>
+          <td>連絡文は下書きまでです。いつもの連絡帳やソフトに、職員の皆様が貼ってお渡しください。</td>
+        </tr>
+        <tr>
+          <th>保存するもの</th>
+          <td>書類の下書きに入れたメモと、話しかけた音声は保存しません。予定カレンダーの名簿と予定は、その施設専用の場所にだけ保存します。</td>
+        </tr>
+        <tr>
+          <th>AIについて</th>
+          <td>文章づくりには Google Cloud の AI（Vertex AI）を使っています。入力した内容が AI の学習に使われない仕組みです。</td>
+        </tr>
+        <tr>
+          <th>困ったときのサポート</th>
+          <td>岩城が直接サポートいたします（メール：<a href="mailto:iwaki@himawasa-sync.com">iwaki@himawasa-sync.com</a>）。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="cta">
+    <div class="cta-text">
+      <h2>今の画面を、先にご覧ください</h2>
+      <p>
+        残数の共有と、連絡文の下書きは、上のアドレスで今すぐ試せます。<br>
+        預かり薬の残回数と、飲んだあとの声は、形ができてから改めてお見せします。
+      </p>
+      <div class="sign">
+        <strong>HiMaWaSa Sync（ヒマワサシンク）</strong><br>
+        ── 業務をもっと、シンプルに。<br>
+        担当：岩城　弘（いわき ひろし）<br>
+        メール <a href="mailto:iwaki@himawasa-sync.com">iwaki@himawasa-sync.com</a><br>
+        てますいのご紹介 <a href="https://himawasa-sync.com/temasui/" target="_blank" rel="noopener">himawasa-sync.com/temasui/</a>
+      </div>
+    </div>
+    <div class="cta-qr">
+      <img src="img/qr-demo.png" alt="てますい体験QRコード">
+      <span>画面の事前お試し</span>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
