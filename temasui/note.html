@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>現場と管理者の手作業を軽くするご提案｜HiMaWaSa Sync</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD700;
+    --yellow-lt: #FFF9D6;
+    --cream: #FFFDF7;
+    --cream-bd: #EFE6D2;
+    --ink: #222222;
+    --gray: #555555;
+    --light-gray: #777777;
+    --green: #2B8A3E;
+    --green-lt: #F4FBF6;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "BIZ UDPGothic", "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    background: #F7F3E9;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: #1a5c32; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { color: #0d381c; }
+
+  /* ヘッダー */
+  header {
+    background: var(--yellow);
+    padding: 44px 24px 38px;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+  }
+  header .inner, main {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+  .by {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #443a00;
+  }
+  h1 {
+    font-size: clamp(26px, 4.2vw, 36px);
+    line-height: 1.45;
+    margin: 12px 0 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .lead-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 18px;
+    line-height: 1.85;
+  }
+  .profile-box {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    padding: 18px 20px;
+    font-size: 15px;
+    line-height: 1.85;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* メインコンテンツ */
+  main { padding: 16px 20px 72px; }
+  .card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px 26px 32px;
+    margin-top: 22px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(0,0,0,0.03);
+  }
+  h2 {
+    font-size: 23px;
+    line-height: 1.45;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .sub-lead {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--yellow-lt);
+    border: 1px solid #E5C300;
+    color: #554100;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 2px 10px;
+    margin-bottom: 8px;
+  }
+
+  /* 2カラムレイアウト */
+  .cols {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 20px;
+    align-items: center;
+  }
+  .shot {
+    background: #111;
+    border-radius: 14px;
+    padding: 6px;
+    text-align: center;
+  }
+  .shot img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+  }
+  .shot-caption {
+    display: block;
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  /* 2つの箱 */
+  .two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .box {
+    background: var(--cream);
+    border: 1px solid var(--cream-bd);
+    border-radius: 14px;
+    padding: 20px 20px 22px;
+  }
+  .box-tag {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  .box h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .box-lead {
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  .task-list {
+    margin: 10px 0 10px 1.2em;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  .task-list li { margin-bottom: 6px; }
+  .box-note {
+    font-size: 13px;
+    color: var(--light-gray);
+    margin-top: 10px;
+  }
+
+  /* 入力と出力の対比 */
+  .ex {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 16px;
+  }
+  .memo {
+    background: #FFFDF2;
+    border: 1px dashed #E2D3A8;
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .out {
+    background: var(--green-lt);
+    border: 2px solid var(--green);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .memo-label { color: #8C701E; }
+  .out-label { color: var(--green); }
+  .memo-content {
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 500;
+    background: #fff;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #EFE4CA;
+  }
+  .memo-sub {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 10px;
+  }
+  .out-block {
+    background: #fff;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #D6EBDC;
+  }
+  .out-block strong {
+    display: block;
+    font-size: 13px;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  .out-block p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* 操作の流れ */
+  .flow-guide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #FAF7EE;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .step span {
+    display: inline-block;
+    background: var(--yellow);
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 13px;
+    margin-right: 4px;
+  }
+  .step-arrow { color: #999; font-weight: 900; }
+  .note-text {
+    font-size: 13px;
+    color: var(--gray);
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  /* お試し画面へのリンク */
+  .try-link {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .try-link a { font-weight: 700; font-size: 16px; }
+
+  /* 補助機能カード（整理版） */
+  .sub-features {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--cream-bd);
+  }
+  .sub-features-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 12px;
+  }
+  .sub-apps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .sub-app {
+    display: flex;
+    gap: 12px;
+    background: var(--cream);
+    border: 1px solid var(--cream-bd);
+    border-radius: 12px;
+    padding: 10px;
+    align-items: center;
+  }
+  .sub-app img {
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  .sub-app div strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .sub-app div p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* テーブル */
+  .sec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  .sec-table tr { border-bottom: 1px solid var(--cream-bd); }
+  .sec-table th {
+    width: 26%;
+    padding: 14px 12px;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 700;
+    color: #333;
+    background: var(--cream);
+  }
+  .sec-table td {
+    padding: 14px 12px;
+    vertical-align: top;
+    color: #444;
+    line-height: 1.75;
+  }
+
+  /* お伺いボックス */
+  .point-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .point-card {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--cream-bd);
+  }
+  .point-card h4 {
+    font-size: 15px;
+    color: #222;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .point-card p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+  .visit-box {
+    background: var(--green-lt);
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-top: 18px;
+  }
+  .visit-box strong {
+    display: block;
+    font-size: 16px;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+  .visit-box p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+
+  /* CTA */
+  .cta {
+    background: var(--yellow);
+    border-radius: 18px;
+    padding: 26px 26px 28px;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 20px;
+    align-items: center;
+    box-shadow: var(--card-shadow);
+  }
+  .cta h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .cta p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #222;
+  }
+  .cta-qr {
+    text-align: center;
+  }
+  .cta-qr img {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    padding: 6px;
+    border-radius: 12px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+  .cta-qr span {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #443a00;
+    margin-top: 6px;
+  }
+  .sign {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0,0,0,0.12);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 760px) {
+    header { padding: 32px 18px 28px; }
+    main { padding: 12px 14px 48px; }
+    .card { padding: 22px 18px 24px; }
+    .cols, .two, .ex, .sub-apps, .point-cards, .cta {
+      grid-template-columns: 1fr;
+    }
+    .flow-guide { flex-direction: column; text-align: center; gap: 8px; }
+    .step-arrow { transform: rotate(90deg); margin: 2px 0; }
+    .sec-table th { width: 100%; display: block; border-bottom: none; padding-bottom: 4px; }
+    .sec-table td { width: 100%; display: block; padding-top: 4px; }
+    .cta { text-align: center; }
+    .cta-qr { margin-top: 10px; }
+  }
+
+  /* メール添付用。印刷幅が狭いと携帯用の1列になり、余白だらけになるので画面と同じ2列に戻す */
+  @media print {
+    @page { size: A4; margin: 10mm 11mm 12mm; }
+    html, body {
+      background: #fff;
+      line-height: 1.5;
+      zoom: 0.92;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    header { padding: 4mm 0 3mm; }
+    header .inner, main { max-width: none; }
+    main { padding: 0; }
+    h1 { font-size: 16pt; margin: 2mm 0; }
+    h2 { font-size: 13pt; margin-bottom: 2mm; }
+    .lead-text, .profile-box, .card p { font-size: 10pt; }
+    .profile-box { padding: 2.5mm 3.5mm; }
+    .card {
+      box-shadow: none;
+      border: 1px solid #e6e0d0;
+      margin-top: 3.5mm;
+      padding: 3.5mm 4mm;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+    .cols { grid-template-columns: 1.15fr 0.85fr !important; gap: 10px; align-items: start; }
+    .two, .point-cards, .sub-apps { grid-template-columns: 1fr 1fr !important; }
+    .ex { grid-template-columns: 1fr 1.05fr !important; }
+    .box, .memo, .out { padding: 3mm 3.2mm; }
+    .box h3 { font-size: 11.5pt; margin-bottom: 1.5mm; }
+    .box p, .box-note, .task-list, .memo-content, .out-block p { font-size: 9pt; line-height: 1.45; }
+    .cta {
+      grid-template-columns: 1fr 28mm !important;
+      text-align: left !important;
+      box-shadow: none;
+      margin-top: 3.5mm;
+      padding: 4mm;
+    }
+    .flow-guide { flex-direction: row !important; text-align: left !important; }
+    .step-arrow { transform: none !important; margin: 0 !important; }
+    .sec-table th, .sec-table td { display: table-cell !important; }
+    .sec-table th { width: 32% !important; padding: 2.5mm !important; font-size: 9pt; line-height: 1.4; }
+    .sec-table td { padding: 2.5mm !important; }
+    .shot img { height: 46mm; object-fit: cover; object-position: top; }
+    .sub-app img { width: 16mm !important; height: 16mm !important; }
+    .box, .memo, .out, .point-card, .sub-app, .visit-box, .cta, .sec-table tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .cta-qr { margin-top: 0 !important; }
+    .cta-qr img { width: 26mm; height: 26mm; }
+    main > section.card:last-of-type {
+      break-before: page;
+      page-break-before: always;
+    }
+    a { color: #1a5c32; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>今のやり方のままで、<br>現場と管理者の「手元の仕事」を軽くします。</h1>
+    <p class="lead-text">
+      先日はお忙しい中、お電話にて温かくお時間をいただき誠にありがとうございました。<br>
+      往診や薬剤師の先生方との連携が、すでに地域でしっかり機能されているとお聞きし、心強く感じました。<br>
+      その医療の領域には入りません。私がお手伝いしたいのは、ケアのあとに現場と管理者の手元に残る「日々の記録や月末の事務作業」です。
+    </p>
+    <div class="profile-box">
+      私、HiMaWaSa Sync の岩城 弘（いわき ひろし）と申します。<br>
+      平日は医療法人で、記録や事務の手作業を短くする仕組みづくりを担当しています。<br>
+      土日は小規模多機能で介護の仕事をしており、介助の合間に記録や申し送りを書く時間の重さを、現場で見ています。
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="card">
+    <div class="cols">
+      <div>
+        <span class="badge">ご提案の全体像</span>
+        <h2>今のやり方は変えません。<br>お役に立てることは、この2つです。</h2>
+        <p>
+          今お使いの記録ソフトや紙の記録は、そのままお使いいただけます。<br>
+          入れ替えるのではなく、その手前の<strong>「文章を考えて書く時間」を短くする</strong>お話です。
+        </p>
+      </div>
+      <div class="shot">
+        <img src="img/screen-result.jpg" alt="現場の走り書きが、数秒で丁寧な文章に整う画面">
+        <span class="shot-caption">現場メモから自動作成される画面（てますい）</span>
+      </div>
+    </div>
+
+    <div class="two" style="margin-top: 20px;">
+      <div class="box">
+        <div class="box-tag">現場スタッフの皆様へ</div>
+        <h3>① 毎日の記録・ご家族への連絡文</h3>
+        <p class="box-lead"><strong>「てますい」で、文章を考える時間を短くします。</strong></p>
+        <p>
+          書類の種類を選んで、走り書きのメモを入れるか、スマートフォンに話しかけると、<br>
+          数秒で下書きができます。介護記録・申し送り・ご家族への連絡文など8種類です。<br>
+          職員様が内容を確かめて、いつもの記録にコピーして貼ってお使いください。<br>
+          夕方や夜勤明けに残る記録の時間を少しでも短くし、スタッフの皆様が早く帰れるようにお手伝いします。
+        </p>
+      </div>
+
+      <div class="box">
+        <div class="box-tag">管理者の皆様へ</div>
+        <h3>② 月末の勤怠・常勤換算の集計</h3>
+        <p class="box-lead"><strong>今のタイムカードや表の形を見てから、ご相談します。</strong></p>
+        <p>
+          月末に管理者様が電卓や表計算で行っている集計を、<br>
+          今の形に合わせて手順を短くできないか、一緒に考えます。
+        </p>
+        <ul class="task-list">
+          <li><strong>シフトと出勤実績の突き合わせ</strong></li>
+          <li><strong>勤務実績からの常勤換算・勤務形態一覧表づくり</strong></li>
+        </ul>
+        <p class="box-note">※てますいとは別のご相談です。お使いの勤怠の形を拝見してから、できることとできないことを正直にお伝えします。今の形に合わせて集計の仕組みを作る費用はいただきません。使い続けるときの月額だけ、作る前にお伝えします。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="badge">実際の画面イメージ</span>
+    <h2>書類の種類を選んで、メモを入れると数秒で下書きに</h2>
+    <p class="sub-lead">下の文は、てますいの見本画面に実際に入れて出てきた文を、そのまま載せています（2026年9月25日）。利用者さんのお名前は「Aさん」のような仮名で入れます。</p>
+
+    <div class="ex">
+      <div class="memo">
+        <span class="label memo-label">「介護記録」を選んで入れたメモ</span>
+        <div class="memo-content">
+          午後／食事　Aさん<br>
+          様子：14時 水分でむせ2回<br>
+          対応：様子見 その後 表情よし
+        </div>
+      </div>
+      <div class="out">
+        <span class="label out-label">てますいの下書き</span>
+        <div class="out-block">
+          <p>14時、Aさんが水分摂取時に2回むせられた。<br>職員が様子見の対応をした。<br>その後、表情は良好であった。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex" style="margin-top: 16px;">
+      <div class="memo">
+        <span class="label memo-label">「ご家族への連絡文」を選んで入れたメモ</span>
+        <div class="memo-content">
+          今日14時ごろ お茶でむせが2回あった<br>
+          その後は表情よく落ち着いて過ごしている<br>
+          引き続き見守る
+        </div>
+      </div>
+      <div class="out">
+        <span class="label out-label">てますいの下書き</span>
+        <div class="out-block">
+          <p>〇〇様のご家族様<br>いつも施設での生活にご理解とご協力をいただき、ありがとうございます。<br>本日14時ごろ、お茶を召し上がった際に2回むせがございました。<br>その後は表情よく落ち着いて過ごされております。<br>引き続き、お身体の様子をしっかりと見守ってまいります。<br>何かございましたら、いつでもご連絡いたします。<br>〇〇（施設名）</p>
+        </div>
+      </div>
+    </div>
+    <p class="memo-sub">※メモにないこと（時間・数値・病名など）は書き足さず、足りないところは【要確認】と空けて残します。キーボードのほか、スマホに話しかけて入れることもできます。</p>
+
+    <div class="flow-guide">
+      <div class="step"><span>1</span> 声やメモを入れる</div>
+      <div class="step-arrow">→</div>
+      <div class="step"><span>2</span> 内容を確かめて、必要なら直す</div>
+      <div class="step-arrow">→</div>
+      <div class="step"><span>3</span> いつもの記録に貼る</div>
+    </div>
+    <p class="note-text">
+      覚えていただくのは、この3つだけです。アプリのダウンロードは要りません。<br>
+      全員が使う必要はありません。使ってみたい方からで大丈夫です。<br>
+      記録を書くのは、これまでどおり職員の皆様です。てますいは下書きまでをお手伝いします。
+    </p>
+    <p class="try-link">
+      同じ画面を、お名前の登録なしで試せます（入れた内容は保存されません）。<br>
+      <a href="https://care.himawasa-sync.com/demo" target="_blank" rel="noopener">care.himawasa-sync.com/demo</a>
+    </p>
+
+    <div class="sub-features">
+      <div class="sub-features-title">【その他の便利機能】状況に合わせて、同じ画面で以下の確認も行えます</div>
+      <div class="sub-apps">
+        <div class="sub-app">
+          <img src="img/photo-mochi.jpg" alt="持ち物チェック">
+          <div>
+            <strong>入所時の持ち物チェック</strong>
+            <p>広げたお荷物を撮ると、持ち物の一覧ができます。お返しのときに撮り直すと、一覧と見比べられます。</p>
+          </div>
+        </div>
+        <div class="sub-app">
+          <img src="img/photo-calendar.jpg" alt="施設の予定">
+          <div>
+            <strong>施設内の予定カレンダー</strong>
+            <p>受診・往診や薬の予定を、事務所と現場が同じ画面で見られます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="badge">安心してお使いいただくために</span>
+    <h2>個人情報の取り扱いとセキュリティ</h2>
+    <table class="sec-table">
+      <tbody>
+        <tr>
+          <th>保存するもの・しないもの</th>
+          <td>書類の下書きに入れたメモと、話しかけた音声は保存しません。持ち物チェックのお名前と写真、予定カレンダーの名簿と予定は、貴施設専用の場所にだけ保存し、ほかの施設からは見えません。</td>
+        </tr>
+        <tr>
+          <th>AIについて</th>
+          <td>文章づくりには Google Cloud の AI（Vertex AI）を使っています。入力した内容が AI の学習に使われない仕組みです。</td>
+        </tr>
+        <tr>
+          <th>AIが書く中身</th>
+          <td>メモにないことは書き足さず、足りないところは【要確認】と空けて残します。できた文は、必ず職員の皆様が確かめてからお使いください。</td>
+        </tr>
+        <tr>
+          <th>今の記録ソフト・書式</th>
+          <td>今のソフトや手書きの記録は、そのままお使いいただけます。できた下書きをコピーして貼る、ひと手間だけ加わります。</td>
+        </tr>
+        <tr>
+          <th>困ったときのサポート</th>
+          <td>岩城が直接サポートいたします（メール：<a href="mailto:iwaki@himawasa-sync.com">iwaki@himawasa-sync.com</a>）。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <span class="badge">無理のない進め方</span>
+    <h2>2つの施設のどちらか「一番重い作業」から</h2>
+    <p style="font-size: 15px; margin-bottom: 12px;">
+      両方の施設や、すべての業務を一度に変える必要はありません。<br>
+      現場でいま一番時間がかかり、負担になっている作業を<strong>ひとつだけ</strong>教えてください。
+    </p>
+    <div class="point-cards">
+      <div class="point-card">
+        <h4>日々の現場作業</h4>
+        <p>「夕方の申し送りに時間がかかる」<br>「ご家族への連絡文に気を遣って疲れる」<br>「入退所の荷物チェックが大変」</p>
+      </div>
+      <div class="point-card">
+        <h4>月末の管理事務</h4>
+        <p>「シフトと勤怠の突き合わせに時間がかかる」<br>「常勤換算の計算に手間がかかる」</p>
+      </div>
+    </div>
+    <p style="margin-top: 14px; font-size: 15px;">
+      いちばん手間のかかっているところは、施設ごとに違います。<br>
+      <strong>スタッフの皆様が「まずこれを軽くしたい」と思われる作業からお手伝いします。</strong>
+    </p>
+    <div class="visit-box">
+      <strong>高石市に住んでおりますので、施設へもお伺いできます</strong>
+      <p>
+        オンライン（Zoom など）でも、施設へお伺いしても構いません。<br>
+        15分ほどお時間をいただき、いま一番負担になっている作業をお聞かせください。<br>
+        画面を一緒に見ながら、どこまで軽くできそうかを正直にお伝えします。
+      </p>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="cta-text">
+      <h2>まずはお困りごとを、15分お聞かせください</h2>
+      <p>
+        「現場の負担が本当にひとつ軽くなるか」を一緒に確認する15分にできれば幸いです。<br>
+        少し落ち着いたタイミングで構いませんので、メールでお気軽にお声がけください。
+      </p>
+      <div class="sign">
+        <strong>HiMaWaSa Sync（ヒマワサシンク）</strong><br>
+        ── 業務をもっと、シンプルに。<br>
+        担当：岩城　弘（いわき ひろし）　DX相談担当<br>
+        メール <a href="mailto:iwaki@himawasa-sync.com">iwaki@himawasa-sync.com</a><br>
+        <a href="https://himawasa-sync.com/" target="_blank" rel="noopener">himawasa-sync.com</a><br>
+        てますいのご紹介 <a href="https://himawasa-sync.com/temasui/" target="_blank" rel="noopener">himawasa-sync.com/temasui/</a>
+      </div>
+    </div>
+    <div class="cta-qr">
+      <img src="img/qr-demo.png" alt="てますい体験QRコード">
+      <span>画面の事前お試し</span>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
