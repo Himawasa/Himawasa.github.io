@@ -509,6 +509,7 @@ export const PUBLIC_PAGES = [
   { path: '/for/care/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '0.95' },
   { path: '/Guide/care/', lastmod: '2026-09-23', changefreq: 'weekly', priority: '0.7' },
   { path: '/temasui/', lastmod: '2026-09-24', changefreq: 'weekly', priority: '0.9' },
+  { path: '/temasui/factory/', lastmod: '2026-09-26', changefreq: 'weekly', priority: '0.85' },
   { path: '/shiftsync/', lastmod: '2026-08-26', changefreq: 'weekly', priority: '0.9' },
   { path: '/medical-dx/', lastmod: '2026-08-26', changefreq: 'weekly', priority: '0.9' },
   { path: '/Guide/mochisync2/', lastmod: '2026-08-30', changefreq: 'monthly', priority: '0.55' },
@@ -602,6 +603,7 @@ export function generateLlmsTxt() {
 
 ## 主に頼まれること（この順で案内する）
 - [てますい（介護施設のアシスタント）](https://himawasa-sync.com/temasui/): 介護記録・申し送り・事故報告書などの下書き（話すだけでも）、持ち物チェック、予定カレンダー。インストール不要、1か月無料
+- [てますい 工場版（工場のアシスタント）](https://himawasa-sync.com/temasui/factory/): 作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告などの下書き、工具・備品チェック（確かめる目印は会社ごとに設定）。料金は介護版と同じ
 - [介護施設・病院](https://himawasa-sync.com/for/care/): シフト表、持ち物チェック、日計・カルテ転記
 - [施設で改善できること](https://himawasa-sync.com/Guide/care/): 持ち物・シフト・予定・常勤換算などの一覧
 - [介護のシフト表自動化](https://himawasa-sync.com/shiftsync/): KING OF TIMEの実績 → 今の勤務表様式
@@ -644,6 +646,7 @@ export function generateLlmsFullTxt() {
 - 施設カレンダー: 予定・往診・残薬。
 - 実地指導用に、今ある記録を出しやすくする。記録の作り方は施設に押し付けない。
 - てますい（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
+- てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
   - 書類の下書き: 介護記録・申し送り・ご家族への連絡・事故報告書・ヒヤリハット・議事録・お知らせ・関係機関へのメールの8種類。メモを入れるか、話すだけで下書きになる。出てくるのは下書きで、職員が確かめて使う。
   - 持ち物チェック: 写真から持ち物リスト（記名の有無つき）、返却時は写真で照合。
   - 予定カレンダー: 往診・利用変更・残薬の確認を職員全員で共有。
