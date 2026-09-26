@@ -80,6 +80,8 @@ function AppShell() {
           <Route path="/for/care" element={<IndustryPage kind="care" />} />
           <Route path="/for/care/" element={<IndustryPage kind="care" />} />
           <Route path="/for/biz" element={<IndustryPage kind="biz" />} />
+          <Route path="/for/factory" element={<IndustryPage kind="factory" />} />
+          <Route path="/for/factory/" element={<IndustryPage kind="factory" />} />
           <Route path="/for/biz/" element={<IndustryPage kind="biz" />} />
           <Route path="/rk" element={<RkPage kind="hub" />} />
           <Route path="/rk/" element={<RkPage kind="hub" />} />

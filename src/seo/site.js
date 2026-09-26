@@ -183,6 +183,19 @@ export const PAGES = {
     ogImage: '/dm/dm-smb-cover.jpg',
     ogImageAlt: '中小企業の事務所。帳票転記とExcel整理の手作業を軽くする',
   },
+  forFactory: {
+    key: 'forFactory',
+    path: '/for/factory/',
+    title: '工場の日報・引き継ぎ・測定値の転記を軽く | HiMaWaSa Sync',
+    h1: '工場の書く手間と転記の手間を、シンプルにする',
+    description:
+      '工場の作業日報・交代時の引き継ぎ・ヒヤリハットの下書き（てますい 工場版）、工具・備品の点検、測定値や実績のExcel転記。今のやり方のまま。初回相談は無料・30分。',
+    og: '日報・引き継ぎ・工具の点検・測定値の転記。ひとつずつ軽くします。',
+    crumb: '工場の方',
+    audience: '工場',
+    ogImage: '/temasui/factory/img/ogp.jpg',
+    ogImageAlt: 'てますい 工場版：作業日報・引き継ぎ・ヒヤリハットの下書きと工具・備品チェック',
+  },
   rk: {
     key: 'rk',
     path: '/rk/',
@@ -493,6 +506,7 @@ export const PUBLIC_PAGES = [
   { path: '/Guide/mochisync2/', lastmod: '2026-08-30', changefreq: 'monthly', priority: '0.55' },
   { path: '/Guide/caresync/', lastmod: '2026-08-30', changefreq: 'monthly', priority: '0.55' },
   { path: '/for/pro/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.85' },
+  { path: '/for/factory/', lastmod: '2026-09-26', changefreq: 'weekly', priority: '0.85' },
   { path: '/for/biz/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.85' },
   { path: '/services/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.8' },
   { path: '/works/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.7' },

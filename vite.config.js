@@ -104,7 +104,7 @@ export default defineConfig({
         writeFileSync(join(dist, '404.html'), generateRouteHtml(PAGES.notFound, assets))
         for (const key of [
           'services', 'works', 'about', 'ai', 'contact', 'try', 'privacy', 'supply', 'card', 'cardsync',
-          'forPro', 'forCare', 'forBiz',
+          'forPro', 'forCare', 'forBiz', 'forFactory',
           'rk', 'rkFactory', 'rkHospital', 'rkCare', 'rkPro', 'rkBiz', 'rkClick',
         ]) {
           const page = PAGES[key]
