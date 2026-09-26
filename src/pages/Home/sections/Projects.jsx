@@ -28,14 +28,6 @@ const projects = [
     href: null, highlight: true,
   },
   {
-    icon: '⚖️', status: '稼働中', badge: 'Java / Spring Boot', badgeStyle: { background: '#1a3a6b', color: 'white' },
-    title: '社労士 × 顧問先 労務管理ポータル',
-    desc: '社労士事務所と顧問先企業をつなぐクラウド型業務ポータル。タスク管理・AI労務相談・見積→受注→請求の自動転記など、13の画面があります。',
-    tags: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Gemini AI'],
-    domain: '士業DX / Webアプリ', version: 'v1.0',
-    href: '/sharoushi-portal/',
-  },
-  {
     icon: '📠', status: '稼働中', badge: '医療AI', badgeClass: 'cat-medical',
     title: 'FAX書類AI自動処理システム',
     desc: '届いたFAXのPDFをAIが読み取って仕分け、電子カルテへ自動で登録します。年間数千枚の紙を、手で仕分けなくてよくなりました。',

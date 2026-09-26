@@ -37,7 +37,6 @@ export const INDUSTRIES = {
     links: [
       { href: '/rk/pro/', title: '士業RK', desc: 'キーエンスRKで台帳・期日・請求。シナリオ1万円から。', cta: '士業RKの案内を見る' },
       { href: '/pro-dx/', title: '士業DXの提案', desc: '帳票・給与・契約まわりを、今のPCのまま。', cta: '士業DXの提案を見る' },
-      { href: '/sharoushi-portal/', title: '社労士ポータル', desc: '事務所と顧問先をつなぐ、13の画面。', cta: '社労士ポータルを見る' },
     ],
     faqs: [
       {

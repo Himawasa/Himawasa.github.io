@@ -27,7 +27,7 @@ const lpCards = [
   {
     icon: '📅', badge: '公開中',
     title: 'シフトシンク（ShiftSync）─ 勤務表の自動作成',
-    desc: 'KING OF TIME連携のシフト表自動生成ツール。毎月のシフト作成作業を劇的に削減する専用サービスです。',
+    desc: 'KING OF TIME連携のシフト表自動生成ツール。毎月のシフト表づくりを自動にする専用サービスです。',
     tags: ['KING OF TIME', 'シフト管理', 'API連携'],
     url: 'himawasa-sync.com/shiftsync/', href: '/shiftsync/',
   },
@@ -37,13 +37,6 @@ const lpCards = [
     desc: 'Yoomの設定・構築から月額保守まで一括対応。入社手続き・FAX受注・労働生産性など繰り返し業務を全自動化。',
     tags: ['Yoom', 'AI-OCR', 'SaaS連携', '月額保守'],
     url: 'himawasa-sync.com/yoom-lp/', href: '/yoom-lp/',
-  },
-  {
-    icon: '⚖️', badge: '公開中',
-    title: '労務管理ポータル 概略説明',
-    desc: '社労士と顧問先をつなぐクラウド型労務管理ポータルの概略説明ページ。全13機能を紹介。デモ体験リンク付き。',
-    tags: ['Java / Spring Boot', '社労士DX', 'AI労務相談'],
-    url: 'himawasa-sync.com/sharoushi-portal/', href: '/sharoushi-portal/',
   },
 ]
 

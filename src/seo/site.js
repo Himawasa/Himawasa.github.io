@@ -521,7 +521,6 @@ export const PUBLIC_PAGES = [
   { path: '/kintone-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
   { path: '/pro-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
   { path: '/yoom-lp/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.5' },
-  { path: '/sharoushi-portal/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.5' },
   { path: '/mochisync2/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.3' },
   { path: '/rk/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.5' },
   { path: '/rk/care/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.4' },
