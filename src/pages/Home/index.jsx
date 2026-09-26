@@ -3,6 +3,7 @@ import Seo from '../../components/Seo'
 import { PAGES } from '../../seo/site'
 import Hero from './sections/Hero'
 import AudiencePaths from './sections/AudiencePaths'
+import TemasuiBand from './sections/TemasuiBand'
 import HomeProof from './sections/HomeProof'
 import TryTeaser from './sections/TryTeaser'
 import Flow from './sections/Flow'
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <HomeProof />
       <AudiencePaths />
+      <TemasuiBand />
       <TryTeaser />
       <Flow />
       <section className="home-cta">

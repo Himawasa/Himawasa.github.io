@@ -1037,3 +1037,49 @@
   .mb-chip { transition: none !important; }
   .counter-bar-fill { transition: none !important; }
 }
+
+/* ===== トップの「業種ごとの てますい」（TemasuiBand）。カードは .path-card と同じ系統、背景はてますいの黄色 ===== */
+.temasui-band { background: var(--yellow-lt); }
+.temasui-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.temasui-card {
+  background: #fff;
+  border: 1px solid var(--cream-bd);
+  border-top: 4px solid var(--yellow);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 28px rgba(180,140,40,0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.temasui-card--soon { background: #fbfaf5; border-top-color: #ccc; }
+.temasui-icon { font-size: 36px; margin-bottom: 12px; }
+.temasui-title { font-size: 18px; font-weight: 900; margin-bottom: 12px; }
+.temasui-list { list-style: none; margin-bottom: 20px; flex: 1; width: 100%; }
+.temasui-list li { font-size: 13px; color: #555; padding: 6px 0; border-bottom: 1px solid #f3ead0; }
+.temasui-list li::before { content: '✓ '; color: #2F9E44; font-weight: 900; }
+.temasui-cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 14px;
+  color: #fff;
+  background: #1a1a1a;
+  padding: 10px 18px;
+  border-radius: 100px;
+  min-height: 42px;
+}
+.temasui-soon {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 800;
+  color: #666;
+  background: #eee;
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+@media (max-width: 900px) {
+  .temasui-grid { grid-template-columns: 1fr; }
+}

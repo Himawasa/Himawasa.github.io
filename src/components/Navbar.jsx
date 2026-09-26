@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 
+// href はサイト内の素の HTML のページ（React の画面遷移では開けないので <a href> で出す）
 const links = [
+  { href: '/temasui/', label: 'てますい' },
   { to: '/for/pro', label: '士業' },
   { to: '/for/care', label: '介護・医療' },
   { to: '/for/biz', label: '中小企業' },
@@ -35,9 +37,9 @@ export default function Navbar() {
         </Link>
 
         <ul className="nav-links">
-          {links.map(({ to, label }) => (
-            <li key={to}>
-              <NavLink to={to}>{label}</NavLink>
+          {links.map(({ to, href, label }) => (
+            <li key={to || href}>
+              {href ? <a href={href}>{label}</a> : <NavLink to={to}>{label}</NavLink>}
             </li>
           ))}
           <li><Link to="/contact" className="nav-cta">お問い合わせ</Link></li>
@@ -56,9 +58,9 @@ export default function Navbar() {
 
       {menuOpen && (
         <ul className="nav-mobile" id="nav-mobile">
-          {links.map(({ to, label }) => (
-            <li key={to}>
-              <NavLink to={to} onClick={closeMenu}>{label}</NavLink>
+          {links.map(({ to, href, label }) => (
+            <li key={to || href}>
+              {href ? <a href={href}>{label}</a> : <NavLink to={to} onClick={closeMenu}>{label}</NavLink>}
             </li>
           ))}
           <li className="nav-mobile-cta">
