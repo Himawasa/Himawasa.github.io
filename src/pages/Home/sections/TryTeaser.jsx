@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { TRY_APPS } from '../../../seo/site'
 
-const teasers = TRY_APPS.slice(0, 3)
+// 体験アプリは4つともトップから行けるようにする（以前は先頭3つだけで SukkiriSync が出ていなかった）
+const teasers = TRY_APPS
 
 const GUIDES = {
   MochiSync: { href: '/Guide/mochisync2/', label: '使い方・画面を見る' },
