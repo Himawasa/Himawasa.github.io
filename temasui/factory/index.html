@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>工場の作業日報・引き継ぎ・ヒヤリハットを数秒で下書き｜てますい 工場版 | HiMaWaSa Sync</title>
+<meta name="description" content="工場のアシスタント「てますい 工場版」。作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告の下書きが、メモから数秒でできます。工具・備品の持ち出しチェックも。インストール不要、1か月無料。">
+<link rel="canonical" href="https://himawasa-sync.com/temasui/factory/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HiMaWaSa Sync">
+<meta property="og:title" content="てますい 工場版 ─ 工場の書く手間が、すいすい減っていく。">
+<meta property="og:description" content="メモを入れるだけで、作業日報・引き継ぎ・ヒヤリハットの下書きが数秒で。工具・備品チェックも。1か月無料でお試しいただけます。">
+<meta property="og:url" content="https://himawasa-sync.com/temasui/factory/">
+<meta property="og:image" content="https://himawasa-sync.com/temasui/factory/img/ogp.jpg">
+<meta property="og:image:alt" content="てますい 工場版：作業日報・引き継ぎ・ヒヤリハットの下書きと工具・備品チェック">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="てますい 工場版 ─ 工場の書く手間が、すいすい減っていく。">
+<meta name="twitter:description" content="メモを入れるだけで、作業日報・引き継ぎ・ヒヤリハットの下書きが数秒で。工具・備品チェックも。1か月無料でお試しいただけます。">
+<meta name="twitter:image" content="https://himawasa-sync.com/temasui/factory/img/ogp.jpg">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "てますい 工場版", "url": "https://himawasa-sync.com/temasui/factory/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web（パソコン・タブレット・スマートフォン）", "description": "工場のアシスタント「てますい 工場版」。作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告の下書きが、メモから数秒でできます。工具・備品の持ち出しチェックも。インストール不要、1か月無料。", "featureList": ["作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・労災事故・不具合・是正・KY・取引先メールの下書き", "工具・備品チェック（写真から一覧・返却時の照合。確かめる目印は会社ごとに設定）"], "offers": {"@type": "Offer", "price": "15000", "priceCurrency": "JPY", "description": "月額（税別）。1か月の無料体験あり。ご契約時に初期費用30,000円（税別。訪問でのご説明を希望される場合は交通費実費）。最低契約期間6か月"}, "provider": {"@type": "Organization", "name": "HiMaWaSa Sync", "url": "https://himawasa-sync.com/"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "品番や数量が変わってしまうことはない？", "acceptedAnswer": {"@type": "Answer", "text": "品番・ロット番号・寸法・数量・時間は、入れたとおりに書くよう決めています。合計を計算して足したりもしません。できあがりは、必ずサッと確かめてからお使いください。"}}, {"@type": "Question", "name": "ほかの会社から見られる心配は？", "acceptedAnswer": {"@type": "Answer", "text": "会社ごとの専用ページになっていますので、ほかの会社からは見えません。"}}, {"@type": "Question", "name": "入れた内容はどうなるの？", "acceptedAnswer": {"@type": "Answer", "text": "書類の下書きに入れたメモは、てますいには保存しません。工具・備品チェックの名前と写真は、その会社の専用の場所にだけ保存します。どちらもAIの勉強（学習）に使われることはありません（Google Cloud の仕組みを使っています）。"}}, {"@type": "Question", "name": "原因や対策まで書いてくれる？", "acceptedAnswer": {"@type": "Answer", "text": "入力に無い原因や対策は、「（案）」と付けて控えめに書きます。決めつけはしません。最後の判断は、現場の皆さまでお願いします。"}}]}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://himawasa-sync.com/"}, {"@type": "ListItem", "position": 2, "name": "てますい", "item": "https://himawasa-sync.com/temasui/"}, {"@type": "ListItem", "position": 3, "name": "てますい 工場版", "item": "https://himawasa-sync.com/temasui/factory/"}]}]</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<style>
+  /* 介護版（/temasui/）と同じ見た目。直すときは両方をそろえる */
+  :root {
+    --yellow: #FFD700; --yellow-lt: #FFF8CC; --cream: #FFFBF0; --cream-bd: #F0E4C4;
+    --ink: #1A1A1A; --gray: #5a5a5a; --white: #fff; --green: #2F9E44;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: var(--ink); background: var(--white); line-height: 1.7; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .round { font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif; }
+  .inner { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 72px 0; }
+  h2 { font-size: clamp(24px, 3.4vw, 34px); line-height: 1.4; text-align: center; margin-bottom: 12px; }
+  .lead { text-align: center; color: var(--gray); margin-bottom: 40px; }
+  .terms { max-width: 760px; margin: 28px auto 0; text-align: left; color: var(--gray); font-size: 14px; line-height: 1.8; }
+  .mark { background: linear-gradient(transparent 58%, var(--yellow) 58%); }
+
+  /* ボタン */
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 15px 26px; border-radius: 999px; font-weight: 900; text-decoration: none; font-size: 17px; }
+  .btn.dark { background: var(--ink); color: var(--white); }
+  .btn.light { background: var(--white); color: var(--ink); border: 2px solid var(--ink); }
+  .btn-note { font-size: 13px; color: var(--gray); margin-top: 10px; }
+
+  /* 写真の枠。写真がまだ無いときは、やわらかい色の面にして崩れないようにする */
+  .photo { position: relative; overflow: hidden; border-radius: 24px; background: linear-gradient(135deg, #FFE98A, #FFF8CC 60%, #F6E7C1); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo.noimg img { display: none; }
+  .photo.noimg::after { content: attr(data-alt); position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 16px; color: #8a7a3a; font-size: 14px; }
+  .imgnote { font-size: 12px; color: var(--gray); margin-top: 6px; }
+
+  /* スマホの枠（本物の画面をはめる） */
+  .phone { width: 250px; aspect-ratio: 390 / 800; background: #111; border-radius: 38px; padding: 10px; box-shadow: 0 24px 48px rgba(0,0,0,.22); flex: none; }
+  .phone .screen { width: 100%; height: 100%; border-radius: 29px; overflow: hidden; background: var(--cream); }
+  .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .phone.bottom img { object-position: bottom; }
+
+  /* ① 最初の画面 */
+  .hero { background: var(--yellow); padding: 56px 0 0; overflow: hidden; }
+  .hero .inner { display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: end; }
+  .hero .by { font-weight: 700; font-size: 14px; }
+  .hero h1 { font-size: clamp(56px, 9vw, 96px); line-height: 1.05; letter-spacing: .03em; margin: 8px 0 12px; }
+  .hero .tag { font-size: clamp(20px, 2.6vw, 28px); font-weight: 900; }
+  .hero .sub { margin: 14px 0 26px; font-size: 16px; }
+  .hero .copy { padding-bottom: 56px; }
+  .hero .visual { position: relative; height: 520px; }
+  .hero .visual .photo { position: absolute; right: 0; bottom: 0; width: 88%; height: 420px; border-radius: 24px 24px 0 0; }
+  .hero .visual .phone { position: absolute; left: 0; bottom: -60px; width: 220px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip { background: var(--white); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 700; }
+
+  /* ② メモ → 下書き */
+  .change { background: var(--cream); }
+  .change-row { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
+  .memo { width: 280px; background: #fffdf2; border-radius: 6px; padding: 26px 22px; box-shadow: 0 10px 24px rgba(0,0,0,.10); transform: rotate(-3deg); font-size: 19px; line-height: 2; background-image: repeating-linear-gradient(transparent 0 37px, #e9dcae 37px 38px); }
+  .memo .t { font-size: 13px; color: var(--gray); font-weight: 700; margin-bottom: 6px; }
+  .arrow { font-size: 44px; font-weight: 900; text-align: center; line-height: 1.1; }
+  .arrow small { display: block; font-size: 14px; }
+  .result-card { width: 330px; background: var(--white); border: 3px solid var(--ink); border-radius: 18px; padding: 22px; font-size: 16px; }
+  .result-card .t { font-weight: 900; margin-bottom: 8px; }
+  .result-card .n { font-size: 12px; color: var(--gray); margin-top: 10px; }
+
+  /* ②-2 話して入力 */
+  .voice-sec { background: var(--white); }
+  .voice-row { display: grid; grid-template-columns: auto auto auto 1fr; gap: 24px; align-items: center; }
+  .voice-row figure { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .voice-row .phone { width: 210px; }
+  .voice-row figcaption { font-weight: 700; font-size: 15px; }
+  .voice-points { list-style: none; display: grid; gap: 12px; }
+  .voice-points li { background: var(--cream); border-radius: 16px; padding: 14px 16px; font-size: 15px; }
+  .voice-points b { display: block; font-size: 16px; }
+  .voice-ex { margin-top: 20px; text-align: center; font-size: 15px; color: var(--gray); }
+  .voice-ex q { font-weight: 700; color: var(--ink); }
+  @media (max-width: 860px) {
+    .voice-row { grid-template-columns: 1fr 1fr; }
+    .voice-row .phone { width: 150px; }
+    .voice-row > .arrow { display: none; }
+    .voice-points { grid-column: 1 / -1; }
+  }
+
+  /* ③ 3ステップ（本物の画面を3つ並べる） */
+  .steps { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+  .step { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 250px; }
+  .step .num { width: 44px; height: 44px; border-radius: 50%; background: var(--yellow); display: grid; place-items: center; font-weight: 900; font-size: 20px; }
+  .step h3 { font-size: 20px; }
+  .step p { font-size: 14px; color: var(--gray); text-align: center; }
+  .big-facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .fact { background: var(--yellow-lt); border-radius: 20px; padding: 22px 12px; text-align: center; }
+  .fact b { display: block; font-size: 30px; line-height: 1.2; font-weight: 900; }
+  .fact span { font-size: 14px; }
+
+  /* ④ 夕方の景色 */
+  .scene { background: var(--ink); color: var(--white); }
+  .scene h2 { color: var(--white); }
+  .scene .lead { color: #cfcfcf; }
+  .scene-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; }
+  .scene .photo { height: 300px; }
+  .scene figcaption { margin-top: 10px; font-weight: 700; text-align: center; }
+  .scene .arrow { color: var(--yellow); }
+  .scene .imgnote { color: #aaa; text-align: center; margin-top: 20px; }
+
+  /* ⑤ 作れる書類 */
+  .docs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .doc { background: var(--cream); border: 2px solid var(--cream-bd); border-radius: 18px; padding: 20px 12px; text-align: center; font-weight: 700; }
+  .doc .i { font-size: 38px; display: block; }
+
+  /* ⑥ 3つの機能 */
+  .apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .app { border-radius: 24px; overflow: hidden; background: var(--cream); border: 2px solid var(--cream-bd); }
+  .app .photo { height: 200px; border-radius: 0; }
+  .app .body { padding: 20px; }
+  .app h3 { font-size: 20px; margin: 6px 0; }
+  .badge { display: inline-block; font-size: 13px; font-weight: 900; border-radius: 999px; padding: 3px 12px; }
+  .badge.ok { background: var(--green); color: var(--white); }
+  .badge.soon { background: #ddd; color: #444; }
+  .app p { font-size: 15px; }
+
+  /* ⑦ 安心 */
+  .safe { background: var(--cream); }
+  .qa { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .qa div { background: var(--white); border-radius: 20px; padding: 22px; display: grid; grid-template-columns: 48px 1fr; gap: 4px 14px; }
+  .qa .i { grid-row: span 2; font-size: 36px; }
+  .qa .q { font-weight: 900; }
+  .qa .a { font-size: 15px; color: #333; }
+
+  /* ⑧ 料金 */
+  .prices { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: 12px; }
+  .price { border: 3px solid var(--cream-bd); border-radius: 24px; padding: 26px 18px; text-align: center; }
+  .price.hl { border-color: var(--yellow); background: var(--yellow-lt); }
+  .price .t { font-weight: 700; color: var(--gray); }
+  .price .p { font-size: 40px; font-weight: 900; line-height: 1.3; }
+  .price .p small { font-size: 15px; font-weight: 700; }
+  .price .d { font-size: 14px; margin-top: 6px; }
+  .prices .arrow { align-self: center; font-size: 30px; }
+
+  /* ⑨ 申し込み */
+  .apply { background: var(--yellow); }
+  .apply-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .apply-box { background: var(--white); border-radius: 24px; padding: 28px; display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: center; }
+  .apply-box img { width: 150px; }
+  .apply-box h3 { font-size: 20px; margin-bottom: 6px; }
+  .apply-box p { font-size: 14px; }
+  .apply-box .btn { margin-top: 12px; padding: 11px 20px; font-size: 15px; }
+
+  footer { padding: 32px 0; text-align: center; font-size: 14px; color: var(--gray); }
+  footer a { color: var(--gray); }
+
+  /* 日本語を言葉の切れ目で折り返す。2行以上になる説明文は左ぞろえで読みやすくする */
+  body { word-break: auto-phrase; }
+  .step p, .price .d { text-align: left; }
+  .price .d ul { list-style: none; margin-top: 4px; }
+  .price .d li::before { content: "・"; }
+  @media (max-width: 860px) {
+    section { padding: 52px 0; }
+    .hero .inner { grid-template-columns: 1fr; }
+    .hero .copy { padding-bottom: 8px; }
+    .hero .visual { height: 400px; }
+    .hero .visual .photo { height: 320px; width: 90%; }
+    .hero .visual .phone { width: 170px; bottom: -40px; }
+    .scene-row { grid-template-columns: 1fr; }
+    .scene .arrow { transform: rotate(90deg); }
+    .big-facts, .docs { grid-template-columns: repeat(2, 1fr); }
+    .apps, .qa, .apply-row { grid-template-columns: 1fr; }
+    .prices { grid-template-columns: 1fr; }
+    .prices .arrow { transform: rotate(90deg); }
+    .apply-box { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .change-row .arrow span { display: inline-block; transform: rotate(90deg); }
+  }
+  /* 工場版だけ */
+  .edition { display: inline-block; background: var(--ink); color: var(--yellow); border-radius: 10px; padding: 2px 12px; font-size: clamp(20px, 2.6vw, 28px); vertical-align: middle; margin-left: 10px; letter-spacing: 0; }
+  .result-card .body { white-space: pre-line; }
+  .samples { display: grid; gap: 56px; }
+  .sample-t { text-align: center; font-weight: 900; font-size: 18px; margin-bottom: 18px; }
+  .num-steps .step { width: 280px; background: var(--cream); border-radius: 24px; padding: 26px 20px; }
+  .docs { grid-template-columns: repeat(3, 1fr); }
+</style>
+</head>
+<body>
+
+<!-- ① 最初の画面 -->
+<header class="hero">
+  <div class="inner">
+    <div class="copy">
+      <div class="by">工場のアシスタント ／ by HiMaWaSa Sync</div>
+      <h1 class="round">てますい<span class="edition">工場版</span></h1>
+      <p class="tag">工場の書く手間が、すいすい減っていく。</p>
+      <p class="sub">作業日報・引き継ぎ・ヒヤリハット。短いメモを入れるだけで、読みやすい文章が数秒で整います。<br>事務所のパソコンでも、タブレットでも、スマホでも。</p>
+      <div class="btns">
+        <a class="btn dark" href="https://care.himawasa-sync.com/demo?industry=factory">▶ いますぐ試してみる</a>
+        <a class="btn light" href="#apply">1か月無料で申し込む</a>
+      </div>
+      <p class="btn-note">見本で書類の下書きを試せます。お名前の登録はいらず、入れた内容も保存されません。</p>
+      <div class="chips"><span class="chip">ダウンロード不要</span><span class="chip">品番・数量はそのまま</span><span class="chip">1か月無料</span><span class="chip">機械が苦手でも安心</span></div>
+    </div>
+    <div class="visual">
+      <div class="photo" data-alt="写真：工場で、作業服の2人がタブレットを見ながら話している様子"><img src="img/photo-hero.jpg" alt="工場で、作業服の2人がタブレットを見ながら話している様子（イメージ）" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ② メモ → 下書き（どちらも実際にてますい 工場版で作った文面） -->
+<section class="change">
+  <div class="inner">
+    <h2>走り書きのメモが、<span class="mark">そのまま読みやすい日報に</span></h2>
+    <p class="lead">単語や箇条書きで十分です。品番・数量・時間は、入れたとおりに残します。</p>
+    <div class="samples">
+      <div>
+        <p class="sample-t">📝 作業日報</p>
+        <div class="change-row">
+          <div class="memo"><div class="t">入れたメモ</div>日勤　2号機 プレス<br>品番A-120 1200個 段取り替え1回<br>10時ごろ材料待ちで15分停止<br>金型の摩耗が気になる 点検お願い</div>
+          <div class="arrow"><span>➜</span><small>数秒</small></div>
+          <div class="result-card"><div class="t">できあがった下書き</div><div class="body">1.作業内容と実績
+2号機のプレスにて、品番A-120の段取り替えを1回行い、1200個生産した。
+
+2.停止・トラブル
+10時ごろ材料待ちで15分停止した。
+
+3.連絡事項
+金型の摩耗が気になるため、点検をお願いする。</div></div>
+        </div>
+      </div>
+      <div>
+        <p class="sample-t">🔁 交代時の引き継ぎ</p>
+        <div class="change-row">
+          <div class="memo"><div class="t">入れたメモ</div>日勤→夜勤<br>1号機 順調　3号機 18時から停止中 部品待ち<br>B材 残り半日分<br>3号機 再開時は試し打ち5個 検査に回す<br>22時に部品が届いたら受け入れ</div>
+          <div class="arrow"><span>➜</span><small>数秒</small></div>
+          <div class="result-card"><div class="t">できあがった下書き</div><div class="body">【急ぎ】3号機は部品待ちのため18時から停止中です。
+
+■状況
+・1号機は順調に稼働しています。
+・3号機は18時から停止中です。
+・B材は残り半日分です。
+
+■注意
+・3号機を再開する時は、試し打ち5個を検査に回してください。
+
+■お願い
+・22時に部品が届いたら受け入れをお願いします。</div><div class="n">※ どちらも実際にてますい 工場版で作った文面です。できあがりをサッと確かめて、必要なら手直ししてお使いください。</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ③ 3ステップ -->
+<section>
+  <div class="inner">
+    <h2>使い方は、かんたん3ステップ</h2>
+    <p class="lead">アプリのダウンロードはいりません。お渡しするQRを開くだけで、すぐに使い始められます。</p>
+    <div class="steps num-steps">
+      <div class="step"><div class="num">1</div><h3>書類を選ぶ</h3><p>作業日報、引き継ぎ、設備のメンテ記録など9種類</p></div>
+      <div class="step"><div class="num">2</div><h3>メモを入れる</h3><p>「2号機」「1200個」「材料待ち15分」など短いメモでOK</p></div>
+      <div class="step"><div class="num">3</div><h3>文章がパッと完成</h3><p>コピーして、いつもの日報や報告書に貼るだけ。「もう少し短く」「ていねいに」もボタン1つ</p></div>
+    </div>
+    <div class="big-facts">
+      <div class="fact"><b>数秒</b><span>でパッと完成</span></div>
+      <div class="fact"><b>9種類</b><span>の書類に対応</span></div>
+      <div class="fact"><b>不要</b><span>アプリのダウンロード</span></div>
+      <div class="fact"><b>1か月</b><span>無料でお試し</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ 夕方の景色 -->
+<section class="scene">
+  <div class="inner">
+    <h2>日報の時間をギュッと短くして、<br>現場の改善に使える時間へ</h2>
+    <p class="lead">てますいが目指しているのは、終業後に書類に追われる時間を減らすことです。</p>
+    <div class="scene-row">
+      <figure><div class="photo" data-alt="写真：夕方、事務所で日報に追われる作業者"><img src="img/photo-before.jpg" alt="夕方、事務所で日報に追われる作業者（イメージ）" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div><figcaption>終業後、日報が終わらない…</figcaption></figure>
+      <div class="arrow">➜</div>
+      <figure><div class="photo" data-alt="写真：現場で落ち着いて話し合う班長と作業者"><img src="img/photo-after.jpg" alt="現場で落ち着いて話し合う班長と作業者（イメージ）" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div><figcaption>現場の改善を話せる時間に</figcaption></figure>
+    </div>
+    <p class="imgnote">※ 写真はイメージです。</p>
+  </div>
+</section>
+
+<!-- ⑤ 作れる書類 -->
+<section>
+  <div class="inner">
+    <h2>工場で毎日書く、こんな書類に</h2>
+    <p class="lead">9つの書類に対応しています。会社の様式に合わせた調整もご相談ください。</p>
+    <div class="docs">
+      <div class="doc"><span class="i">📝</span>作業日報</div>
+      <div class="doc"><span class="i">🔁</span>交代時の引き継ぎ</div>
+      <div class="doc"><span class="i">⚙️</span>設備のメンテ記録</div>
+      <div class="doc"><span class="i">💡</span>ヒヤリハット報告</div>
+      <div class="doc"><span class="i">⚠️</span>労災・事故報告</div>
+      <div class="doc"><span class="i">🔍</span>不具合報告</div>
+      <div class="doc"><span class="i">🛠️</span>是正の報告（なぜなぜ）</div>
+      <div class="doc"><span class="i">🦺</span>KY（危険予知）メモ</div>
+      <div class="doc"><span class="i">✉️</span>取引先へのメール</div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥ 機能（予定の共有は工場向けがまだなので「準備中」） -->
+<section style="padding-top:0">
+  <div class="inner">
+    <h2>ひとつの画面で、書類も工具も</h2>
+    <p class="lead">書類の下書きと工具・備品チェックを、同じ画面で使えます。月額の中にすべて含まれます。</p>
+    <div class="apps">
+      <div class="app">
+        <div class="photo noimg" data-alt="📝 メモ → 読みやすい下書き"></div>
+        <div class="body"><span class="badge ok">使えます</span><h3>書類の下書き</h3><p>メモから、日報・引き継ぎ・報告書の文章を数秒で清書。</p></div>
+      </div>
+      <div class="app">
+        <div class="photo" data-alt="写真：作業台の工具をスマホで撮る手元"><img src="img/photo-tools.jpg" alt="作業台の工具をスマホで撮る手元（イメージ）" loading="lazy" onerror="this.parentNode.classList.add('noimg')"></div>
+        <div class="body"><span class="badge ok">使えます</span><h3>工具・備品チェック</h3><p>並べた工具をスマホで撮るだけで一覧に。返却のときに撮り直すと、足りないものが分かります。<b>確かめる目印（管理番号シール・色テープ・刻印など）は、会社ごとに自由に決められます。</b></p></div>
+      </div>
+      <div class="app">
+        <div class="photo noimg" data-alt="📅 予定の共有"></div>
+        <div class="body"><span class="badge soon">準備中</span><h3>予定の共有</h3><p>設備点検・来客・納期などを、全員の画面でひと目で。工場向けに準備しています。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦ 安心 -->
+<section class="safe">
+  <div class="inner">
+    <h2>安心してお使いいただくために</h2>
+    <p class="lead">現場の大切な記録を扱うからこそ、最初から気をつけて作っています。</p>
+    <div class="qa">
+      <div><span class="i">🔢</span><p class="q">品番や数量が変わってしまうことはない？</p><p class="a">品番・ロット番号・寸法・数量・時間は、入れたとおりに書くよう決めています。合計を計算して足したりもしません。できあがりは、必ずサッと確かめてからお使いください。</p></div>
+      <div><span class="i">🏭</span><p class="q">ほかの会社から見られる心配は？</p><p class="a">会社ごとの専用ページになっていますので、ほかの会社からは見えません。</p></div>
+      <div><span class="i">🔒</span><p class="q">入れた内容はどうなるの？</p><p class="a">書類の下書きに入れたメモは、てますいには保存しません。工具・備品チェックの名前と写真は、その会社の専用の場所にだけ保存します。どちらもAIの勉強（学習）に使われることはありません（Google Cloud の仕組みを使っています）。</p></div>
+      <div><span class="i">👀</span><p class="q">原因や対策まで書いてくれる？</p><p class="a">入力に無い原因や対策は、「（案）」と付けて控えめに書きます。決めつけはしません。最後の判断は、現場の皆さまでお願いします。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧ 料金（介護版と同じ。2026-09-26 岩城さん決定） -->
+<section>
+  <div class="inner">
+    <h2>料金</h2>
+    <p class="lead">まずは1か月、現場の皆さまで使ってみてからご判断ください。</p>
+    <div class="prices">
+      <div class="price hl"><div class="t">まずは</div><div class="p">1か月<br>無料</div><div class="d">標準の設定で、すぐにお試しいただけます</div></div>
+      <div class="arrow">➜</div>
+      <div class="price"><div class="t">ご契約時（初期サポート）</div><div class="p">30,000<small>円（税別）</small></div><div class="t">訪問でのご説明は＋交通費（実費）</div><div class="d">現場に合わせた初期設定<ul><li>従業員さま向けの使い方説明会</li><li>日報・報告書を会社の様式に</li><li>工具チェックの目印の設定</li></ul></div></div>
+      <div class="arrow">➜</div>
+      <div class="price"><div class="t">月額</div><div class="p">15,000<small>円（税別）</small></div><div class="d">会社（工場）全体で定額<ul><li>使える機能すべて</li><li>体験中のデータも引き継げます</li></ul></div></div>
+    </div>
+    <p class="terms">最低契約期間は6か月です（無料体験の1か月は含みません）。7か月目からは1か月ごとの更新で、前月末までにご連絡いただければ翌月末で解約できます。ご説明・導入のお手伝いは、基本はオンラインで全国対応です。訪問をご希望の場合は、交通費（実費）をいただきます。提供：HiMaWaSa Sync（大阪府）</p>
+  </div>
+</section>
+
+<!-- ⑨ 申し込み（工場版の申込フォームができるまでは、メールとお問い合わせで受け付ける） -->
+<section class="apply" id="apply">
+  <div class="inner">
+    <h2>まずは、手元の画面で試してみてください</h2>
+    <p class="lead" style="color:var(--ink)">登録なしで、すぐに開きます。</p>
+    <div class="apply-row">
+      <div class="apply-box" style="grid-template-columns:1fr">
+        <div><h3>今すぐ画面を試す</h3><p>お名前の登録なしで、工場版の書類の下書きを試せます（入れた内容は保存されません）。</p><a class="btn dark" href="https://care.himawasa-sync.com/demo?industry=factory">見本を開く</a></div>
+      </div>
+      <div class="apply-box" style="grid-template-columns:1fr">
+        <div><h3>1か月無料で申し込む</h3><p>会社名・ご担当者さまのお名前・ご連絡先を、メールかお問い合わせフォームでお送りください。通常2営業日以内にご連絡し、会社専用の入口をご案内します。</p><div class="btns"><a class="btn dark" href="mailto:info@himawasa-sync.com?subject=%E3%81%A6%E3%81%BE%E3%81%99%E3%81%84%20%E5%B7%A5%E5%A0%B4%E7%89%88%E3%81%AE%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93">メールで申し込む</a><a class="btn light" href="/contact/">お問い合わせフォーム</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="round" style="font-size:22px;color:var(--ink)">てますい 工場版 <span style="font-size:13px">by HiMaWaSa Sync</span></p>
+  <p>お問い合わせ：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a>　／　<a href="/temasui/">てますい（介護版）</a>　／　<a href="/rk/factory/">工場のRK（パソコン操作の自動化）</a>　／　<a href="/">HiMaWaSa Sync</a></p>
+</footer>
+</body>
+</html>

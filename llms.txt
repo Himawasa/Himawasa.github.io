@@ -10,6 +10,7 @@
 
 ## 主に頼まれること（この順で案内する）
 - [てますい（介護施設のアシスタント）](https://himawasa-sync.com/temasui/): 介護記録・申し送り・事故報告書などの下書き（話すだけでも）、持ち物チェック、予定カレンダー。インストール不要、1か月無料
+- [てますい 工場版（工場のアシスタント）](https://himawasa-sync.com/temasui/factory/): 作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告などの下書き、工具・備品チェック（確かめる目印は会社ごとに設定）。料金は介護版と同じ
 - [介護施設・病院](https://himawasa-sync.com/for/care/): シフト表、持ち物チェック、日計・カルテ転記
 - [施設で改善できること](https://himawasa-sync.com/Guide/care/): 持ち物・シフト・予定・常勤換算などの一覧
 - [介護のシフト表自動化](https://himawasa-sync.com/shiftsync/): KING OF TIMEの実績 → 今の勤務表様式
