@@ -545,7 +545,8 @@ function pageOgUrl(page) {
   return page.ogImage.startsWith('http') ? page.ogImage : `${SITE.url}${page.ogImage}`
 }
 
-export function generateSitemapXml() {
+// lastmodOf：ページの更新日を返す関数（ビルド時に vite.config.js が git の記録日を渡す）。無ければ PUBLIC_PAGES の手書きの日付
+export function generateSitemapXml(lastmodOf = (p) => p.lastmod) {
   const byPath = Object.fromEntries(Object.values(PAGES).map((p) => [p.path, p]))
   const urls = PUBLIC_PAGES.map((p) => {
     const page = byPath[p.path]
@@ -574,7 +575,7 @@ export function generateSitemapXml() {
     </image:image>`).join('\n')
     return `  <url>
     <loc>${SITE_URL}${p.path}</loc>
-    <lastmod>${p.lastmod}</lastmod>
+    <lastmod>${lastmodOf(p)}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
 ${imageXml}

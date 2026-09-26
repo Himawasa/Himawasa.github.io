@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import { existsSync, mkdirSync, readFileSync, writeFileSync, realpathSync } from 'fs'
 import { join, resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { execFileSync } from 'child_process'
 import {
   PAGES,
   generateSeoHead,
@@ -17,6 +18,39 @@ import {
 /** つなぎ経由でも実体パスで揃える（Windows junction 対策） */
 const projectRoot = realpathSync(dirname(fileURLToPath(import.meta.url)))
 let outDirAbs = ''
+
+// サイトマップの更新日（lastmod）は、そのページのファイルを最後に git に記録した日にする。
+// 手書きだと直し忘れて古いまま止まる（2026-09-26 のレビューで、ほぼ全ページが古かった）。
+// 画面（React）のページは元のファイル、素の HTML のページは public/<住所>/index.html を見る。
+const PAGE_SOURCES = {
+  '/': 'src/pages/Home',
+  '/services/': 'src/pages/ServicesPage.jsx',
+  '/works/': 'src/pages/WorksPage.jsx',
+  '/about/': 'src/pages/AboutPage.jsx',
+  '/ai/': 'src/pages/AiPage.jsx',
+  '/contact/': 'src/pages/ContactPage.jsx',
+  '/try/': 'src/pages/TryPage.jsx',
+  '/privacy/': 'src/pages/PrivacyPage.jsx',
+  '/cardsync/': 'src/pages/CardSync',
+}
+function gitDate(rel) {
+  try {
+    return execFileSync('git', ['log', '-1', '--format=%cs', '--', rel], { cwd: projectRoot, encoding: 'utf8' }).trim()
+  } catch {
+    return ''
+  }
+}
+function lastmodOf(p) {
+  let src = PAGE_SOURCES[p.path]
+  if (!src && p.path.startsWith('/for/')) src = 'src/pages/for'
+  if (!src && p.path.startsWith('/rk/')) src = 'src/pages/rk'
+  if (!src) {
+    const html = join('public', p.path, 'index.html')
+    if (existsSync(join(projectRoot, html))) src = html
+  }
+  // git が使えないときや記録が無いときは、PUBLIC_PAGES の手書きの日付
+  return (src && gitDate(src)) || p.lastmod
+}
 
 export default defineConfig({
   root: projectRoot,
@@ -59,7 +93,7 @@ export default defineConfig({
           throw new Error(`SEO 後処理: ${indexPath} がまだ無い。Vite の出力先を確認してください。`)
         }
         writeFileSync(join(dist, '.gitignore'), '# React build output\n# all files are intentionally public\n')
-        writeFileSync(join(dist, 'sitemap.xml'), generateSitemapXml())
+        writeFileSync(join(dist, 'sitemap.xml'), generateSitemapXml(lastmodOf))
         writeFileSync(join(dist, 'llms.txt'), generateLlmsTxt())
         writeFileSync(join(dist, 'llms-full.txt'), generateLlmsFullTxt())
 
