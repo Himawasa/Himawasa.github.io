@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react'
+﻿import { useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/Navbar'
@@ -12,11 +12,12 @@ import AiPage from './pages/AiPage'
 import ContactPage from './pages/ContactPage'
 import TryPage from './pages/TryPage'
 import PrivacyPage from './pages/PrivacyPage'
-import AsksDemoPage from './pages/AsksDemo/AsksDemoPage'
-import CardSyncPage from './pages/CardSync/CardSyncPage'
 import NotFoundPage from './pages/NotFoundPage'
-import IndustryPage from './pages/for/IndustryPage'
-import RkPage from './pages/rk/RkPage'
+// トップを開くだけで全ページ分を読まないよう、重いページは開いたときに読み込む（2026-09-26。JS 572KB が1本だった）
+const AsksDemoPage = lazy(() => import('./pages/AsksDemo/AsksDemoPage'))
+const CardSyncPage = lazy(() => import('./pages/CardSync/CardSyncPage'))
+const IndustryPage = lazy(() => import('./pages/for/IndustryPage'))
+const RkPage = lazy(() => import('./pages/rk/RkPage'))
 import FloatingCta from './pages/Home/sections/FloatingCta'
 import { useGaPageView } from './lib/ga'
 import './index.css'
@@ -59,6 +60,7 @@ function AppShell() {
       <HashRedirect />
       {!onSupply && <Navbar />}
       <main id="main-content" style={{ paddingTop: onSupply ? 0 : 'var(--nav-h)' }}>
+        <Suspense fallback={<div style={{ minHeight: '70vh' }} aria-busy="true" />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<ServicesPage />} />
@@ -108,6 +110,7 @@ function AppShell() {
           <Route path="/cardsync/" element={<CardSyncPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        </Suspense>
       </main>
       {!onSupply && <Footer />}
       {!onSupply && !onContact && pathname !== '/' && <FloatingCta />}
