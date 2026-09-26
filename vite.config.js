@@ -32,6 +32,7 @@ const PAGE_SOURCES = {
   '/try/': 'src/pages/TryPage.jsx',
   '/privacy/': 'src/pages/PrivacyPage.jsx',
   '/cardsync/': 'src/pages/CardSync',
+  '/tekipaki/': 'src/pages/Tekipaki',
 }
 function gitDate(rel) {
   try {
@@ -103,7 +104,7 @@ export default defineConfig({
         // GH Pages が未知のURLに返すページ。ホームのtitle/canonicalを名乗らせない
         writeFileSync(join(dist, '404.html'), generateRouteHtml(PAGES.notFound, assets))
         for (const key of [
-          'services', 'works', 'about', 'ai', 'contact', 'try', 'privacy', 'supply', 'card', 'cardsync',
+          'services', 'works', 'about', 'ai', 'contact', 'try', 'privacy', 'supply', 'card', 'cardsync', 'tekipaki',
           'forPro', 'forCare', 'forBiz', 'forFactory',
           'rk', 'rkFactory', 'rkHospital', 'rkCare', 'rkPro', 'rkBiz', 'rkClick',
         ]) {

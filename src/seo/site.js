@@ -120,7 +120,7 @@ export const PAGES = {
     title: '無料体験｜持ち物チェック・PDF変換を先に試せます | HiMaWaSa Sync',
     h1: '無料で体験できるミニアプリ',
     description:
-      'MochiSync・PDFuse Sync・LegoSync・SukkiriSync。写真やPDFで、自動化の感触を先に試せます。法人向けのご相談とは別のサービスです。登録やログインはいりません。',
+      'MochiSync・PDFuse Sync・LegoSync・SukkiriSync・てきぱき。写真やPDF、フォルダの整理で、自動化の感触を先に試せます。法人向けのご相談とは別のサービスです。登録やログインはいりません。',
     og: '登録なしで、先に触ってみる。持ち物リスト、PDF→Excel、書類要約、片付け提案。',
     crumb: '無料体験',
   },
@@ -323,10 +323,59 @@ export const PAGES = {
     keywords: '社員証 作成,職員証 作成,IDカード 作成,来訪者証,入館証,立入許可証,名簿 Excel 差し込み,顔写真 一括,カード発行 ソフト,社内発行',
     crumb: 'CardSync',
   },
+  tekipaki: {
+    key: 'tekipaki',
+    path: '/tekipaki/',
+    title: 'てきぱき｜ファイル名の一括変更・フォルダ整理・転記の自動化を無料で | HiMaWaSa Sync',
+    h1: 'ファイル整理と転記を、パソコンで自動に。',
+    description:
+      'フォルダを選ぶだけで、ファイル名に日付を付けたり、取引先・月・種類ごとに振り分けたり、Excel・CSV を1つにまとめたりできます。表から入力画面への転記ロボも、練習画面で体験できます。無料・登録なし。ファイルはどこにも送りません。',
+    og: 'ファイル名の一括変更・フォルダ分け・Excel のまとめ・転記ロボ。無料・登録なしで、パソコンのブラウザだけで。',
+    ogImage: '/tekipaki/og-tekipaki.png',
+    ogImageAlt: 'てきぱき。ファイル整理と転記を、パソコンで自動に。無料・登録なし',
+    keywords: 'ファイル名 一括変更,ファイル名 日付 付ける,フォルダ 整理 自動,ファイル 振り分け 自動,CSV 結合,Excel まとめる,転記 自動化,Excel Web 入力 自動,RPA 無料 体験,事務作業 自動化 無料',
+    crumb: 'てきぱき',
+  },
 }
 
 // CardSync の体験版（Cloud Run）の URL。空のあいだは、説明ページは「まもなく公開」と出し、体験一覧にも載せない。
 export const CARDSYNC_TRIAL_URL = 'https://card.himawasa-sync.com'
+
+// てきぱき（無料体験）の本体。try.himawasa-sync.com は検索に出さない設定なので、検索の入口は /tekipaki/ の説明ページ
+export const TEKIPAKI_URL = 'https://try.himawasa-sync.com/tekipaki/'
+export const TEKIPAKI_PRACTICE_URL = 'https://try.himawasa-sync.com/tekipaki/practice/'
+
+// てきぱきのよくあるご質問（ページの本文と、検索向けの構造化データ FAQPage で同じものを使う）
+export const TEKIPAKI_FAQS = [
+  {
+    q: '無料ですか？登録は必要ですか？',
+    a: '無料です。登録もログインもいりません。パソコンの Chrome か Edge で開けば、すぐに使えます。',
+  },
+  {
+    q: '整理するファイルは、どこかに送られますか？',
+    a: '送られません。整理はお使いのパソコンのブラウザの中だけで行い、こちらのサーバーには届きません。',
+  },
+  {
+    q: '元のファイルが消えたり、書き換わったりしませんか？',
+    a: 'しません。整理したものは、選んだフォルダの中に作る「整理済み_日時」フォルダにコピーします。中身を確かめてから、元のファイルを片付けてください。',
+  },
+  {
+    q: 'スマートフォンやタブレットで使えますか？',
+    a: 'フォルダ整理は、パソコンの Chrome か Edge だけで使えます。スマートフォン・Safari・Firefox は、ブラウザがフォルダの読み書きに対応していないため使えません。',
+  },
+  {
+    q: 'Excel で保存した CSV（Shift_JIS）も読めますか？',
+    a: '読めます。UTF-8 か Shift_JIS かを自動で見分けます。見出しが同じ Excel・CSV は、1つの Excel にまとめられます。',
+  },
+  {
+    q: '自分の会社のシステムに転記できますか？',
+    a: '無料で体験できる転記ロボは、練習用の画面の中だけで動きます。お使いの勤怠・受注・kintone などの画面に転記したい場合は、その画面に合わせた有料版をご用意しますので、ご相談ください。',
+  },
+  {
+    q: '転記の途中で間違いがあったら、どうなりますか？',
+    a: '入力のチェックに通らない行があると、その行で止まり、どの欄かを赤い枠で示します。「1件ずつ確認しながら」を選ぶと、1件ごとに中身を確かめてから登録できます。',
+  },
+]
 
 // よくあるご質問。ページの本文と、検索向けの構造化データ（FAQPage）で同じものを使う。
 // 検索で見せる答えと、ページに書いてある答えが違うと、検索側に嫌われるため。
@@ -403,6 +452,14 @@ export const TRY_APPS = [
     href: 'https://try.himawasa-sync.com/sukkirisync/',
     btn: '📷 スマホで試す →', btnColor: '#4ecdc4',
     borderColor: 'rgba(78,205,196,0.4)',
+  },
+  {
+    icon: '🗂️', name: 'てきぱき',
+    desc: 'ファイル名をそろえて、フォルダに分けます。転記ロボも練習できます',
+    note: '事務のちょっとした手作業に',
+    href: 'https://himawasa-sync.com/tekipaki/',
+    btn: '💻 PCで試す →', btnColor: '#FFB347',
+    borderColor: 'rgba(255,179,71,0.4)',
   },
   ...(CARDSYNC_TRIAL_URL
     ? [{
@@ -517,6 +574,7 @@ export const PUBLIC_PAGES = [
   { path: '/contact/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.7' },
   { path: '/try/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.6' },
   { path: '/cardsync/', lastmod: '2026-09-21', changefreq: 'weekly', priority: '0.85' },
+  { path: '/tekipaki/', lastmod: '2026-09-27', changefreq: 'weekly', priority: '0.85' },
   { path: '/privacy/', lastmod: '2026-08-17', changefreq: 'yearly', priority: '0.2' },
   { path: '/kintone-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
   { path: '/pro-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
@@ -602,6 +660,7 @@ export function generateLlmsTxt() {
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
 - [キーエンスRK（補助）](https://himawasa-sync.com/rk/): シナリオ作成代行1万円から。代理店ではない。ライセンスは売らない
 - [社員証・来訪者証の社内発行 CardSync](https://himawasa-sync.com/cardsync/): Excelの名簿と顔写真ZIPから、社員証・来訪者証・立入許可証をブラウザで発行。登録不要で体験できる
+- [ファイル整理と転記の自動化 てきぱき](https://himawasa-sync.com/tekipaki/): ファイル名の一括変更・フォルダへの振り分け・Excel/CSV のまとめ、転記ロボの練習。無料・登録なし。ファイルはパソコンの外に送らない
 
 ## 事実（引用してよい）
 - 屋号は HiMaWaSa Sync。個人事業。開業は2024年。
@@ -912,6 +971,60 @@ export function buildPageJsonLd(page) {
         acceptedAnswer: { '@type': 'Answer', text: a },
       })),
     })
+  } else if (page.key === 'tekipaki') {
+    graph.push({
+      '@type': 'WebPage',
+      '@id': `${url}#webpage`,
+      name: page.title,
+      headline: page.h1,
+      description: page.description,
+      url,
+      inLanguage: 'ja',
+      isPartOf: { '@id': `${SITE.url}/#website` },
+      primaryImageOfPage: { '@type': 'ImageObject', url: pageOgUrl(page), caption: page.ogImageAlt },
+    })
+    graph.push({
+      '@type': 'WebApplication',
+      '@id': `${url}#app`,
+      name: 'てきぱき',
+      description: page.description,
+      url: TEKIPAKI_URL,
+      applicationCategory: 'BusinessApplication',
+      applicationSubCategory: 'ファイル整理・転記の自動化',
+      operatingSystem: 'ウェブブラウザ（Windows / macOS の Chrome・Edge）',
+      inLanguage: 'ja',
+      browserRequirements: 'フォルダの読み書き（File System Access API）に対応した Chrome・Edge',
+      publisher: { '@id': `${SITE.url}/#organization` },
+      featureList: [
+        'ファイル名の一括変更（先頭に日付・番号、言葉の置き換え）',
+        'フォルダへの振り分け（種類・月・名前に入っている言葉ごと）',
+        '見出しが同じ Excel・CSV を1つの Excel にまとめる（Shift_JIS 自動判別）',
+        '整理前の確認一覧。元のファイルは残し、コピーだけを作る',
+        '転記ロボ（練習）：1件入力して見せると、残りを CSV から自動入力',
+      ],
+      offers: { '@type': 'Offer', name: '無料体験', price: '0', priceCurrency: 'JPY', description: '登録不要。ファイルはパソコンの外に送りません。', url: TEKIPAKI_URL },
+    })
+    graph.push({
+      '@type': 'HowTo',
+      '@id': `${url}#howto`,
+      name: 'フォルダのファイル名をそろえて振り分ける手順',
+      description: 'てきぱきで、フォルダの中のファイルの名前をそろえ、フォルダに分けるまでの3つの手順。',
+      totalTime: 'PT3M',
+      step: [
+        { '@type': 'HowToStep', position: 1, name: 'フォルダを選ぶ', text: '整理したいフォルダを選び、ブラウザに聞かれたら編集を許可します。' },
+        { '@type': 'HowToStep', position: 2, name: '決まりを選ぶ', text: '日付を付ける、月ごとに分ける、などを選びます。選ぶたびに整理後の一覧が変わります。' },
+        { '@type': 'HowToStep', position: 3, name: '確かめて整理する', text: '一覧でよければ整理します。選んだフォルダの中に「整理済み_日時」フォルダができ、そこにコピーされます。' },
+      ],
+    })
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${url}#faq`,
+      mainEntity: TEKIPAKI_FAQS.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    })
   } else if (page.key === 'rk' || page.key.startsWith('rk')) {
     const rk = RK_BY_PAGE[page.key]
     graph.push({
@@ -1139,6 +1252,18 @@ function pageBodyHtml(page) {
   }
   if (page.key === 'try') {
     return TRY_APPS.map((a) => `<h2>${esc(a.name)}</h2><p>${esc(a.desc)}</p><p><a href="${esc(a.href)}">試す</a></p>`).join('')
+  }
+  if (page.key === 'tekipaki') {
+    // 本文は画面側（React）で描くので、JS を動かさない相手向けに同じ中身の控えを出す。
+    return [
+      `<h2>できること</h2>`,
+      `<p>フォルダを選ぶだけで、ファイル名の先頭に日付や番号を付けたり、「コピー ～」などの言葉を消したりできます。種類・月・名前に入っている言葉（取引先名など）ごとのフォルダに分け、見出しが同じ Excel・CSV を1つにまとめます。</p>`,
+      `<p>元のファイルはそのまま残し、整理したコピーを「整理済み_日時」フォルダに作ります。ファイルはどこにも送りません。</p>`,
+      `<p>転記ロボ（練習）：練習用の入力画面で1件入力して見せると、残りを CSV から自動で入力します。間違いのある行で止まります。</p>`,
+      `<p><a href="${esc(TEKIPAKI_URL)}">フォルダ整理を試す（無料）</a> / <a href="${esc(TEKIPAKI_PRACTICE_URL)}">転記ロボを練習する</a></p>`,
+      `<h2>よくあるご質問</h2>`,
+      TEKIPAKI_FAQS.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join(''),
+    ].join('')
   }
   if (page.key === 'cardsync') {
     // 本文は画面側（React）で描くので、JS を動かさない相手向けに同じ中身の控えを出す。

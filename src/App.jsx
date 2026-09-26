@@ -16,6 +16,7 @@ import NotFoundPage from './pages/NotFoundPage'
 // トップを開くだけで全ページ分を読まないよう、重いページは開いたときに読み込む（2026-09-26。JS 572KB が1本だった）
 const AsksDemoPage = lazy(() => import('./pages/AsksDemo/AsksDemoPage'))
 const CardSyncPage = lazy(() => import('./pages/CardSync/CardSyncPage'))
+const TekipakiPage = lazy(() => import('./pages/Tekipaki/TekipakiPage'))
 const IndustryPage = lazy(() => import('./pages/for/IndustryPage'))
 const RkPage = lazy(() => import('./pages/rk/RkPage'))
 import FloatingCta from './pages/Home/sections/FloatingCta'
@@ -108,6 +109,8 @@ function AppShell() {
           <Route path="/card/" element={<Navigate to="/cardsync/" replace />} />
           <Route path="/cardsync" element={<CardSyncPage />} />
           <Route path="/cardsync/" element={<CardSyncPage />} />
+          <Route path="/tekipaki" element={<TekipakiPage />} />
+          <Route path="/tekipaki/" element={<TekipakiPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

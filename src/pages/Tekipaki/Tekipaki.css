@@ -1,0 +1,95 @@
+/* てきぱきの説明ページ。色は index.css のひまわりの変数を使う（CardSync の説明ページと同じ作り）。 */
+
+.tk-narrow { max-width: 760px; }
+
+/* 見出しが語の途中で折り返さないようにする（auto-phrase は文節で折り返す指定） */
+.tk-pains .section-title,
+.tk-features .section-title,
+.tk-steps .section-title,
+.tk-rules .section-title,
+.tk-paid .section-title,
+.tk-faq .section-title,
+.tk-pain h3,
+.tk-feature h3,
+.tk-step h3 {
+  text-wrap: balance;
+  word-break: auto-phrase;
+}
+
+/* ── 最初の画面：言葉を左、画面の見本を右に ── */
+.tk-hero { padding: 40px 0 56px; }
+.tk-hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 48px; align-items: center; }
+.tk-lead { font-size: 1.1rem; line-height: 2.1; color: var(--black-s); }
+.tk-lead-sub { margin-top: 0.9rem; line-height: 2; color: var(--gray); }
+.tk-cta { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.tk-sub-cta { color: var(--black-s); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.tk-sub-cta:hover { color: #8a6a3d; }
+.tk-cta-note { margin-top: 16px; color: var(--gray); font-size: 0.9rem; line-height: 1.85; }
+.tk-hero-img, .tk-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--cream-bd);
+  box-shadow: var(--shadow);
+  background: #0f1d33;
+}
+
+/* ── こんな手作業 ── */
+.tk-pains { padding: 56px 0; background: var(--white); }
+.tk-pains .section-title { margin-bottom: 28px; }
+.tk-pain-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.tk-pain { border: 1px solid var(--cream-bd); border-radius: var(--radius); background: var(--cream); padding: 22px 20px; }
+.tk-pain h3 { font-size: 1.02rem; font-weight: 900; line-height: 1.7; margin-bottom: 10px; }
+.tk-pain p { color: var(--gray); line-height: 1.95; font-size: 0.95rem; }
+
+/* ── できること ── */
+.tk-features { padding: 56px 0; }
+.tk-features .section-title { margin-bottom: 28px; }
+.tk-feature-list { display: grid; gap: 48px; }
+.tk-feature { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; align-items: center; }
+.tk-feature:nth-child(even) > div { order: 2; }
+.tk-kicker { font-size: 0.85rem; font-weight: 900; letter-spacing: 0.08em; color: #8a6a3d; margin-bottom: 6px; }
+.tk-feature h3 { font-size: 1.3rem; font-weight: 900; line-height: 1.6; margin-bottom: 12px; }
+.tk-feature ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+.tk-feature li { color: var(--gray); line-height: 1.9; }
+.tk-feature-link { display: inline-block; margin-top: 16px; font-weight: 700; color: var(--black-s); text-decoration: underline; text-underline-offset: 4px; }
+.tk-feature-link:hover { color: #8a6a3d; }
+
+/* ── 使い方3つ ── */
+.tk-steps { padding: 56px 0; background: var(--white); }
+.tk-steps .section-title { margin-bottom: 28px; }
+.tk-step-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; }
+.tk-step { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: start; }
+.tk-step-n { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--yellow); color: #3d2b1f; font-weight: 900; font-size: 1.05rem; }
+.tk-step h3 { font-size: 1.05rem; font-weight: 900; margin-bottom: 8px; }
+.tk-step p { color: var(--gray); line-height: 1.95; font-size: 0.95rem; }
+
+/* ── お約束 ── */
+.tk-rules { padding: 56px 0; background: var(--cream-dk); }
+.tk-rules .section-title { margin-bottom: 20px; }
+.tk-rule-list { list-style: none; display: grid; gap: 12px; padding: 0; }
+.tk-rule-list li { background: var(--white); border: 1px solid var(--cream-bd); border-radius: var(--radius); padding: 14px 18px; line-height: 1.85; color: var(--black-s); }
+
+/* ── 有料版・ほかの相談 ── */
+.tk-paid { padding: 56px 0; }
+.tk-paid .section-title { margin-bottom: 16px; }
+.tk-paid p { line-height: 2; color: var(--black-s); }
+.tk-paid a { text-decoration: underline; text-underline-offset: 4px; font-weight: 700; }
+
+/* ── よくあるご質問 ── */
+.tk-faq { padding: 56px 0; background: var(--white); }
+.tk-faq .section-title { margin-bottom: 20px; }
+.tk-faq-list { display: grid; gap: 10px; }
+.tk-faq-item { background: var(--cream); border: 1px solid var(--cream-bd); border-radius: var(--radius); padding: 14px 18px; }
+.tk-faq-item summary { cursor: pointer; font-weight: 700; line-height: 1.75; color: var(--black-s); word-break: auto-phrase; }
+.tk-faq-item summary::marker { color: #8a6a3d; }
+.tk-faq-item p { margin-top: 10px; color: var(--gray); line-height: 1.95; }
+
+@media (max-width: 900px) {
+  .tk-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .tk-pain-list, .tk-step-list { grid-template-columns: 1fr; }
+  .tk-feature { grid-template-columns: 1fr; gap: 16px; }
+  .tk-feature:nth-child(even) > div { order: 0; }
+  .tk-hero { padding: 28px 0 40px; }
+  .tk-pains, .tk-features, .tk-steps, .tk-rules, .tk-paid, .tk-faq { padding: 40px 0; }
+}
