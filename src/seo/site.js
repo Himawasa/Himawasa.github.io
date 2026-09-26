@@ -707,15 +707,16 @@ export function buildJsonLd() {
         publisher: { '@id': orgId },
         description: SITE.description,
       },
+      // 店舗向けの ProfessionalService（LocalBusiness）は住所が必須。住所を出さない方針なので Service にする（2026-09-26）
       {
-        '@type': 'ProfessionalService',
+        '@type': 'Service',
         '@id': `${SITE.url}/#service`,
         name: SITE.name,
         url: `${SITE.url}/`,
         image: SITE.ogImage,
-        email: SITE.email,
         areaServed: { '@type': 'Country', name: 'Japan' },
         serviceType: [
+          'てますい（業種別の書類下書きアシスタント：介護・工場）',
           '介護施設のシフト表自動化',
           '病院の日計・カルテ転記',
           '士業の期日・請求自動化',
@@ -726,7 +727,7 @@ export function buildJsonLd() {
         ],
         audience: {
           '@type': 'Audience',
-          audienceType: '介護施設、病院・医事課、士業事務所、中小企業',
+          audienceType: '介護施設、病院・医事課、士業事務所、中小企業、工場',
         },
         provider: { '@id': orgId },
         description: SITE.description,
@@ -746,7 +747,7 @@ export function buildJsonLd() {
       },
       {
         '@type': 'FAQPage',
-        '@id': `${SITE.url}/contact/#faq`,
+        '@id': `${SITE.url}/#faq`,
         mainEntity: FAQS.map(({ q, a }) => ({
           '@type': 'Question',
           name: q,
