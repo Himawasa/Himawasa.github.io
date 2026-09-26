@@ -369,12 +369,14 @@ export const CARDSYNC_FAQS = [
   },
 ]
 
+// 体験アプリの飛び先は try.himawasa-sync.com へ直接（himawasa-sync.com/<app>/ の中継ページを通すと、
+// ブラウザが覚えている古い中継ページ（GAS行き）が使われることがあるため）
 export const TRY_APPS = [
   {
     icon: '📦', name: 'MochiSync',
     desc: '写真を撮るだけで、持ち物リストができます',
     note: '介護施設の入所時に最適',
-    href: 'https://himawasa-sync.com/mochisync/',
+    href: 'https://try.himawasa-sync.com/mochisync/',
     btn: '📷 スマホで試す →', btnColor: '#69DB7C',
     borderColor: 'rgba(105,219,124,0.4)',
   },
@@ -382,7 +384,7 @@ export const TRY_APPS = [
     icon: '📄', name: 'PDFuse Sync',
     desc: 'PDFを上げるだけで、Excelになります',
     note: '請求書・帳票のデータ化に',
-    href: 'https://himawasa-sync.com/pdfuse/',
+    href: 'https://try.himawasa-sync.com/pdfuse/',
     btn: '📄 PCで試す →', btnColor: '#64b5f6',
     borderColor: 'rgba(100,180,246,0.4)',
   },
@@ -390,7 +392,7 @@ export const TRY_APPS = [
     icon: '📋', name: 'LegoSync',
     desc: 'カメラで撮ると、書類の要約が出ます',
     note: 'どんな業界の書類でもOK',
-    href: 'https://himawasa-sync.com/legosync/',
+    href: 'https://try.himawasa-sync.com/legosync/',
     btn: '📷 スマホで試す →', btnColor: '#FFB347',
     borderColor: 'rgba(255,179,71,0.4)',
   },
@@ -398,7 +400,7 @@ export const TRY_APPS = [
     icon: '🧹', name: 'SukkiriSync',
     desc: '部屋の写真から、片付けの順番を出します',
     note: 'お部屋も施設もスッキリ',
-    href: 'https://himawasa-sync.com/sukkirisync/',
+    href: 'https://try.himawasa-sync.com/sukkirisync/',
     btn: '📷 スマホで試す →', btnColor: '#4ecdc4',
     borderColor: 'rgba(78,205,196,0.4)',
   },
