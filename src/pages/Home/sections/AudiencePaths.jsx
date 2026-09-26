@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Reveal from '../../../components/Reveal'
 
-/** トップの3扉 — 業界玄関へ送る */
+/** トップの4扉 — 業界玄関へ送る（工場は 2026-09-26 追加） */
 const paths = [
   {
     id: 'for-pro',
@@ -36,6 +36,19 @@ const paths = [
     points: ['帳票の転記（PDF→Excel）', 'Excelの整理をkintoneで', '繰り返し作業をGAS・AIで'],
     to: '/for/biz',
     cta: '中小企業の案内を見る',
+  },
+  {
+    id: 'for-factory',
+    tone: 'factory',
+    icon: '🏭',
+    title: '工場の方',
+    lead: '毎日書く手間を、シンプルにする。',
+    points: ['作業日報・引き継ぎの下書き', '工具・備品の持ち出し点検', '測定値や実績の転記'],
+    to: '/for/factory',
+    cta: '工場の案内を見る',
+    // 紹介ページは静的HTMLのため <a href>
+    subHref: '/temasui/factory/',
+    subCta: 'てますい 工場版を見る',
   },
 ]
 

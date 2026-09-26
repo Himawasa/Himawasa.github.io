@@ -239,7 +239,9 @@
 
 /* ===== お悩み別導線 ===== */
 .paths { background: var(--cream); }
-.paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.paths-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+/* 4扉（2026-09-26〜）。中くらいの幅では2列×2段にして、1枚だけ余らないようにする */
+@media (max-width: 1100px) { .paths-grid { grid-template-columns: repeat(2, 1fr); } }
 .path-card {
   background: #fff;
   border: 1px solid var(--cream-bd);
@@ -286,6 +288,7 @@
 .path-card--pro { border-top: 4px solid #1C7ED6; }
 .path-card--care { border-top: 4px solid #2F9E44; }
 .path-card--biz { border-top: 4px solid #E67700; }
+.path-card--factory { border-top: 4px solid #495057; }
 
 /* ===== トップの Before/After チラ見せ ===== */
 .home-proof {

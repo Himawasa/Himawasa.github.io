@@ -134,6 +134,7 @@ const paths = [
   { href: '/for/pro', label: '士業の方' },
   { href: '/for/care', label: '介護・医療の方' },
   { href: '/for/biz', label: '中小企業の方' },
+  { href: '/for/factory', label: '工場の方' },
 ]
 
 export default function Hero() {
