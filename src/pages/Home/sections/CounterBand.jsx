@@ -5,8 +5,8 @@ import Reveal from '../../../components/Reveal'
 const counters = [
   { target: 45, suffix: '+', label: '現場自動化の実績', icon: '🚀', color: '#C99700' },
   { target: 17, suffix: '+', label: '現在稼働中のシステム', icon: '⚡', color: '#2F9E44' },
-  { target: 1,  suffix: '週間〜', label: '最短での稼働目安',     icon: '🛠️', color: '#1C7ED6' },
-  { target: 25, suffix: '年+', label: 'IT業界キャリア',    icon: '🏆', color: '#E67700' },
+  { target: 1,  suffix: '週間〜', label: '動き出すまでの最短の目安',     icon: '🛠️', color: '#1C7ED6' },
+  { target: 25, suffix: '年+', label: 'IT業界での経験',    icon: '🏆', color: '#E67700' },
 ]
 
 function CountItem({ target, suffix, label, icon, color, active }) {

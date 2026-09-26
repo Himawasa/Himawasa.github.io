@@ -66,7 +66,7 @@ export default function Pricing() {
           <div className="rk-price-card is-main">
             <p className="rk-price-label">RK運用保守代行</p>
             <p className="rk-price-num">5,000<span>円〜 / 月</span></p>
-            <p>止まったら戻す。画面変更の追随。</p>
+            <p>止まったら、動く状態に戻します。画面の変更にも合わせます。</p>
           </div>
           <div className="rk-price-card">
             <p className="rk-price-label">詳しく見る</p>

@@ -22,7 +22,7 @@ const results = [
     after: '施設全体を一画面に。現場が同じ情報を見ながら動ける。',
   },
   {
-    impact: '検索ゼロ', unit: '期日漏れ事故ゼロへ',
+    impact: '検索ゼロ', unit: '期日は自動でお知らせ',
     label: '⚖️ 士業の顧客台帳・期日管理',
     before: 'Excel・Word・紙が分散。期日確認を手帳で行い、常に確認漏れの不安を抱えている。',
     after: '顧客名入力で全履歴が一画面。7日前・3日前・当日に自動でお知らせします。',
@@ -41,7 +41,7 @@ export default function Results() {
         <Reveal direction="up" className="section-header">
           <span className="section-label">RESULTS</span>
           <h2 className="section-title">導入で変わる、現場の時間</h2>
-          <p className="section-desc">「何が楽になるか」を、数字で見られます</p>
+          <p className="section-desc">導入の前と後を、数字でお見せします</p>
         </Reveal>
         <div className="results-grid">
           {results.map(({ impact, unit, label, before, after }, i) => (

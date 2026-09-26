@@ -18,7 +18,7 @@ export default function WorksPage() {
         title={p.h1}
         desc={
           <>
-            士業・介護・医療・中小企業の現場で動かしてきた実績。例：5時間の手作業が3分に。
+            士業・介護・医療・中小企業の現場で動かしてきた実績です。5時間かかっていた手作業が、3分になった例もあります。
             <br />
             許可をいただいた範囲の効果と、公開できる開発事例を掲載しています。
           </>
@@ -33,7 +33,7 @@ export default function WorksPage() {
       <section className="ai-teaser">
         <div className="container">
           <span className="section-label">TRY NOW</span>
-          <h2>先に、触ってみたい方へ</h2>
+          <h2>相談の前に、触ってみたい方へ</h2>
           <p>持ち物チェックやPDF変換など、無料で試せるミニアプリがあります。</p>
           <Link to="/try" className="btn-yellow">無料体験を見る</Link>
         </div>

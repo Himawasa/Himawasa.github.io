@@ -157,7 +157,7 @@ export default function RkPage({ kind }) {
                   <li key={item}>{item}</li>
                 ))}
               </ol>
-              <p className="rk-ask-note">答えられなくても大丈夫です。分からないところから、一緒に切ります。</p>
+              <p className="rk-ask-note">答えられなくても大丈夫です。分からないところから、一緒に整理します。</p>
             </div>
           </section>
         )}
@@ -185,7 +185,7 @@ export default function RkPage({ kind }) {
             <div className="rk-price">
               {(data.plans || [
                 { name: 'シナリオ作成代行', price: RK_PRICE.scenario, unit: '円〜', text: '一本目。今の画面操作を見て作ります。' },
-                { name: '運用・保守代行', price: RK_PRICE.maintain, unit: '円〜 / 月', text: '画面が変わって止まったら、戻す。', main: true },
+                { name: '運用・保守代行', price: RK_PRICE.maintain, unit: '円〜 / 月', text: '画面が変わって止まったら、動く状態に戻します。', main: true },
                 { name: '初回相談', price: '0', unit: '円 / 30分', text: '売り込みの電話はしません。' },
               ]).map((plan) => (
                 <div key={plan.name} className={`rk-price-card${plan.main ? ' is-main' : ''}`}>
@@ -244,7 +244,7 @@ export default function RkPage({ kind }) {
         <section className="ind-close">
           <div className="container">
             <h2>{data.close}</h2>
-            <p>現状のヒアリングは無料です。今の画面を30分見せてください。覚えられる手順かどうか、その場で切ります。</p>
+            <p>現状のヒアリングは無料です。今の画面を30分見せてください。覚えられる手順かどうか、その場でお答えします。</p>
             <div className="ind-hero-cta">
               <Link to="/contact" className="btn-yellow">話してみる（無料）</Link>
               <a href="mailto:info@himawasa-sync.com" className="ind-text-link">info@himawasa-sync.com</a>
