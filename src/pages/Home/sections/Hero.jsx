@@ -125,7 +125,7 @@ const cards = [
   },
   {
     icon: '🤝', iconClass: 'icon-green', label: '始め方',
-    value: '小さく伴走', valueClass: 'green',
+    value: '小さく始める', valueClass: 'green',
     sub: '低価格から。使いながら、一緒に育てます。',
   },
 ]

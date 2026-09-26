@@ -18,27 +18,27 @@ const services = [
   },
   {
     icon: '🔄', title: '業務自動化（GAS・AI）',
-    desc: '手入力・コピペ・転記など、毎日の繰り返し作業を自動化します。特定の担当者しか使えない属人化を防ぎ、誰でも使える形に整えます。',
+    desc: '手入力・コピペ・転記など、毎日の繰り返し作業を自動化します。「あの人しかやり方がわからない」をなくし、誰でも使える形に整えます。',
     list: ['帳票・書類の自動作成', 'スプレッドシート自動集計', 'Yoom設定・保守'],
   },
   {
     icon: '⚖️', title: '士業向けDX支援',
-    desc: '社労士・税理士・弁護士など、紙や手作業が多く残る士業の現場を、GASとAIでシンプルに効率化します。',
+    desc: '社労士・税理士・弁護士など、紙や手作業が多く残る士業の現場で、期日の確認や書類づくりをGASとAIで自動化します。',
     list: ['給与計算処理の自動化', '帳票・契約書・議事録の自動生成', 'Google Workspaceフル活用支援'],
   },
   {
     icon: '💡', title: '業務改善コンサルティング',
     desc: '「何から始めればいいか分からない」でも大丈夫です。現場の困りごとを一緒に整理して、小さく作ります。',
-    list: ['DX推進の方向性相談', '既存システムの改善提案', 'コスト最小・効果最大の設計'],
+    list: ['何から手を付けるかの整理', '今あるシステムやExcelの手直し', 'お金をかけずに小さく始める設計'],
   },
   {
     icon: '🛡️', title: 'システム保守・運用',
-    desc: 'AIで作った仕組みの点検も対応します。作って終わりではなく、仕組みを理解しているエンジニアが継続して保守・運用をサポートします。',
+    desc: 'AIで作った仕組みの点検も対応します。作って終わりではなく、仕組みが分かる人が、続けて保守と運用を引き受けます。',
     list: ['既存GAS・AI製システムの改修', '障害対応・ログ確認', '機能改善の提案・優先度整理'],
   },
   {
     icon: '🤖', title: 'AI活用コンサルティング',
-    desc: 'Gemini AI・Vertex AIなどGoogleの最新AI技術を活用し、現場に合った形で業務に組み込むご支援をします。',
+    desc: 'GoogleのAI（Gemini・Vertex AI）を使って、文字の読み取りや文章の下書きなど、手作業のすき間を埋める仕組みを作ります。',
     list: ['AI画像認識・文書解析', '議事録・要約の自動生成', 'チャットボット開発・運用'],
   },
 ]
@@ -55,7 +55,7 @@ export default function Services() {
         <Reveal direction="up" className="section-header">
           <span className="section-label">SERVICES</span>
           <h2 className="section-title">ご提供できるサービス</h2>
-          <p className="section-desc">現場が抱える「困った」をソフトウェアで解決します</p>
+          <p className="section-desc">現場の「困った」を、今のパソコンとExcelのまま軽くします</p>
         </Reveal>
         <div className="services-grid">
           {services.map(({ icon, title, desc, list, to }, i) => {

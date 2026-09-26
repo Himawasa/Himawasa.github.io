@@ -23,14 +23,14 @@ const projects = [
     icon: '⚙️', status: '稼働中', badge: '業務自動化', badgeClass: 'cat-auto',
     title: 'ksSYNC ─ 現場業務の自動化',
     desc: '今のExcelやスプレッドシートのまま、毎日の繰り返し作業を自動化します。現場ごとの様式に合わせて設計した独自ツールです。',
-    tags: ['GAS', 'Excel', '現場伴走'],
+    tags: ['GAS', 'Excel', '現場で調整'],
     domain: '業務自動化 / 現場特化', version: 'v1.0',
     href: null, highlight: true,
   },
   {
     icon: '⚖️', status: '稼働中', badge: 'Java / Spring Boot', badgeStyle: { background: '#1a3a6b', color: 'white' },
     title: '社労士 × 顧問先 労務管理ポータル',
-    desc: '社労士事務所と顧問先企業をつなぐクラウド型業務ポータル。タスク管理・AI労務相談・見積→受注→請求の自動転記など全13画面を搭載しています。',
+    desc: '社労士事務所と顧問先企業をつなぐクラウド型業務ポータル。タスク管理・AI労務相談・見積→受注→請求の自動転記など、13の画面があります。',
     tags: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Gemini AI'],
     domain: '士業DX / Webアプリ', version: 'v1.0',
     href: '/sharoushi-portal/',
@@ -38,7 +38,7 @@ const projects = [
   {
     icon: '📠', status: '稼働中', badge: '医療AI', badgeClass: 'cat-medical',
     title: 'FAX書類AI自動処理システム',
-    desc: 'FAX受信PDFをAIが自動仕分け・解析し、電子カルテへ自動登録。年間数千枚の紙処理を自動化しました。',
+    desc: '届いたFAXのPDFをAIが読み取って仕分け、電子カルテへ自動で登録します。年間数千枚の紙を、手で仕分けなくてよくなりました。',
     tags: ['Python', 'Vertex AI', 'Selenium'],
     domain: '医療 / 電子カルテ自動化', version: 'v3.4',
   },
@@ -108,7 +108,7 @@ const projects = [
   {
     icon: '💬', status: '稼働中', badge: 'AI活用', badgeClass: 'cat-ai',
     title: '業務問い合わせAIチャットBot',
-    desc: 'FileMakerの問い合わせをAIがChat上で受付・通知・管理。対応状況をリアルタイムに可視化します。',
+    desc: 'FileMakerの問い合わせをAIがChat上で受付・通知・管理。誰がどこまで対応したかを、ひと目で分かるようにしています。',
     tags: ['GAS', 'Google Chat API', 'FileMaker API'],
     domain: '業務効率化 / AIボット', version: 'v1.0',
   },
@@ -126,7 +126,7 @@ export default function Projects() {
         <Reveal direction="up" className="section-header">
           <span className="section-label">PROJECTS</span>
           <h2 className="section-title">主な開発実績</h2>
-          <p className="section-desc">現場から生まれた、リアルな課題解決プロジェクトの一部をご紹介します</p>
+          <p className="section-desc">現場の困りごとから生まれた仕組みを、いくつかご紹介します</p>
         </Reveal>
         <div className="projects-grid">
           {projects.map(({ icon, status, badge, badgeClass, badgeStyle, title, desc, tags, domain, version, href, highlight, live }, i) => {
