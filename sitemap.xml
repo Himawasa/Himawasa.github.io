@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/temasui/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
 
@@ -52,14 +52,14 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/shiftsync/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
 
   </url>
   <url>
     <loc>https://himawasa-sync.com/medical-dx/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
 
@@ -118,8 +118,8 @@
       <image:title>作業台の工具をスマホで撮る手元（イメージ）</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://himawasa-sync.com/dm/dm-smb-pdf.jpg</image:loc>
-      <image:title>測定データや実績をExcelの報告書へ転記する作業</image:title>
+      <image:loc>https://himawasa-sync.com/temasui/factory/img/photo-data.jpg</image:loc>
+      <image:title>品質管理室で、測定値を表計算ソフトに入力している作業者（イメージ）</image:title>
     </image:image>
   </url>
   <url>
@@ -146,14 +146,14 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/services/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
 
   </url>
   <url>
     <loc>https://himawasa-sync.com/works/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
 
@@ -181,7 +181,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/try/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
 
@@ -198,35 +198,35 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/privacy/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
 
   </url>
   <url>
     <loc>https://himawasa-sync.com/kintone-dx/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://himawasa-sync.com/pro-dx/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://himawasa-sync.com/yoom-lp/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 
   </url>
   <url>
     <loc>https://himawasa-sync.com/sharoushi-portal/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 
@@ -240,7 +240,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <image:image>
@@ -266,7 +266,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/care/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <image:image>
@@ -292,7 +292,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/hospital/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <image:image>
@@ -318,7 +318,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/factory/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <image:image>
@@ -344,7 +344,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/pro/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <image:image>
@@ -370,7 +370,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/biz/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <image:image>
@@ -396,7 +396,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/rk/click/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <image:image>
