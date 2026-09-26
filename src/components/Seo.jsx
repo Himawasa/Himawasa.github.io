@@ -44,8 +44,9 @@ export default function Seo({ page = PAGES.home }) {
       <meta property="og:url" content={url} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:alt" content={ogImageAlt} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      {/* 大きさは既定の画像（ogp.png＝1200×630）のときだけ。ページ別の画像は大きさが違う */}
+      {!page.ogImage && <meta property="og:image:width" content="1200" />}
+      {!page.ogImage && <meta property="og:image:height" content="630" />}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={og} />

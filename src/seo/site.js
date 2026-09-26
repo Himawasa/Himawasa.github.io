@@ -1201,8 +1201,9 @@ export function generateSeoHead(page = PAGES.home) {
     `<meta property="og:url" content="${url}" />`,
     `<meta property="og:image" content="${ogImage}" />`,
     `<meta property="og:image:alt" content="${esc(ogImageAlt)}" />`,
-    `<meta property="og:image:width" content="1200" />`,
-    `<meta property="og:image:height" content="630" />`,
+    // 大きさは既定の画像（ogp.png＝1200×630）のときだけ書く。ページ別の画像は大きさが違うので、SNS 側に実物を見てもらう
+    page.ogImage ? '' : `<meta property="og:image:width" content="1200" />`,
+    page.ogImage ? '' : `<meta property="og:image:height" content="630" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${esc(title)}" />`,
     `<meta name="twitter:description" content="${esc(og)}" />`,
