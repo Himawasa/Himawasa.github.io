@@ -14,7 +14,7 @@ export default function TryTeaser() {
         <div className="section-header">
           <span className="section-label">TRY NOW</span>
           <h2 className="section-title">まずはスマホで試してみる</h2>
-          <p className="section-desc">いきなり相談しなくて大丈夫です。無料。Googleアカウントで入れます。</p>
+          <p className="section-desc">いきなり相談しなくて大丈夫です。無料。登録やログインはいりません。</p>
         </div>
         <div className="try-teaser-grid">
           {teasers.map(({ icon, name, desc, href, btn }) => {
