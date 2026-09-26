@@ -44,7 +44,7 @@ export default function TryApps({ hideHeader = false }) {
         </div>
         <Reveal direction="fade" delay={0.4}>
           <p style={{ textAlign: 'center', marginTop: '32px', color: '#888', fontSize: '13px' }}>
-            ※ Googleアカウントでのログインが必要です。データは安全に管理されます。
+            ※ 登録やログインはいりません。写真やファイルは保存しません。
           </p>
         </Reveal>
       </div>
