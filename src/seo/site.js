@@ -504,6 +504,8 @@ export const AI_ERA = {
 }
 
 /** サイトマップに載せる公開ページ（顧客専用・非公開は載せない）。優先は介護・病院。RKは補助。 */
+// 検索に出すページの一覧（サイトマップ）。すぐ GAS へ飛ぶだけの mochisync・pdfuse・legosync・sukkirisync は、
+// 中身が無いので載せない（2026-09-26。ページ側も noindex,follow。体験の入口は /try/）
 export const PUBLIC_PAGES = [
   { path: '/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '1.0' },
   { path: '/for/care/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '0.95' },
@@ -528,10 +530,6 @@ export const PUBLIC_PAGES = [
   { path: '/pro-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
   { path: '/yoom-lp/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.5' },
   { path: '/sharoushi-portal/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.5' },
-  { path: '/mochisync/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.4' },
-  { path: '/pdfuse/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.4' },
-  { path: '/legosync/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.3' },
-  { path: '/sukkirisync/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.3' },
   { path: '/mochisync2/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.3' },
   { path: '/rk/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.5' },
   { path: '/rk/care/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.4' },
