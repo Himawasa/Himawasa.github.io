@@ -26,6 +26,14 @@ export default function PrivacyPage() {
             <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
             をご覧ください。
           </p>
+          <h2>無料体験アプリについて</h2>
+          <p>
+            無料体験アプリ（持ち物チェック・書類の要約・お部屋の片付け提案など）では、よりよいサービスづくりのため、解析結果の文章を運営者が確認することがあります。
+            写真やファイルそのものは保存しません。結果の文章に含まれる電話番号・メールアドレス・郵便番号・生年月日は、自動で伏せてから扱います。
+            解析には Google の AI（Gemini）を使っています。Googleの取り扱いは
+            <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">Gemini API の利用規約</a>
+            をご覧ください。
+          </p>
           <h2>お問い合わせ</h2>
           <p><a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a></p>
         </div>
