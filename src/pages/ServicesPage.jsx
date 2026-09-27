@@ -21,7 +21,7 @@ export default function ServicesPage() {
           <>
             介護のシフト、病院の日計、士業の請求。今のExcelのまま始めます。
             <br />
-            キーエンスRKは、入っている現場の補助です。
+            キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。
           </>
         }
         crumb={p.crumb}
@@ -33,7 +33,7 @@ export default function ServicesPage() {
             <img src="/dm/dm-cover.jpg" alt="" width="440" height="280" />
             <div>
               <h2>介護施設・病院の自動化</h2>
-              <p>シフト表、持ち物、日計・カルテの転記。今のExcelと勤怠ソフトのまま。RKは、入っている現場だけ補助します。</p>
+              <p>シフト表、持ち物、日計・カルテの転記。今のExcelと勤怠ソフトのまま。RKシリーズをお使いの現場では、シナリオ作りもお手伝いします。</p>
               <span>介護・病院の案内を見る →</span>
             </div>
           </Link>

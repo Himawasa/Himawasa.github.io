@@ -61,7 +61,7 @@ export default function Pricing() {
           <div className="rk-price-card">
             <p className="rk-price-label">RKシナリオ作成代行</p>
             <p className="rk-price-num">10,000<span>円〜</span></p>
-            <p>キーエンスRKシリーズ／RK-10。自分で組まなくてよいです。</p>
+            <p>キーエンスRKシリーズ／RK-10 のシナリオを、ご要望に合わせてこちらで作ります。</p>
           </div>
           <div className="rk-price-card is-main">
             <p className="rk-price-label">RK運用保守代行</p>

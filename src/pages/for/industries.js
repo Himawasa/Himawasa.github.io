@@ -59,7 +59,7 @@ export const INDUSTRIES = {
     label: 'FOR CARE & HOSPITAL',
     who: '介護施設・病院のみなさまへ',
     promise: 'シフト・持ち物・日計とカルテの転記',
-    close: '毎月の手間を、ひとつずつ軽くします。RKは、入っている現場の補助です。',
+    close: '毎月の手間を、ひとつずつ軽くします。キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。',
     cite: {
       title: 'ひとことで言うと',
       facts: [
@@ -202,7 +202,7 @@ export const INDUSTRIES = {
     label: 'FOR FACTORY',
     who: '工場のみなさまへ',
     promise: '日報・引き継ぎ・工具の点検・測定値の転記',
-    close: '書く手間と転記の手間を、ひとつずつ軽くします。RKは、入っている工場の補助です。',
+    close: '書く手間と転記の手間を、ひとつずつ軽くします。キーエンスのRKシリーズをお使いの工場では、シナリオ作りもお手伝いします。',
     cite: {
       title: 'ひとことで言うと',
       facts: [
