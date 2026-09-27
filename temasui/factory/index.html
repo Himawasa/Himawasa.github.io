@@ -205,6 +205,13 @@
   .docs { grid-template-columns: repeat(3, 1fr); }
   .industry-bar { background: var(--ink); color: var(--white); font-size: 14px; text-align: center; padding: 8px 16px; }
   .industry-bar a { color: var(--yellow); font-weight: 700; text-decoration: underline; }
+  /* 書き方ガイドへの欄（2026-09-27 SEO：紹介ページから記事へのリンク） */
+  .guide-sec { background: var(--cream); padding: 48px 0; }
+  .guide-links { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .guide-links a { display: block; height: 100%; background: var(--white); border: 2px solid var(--cream-bd); border-radius: 16px; padding: 16px; text-decoration: none; font-weight: 700; line-height: 1.6; }
+  .guide-links span { display: block; font-size: 13px; font-weight: 400; color: var(--gray); margin-top: 4px; }
+  .guide-more { text-align: center; margin-top: 18px; font-size: 14px; }
+  @media (max-width: 860px) { .guide-links { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -407,6 +414,20 @@
         <div><h3>1か月無料で申し込む</h3><p>申込フォームから2分ほどで送れます（会社名・ご担当者さまのお名前・ご連絡先）。通常2営業日以内にご連絡し、会社専用の入口をご案内します。</p><div class="btns"><a class="btn dark" href="https://care.himawasa-sync.com/trial/apply?industry=factory">申込フォームへ（2分ほど）</a></div><p class="btn-note">フォームが使えない場合は <a href="mailto:info@himawasa-sync.com?subject=%E3%81%A6%E3%81%BE%E3%81%99%E3%81%84%20%E5%B7%A5%E5%A0%B4%E7%89%88%E3%81%AE%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93">メール</a>でもお申し込みいただけます。</p></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ⑩ 書き方ガイド（記事へのリンク） -->
+<section class="guide-sec">
+  <div class="inner">
+    <h2>書き方ガイド</h2>
+    <p class="lead">現場で毎日書く記録の書き方を、例文つきでまとめています。</p>
+    <ul class="guide-links">
+      <li><a href="https://himawasa-sync.com/temasui/guide/sagyo-nippo/">作業日報の書き方とひな形<span>そのまま使える項目と例文</span></a></li>
+      <li><a href="https://himawasa-sync.com/temasui/guide/hiyari-hatto/">ヒヤリハット報告書の書き方と例文<span>5つの項目と、よくない例・よい例</span></a></li>
+      <li><a href="https://himawasa-sync.com/temasui/guide/gaikokujin-kiroku/">外国籍の職員さんの記録、どう助ける？<span>母国語で話すと日本語の記録に</span></a></li>
+    </ul>
+    <p class="guide-more"><a href="https://himawasa-sync.com/temasui/guide/">書き方ガイドの一覧を見る →</a></p>
   </div>
 </section>
 

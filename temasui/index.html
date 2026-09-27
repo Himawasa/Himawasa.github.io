@@ -199,6 +199,13 @@
   /* ⓪ 業種の帯：介護以外の方を各業種版へ案内する（中小企業版・士業版ができたら行を足す） */
   .industry-bar { background: var(--ink); color: var(--white); font-size: 14px; text-align: center; padding: 8px 16px; }
   .industry-bar a { color: var(--yellow); font-weight: 700; text-decoration: underline; }
+  /* 書き方ガイドへの欄（2026-09-27 SEO：紹介ページから記事へのリンク） */
+  .guide-sec { background: var(--cream); padding: 48px 0; }
+  .guide-links { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .guide-links a { display: block; height: 100%; background: var(--white); border: 2px solid var(--cream-bd); border-radius: 16px; padding: 16px; text-decoration: none; font-weight: 700; line-height: 1.6; }
+  .guide-links span { display: block; font-size: 13px; font-weight: 400; color: var(--gray); margin-top: 4px; }
+  .guide-more { text-align: center; margin-top: 18px; font-size: 14px; }
+  @media (max-width: 860px) { .guide-links { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -389,9 +396,23 @@
   </div>
 </section>
 
+<!-- ⑩ 書き方ガイド（記事へのリンク） -->
+<section class="guide-sec">
+  <div class="inner">
+    <h2>書き方ガイド</h2>
+    <p class="lead">現場で毎日書く記録の書き方を、例文つきでまとめています。</p>
+    <ul class="guide-links">
+      <li><a href="https://himawasa-sync.com/temasui/guide/kaigo-kiroku/">介護記録の書き方と例文<span>「様子見」で終わらせない5つのコツ</span></a></li>
+      <li><a href="https://himawasa-sync.com/temasui/guide/hiyari-hatto/">ヒヤリハット報告書の書き方と例文<span>5つの項目と、よくない例・よい例</span></a></li>
+      <li><a href="https://himawasa-sync.com/temasui/guide/gaikokujin-kiroku/">外国籍の職員さんの記録、どう助ける？<span>母国語で話すと日本語の記録に</span></a></li>
+    </ul>
+    <p class="guide-more"><a href="https://himawasa-sync.com/temasui/guide/">書き方ガイドの一覧を見る →</a></p>
+  </div>
+</section>
+
 <footer>
   <p class="round" style="font-size:22px;color:var(--ink)">てますい <span style="font-size:13px">by HiMaWaSa Sync</span></p>
-  <p>お問い合わせ：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a>　／　<a href="/Guide/care/">介護施設で改善できること</a>　／　<a href="/temasui/start/">てますい（業種を選ぶ）</a>　／　<a href="/">HiMaWaSa Sync</a></p>
+  <p>お問い合わせ：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a>　／　<a href="/Guide/care/">介護施設で改善できること</a>　／　<a href="https://himawasa-sync.com/temasui/start/">てますい（業種を選ぶ）</a>　／　<a href="/">HiMaWaSa Sync</a></p>
 </footer>
 
 <!-- 右下の「質問する」（てますいのアプリと同じ部品。答えは care.himawasa-sync.com の AI） -->
