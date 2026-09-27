@@ -107,7 +107,7 @@ export const PAGES = {
   contact: {
     key: 'contact',
     path: '/contact/',
-    title: '無料相談（売り込みなし）｜Excelを見ながら話せます | HiMaWaSa Sync',
+    title: '無料相談（30分）｜今のExcelを見ながら話せます | HiMaWaSa Sync',
     h1: '無料相談',
     description:
       'まずは話を聞いてみたいだけでも大丈夫です。今お使いのExcelを見ながらの相談もできます。返信はメールかフォームです。初回は無料（30分）。',
@@ -129,7 +129,7 @@ export const PAGES = {
     path: '/privacy/',
     title: 'プライバシー | HiMaWaSa Sync',
     h1: '個人情報の扱い',
-    description: '相談でいただいた情報の使い方です。売り込みの電話には使いません。',
+    description: '相談でいただいた情報の使い方です。こちらからの営業の電話には使いません。',
     og: '相談内容は、返信と保守のためにだけ使います。',
     crumb: 'プライバシー',
   },
@@ -150,7 +150,7 @@ export const PAGES = {
     h1: '士業事務所に残る手作業を、シンプルにする',
     description:
       '社労士・税理士事務所の顧客台帳、期日のお知らせ、請求・FAX整理を自動化。今のExcel・Wordのまま始められます。初回相談は無料・30分。',
-    og: '士業事務所に残る手作業を、シンプルにする。売り込みの電話はしません。',
+    og: '士業事務所の手作業を、今のやり方のまま軽くします。',
     crumb: '士業の方',
     audience: '士業事務所',
     ogImage: '/dm/dm-pro-cover.jpg',
@@ -442,7 +442,7 @@ export const FAQS = [
   },
   {
     q: '相談したら、営業の電話がしつこくなりませんか？',
-    a: 'なりません。売り込みの電話はしません。続きをご希望のときだけ、その場で次の日程を決めます。',
+    a: 'なりません。こちらから営業の電話をかけることはありません。続きをご希望のときだけ、その場で次の日程を決めます。',
   },
   {
     q: 'うちの規模でも、お願いできますか？',
@@ -462,7 +462,7 @@ export const FAQS = [
   },
   {
     q: '病院の日計やカルテまわりの転記も頼めますか？',
-    a: '頼めます。人が今、電子カルテや医事ソフトの画面・CSVで出している範囲だけです。金額を確定するのは、これまでどおり医事課の方です。案内は https://himawasa-sync.com/for/care/ と https://himawasa-sync.com/medical-dx/ です。',
+    a: '頼めます。対象は、今は人が電子カルテや医事ソフトの画面・CSVから出している数字です。金額を確定するのは、これまでどおり医事課の方です。案内は https://himawasa-sync.com/for/care/ と https://himawasa-sync.com/medical-dx/ です。',
   },
   {
     q: 'キーエンスRKのシナリオ作成も頼めますか？',
@@ -619,7 +619,7 @@ export function generateLlmsTxt() {
 - 屋号は HiMaWaSa Sync。個人事業。開業は2024年。
 - 対応は全国（オンライン中心）。
 - 今のExcel・Googleの様式を変えずに自動化するのが基本。
-- 初回相談は無料・30分。売り込みの電話はしない。
+- 初回相談は無料・30分。こちらから営業の電話はしない。
 - キーエンスおよびRKシリーズの販売代理店ではない。
 - 顧客専用アプリ（CareSyncなど）は公開サイトから案内しない。
 `
@@ -646,7 +646,7 @@ export function generateLlmsFullTxt() {
 - シフト表: 勤怠データ（例: KING OF TIME）を、施設指定のExcel様式へ載せる。https://himawasa-sync.com/shiftsync/
 - 持ち物チェック: 写真から一覧にする。
 - 施設カレンダー: 予定・往診・残薬。
-- 実地指導用に、今ある記録を出しやすくする。記録の作り方は施設に押し付けない。
+- 実地指導用に、今ある記録を出しやすくする。記録の書き方は施設の今のやり方のまま。
 - てますい（業種を選ぶ入口）: https://himawasa-sync.com/temasui/start/
 - てますい（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
 - てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
@@ -679,7 +679,7 @@ RKシリーズ／RK-10のシナリオ作成代行と、止まったあとの運�
 介護・病院の自動化にRKは必須ではない。入っている現場だけ受ける。
 
 ## 方針
-売り込みの電話はしない。初回は無料・30分。
+初回は無料・30分。こちらから営業の電話はしない。
 合わなければ縮小できる。大きく契約させる前提ではない。
 `
 }
@@ -958,7 +958,7 @@ export function buildPageJsonLd(page) {
           name: '初回相談',
           price: '0',
           priceCurrency: 'JPY',
-          description: '無料・30分。売り込みの電話はしません。',
+          description: '無料・30分。今のExcelを見ながらご相談いただけます。',
           url: `${SITE.url}/contact/`,
         },
         {
@@ -1022,7 +1022,7 @@ export function buildPageJsonLd(page) {
         name: '初回相談',
         price: '0',
         priceCurrency: 'JPY',
-        description: '無料・30分。売り込みの電話はしません。',
+        description: '無料・30分。今のExcelを見ながらご相談いただけます。',
         url: `${SITE.url}/contact/`,
       },
     })

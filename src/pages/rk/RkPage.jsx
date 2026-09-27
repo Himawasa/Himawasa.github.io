@@ -41,7 +41,7 @@ export default function RkPage({ kind }) {
               <Link to="/contact" className="btn-yellow">初回相談は無料（30分）</Link>
               <Link to={isHub ? '#pricing' : '/rk'} className="ind-text-link">{isHub ? 'サービス・料金を見る' : 'RKシナリオ作成代行に戻る'}</Link>
             </div>
-            <p className="ind-micro">売り込みの電話はしません。ライセンスはメーカーへ。シナリオ作成代行と運用保守代行だけです。</p>
+            <p className="ind-micro">ライセンスのご契約はキーエンスへお願いします。こちらでお受けするのは、シナリオ作成代行と運用保守代行です。</p>
             {(data.kind === 'care' || data.kind === 'hospital') && (
               <p className="ind-micro">
                 <Link to="/for/care">介護・病院の自動化は、まずこちら。</Link>
@@ -186,7 +186,7 @@ export default function RkPage({ kind }) {
               {(data.plans || [
                 { name: 'シナリオ作成代行', price: RK_PRICE.scenario, unit: '円〜', text: '一本目。今の画面操作を見て作ります。' },
                 { name: '運用・保守代行', price: RK_PRICE.maintain, unit: '円〜 / 月', text: '画面が変わって止まったら、動く状態に戻します。', main: true },
-                { name: '初回相談', price: '0', unit: '円 / 30分', text: '売り込みの電話はしません。' },
+                { name: '初回相談', price: '0', unit: '円 / 30分', text: '困っている作業をうかがいます。' },
               ]).map((plan) => (
                 <div key={plan.name} className={`rk-price-card${plan.main ? ' is-main' : ''}`}>
                   <p className="rk-price-label">{plan.name}</p>

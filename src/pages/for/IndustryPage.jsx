@@ -31,7 +31,7 @@ export default function IndustryPage({ kind }) {
               <Link to="/contact" className="btn-yellow">初回相談は無料（30分）</Link>
               <Link to="/works" className="ind-text-link">実績を見る</Link>
             </div>
-            <p className="ind-micro">売り込みの電話はしません。今のやり方のままで大丈夫です。</p>
+            <p className="ind-micro">ご相談の準備はいりません。今のやり方のままで大丈夫です。</p>
           </div>
         </header>
 
@@ -156,7 +156,7 @@ export default function IndustryPage({ kind }) {
         <section className="ind-close">
           <div className="container">
             <h2>{data.close}</h2>
-            <p>チラシのQRから来た方も、検索から来た方も。話は30分だけです。</p>
+            <p>チラシのQRからでも、検索からでも。初回のご相談は30分ほどです。</p>
             <div className="ind-hero-cta">
               <Link to="/contact" className="btn-yellow">話してみる（無料）</Link>
               <a href="mailto:info@himawasa-sync.com" className="ind-text-link">info@himawasa-sync.com</a>
