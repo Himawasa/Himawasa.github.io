@@ -19,6 +19,7 @@
 - 持ち物チェック: 写真から一覧にする。
 - 施設カレンダー: 予定・往診・残薬。
 - 実地指導用に、今ある記録を出しやすくする。記録の作り方は施設に押し付けない。
+- てますい（業種を選ぶ入口）: https://himawasa-sync.com/temasui/start/
 - てますい（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
 - てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
 - てますい 中小企業版（中小企業のアシスタント）: https://himawasa-sync.com/temasui/biz/
