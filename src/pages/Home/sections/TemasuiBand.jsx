@@ -3,8 +3,8 @@ import Reveal from '../../../components/Reveal'
 
 /**
  * トップの「業種ごとの てますい」。サイトの軸（業種ごとの てますい と、その周りの自動化）をトップで見せる。
- * 紹介ページ（/temasui/・/temasui/factory/）は素の HTML なので <a href> で開く（React の画面遷移では開けない）。
- * 業種を増やしたら、ここに1枚足す（計画は himawasa-care/docs/temasui-industries/）。
+ * 紹介ページ（/temasui/・/temasui/factory/・/temasui/biz/・/temasui/pro/）は素の HTML なので <a href> で開く（React の画面遷移では開けない）。
+ * 業種を増やしたら、ここに1枚足す（計画は himawasa-care/docs/temasui-industries/）。業種を選ぶ入口は /temasui/start/。
  */
 const editions = [
   {
@@ -24,11 +24,20 @@ const editions = [
     cta: '工場版を見る',
   },
   {
-    id: 'soon',
+    id: 'biz',
     icon: '🏢',
-    title: '中小企業版・士業版',
-    points: ['日報・議事録・お客さまへのメール', '顧問先への連絡・面談記録'],
-    soon: true,
+    title: 'てますい 中小企業版',
+    points: ['日報・議事録・お客さまへのメール・電話メモの下書き', '備品・在庫チェック、来客・納期の共有'],
+    href: '/temasui/biz/',
+    cta: '中小企業版を見る',
+  },
+  {
+    id: 'pro',
+    icon: '⚖️',
+    title: 'てますい 士業版',
+    points: ['面談記録・顧問先への書類依頼・お知らせ文の下書き（判断は書かない）', '預かり書類チェック、顧問先の期限の共有'],
+    href: '/temasui/pro/',
+    cta: '士業版を見る',
   },
 ]
 
@@ -45,7 +54,8 @@ export default function TemasuiBand() {
           <span className="section-label">TEMASUI</span>
           <h2 className="section-title">業種ごとのアシスタント<span className="nowrap">「てますい」</span></h2>
           <p className="section-desc">
-            メモを入れるだけで、現場の書類の下書きが数秒で。月額15,000円（税別）・1か月無料で試せます
+            メモを入れるだけで、現場の書類の下書きが数秒で。月額15,000円（税別）・1か月無料で試せます。
+            迷ったら <a href="/temasui/start/">業種を選ぶ</a> へ
           </p>
         </Reveal>
         <div className="temasui-grid">

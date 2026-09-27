@@ -1043,7 +1043,8 @@
 
 /* ===== トップの「業種ごとの てますい」（TemasuiBand）。カードは .path-card と同じ系統、背景はてますいの黄色 ===== */
 .temasui-band { background: var(--yellow-lt); }
-.temasui-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.temasui-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.temasui-band .section-desc a { color: var(--black); font-weight: 700; text-decoration: underline; }
 .temasui-card {
   background: #fff;
   border: 1px solid var(--cream-bd);

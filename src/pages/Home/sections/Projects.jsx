@@ -5,11 +5,11 @@ import Reveal from '../../../components/Reveal'
 const projects = [
   {
     icon: '🌻', status: '稼働中', badge: '介護DX', badgeClass: 'cat-kaigo',
-    title: 'てますい ─ 介護施設のアシスタント',
-    desc: 'メモを入れるか話すだけで、介護記録・申し送り・事故報告書の下書きを数秒で。持ち物チェックと予定カレンダーも1つの画面にまとめました。1か月無料でお試しいただけます。',
+    title: 'てますい ─ 業種ごとのアシスタント',
+    desc: 'メモを入れるか話すだけで、記録・報告・連絡の下書きを数秒で。持ち物・備品チェックと予定の共有も1つの画面に。介護版・工場版・中小企業版・士業版があり、1か月無料でお試しいただけます。',
     tags: ['PWA', 'Vertex AI', '音声入力'],
-    domain: '介護 / 書類・持ち物・予定', version: 'v0.1',
-    href: '/temasui/', highlight: true,
+    domain: '介護・工場・中小企業・士業 / 書類・持ち物・予定', version: 'v0.1',
+    href: '/temasui/start/', highlight: true,
   },
   {
     icon: '🗓️', status: '稼働中', badge: '介護DX', badgeClass: 'cat-kaigo',
