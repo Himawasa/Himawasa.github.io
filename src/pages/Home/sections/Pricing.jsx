@@ -66,12 +66,12 @@ export default function Pricing() {
           <div className="rk-price-card is-main">
             <p className="rk-price-label">RK運用保守代行</p>
             <p className="rk-price-num">5,000<span>円〜 / 月</span></p>
-            <p>止まったら、動く状態に戻します。画面の変更にも合わせます。</p>
+            <p>画面変更などで停止した場合も、迅速に動く状態へ復旧サポートいたします。</p>
           </div>
           <div className="rk-price-card">
-            <p className="rk-price-label">詳しく見る</p>
+            <p className="rk-price-label">業種ごとの詳細</p>
             <p className="rk-price-num" style={{ fontSize: 22 }}>工場 / 病院 / 介護</p>
-            <p><a href="/rk/" style={{ fontWeight: 800, color: '#8A6D00' }}>RKシナリオ作成代行へ →</a></p>
+            <p><a href="/rk/" style={{ fontWeight: 800, color: '#8A6D00' }}>RK作成代行の詳細を見る →</a></p>
           </div>
         </div>
 

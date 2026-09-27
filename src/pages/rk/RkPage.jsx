@@ -239,7 +239,7 @@ export default function RkPage({ kind }) {
         <section className="ind-close">
           <div className="container">
             <h2>{data.close}</h2>
-            <p>初回のご相談（30分）は無料です。普段の画面をお見せいただきながら、自動化できる手順をその場でお答えします。</p>
+            <p>初回のご相談（30分）は無料です。普段の操作画面をお見せいただきながら、自動化できる手順をその場でお答えします。</p>
             <div className="ind-hero-cta">
               <Link to="/contact" className="btn-yellow">無料相談はこちら</Link>
               <a href="mailto:info@himawasa-sync.com" className="ind-text-link">info@himawasa-sync.com</a>

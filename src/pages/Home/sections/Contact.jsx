@@ -70,8 +70,8 @@ export default function Contact() {
           <span className="section-label">CONTACT</span>
           <h2 className="section-title section-title--lg">まずはお困りごとを<span className="nowrap">お聞かせください（30分）</span></h2>
           <p className="section-desc">
-            「まずは話を聞いてみたい」だけでも大歓迎です。<br />
-            今のやり方やExcelを見ながら、お気軽にご相談ください。
+            「まずは話を聞いてみたい」というだけでも大歓迎です。<br />
+            普段お使いのExcelや画面を拝見しながら、どこから小さく始められるかを一緒に整理します。
           </p>
         </Reveal>
 
@@ -120,7 +120,7 @@ export default function Contact() {
 
         <Reveal direction="up" delay={0.4}>
           <div className="contact-note-box">
-            <strong>初回の相談は無料</strong>です。お話を聞いて合わないと感じられた場合は、ご相談だけで終了していただいて全く問題ありません。
+            <strong>初回の相談は無料</strong>です。お話を聞いて合わないと感じられた場合は、ご相談のみで終了していただいて全く問題ありません。
           </div>
         </Reveal>
       </div>

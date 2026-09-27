@@ -13,7 +13,7 @@ export default function AiPage() {
       <AiEra hideHeader />
       <section className="home-cta">
         <div className="container">
-          <h2>使い方の相談も、今ある仕組みの点検もできます</h2>
+          <h2>使い方の相談も、今ある仕組みの点検も承ります</h2>
           <p>ツールの名前や専門知識は知らなくて大丈夫です。</p>
           <Link to="/contact" className="btn-yellow">無料相談はこちら</Link>
         </div>

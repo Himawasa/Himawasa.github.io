@@ -172,19 +172,19 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p variants={fadeUp} className="hero-sub">
-            まずはあなたの現場をお選びください。IT業界25年の現場エンジニアが、面倒な手作業だけを引き受けます。
+            介護・医療、士業、工場、中小企業の現場で毎日残る手作業を、今お使いのExcelややり方のまま自動化します。
           </motion.p>
 
           <motion.div variants={fadeUp} className="hero-cta">
             <Link to="/contact" className="btn-hero-primary">
-              まずは無料相談から
+              まずは相談してみる（無料）
             </Link>
             <Link to="/works" className="btn-hero-secondary">
-              どれくらい楽になるか見る
+              改善事例を見る
             </Link>
           </motion.div>
           <motion.p variants={fadeUp} className="hero-micro">
-            ご相談はオンライン（30分）またはメールで承ります。
+            事前の準備はいりません。オンライン（30分）またはメールでお気軽にご相談いただけます。
           </motion.p>
 
           <motion.div variants={fadeUp} className="hero-trust">

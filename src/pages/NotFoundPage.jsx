@@ -34,7 +34,7 @@ export default function NotFoundPage() {
           </p>
 
           <div className="notfound-cta">
-            <Link to="/contact" className="btn-yellow">問い合わせる（無料）</Link>
+            <Link to="/contact" className="btn-yellow">お問い合わせはこちら（無料）</Link>
             <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
           </div>
         </div>
