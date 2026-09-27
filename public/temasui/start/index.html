@@ -65,25 +65,12 @@
   .btn.light { background: var(--white); color: var(--ink); border: 2px solid var(--ink); }
   .note { text-align: center; font-size: 14px; color: var(--gray); margin-top: 28px; }
 
-  /* ③ 共通のこと */
-  .common { background: var(--cream); }
-  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .fact { background: var(--white); border-radius: 20px; padding: 22px 14px; text-align: center; }
-  .fact .i { font-size: 34px; display: block; }
-  .fact b { display: block; font-size: 17px; margin: 6px 0 4px; }
-  .fact span { font-size: 14px; color: var(--gray); }
-
-  /* ④ 迷ったら */
-  .ask { text-align: center; }
-  .ask .btn { font-size: 17px; padding: 15px 26px; }
-
   footer { padding: 32px 0; text-align: center; font-size: 14px; color: var(--gray); }
   footer a { color: var(--gray); }
 
   @media (max-width: 860px) {
     section { padding: 48px 0; }
     .cards { grid-template-columns: 1fr; }
-    .facts { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -164,28 +151,7 @@
   </div>
 </section>
 
-<!-- ③ どの版にも共通のこと -->
-<section class="common">
-  <div class="inner">
-    <h2>どの版でも同じこと</h2>
-    <p class="lead">中身の言葉と書類の種類が業種ごとに違うだけで、使い方と料金は同じです。</p>
-    <div class="facts">
-      <div class="fact"><span class="i">📝</span><b>書類の下書き</b><span>メモか声から、数秒で読みやすい文章に</span></div>
-      <div class="fact"><span class="i">📦</span><b>持ち物・備品チェック</b><span>スマホやカメラで撮るだけで一覧に。目印は自由に設定</span></div>
-      <div class="fact"><span class="i">📅</span><b>予定の共有</b><span>月のカレンダー・今日の一覧・確認待ち</span></div>
-      <div class="fact"><span class="i">💴</span><b>料金は同じ</b><span>1か月無料。その後も事業所ごとの定額制（人が増えても追加料金なし）</span></div>
-    </div>
-  </div>
-</section>
 
-<!-- ④ 迷ったら -->
-<section class="ask">
-  <div class="inner">
-    <h2>どれか分からないときは</h2>
-    <p class="lead">右下の「質問する」に、お仕事の内容を書いてください。合う版をご案内します。<br>メールでも大丈夫です：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a></p>
-    <a class="btn dark" href="https://care.himawasa-sync.com/chat">💬 質問する</a>
-  </div>
-</section>
 
 <footer>
   <p class="round" style="font-size:22px;color:var(--ink)">てますい <span style="font-size:13px">by HiMaWaSa Sync</span></p>
