@@ -22,6 +22,7 @@
 <meta name="twitter:description" content="メモを入れるだけで、日報・議事録・お客さまへのメールの下書きが数秒で。備品・在庫チェックと予定の共有も。1か月無料でお試しいただけます。">
 <meta name="twitter:image" content="https://himawasa-sync.com/temasui/biz/img/ogp.jpg">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "てますい 中小企業版", "url": "https://himawasa-sync.com/temasui/biz/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web（パソコン・タブレット・スマートフォン）", "description": "中小企業のアシスタント「てますい 中小企業版」。業務日報・議事録・お客さまへのメール・クレーム対応記録・報告書・電話メモ・引き継ぎの下書きが、メモから数秒でできます。備品・在庫チェック、来客・納期・社内予定の共有も。", "featureList": ["業務日報・議事録・お客さまへのメール・クレーム対応記録・社内のお知らせ・報告書・電話メモの清書・引き継ぎの下書き", "備品・在庫チェック（写真から一覧・棚卸しや返却時の照合。確かめる目印は会社ごとに設定）", "予定の共有（来客・打ち合わせ／納期・提出期限／社内予定。期限が近づくと印）", "音声入力「こえメモ」（外国語で話しても日本語の日報などに）"], "offers": [{"@type": "Offer", "name": "1か月無料体験", "price": "0", "priceCurrency": "JPY"}, {"@type": "Offer", "name": "月額", "price": "15000", "priceCurrency": "JPY", "description": "会社全体で定額（税別）。別途ご契約時の初期サポート30,000円（税別）"}], "provider": {"@type": "Organization", "name": "HiMaWaSa Sync", "url": "https://himawasa-sync.com/"}, "image": "https://himawasa-sync.com/temasui/biz/img/ogp.jpg"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "金額や日付が変わってしまうことはない？", "acceptedAnswer": {"@type": "Answer", "text": "金額・日付・数量・品名・型番は、入れたとおりに書くよう決めています。合計を計算して足したりもしません。できあがりは、必ずサッと確かめてからお使いください。"}}, {"@type": "Question", "name": "ほかの会社から見られる心配は？", "acceptedAnswer": {"@type": "Answer", "text": "会社ごとの専用ページになっていますので、ほかの会社からは見えません。"}}, {"@type": "Question", "name": "入れた内容はどうなるの？", "acceptedAnswer": {"@type": "Answer", "text": "書類の下書きに入れたメモは、てますいには保存しません。備品・在庫チェックの名前と写真、予定の名簿と予定は、その会社の専用の場所にだけ保存します。AIの学習に使われることはありません。"}}, {"@type": "Question", "name": "原因や対策まで書いてくれる？", "acceptedAnswer": {"@type": "Answer", "text": "入力に無い原因や対策は、「（案）」と付けて控えめに書きます。AIが勝手に原因を決めつけることはありません。最後の判断は、皆さまでお願いします。"}}]}]</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://himawasa-sync.com/"}, {"@type": "ListItem", "position": 2, "name": "てますい", "item": "https://himawasa-sync.com/temasui/start/"}, {"@type": "ListItem", "position": 3, "name": "てますい 中小企業版", "item": "https://himawasa-sync.com/temasui/biz/"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
 <style>
@@ -60,7 +61,10 @@
   .hero { background: var(--yellow); padding: 56px 0 0; overflow: hidden; }
   .hero .inner { display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: end; }
   .hero .by { font-weight: 700; font-size: 14px; }
-  .hero h1 { font-size: clamp(56px, 9vw, 96px); line-height: 1.05; letter-spacing: .03em; margin: 8px 0 12px; }
+  .hero h1 { font-size: clamp(56px, 9vw, 96px); line-height: 1.05; letter-spacing: .03em; margin: 0 0 12px; }
+  /* h1 は「○○のアシスタント てますい」（検索エンジンに業種の言葉を伝える）。見た目は by の行と大きな題名のまま */
+  .hero h1 .by { display: block; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0; line-height: 1.7; margin-bottom: 8px; }
+  .hero h1 .h1-name { display: block; }
   .hero .tag { font-size: clamp(20px, 2.6vw, 28px); font-weight: 900; }
   .hero .sub { margin: 14px 0 26px; font-size: 16px; }
   .hero .copy { padding-bottom: 56px; }
@@ -192,8 +196,7 @@
 <header class="hero">
   <div class="inner">
     <div class="copy">
-      <div class="by">中小企業のアシスタント ／ by HiMaWaSa Sync</div>
-      <h1 class="round">てますい<span class="edition">中小企業版</span></h1>
+      <h1><span class="by">中小企業のアシスタント<span class="by-sep"> ／ by HiMaWaSa Sync</span></span> <span class="round h1-name">てますい<span class="edition">中小企業版</span></span></h1>
       <p class="tag">会社の書く手間が、すいすい減っていく。</p>
       <p class="sub">日報・議事録・お客さまへのメール。短いメモを入れるだけで、読みやすい文章が数秒で整います。<br>備品・在庫チェックと、来客や納期の予定の共有もひとつの画面で。</p>
       <div class="btns">
@@ -395,7 +398,7 @@ C社の入金が遅れているため、確認をお願いします。
 
 <footer>
   <p class="round" style="font-size:22px;color:var(--ink)">てますい 中小企業版 <span style="font-size:13px">by HiMaWaSa Sync</span></p>
-  <p>お問い合わせ：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a>　／　<a href="/temasui/">てますい（介護版）</a>　／　<a href="/temasui/factory/">工場版</a>　／　<a href="/temasui/pro/">士業版</a>　／　<a href="/rk/biz/">中小企業のRK（パソコン操作の自動化）</a>　／　<a href="/">HiMaWaSa Sync</a></p>
+  <p>お問い合わせ：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a>　／　<a href="/temasui/">てますい（介護版）</a>　／　<a href="/temasui/factory/">工場版</a>　／　<a href="/temasui/pro/">士業版</a>　／　<a href="/rk/biz/">中小企業のRK（パソコン操作の自動化）</a>　／　<a href="/temasui/start/">てますい（業種を選ぶ）</a>　／　<a href="/">HiMaWaSa Sync</a></p>
 </footer>
 
 <!-- 右下の「質問する」（てますいのアプリと同じ部品。答えは care.himawasa-sync.com の AI） -->
