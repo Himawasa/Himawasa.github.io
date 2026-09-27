@@ -193,9 +193,15 @@
     .apply-box { grid-template-columns: 1fr; justify-items: center; text-align: center; }
     .change-row .arrow span { display: inline-block; transform: rotate(90deg); }
   }
+  /* ⓪ 業種の帯：介護以外の方を各業種版へ案内する（中小企業版・士業版ができたら行を足す） */
+  .industry-bar { background: var(--ink); color: var(--white); font-size: 14px; text-align: center; padding: 8px 16px; }
+  .industry-bar a { color: var(--yellow); font-weight: 700; text-decoration: underline; }
 </style>
 </head>
 <body>
+
+<!-- ⓪ 業種の帯 -->
+<div class="industry-bar">このページは介護施設向けです。🏭 工場の方は <a href="/temasui/factory/">てますい 工場版</a> をご覧ください。</div>
 
 <!-- ① 最初の画面 -->
 <header class="hero">
