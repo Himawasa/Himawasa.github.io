@@ -23,7 +23,7 @@ export default function Home() {
         <div className="container">
           <h2>まずは、いまの困りごとから</h2>
           <p>まずは話を聞いてみたいだけでも大丈夫です。返信はメールかフォームです。</p>
-          <Link to="/contact" className="btn-yellow">話してみる（無料）</Link>
+          <Link to="/contact" className="btn-yellow">無料相談はこちら</Link>
           <p className="home-cta-sub">
             <Link to="/try">先に、無料体験してみる →</Link>
           </p>

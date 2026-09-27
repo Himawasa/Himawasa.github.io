@@ -10,8 +10,8 @@ export default function Faq() {
       <div className="container">
         <Reveal direction="up" className="section-header">
           <span className="section-label">FAQ</span>
-          <h2 className="section-title section-title--lg" id="faq-heading">ご相談の前に、<span className="nowrap">よくいただく質問</span></h2>
-          <p className="section-desc">お問い合わせの前に気になりやすいことを、まとめました</p>
+          <h2 className="section-title section-title--lg" id="faq-heading">ご相談の前に<span className="nowrap">よくいただくご質問</span></h2>
+          <p className="section-desc">お問い合わせの前によくある疑問をまとめました</p>
         </Reveal>
         <div className="faq-list">
           {FAQS.map((item, i) => (

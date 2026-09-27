@@ -15,7 +15,7 @@ export default function TryPage() {
         <div className="container">
           <h2>現場に合わせた仕組みは、ご相談から始まります</h2>
           <p>体験アプリは入口です。今のExcelに合わせた自動化は、話を聞いてから作ります。</p>
-          <Link to="/contact" className="btn-yellow">話してみる（無料）</Link>
+          <Link to="/contact" className="btn-yellow">無料相談はこちら</Link>
         </div>
       </section>
     </>

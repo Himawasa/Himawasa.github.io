@@ -68,10 +68,10 @@ export default function Contact() {
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <Reveal direction="up" className="section-header">
           <span className="section-label">CONTACT</span>
-          <h2 className="section-title section-title--lg">まずは30分、お話を<span className="nowrap">聞かせてください</span></h2>
+          <h2 className="section-title section-title--lg">まずはお困りごとを<span className="nowrap">お聞かせください（30分）</span></h2>
           <p className="section-desc">
-            今のExcelを見ながらで大丈夫です。<br />
-            「まずは話を聞いてみたい」だけでも歓迎です。相談のあと、こちらから営業の電話をかけることはありません。
+            「まずは話を聞いてみたい」だけでも大歓迎です。<br />
+            今のやり方やExcelを見ながら、お気軽にご相談ください。
           </p>
         </Reveal>
 
@@ -88,7 +88,7 @@ export default function Contact() {
             ))}
           </ol>
           <p className="contact-flow-note">
-            相談だけで終了しても大丈夫です。
+            ご相談のみで終了していただいても全く問題ありません。
           </p>
         </Reveal>
 
@@ -120,7 +120,7 @@ export default function Contact() {
 
         <Reveal direction="up" delay={0.4}>
           <div className="contact-note-box">
-            <strong>初回の相談は無料</strong>です。お話を聞いて合わないと感じられたら、相談だけで終わっていただいて構いません。
+            <strong>初回の相談は無料</strong>です。お話を聞いて合わないと感じられた場合は、ご相談だけで終了していただいて全く問題ありません。
           </div>
         </Reveal>
       </div>

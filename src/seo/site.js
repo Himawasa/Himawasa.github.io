@@ -17,9 +17,9 @@ export const SITE = {
   lang: 'ja',
   title: '今のExcelのまま業務自動化・現場DX｜介護・医療・士業 | HiMaWaSa Sync',
   description:
-    '介護施設のシフト表、病院の日計、士業の請求を、今のExcelのまま自動化します。個人事業 HiMaWaSa Sync。初回相談は無料（30分）。営業の電話はしません。',
+    '介護施設のシフト表、病院の日計、士業の請求を、今のExcelのまま自動化します。HiMaWaSa Sync。初回相談は無料（30分）。',
   ogDescription:
-    '今のExcelのまま、介護・医療・士業の現場DX。使い方がわからなくても相談できます。営業の電話はしません。',
+    '今のExcelのまま、介護・医療・士業の現場DX。使い方がわからなくても相談できます。',
   ogImage: `${SITE_URL}/ogp.png`,
   ogImageAlt: 'HiMaWaSa Sync — 今のExcelのまま、現場の手作業を自動化',
   logo: `${SITE_URL}/logo.png`,
@@ -90,7 +90,7 @@ export const PAGES = {
     title: '事業概要・代表 | HiMaWaSa Sync',
     h1: '私たちについて',
     description:
-      '個人事業 HiMaWaSa Syncです。IT業界25年、カスタマーサクセスの現場を長く経験してきました。士業・介護・病院・中小企業の現場に残る手作業を、今のやり方のまま自動化します。キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。',
+      'HiMaWaSa Syncです。IT業界25年、カスタマーサクセスの現場を長く経験してきました。士業・介護・病院・中小企業の現場に残る手作業を、今のやり方のまま自動化します。キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。',
     og: '聞いてから作り、止まったら戻します。今のExcelのまま自動化します。',
     crumb: '私たち',
   },
@@ -107,7 +107,7 @@ export const PAGES = {
   contact: {
     key: 'contact',
     path: '/contact/',
-    title: '無料相談（30分）｜今のExcelを見ながら話せます | HiMaWaSa Sync',
+    title: '無料相談｜今のExcelを見ながら話せます | HiMaWaSa Sync',
     h1: '無料相談',
     description:
       'まずは話を聞いてみたいだけでも大丈夫です。今お使いのExcelを見ながらの相談もできます。返信はメールかフォームです。初回は無料（30分）。',
@@ -129,8 +129,8 @@ export const PAGES = {
     path: '/privacy/',
     title: 'プライバシー | HiMaWaSa Sync',
     h1: '個人情報の扱い',
-    description: '相談でいただいた情報の使い方です。こちらからの営業の電話には使いません。',
-    og: '相談内容は、返信と保守のためにだけ使います。',
+    description: 'ご相談いただいた情報は、お問い合わせへのご返答と対応のためにのみ大切にお預かりします。',
+    og: 'ご相談内容は、お問い合わせへのご返答のためにのみ大切に利用いたします。',
     crumb: 'プライバシー',
   },
   notFound: {
@@ -149,8 +149,8 @@ export const PAGES = {
     title: '社労士・税理士の期日管理・請求書自動化 | HiMaWaSa Sync',
     h1: '士業事務所に残る手作業を、シンプルにする',
     description:
-      '社労士・税理士事務所の顧客台帳、期日のお知らせ、請求・FAX整理を自動化。今のExcel・Wordのまま始められます。初回相談は無料・30分。',
-    og: '士業事務所の手作業を、今のやり方のまま軽くします。',
+      '社労士・税理士事務所の顧客台帳、期日のお知らせ、請求・FAX整理を自動化。今のExcel・Wordのまま始められます。初回相談は無料（30分）。',
+    og: '士業事務所に残る手作業を、今のやり方のままシンプルにします。',
     crumb: '士業の方',
     audience: '士業事務所',
     ogImage: '/dm/dm-pro-cover.jpg',
@@ -226,8 +226,8 @@ export const PAGES = {
   rkHospital: {
     key: 'rkHospital',
     path: '/rk/hospital/',
-    title: '病院のRKは補助｜日計・カルテ転記のシナリオ | HiMaWaSa Sync',
-    h1: '病院のRKは、日計の補助です',
+    title: '病院のRK活用｜日計・カルテ転記のシナリオ作成代行 | HiMaWaSa Sync',
+    h1: '病院のRKシリーズで、日計・カルテ転記を自動化します',
     description:
       '病院RKのシナリオ代行。電子カルテからのCSV抜き出し、日計・レセプトまわり、複数拠点のExcel統合。キーエンスRKのシナリオ作成を代行します。1万円から。',
     og: '病院RKシナリオ代行。夜間の抜き出しと日計から。',
@@ -239,8 +239,8 @@ export const PAGES = {
   rkCare: {
     key: 'rkCare',
     path: '/rk/care/',
-    title: '介護のRKは補助｜シフト転記のシナリオ | HiMaWaSa Sync',
-    h1: '介護のRKは、シフト転記の補助です',
+    title: '介護のRK活用｜シフト転記のシナリオ作成代行 | HiMaWaSa Sync',
+    h1: '介護施設のRKシリーズで、シフト転記を自動化します',
     description:
       '介護RKのシナリオ代行。シフト表、記録・申し送り、月末の実績まとめをキーエンスRKのシナリオにします。作成1万円から、保守月5,000円から。',
     og: '介護RKシナリオ代行。シフトと記録の転記から。',
@@ -438,11 +438,11 @@ export const FAQS = [
   },
   {
     q: '解約やプラン変更は、融通が利きますか？',
-    a: '小さく始めて、合わなければ縮小できます。最初から大きく契約させるつもりはありません。長く使ってもらう方が、こちらも楽だからです。',
+    a: '小さく始めて、業務に合わせて柔軟に見直せます。お客様に無理のない範囲でスタートし、長く安心して使っていただくことを一番大切にしています。',
   },
   {
-    q: '相談したら、営業の電話がしつこくなりませんか？',
-    a: 'なりません。こちらから営業の電話をかけることはありません。続きをご希望のときだけ、その場で次の日程を決めます。',
+    q: '相談したあとは、どうなりますか？',
+    a: '続きをご希望のときだけ、その場で次の日程を決めます。ご相談だけで終えていただいても構いません。',
   },
   {
     q: 'うちの規模でも、お願いできますか？',
@@ -466,7 +466,7 @@ export const FAQS = [
   },
   {
     q: 'キーエンスRKのシナリオ作成も頼めますか？',
-    a: 'RKが入っている現場だけ、補助で受けます。必須ではありません。作成代行は1万円から、運用保守は月5,000円から。ライセンスは売りません。案内は https://himawasa-sync.com/rk/ です。',
+    a: 'キーエンスRKを導入済みの現場で、シナリオ作成代行（1万円〜）や運用保守（月額5,000円〜）を承っております。ライセンス契約はキーエンス様と直接お願いいたします。案内は https://himawasa-sync.com/rk/ です。',
   },
   {
     q: '相談する前に、試せますか？',
@@ -591,7 +591,7 @@ ${urls}
 export function generateLlmsTxt() {
   return `# HiMaWaSa Sync
 
-> 個人事業 HiMaWaSa Sync。介護施設のシフト表、病院の日計、士業の請求を、今のExcelのまま自動化します。初回相談は無料（30分）。営業の電話はしません。キーエンスRKは必須ではありません（お使いの現場では、シナリオ作りもお手伝いします）。
+> 個人事業 HiMaWaSa Sync。介護施設のシフト表、病院の日計、士業の請求を、今のExcelのまま自動化します。初回相談は無料（30分）。キーエンスRKは必須ではありません（お使いの現場では、シナリオ作りもお手伝いします）。
 
 - 公式: https://himawasa-sync.com/
 - 相談: https://himawasa-sync.com/contact/
@@ -612,14 +612,14 @@ export function generateLlmsTxt() {
 - [病院・医療機関のDX](https://himawasa-sync.com/medical-dx/): FAX、カルテ周辺、日計
 - [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳、期日、請求
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
-- [キーエンスRK（補助）](https://himawasa-sync.com/rk/): シナリオ作成代行1万円から。代理店ではない。ライセンスは売らない
+- [キーエンスRK シナリオ作成代行](https://himawasa-sync.com/rk/): シナリオ作成代行1万円から。代理店ではない。ライセンスは売らない
 - [社員証・来訪者証の社内発行 CardSync](https://himawasa-sync.com/cardsync/): Excelの名簿と顔写真ZIPから、社員証・来訪者証・立入許可証をブラウザで発行。登録不要で体験できる
 
 ## 事実（引用してよい）
 - 屋号は HiMaWaSa Sync。個人事業。開業は2024年。
 - 対応は全国（オンライン中心）。
 - 今のExcel・Googleの様式を変えずに自動化するのが基本。
-- 初回相談は無料・30分。こちらから営業の電話はしない。
+- 初回相談は無料・30分。
 - キーエンスおよびRKシリーズの販売代理店ではない。
 - 顧客専用アプリ（CareSyncなど）は公開サイトから案内しない。
 `
@@ -671,7 +671,7 @@ export function generateLlmsFullTxt() {
 - 顧客台帳、期日のお知らせ、請求・届いた書類の振り分け。
 - 顧問先名はサイトに出さない。
 
-## キーエンスRK（補助）
+## キーエンスRK シナリオ作成代行
 入口: https://himawasa-sync.com/rk/
 RKシリーズ／RK-10のシナリオ作成代行と、止まったあとの運用保守だけ。
 作成 10,000円から。保守 月5,000円から。
@@ -679,7 +679,7 @@ RKシリーズ／RK-10のシナリオ作成代行と、止まったあとの運�
 介護・病院の自動化にRKは必須ではない。入っている現場だけ受ける。
 
 ## 方針
-初回は無料・30分。こちらから営業の電話はしない。
+初回は無料・30分。
 合わなければ縮小できる。大きく契約させる前提ではない。
 `
 }
@@ -740,7 +740,7 @@ export function buildJsonLd() {
           'Excel業務の自動化',
           'GAS開発',
           'AI活用支援',
-          'キーエンスRKシナリオ作成代行（補助）',
+          'キーエンスRKシナリオ作成代行',
         ],
         audience: {
           '@type': 'Audience',
@@ -1102,7 +1102,7 @@ function navHtml() {
 function pageBodyHtml(page) {
   if (!page || page.key === 'home') {
     return `
-    <h2>自分の現場を選んでください</h2>
+    <h2>あなたのお仕事に合わせてお選びください</h2>
     <p><a href="/for/pro/">士業事務所の方</a> — 期日管理・請求書自動化</p>
     <p><a href="/for/care/">介護施設・病院の方</a> — シフト表・日計・持ち物チェック</p>
     <p><a href="/shiftsync/">介護のシフト表自動化</a> / <a href="/medical-dx/">病院・医療機関のDX</a></p>
@@ -1136,7 +1136,7 @@ function pageBodyHtml(page) {
     const painHtml = (rk?.pains || []).map((p) => `<h3>${esc(p.title)}</h3><p>${esc(p.text)}</p>`).join('')
     const solveHtml = (rk?.solve || []).map((p) => `<h3>${esc(p.title)}</h3><p>${esc(p.text)}</p>`).join('')
     const jobHtml = (rk?.jobs || []).map((j) => `<p>${esc(j.when)} / ${esc(j.from)} / ${esc(j.do)}</p>`).join('')
-    const askHtml = (rk?.ask || []).map((a) => `<p>${esc(a)}</p>`).join('')
+    const askHtml = rk?.askLead ? `<h2>${esc(rk.askTitle)}</h2><p>${esc(rk.askLead)}</p>` : ''
     const featureHtml = (rk?.features || []).map((f) => `<h2>${esc(f.title)}</h2><p>${esc(f.text)} ${esc(f.result)}</p>`).join('')
     const faqHtml = (rk?.faqs || []).map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')
     return `${whatHtml}${painHtml}${solveHtml}${jobHtml}${featureHtml}${askHtml}<p>RKシナリオ作成代行 10,000円から。運用保守代行 5,000円から／月。</p>${faqHtml}`

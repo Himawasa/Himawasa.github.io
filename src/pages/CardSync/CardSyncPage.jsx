@@ -226,7 +226,7 @@ export default function CardSyncPage() {
 
       <section className="cs-steps">
         <div className="container">
-          <h2 className="section-title">発行までは、3つの手順だけ</h2>
+          <h2 className="section-title">発行までは、簡単な3つのステップ</h2>
           <ol className="cs-step-list">
             {STEPS.map((s) => (
               <li className="cs-step" key={s.n}>
@@ -272,7 +272,7 @@ export default function CardSyncPage() {
         <div className="container">
           <h2>社員証・来訪者証・面会証の運用を見直してみませんか</h2>
           <p>「今の名簿のまま使えるか知りたい」「自社の様式に合わせて作ってほしい」など、現場の運用に合わせた形をご提案します。</p>
-          <Link to="/contact" className="btn-yellow">話してみる（無料）</Link>
+          <Link to="/contact" className="btn-yellow">無料相談はこちら</Link>
         </div>
       </section>
     </>

@@ -63,8 +63,8 @@ export default function AudiencePaths() {
       <div className="container">
         <Reveal direction="up" className="section-header">
           <span className="section-label">FOR YOU</span>
-          <h2 className="section-title">自分の現場を、選んでください</h2>
-          <p className="section-desc">技術の話は後回し。いま困っている場所だけ見てください</p>
+          <h2 className="section-title">あなたのお仕事に合わせてお選びください</h2>
+          <p className="section-desc">難しい専門知識は不要です。現場で困っていることから一緒にお手伝いします。</p>
         </Reveal>
         <div className="paths-grid">
           {paths.map(({ id, tone, icon, title, lead, points, to, cta, subHref, subCta }, i) => (

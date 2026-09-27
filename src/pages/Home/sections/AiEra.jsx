@@ -25,7 +25,7 @@ export default function AiEra({ hideHeader = false }) {
         </div>
         <p className="ai-era-foot">
           使い方の相談も、今ある仕組みの点検もできます。{' '}
-          <a href="/contact">話してみてください。</a>
+          <a href="/contact">お気軽にご相談ください。</a>
         </p>
       </div>
     </section>

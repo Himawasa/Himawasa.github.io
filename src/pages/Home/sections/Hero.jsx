@@ -177,14 +177,14 @@ export default function Hero() {
 
           <motion.div variants={fadeUp} className="hero-cta">
             <Link to="/contact" className="btn-hero-primary">
-              まずは話してみる（無料）
+              まずは無料相談から
             </Link>
             <Link to="/works" className="btn-hero-secondary">
               どれくらい楽になるか見る
             </Link>
           </motion.div>
           <motion.p variants={fadeUp} className="hero-micro">
-            営業の電話はしません。返信はメールかフォームです。
+            ご相談はオンライン（30分）またはメールで承ります。
           </motion.p>
 
           <motion.div variants={fadeUp} className="hero-trust">

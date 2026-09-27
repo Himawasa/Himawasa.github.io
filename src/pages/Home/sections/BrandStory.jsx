@@ -43,7 +43,7 @@ export default function BrandStory() {
                 「4人家族の絆でできた名前。」<br />
                 <span style={{ fontSize: '12px', color: '#888' }}>
                   HiMaWaSa の4文字は、大切な家族の頭文字を並べたものです。<br />
-                  詳しくは、仕事でご縁ができた際にでもこっそりお話しします。😊
+                  詳しくは、実際にお仕事でご縁をいただいた際にお話しさせてください。
                 </span>
               </div>
             </div>

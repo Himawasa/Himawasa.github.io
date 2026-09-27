@@ -13,8 +13,8 @@ const items = [
   },
   {
     icon: '☕',
-    title: '作ったあとも、相談できます',
-    text: '作って終わりにはしません。使いながら直していく前提なので、導入後も気軽に声をかけてください。',
+    title: '作って終わりにせず、導入後も伴走します',
+    text: '導入後も日々の業務に合わせて改善を重ねていく前提ですので、いつでも気軽にご相談いただけます。',
   },
 ]
 
@@ -24,8 +24,8 @@ export default function TrustSafe() {
       <div className="container">
         <Reveal direction="up" className="section-header">
           <span className="section-label">PEACE OF MIND</span>
-          <h2 className="section-title">始める前に、よくいただくご心配</h2>
-          <p className="section-desc">所長・施設長の方からよく聞かれる「うちの現場でも使えるか」に、先にお答えします</p>
+          <h2 className="section-title">導入前によくいただく<span className="nowrap">ご不安について</span></h2>
+          <p className="section-desc">所長・施設長の方から「うちの現場でも使えるか？」とよくご相談いただくポイントをまとめました。</p>
         </Reveal>
         <div className="trust-grid">
           {items.map(it => (

@@ -41,11 +41,10 @@ export default function RkPage({ kind }) {
               <Link to="/contact" className="btn-yellow">初回相談は無料（30分）</Link>
               <Link to={isHub ? '#pricing' : '/rk'} className="ind-text-link">{isHub ? 'サービス・料金を見る' : 'RKシナリオ作成代行に戻る'}</Link>
             </div>
-            <p className="ind-micro">ライセンスのご契約はキーエンスへお願いします。こちらでお受けするのは、シナリオ作成代行と運用保守代行です。</p>
+            <p className="ind-micro">※ライセンス契約はキーエンス様と直接お願いいたします。当社はシナリオ作成代行・運用保守を専門に承っております。</p>
             {(data.kind === 'care' || data.kind === 'hospital') && (
               <p className="ind-micro">
-                <Link to="/for/care">介護・病院の自動化は、まずこちら。</Link>
-                RKはその補助です。
+                <Link to="/for/care">介護施設・病院向けの自動化サービスはこちらをご覧ください。</Link>
               </p>
             )}
           </div>
@@ -148,15 +147,11 @@ export default function RkPage({ kind }) {
           </div>
         </section>
 
-        {data.ask && (
+        {data.askLead && (
           <section className="ind-section ind-section--proof">
             <div className="container">
               <h2 className="ind-h2">{data.askTitle}</h2>
-              <ol className="rk-ask">
-                {data.ask.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ol>
+              <p className="rk-lead">{data.askLead}</p>
               <p className="rk-ask-note">答えられなくても大丈夫です。分からないところから、一緒に整理します。</p>
             </div>
           </section>
@@ -244,9 +239,9 @@ export default function RkPage({ kind }) {
         <section className="ind-close">
           <div className="container">
             <h2>{data.close}</h2>
-            <p>現状のヒアリングは無料です。今の画面を30分見せてください。覚えられる手順かどうか、その場でお答えします。</p>
+            <p>初回のご相談（30分）は無料です。普段の画面をお見せいただきながら、自動化できる手順をその場でお答えします。</p>
             <div className="ind-hero-cta">
-              <Link to="/contact" className="btn-yellow">話してみる（無料）</Link>
+              <Link to="/contact" className="btn-yellow">無料相談はこちら</Link>
               <a href="mailto:info@himawasa-sync.com" className="ind-text-link">info@himawasa-sync.com</a>
             </div>
           </div>

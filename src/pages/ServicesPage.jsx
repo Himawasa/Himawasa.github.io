@@ -19,9 +19,9 @@ export default function ServicesPage() {
         title={p.h1}
         desc={
           <>
-            介護のシフト、病院の日計、士業の請求。今のExcelのまま始めます。
+            介護のシフト、病院の日計、士業の請求など、今お使いのExcelのまま手作業を自動化します。
             <br />
-            キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。
+            キーエンスRKを導入済みの現場でのシナリオ作成代行も承っています。
           </>
         }
         crumb={p.crumb}
@@ -33,7 +33,7 @@ export default function ServicesPage() {
             <img src="/dm/dm-cover.jpg" alt="" width="440" height="280" />
             <div>
               <h2>介護施設・病院の自動化</h2>
-              <p>シフト表、持ち物、日計・カルテの転記。今のExcelと勤怠ソフトのまま。RKシリーズをお使いの現場では、シナリオ作りもお手伝いします。</p>
+              <p>シフト表、持ち物、日計・カルテの転記。今のExcelと勤怠ソフトをそのまま活かします。キーエンスRK導入現場のサポートも可能です。</p>
               <span>介護・病院の案内を見る →</span>
             </div>
           </Link>
@@ -41,7 +41,7 @@ export default function ServicesPage() {
             <img src="/dm/dm-smb-cover.jpg" alt="" width="440" height="280" />
             <div>
               <h2>RKシナリオ作成代行</h2>
-              <p>キーエンス製RPA「RKシリーズ」「RK-10」のシナリオ作成を代行します。導入済みで活用できていない現場へ。工場・病院・介護・士業ごとに、覚える操作を分けています。</p>
+              <p>キーエンス製RPA「RKシリーズ」「RK-10」のシナリオ作成を代行します。「導入したものの多忙でシナリオを作れない」現場をお手伝いします。</p>
               <span>RKシリーズの代行を見る →</span>
             </div>
           </Link>

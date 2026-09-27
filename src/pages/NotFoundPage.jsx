@@ -30,7 +30,7 @@ export default function NotFoundPage() {
           </div>
 
           <p className="notfound-note">
-            以前ご案内したページが開けない場合は、お手数ですが一度ご連絡ください。すぐにお送りします。
+            以前ご案内したページが開けない場合は、お手数ですが一度ご連絡ください。すぐにご案内いたします。
           </p>
 
           <div className="notfound-cta">

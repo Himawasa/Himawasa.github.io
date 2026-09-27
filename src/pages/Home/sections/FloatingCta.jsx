@@ -28,7 +28,7 @@ export default function FloatingCta() {
   return (
     <div className="float-cta" role="navigation" aria-label="無料相談">
       <Link to="/contact" className="float-cta-btn">
-        💬 話してみる（無料）
+        💬 無料相談はこちら
       </Link>
     </div>
   )
