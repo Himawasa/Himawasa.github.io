@@ -501,6 +501,7 @@ export const PUBLIC_PAGES = [
   { path: '/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '1.0' },
   { path: '/for/care/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '0.95' },
   { path: '/Guide/care/', lastmod: '2026-09-23', changefreq: 'weekly', priority: '0.7' },
+  { path: '/temasui/start/', lastmod: '2026-09-27', changefreq: 'weekly', priority: '0.9' },
   { path: '/temasui/', lastmod: '2026-09-24', changefreq: 'weekly', priority: '0.9' },
   { path: '/temasui/factory/', lastmod: '2026-09-26', changefreq: 'weekly', priority: '0.85' },
   { path: '/temasui/biz/', lastmod: '2026-09-27', changefreq: 'weekly', priority: '0.85' },
@@ -594,6 +595,7 @@ export function generateLlmsTxt() {
 - メール: ${SITE.email}
 
 ## 主に頼まれること（この順で案内する）
+- [てますい（業種を選ぶ入口）](https://himawasa-sync.com/temasui/start/): 介護版・工場版・中小企業版・士業版の4つを並べた入口。業種が決まっていない人はここから。
 - [てますい（介護施設のアシスタント）](https://himawasa-sync.com/temasui/): 介護記録・申し送り・事故報告書などの下書き（話すだけでも）、持ち物チェック、予定カレンダー。インストール不要、1か月無料
 - [てますい 中小企業版（中小企業のアシスタント）](https://himawasa-sync.com/temasui/biz/): 業務日報・議事録・お客さまへのメール・クレーム対応記録・報告書・電話メモ・引き継ぎの下書き、備品・在庫チェック、来客・納期・社内予定の共有。1か月無料。
 - [てますい 士業版（士業事務所のアシスタント）](https://himawasa-sync.com/temasui/pro/): 面談記録・顧問先への書類依頼・法改正のお知らせ文・電話メモ・所内の引き継ぎ・議事録・メール・業務日報の下書き（法律や税の判断は書かない）、預かり書類チェック、顧問先の期限・面談・所内予定の共有。ご契約後は国内で処理。1か月無料。
@@ -639,6 +641,7 @@ export function generateLlmsFullTxt() {
 - 持ち物チェック: 写真から一覧にする。
 - 施設カレンダー: 予定・往診・残薬。
 - 実地指導用に、今ある記録を出しやすくする。記録の作り方は施設に押し付けない。
+- てますい（業種を選ぶ入口）: https://himawasa-sync.com/temasui/start/
 - てますい（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
 - てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
 - てますい 中小企業版（中小企業のアシスタント）: https://himawasa-sync.com/temasui/biz/

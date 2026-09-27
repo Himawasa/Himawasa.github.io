@@ -4,7 +4,7 @@ import './Navbar.css'
 
 // href はサイト内の素の HTML のページ（React の画面遷移では開けないので <a href> で出す）
 const links = [
-  { href: '/temasui/', label: 'てますい' },
+  { href: '/temasui/start/', label: 'てますい' },
   { to: '/for/pro', label: '士業' },
   { to: '/for/care', label: '介護・医療' },
   { to: '/for/biz', label: '中小企業' },

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>てますい｜介護・工場・中小企業・士業の書く手間を減らすアシスタント（業種を選ぶ） | HiMaWaSa Sync</title>
+<meta name="description" content="「てますい」は、メモを入れるか話すだけで記録・報告・連絡の文章が数秒で整うアシスタント。介護版・工場版・中小企業版・士業版があります。あなたの業種を選んでください。インストール不要、1か月無料。">
+<link rel="canonical" href="https://himawasa-sync.com/temasui/start/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HiMaWaSa Sync">
+<meta property="og:title" content="てますい ─ 書く手間が、すいすい減っていく。（業種を選ぶ）">
+<meta property="og:description" content="メモを入れるか話すだけで、記録・報告・連絡の文章が数秒で。介護・工場・中小企業・士業の4つの版から選べます。1か月無料。">
+<meta property="og:url" content="https://himawasa-sync.com/temasui/start/">
+<meta property="og:image" content="https://himawasa-sync.com/temasui/start/img/ogp.jpg">
+<meta property="og:image:alt" content="てますい：介護版・工場版・中小企業版・士業版">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="てますい ─ 書く手間が、すいすい減っていく。（業種を選ぶ）">
+<meta name="twitter:description" content="メモを入れるか話すだけで、記録・報告・連絡の文章が数秒で。介護・工場・中小企業・士業の4つの版から選べます。1か月無料。">
+<meta name="twitter:image" content="https://himawasa-sync.com/temasui/start/img/ogp.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "てますい（業種を選ぶ）", "url": "https://himawasa-sync.com/temasui/start/", "description": "メモを入れるか話すだけで記録・報告・連絡の文章が数秒で整うアシスタント「てますい」。介護版・工場版・中小企業版・士業版。", "publisher": {"@type": "Organization", "name": "HiMaWaSa Sync", "url": "https://himawasa-sync.com/"}, "hasPart": [{"@type": "SoftwareApplication", "name": "てますい（介護版）", "url": "https://himawasa-sync.com/temasui/"}, {"@type": "SoftwareApplication", "name": "てますい 工場版", "url": "https://himawasa-sync.com/temasui/factory/"}, {"@type": "SoftwareApplication", "name": "てますい 中小企業版", "url": "https://himawasa-sync.com/temasui/biz/"}, {"@type": "SoftwareApplication", "name": "てますい 士業版", "url": "https://himawasa-sync.com/temasui/pro/"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<style>
+  /* 業種別の紹介ページ（/temasui/ ほか3つ）と同じ色・字。ここは「業種を選ぶ」だけの短いページ */
+  :root {
+    --yellow: #FFD700; --yellow-lt: #FFF8CC; --cream: #FFFBF0; --cream-bd: #F0E4C4;
+    --ink: #1A1A1A; --gray: #5a5a5a; --white: #fff; --green: #2F9E44;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: var(--ink); background: var(--white); line-height: 1.7; word-break: auto-phrase; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .round { font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif; }
+  .inner { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 64px 0; }
+  h2 { font-size: clamp(24px, 3.4vw, 34px); line-height: 1.4; text-align: center; margin-bottom: 12px; }
+  .lead { text-align: center; color: var(--gray); margin-bottom: 36px; }
+
+  /* ① 最初の画面 */
+  .hero { background: var(--yellow); padding: 56px 0 48px; text-align: center; }
+  .hero .by { font-weight: 700; font-size: 14px; }
+  .hero h1 { font-size: clamp(56px, 9vw, 96px); line-height: 1.05; letter-spacing: .03em; margin: 8px 0 12px; }
+  .hero .tag { font-size: clamp(20px, 2.6vw, 28px); font-weight: 900; }
+  .hero .sub { margin: 14px auto 0; font-size: 16px; max-width: 640px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
+  .chip { background: var(--white); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 700; }
+
+  /* ② 業種のカード */
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .card { border-radius: 24px; overflow: hidden; background: var(--cream); border: 2px solid var(--cream-bd); display: flex; flex-direction: column; }
+  .card .photo { height: 200px; background: linear-gradient(135deg, #FFE98A, #FFF8CC 60%, #F6E7C1); }
+  .card .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .card .body { padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .card h3 { font-size: 24px; display: flex; align-items: center; gap: 8px; }
+  .card h3 small { font-size: 13px; font-weight: 700; color: var(--gray); }
+  .card .who { font-size: 14px; font-weight: 700; color: var(--gray); }
+  .card p { font-size: 15px; }
+  .card .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 20px; border-radius: 999px; font-weight: 900; text-decoration: none; font-size: 15px; }
+  .btn.dark { background: var(--ink); color: var(--white); }
+  .btn.light { background: var(--white); color: var(--ink); border: 2px solid var(--ink); }
+  .note { text-align: center; font-size: 14px; color: var(--gray); margin-top: 28px; }
+
+  /* ③ 共通のこと */
+  .common { background: var(--cream); }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .fact { background: var(--white); border-radius: 20px; padding: 22px 14px; text-align: center; }
+  .fact .i { font-size: 34px; display: block; }
+  .fact b { display: block; font-size: 17px; margin: 6px 0 4px; }
+  .fact span { font-size: 14px; color: var(--gray); }
+
+  /* ④ 迷ったら */
+  .ask { text-align: center; }
+  .ask .btn { font-size: 17px; padding: 15px 26px; }
+
+  footer { padding: 32px 0; text-align: center; font-size: 14px; color: var(--gray); }
+  footer a { color: var(--gray); }
+
+  @media (max-width: 860px) {
+    section { padding: 48px 0; }
+    .cards { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ① 最初の画面 -->
+<header class="hero">
+  <div class="inner">
+    <div class="by">書く手間を減らすアシスタント ／ by HiMaWaSa Sync</div>
+    <h1 class="round">てますい</h1>
+    <p class="tag">書く手間が、すいすい減っていく。</p>
+    <p class="sub">メモを入れるか、🎤で話すだけで、記録・報告・連絡の文章が数秒で整います。<br>お仕事に合わせて4つの版があります。あなたの業種を選んでください。</p>
+    <div class="chips"><span class="chip">ダウンロード不要</span><span class="chip">🎤 話すだけでもOK（外国語も日本語に）</span><span class="chip">1か月無料</span><span class="chip">料金はどの版も同じ</span></div>
+  </div>
+</header>
+
+<!-- ② 業種のカード -->
+<section id="choose">
+  <div class="inner">
+    <h2>あなたのお仕事はどれですか？</h2>
+    <p class="lead">カードの「紹介ページを見る」で、その業種の使い方と見本を見られます。</p>
+    <div class="cards">
+
+      <article class="card">
+        <div class="photo"><img src="/temasui/img/photo-hero.jpg" alt="職員さんと利用者さんが笑顔で話している様子" loading="lazy"></div>
+        <div class="body">
+          <h3 class="round">🏥 介護版 <small>介護施設のアシスタント</small></h3>
+          <div class="who">特養・老健・グループホーム・小規模多機能・デイサービス など</div>
+          <p>介護記録・申し送り・ご家族への連絡・事故報告書などの下書き。持ち物チェック（記名の確認）と予定カレンダー。</p>
+          <div class="btns">
+            <a class="btn dark" href="https://himawasa-sync.com/temasui/">紹介ページを見る</a>
+            <a class="btn light" href="https://care.himawasa-sync.com/demo">▶ 見本を試す</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photo"><img src="/temasui/factory/img/photo-hero.jpg" alt="工場で作業する人たちの様子" loading="lazy"></div>
+        <div class="body">
+          <h3 class="round">🏭 工場版 <small>工場のアシスタント</small></h3>
+          <div class="who">製造・加工・組立・食品工場 など</div>
+          <p>作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告の下書き。工具・備品チェックと、点検・納期・来客の予定共有。</p>
+          <div class="btns">
+            <a class="btn dark" href="https://himawasa-sync.com/temasui/factory/">紹介ページを見る</a>
+            <a class="btn light" href="https://care.himawasa-sync.com/demo?industry=factory">▶ 見本を試す</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photo"><img src="/temasui/biz/img/photo-hero.jpg" alt="事務所で働く人たちの様子" loading="lazy"></div>
+        <div class="body">
+          <h3 class="round">🏢 中小企業版 <small>中小企業のアシスタント</small></h3>
+          <div class="who">小売・卸・建設・サービス・事務職の多い会社 など</div>
+          <p>業務日報・議事録・お客さまへのメール・クレーム対応記録・報告書・電話メモの下書き。備品・在庫チェックと、来客・納期・社内予定の共有。</p>
+          <div class="btns">
+            <a class="btn dark" href="https://himawasa-sync.com/temasui/biz/">紹介ページを見る</a>
+            <a class="btn light" href="https://care.himawasa-sync.com/demo?industry=biz">▶ 見本を試す</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photo"><img src="/temasui/pro/img/photo-hero.jpg" alt="士業事務所で相談している様子" loading="lazy"></div>
+        <div class="body">
+          <h3 class="round">⚖️ 士業版 <small>士業事務所のアシスタント</small></h3>
+          <div class="who">社労士・税理士・行政書士・司法書士 などの事務所</div>
+          <p>面談記録・顧問先への書類依頼・法改正のお知らせ文・電話メモの下書き（法律や税の判断は書きません）。預かり書類チェックと、顧問先の期限・面談の共有。ご契約後は国内で処理。</p>
+          <div class="btns">
+            <a class="btn dark" href="https://himawasa-sync.com/temasui/pro/">紹介ページを見る</a>
+            <a class="btn light" href="https://care.himawasa-sync.com/demo?industry=pro">▶ 見本を試す</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <p class="note">見本は登録なしで、書類の下書き・チェック・予定の共有を試せます。入れた内容も写真も保存されません。</p>
+  </div>
+</section>
+
+<!-- ③ どの版にも共通のこと -->
+<section class="common">
+  <div class="inner">
+    <h2>どの版でも同じこと</h2>
+    <p class="lead">中身の言葉と書類の種類が業種ごとに違うだけで、使い方と料金は同じです。</p>
+    <div class="facts">
+      <div class="fact"><span class="i">📝</span><b>書類の下書き</b><span>メモか声から、数秒で読みやすい文章に</span></div>
+      <div class="fact"><span class="i">📦</span><b>持ち物・備品チェック</b><span>並べて撮るだけで一覧に。目印は自由に設定</span></div>
+      <div class="fact"><span class="i">📅</span><b>予定の共有</b><span>月のカレンダー・今日の一覧・確認待ち</span></div>
+      <div class="fact"><span class="i">💴</span><b>料金は同じ</b><span>1か月無料。その後は事業所ごとの定額で人数で増えない</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ 迷ったら -->
+<section class="ask">
+  <div class="inner">
+    <h2>どれか分からないときは</h2>
+    <p class="lead">右下の「質問する」に、お仕事の内容を書いてください。合う版をご案内します。<br>メールでも大丈夫です：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a></p>
+    <a class="btn dark" href="https://care.himawasa-sync.com/chat">💬 質問する</a>
+  </div>
+</section>
+
+<footer>
+  <p class="round" style="font-size:22px;color:var(--ink)">てますい <span style="font-size:13px">by HiMaWaSa Sync</span></p>
+  <p>お問い合わせ：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a>　／　<a href="https://himawasa-sync.com/">HiMaWaSa Sync のトップへ</a></p>
+</footer>
+
+<!-- 右下の「質問する」（てますいのアプリと同じ部品。答えは care.himawasa-sync.com の AI） -->
+<script src="https://care.himawasa-sync.com/chat-widget.js" defer></script>
+</body>
+</html>
