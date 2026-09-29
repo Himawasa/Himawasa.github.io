@@ -467,3 +467,24 @@ textarea {
   margin-left: auto;
   font-size: 13px;
 }
+
+/* ---------- 入口（ID・パスワード） ---------- */
+
+.gate { display: none; padding: 16px; }
+html.gate-locked .gate { display: block; }
+html.gate-locked main,
+html.gate-locked footer.note { display: none; }
+
+.gate-card h2 { font-size: 16px; }
+.gate-label { display: block; font-size: 13px; font-weight: 700; margin-top: 12px; color: var(--accent-dk); }
+.gate-card .btn-primary { margin-top: 16px; }
+.gate-err {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: var(--danger);
+}
+.gate-note { margin-top: 14px; }

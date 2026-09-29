@@ -1141,7 +1141,9 @@
 
   updateChrome();
   renderDest();
-  initMsal()
+  // 入口（ID・パスワード）を通ってから Microsoft ログインの準備を始める
+  (window.EmpazyGate ? window.EmpazyGate.ready : Promise.resolve())
+    .then(initMsal)
     .catch(function (err) {
       loginProblem = "Microsoft ログインの準備ができませんでした。電波を確認して、画面を読み込み直してください。" +
         (err && err.message ? "（" + err.message + "）" : "");

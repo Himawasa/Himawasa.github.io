@@ -19,6 +19,21 @@
     <p id="header-sub">操作確認用です。画像は保存されません</p>
   </header>
 
+  <!-- 入口：会社で1組の ID とパスワード（gate.js）。入るまで下の main は見せない -->
+  <section class="gate" id="gate">
+    <form class="card gate-card" id="gate-form" autocomplete="on">
+      <h2>ID とパスワードを入れてください</h2>
+      <p class="hint">EMPAZY 様専用のページです。お知らせした ID とパスワードを入れてください。</p>
+      <label class="gate-label" for="gate-id">ID</label>
+      <input class="inline-input" id="gate-id" name="username" type="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" inputmode="email" />
+      <label class="gate-label" for="gate-pw">パスワード</label>
+      <input class="inline-input" id="gate-pw" name="password" type="password" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" />
+      <button type="submit" class="btn-primary" id="gate-btn">入る</button>
+      <p class="gate-err" id="gate-err" hidden></p>
+      <p class="hint gate-note">一度入ると、このスマホでは <b><span id="gate-days">30</span>日間</b> 入れ直す必要はありません。</p>
+    </form>
+  </section>
+
   <main>
     <!-- 設定画面：ログインと保存先（最初だけ） -->
     <div id="screen-setup">
@@ -145,6 +160,7 @@
   <!-- Microsoft ログイン部品（@azure/msal-browser 3.30.0・MIT）。配布元の CDN が止まったため同梱 -->
   <script src="/empazy-expense/vendor/msal-browser-3.30.0.min.js"></script>
   <script src="/empazy-expense/config.js"></script>
+  <script src="/empazy-expense/gate.js"></script>
   <script src="/empazy-expense/app.js" defer></script>
 </body>
 </html>
