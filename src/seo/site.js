@@ -1086,6 +1086,9 @@ function navHtml() {
       <a href="/for/pro/">士業の方</a>
       <a href="/for/care/">介護・医療の方</a>
       <a href="/for/biz/">中小企業の方</a>
+      <a href="/for/factory/">工場の方</a>
+      <a href="/temasui/">てますい（介護施設のアシスタント）</a>
+      <a href="/temasui/factory/">てますい 工場版</a>
       <a href="/rk/">RKシナリオ作成代行</a>
       <a href="/rk/factory/">工場RK</a>
       <a href="/rk/hospital/">病院RK</a>
@@ -1097,6 +1100,34 @@ function navHtml() {
       <a href="/pro-dx/">士業DX</a>
       <a href="/shiftsync/">シフトシンク</a>
     </nav>`
+}
+
+/** 最初の HTML（JS が動く前）に入れる、主なページへのリンク。
+ * メニューは React が作るので、JS を動かさない相手（検索エンジンの最初の巡回など）には見えない。
+ * その穴を埋めるためのもの。React が起動すると #root ごと置き換わる。見た目は index.css の .static-links */
+export const STATIC_LINKS = [
+  { href: '/temasui/', label: 'てますい（介護施設のアシスタント）' },
+  { href: '/temasui/factory/', label: 'てますい 工場版' },
+  { href: '/temasui/biz/', label: 'てますい 中小企業版' },
+  { href: '/temasui/pro/', label: 'てますい 士業版' },
+  { href: '/temasui/start/', label: 'てますいの始め方' },
+  { href: '/temasui/guide/', label: '書き方ガイド' },
+  { href: '/for/care/', label: '介護・医療の方' },
+  { href: '/for/factory/', label: '工場の方' },
+  { href: '/for/pro/', label: '士業の方' },
+  { href: '/for/biz/', label: '中小企業の方' },
+  { href: '/try/', label: '無料体験' },
+  { href: '/cardsync/', label: 'CardSync' },
+  { href: '/services/', label: 'サービス' },
+  { href: '/works/', label: '実績' },
+  { href: '/rk/', label: 'RKシナリオ作成代行' },
+  { href: '/about/', label: '会社概要' },
+  { href: '/contact/', label: 'お問い合わせ' },
+]
+export function staticLinksHtml(current = '') {
+  const items = STATIC_LINKS.filter((l) => l.href !== current)
+    .map((l) => `<a href="${esc(l.href)}">${esc(l.label)}</a>`).join('')
+  return `<nav class="static-links" aria-label="主なページ">${items}</nav>`
 }
 
 function pageBodyHtml(page) {
@@ -1265,7 +1296,7 @@ export function generateRouteHtml(page, assetTags) {
     ${assetTags}
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">${staticLinksHtml(page.path)}</div>
     <noscript>${generateNoscript(page)}</noscript>
   </body>
 </html>

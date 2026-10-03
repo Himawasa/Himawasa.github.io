@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 import { execFileSync } from 'child_process'
 import { heroStaticHtml } from './src/pages/Home/sections/heroText.js'
 import {
+  staticLinksHtml,
   PAGES,
   generateSeoHead,
   generateNoscript,
@@ -80,7 +81,7 @@ export default defineConfig({
           .replace('<!--seo-head-->', generateSeoHead(PAGES.home))
           .replace('<!--seo-noscript-->', generateNoscript(PAGES.home))
           // トップ画面の文字を JavaScript より先に出す（表示速度のため。React が起動すると同じ内容に置き換わる）
-          .replace('<div id="root"></div>', `<div id="root">${heroStaticHtml()}</div>`)
+          .replace('<div id="root"></div>', `<div id="root">${heroStaticHtml()}${staticLinksHtml('/')}</div>`)
       },
     },
     {
