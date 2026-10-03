@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
+import { HERO } from './heroText'
 import './Hero.css'
 
 /* ===== Canvas パーティクル（reduced-motion 対応） ===== */
@@ -150,41 +151,41 @@ export default function Hero() {
         <motion.div
           className="hero-left"
           variants={stagger}
-          initial={prefersReduced ? false : 'hidden'}
+          initial={false}
           animate="visible"
         >
           <motion.div variants={fadeUp} className="hero-logo-wrap">
-            <img src="/logo.png" alt="HiMaWaSa Sync" className="hero-logo-img" />
+            <img src="/logo-160.png" alt="HiMaWaSa Sync" className="hero-logo-img" width="36" height="34" fetchPriority="high" />
             <span className="hero-logo-text">HiMaWaSa Sync</span>
           </motion.div>
 
           <motion.div variants={fadeUp} className="hero-badge">
             <span className="hero-badge-dot" />
-            毎月の手作業を、今のExcelのまま。
+            {HERO.badge}
           </motion.div>
 
           <motion.h1 variants={fadeUp} className="hero-title">
-            <span className="hero-title-static">今のExcelのまま、</span>
+            <span className="hero-title-static">{HERO.titleStatic}</span>
             <span className="hero-title-typing" aria-hidden="true">
               <TypingText />
             </span>
-            <span className="sr-only">現場の手作業を自動化。</span>
+            <span className="sr-only">{HERO.titleFull.replace(HERO.titleStatic, '')}</span>
           </motion.h1>
 
           <motion.p variants={fadeUp} className="hero-sub">
-            介護・医療、士業、工場、中小企業の現場で毎日残る手作業を、今お使いのExcelややり方のまま自動化します。
+            {HERO.sub}
           </motion.p>
 
           <motion.div variants={fadeUp} className="hero-cta">
             <Link to="/contact" className="btn-hero-primary">
-              まずは相談してみる（無料）
+              {HERO.ctaPrimary}
             </Link>
             <Link to="/works" className="btn-hero-secondary">
-              改善事例を見る
+              {HERO.ctaSecondary}
             </Link>
           </motion.div>
           <motion.p variants={fadeUp} className="hero-micro">
-            事前の準備はいりません。オンライン（30分）またはメールでお気軽にご相談いただけます。
+            {HERO.micro}
           </motion.p>
 
           <motion.div variants={fadeUp} className="hero-trust">

@@ -23,7 +23,9 @@
 .hero-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
+  /* 光はもともと radial-gradient で柔らかいので、重ねていた blur(120px) は外した（常時動く要素のぼかしは見た目の計算が重く、
+     スマホで最初の表示を数秒遅らせていた。2026-10-03）。動きは transform と opacity だけなので、層を分けて軽く描く */
+  will-change: transform, opacity;
   pointer-events: none;
   z-index: 0;
 }

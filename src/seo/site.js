@@ -1173,6 +1173,8 @@ function pageBodyHtml(page) {
   return ''
 }
 
+const FONT_CSS = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@700;900&display=swap'
+
 /** Vite が index.html / 下層HTML に差し込む head 一式 */
 export function generateSeoHead(page = PAGES.home) {
   const title = page.title
@@ -1222,11 +1224,13 @@ export function generateSeoHead(page = PAGES.home) {
     `<link rel="alternate" type="text/plain" href="${SITE.url}/llms.txt" title="LLM向け概要" />`,
     `<link rel="preconnect" href="https://fonts.googleapis.com" />`,
     `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`,
-    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;900&display=swap" />`,
+    // フォントは描画を止めずに読む（preload → 読み終わったら適用）。太さは実際に使っている 400/700/900 と Inter 700/900 だけ
+    `<link rel="preload" as="style" href="${FONT_CSS}" onload="this.onload=null;this.rel='stylesheet'" />`,
+    `<noscript><link rel="stylesheet" href="${FONT_CSS}" /></noscript>`,
     SITE.gaId ? `<link rel="preconnect" href="https://www.googletagmanager.com" />` : '',
-    SITE.gaId ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(SITE.gaId)}"></script>` : '',
+    // 計測タグ（174KB）は画面が出たあとに読む。最初の表示を遅らせないため
     SITE.gaId
-      ? `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${esc(SITE.gaId)}');</script>`
+      ? `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${esc(SITE.gaId)}');window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${esc(SITE.gaId)}';document.head.appendChild(s);});</script>`
       : '',
     // 検索に出さないページ（noindex）では、構造化データも出さない。
     // React 側（components/Seo.jsx）と揃える。

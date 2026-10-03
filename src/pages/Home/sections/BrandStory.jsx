@@ -37,7 +37,7 @@ export default function BrandStory() {
               </tbody>
             </table>
             <div className="num-box">
-              <img src="/logo.png" alt="HiMaWaSa Sync ロゴ"
+              <img src="/logo-160.png" alt="HiMaWaSa Sync ロゴ"
                 style={{ width: '80px', marginBottom: '12px', filter: 'drop-shadow(0 2px 12px rgba(255,215,0,0.4))' }} />
               <div className="num-box-desc" style={{ fontSize: '15px', lineHeight: '1.8', color: '#333' }}>
                 「4人家族の絆でできた名前。」<br />

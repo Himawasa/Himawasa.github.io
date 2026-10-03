@@ -28,7 +28,7 @@ export default function Navbar() {
       <a href="#main-content" className="skip-link">本文へスキップ</a>
       <div className="nav-inner">
         <Link to="/" className="nav-logo">
-          <img src="/logo.png" alt="" className="nav-logo-img" aria-hidden="true" />
+          <img src="/logo-160.png" alt="" className="nav-logo-img" aria-hidden="true" width="24" height="23" />
           <span className="hi">Hi</span>
           <span className="ma">Ma</span>
           <span className="wa">Wa</span>
