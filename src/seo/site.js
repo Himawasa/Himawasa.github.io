@@ -1228,9 +1228,10 @@ export function generateSeoHead(page = PAGES.home) {
     `<link rel="preload" as="style" href="${FONT_CSS}" onload="this.onload=null;this.rel='stylesheet'" />`,
     `<noscript><link rel="stylesheet" href="${FONT_CSS}" /></noscript>`,
     SITE.gaId ? `<link rel="preconnect" href="https://www.googletagmanager.com" />` : '',
-    // 計測タグ（174KB）は画面が出たあとに読む。最初の表示を遅らせないため
+    // 計測タグ（174KB）は最初の表示を遅らせないよう後から読む。ただし load 待ちだと早い離脱が計測されないので、
+    // 「最初の操作（タップ・スクロール・キー）」か「2.5秒後」の早いほうで読む（黒ヤギの指摘1・2026-10-03）
     SITE.gaId
-      ? `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${esc(SITE.gaId)}');window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${esc(SITE.gaId)}';document.head.appendChild(s);});</script>`
+      ? `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${esc(SITE.gaId)}');(function(){var done=false;function go(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${esc(SITE.gaId)}';document.head.appendChild(s);}['pointerdown','keydown','scroll','touchstart'].forEach(function(e){addEventListener(e,go,{once:true,passive:true});});setTimeout(go,2500);})();</script>`
       : '',
     // 検索に出さないページ（noindex）では、構造化データも出さない。
     // React 側（components/Seo.jsx）と揃える。

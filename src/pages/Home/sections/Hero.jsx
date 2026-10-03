@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
-import { HERO } from './heroText'
+import { HERO, PHRASES } from './heroText'
 import './Hero.css'
 
 /* ===== Canvas パーティクル（reduced-motion 対応） ===== */
@@ -56,16 +56,11 @@ function ParticleCanvas() {
 }
 
 /* ===== タイピングエフェクト（成果ベース） ===== */
-const PHRASES = [
-  '毎月の手作業を、もっと短く。',
-  '現場の事務を低価格で自動化。',
-  '始められます。',
-]
 function TypingText() {
   const prefersReduced = useReducedMotion()
   const [idx, setIdx]   = useState(0)
-  const [text, setText]  = useState('')
-  const [phase, setPhase] = useState('typing')
+  const [text, setText]  = useState(PHRASES[0])
+  const [phase, setPhase] = useState('pause')
 
   useEffect(() => {
     if (prefersReduced) return
@@ -131,12 +126,7 @@ const cards = [
   },
 ]
 
-const paths = [
-  { href: '/for/pro', label: '士業の方' },
-  { href: '/for/care', label: '介護・医療の方' },
-  { href: '/for/biz', label: '中小企業の方' },
-  { href: '/for/factory', label: '工場の方' },
-]
+const paths = HERO.paths
 
 export default function Hero() {
   const prefersReduced = useReducedMotion()
