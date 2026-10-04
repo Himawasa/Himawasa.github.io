@@ -61,6 +61,8 @@
 
 /* ── ⑦ 安心 ── */
 .th-safety { margin-left: 1.2em; line-height: 2.1; color: var(--black-s); }
+.th-more { margin-top: 14px; }
+.th-more a { font-weight: 700; color: #8a6a3d; text-decoration: underline; text-underline-offset: 4px; }
 
 @media (max-width: 1000px) {
   .th-versions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
