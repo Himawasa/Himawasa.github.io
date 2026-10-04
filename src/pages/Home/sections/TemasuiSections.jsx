@@ -73,8 +73,7 @@ export function TemasuiPricing() {
               <tr><th scope="col">版</th><th scope="col">月額</th><th scope="col">ご契約時（初期サポート）</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">介護・工場・中小企業・士業</th><td><b>10,000円</b>（会社・施設全体で定額）</td><td>30,000円</td></tr>
-              <tr><th scope="row">病院</th><td><b>15,000円</b>（導入価格）</td><td>50,000円</td></tr>
+              <tr><th scope="row">5つの版とも同じ（介護・病院・工場・中小企業・士業）</th><td><b>10,000円</b>（会社・施設・病院全体で定額）</td><td>30,000円</td></tr>
             </tbody>
           </table>
         </div>
