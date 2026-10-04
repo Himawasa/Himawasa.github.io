@@ -22,7 +22,7 @@ export function TemasuiVersions() {
   return (
     <section className="th-section" id="versions">
       <div className="container">
-        <h2 className="th-h2">お仕事に合わせて、5つの版があります</h2>
+        <h2 className="th-h2">業種に合わせて、5種類からお選びいただけます</h2>
         <p className="th-desc">見本は登録なしで、その場で試せます。入れた内容も写真も保存されません。</p>
         <div className="th-versions">
           {VERSIONS.map((v) => (
@@ -31,7 +31,7 @@ export function TemasuiVersions() {
               <p>{v.text}</p>
               <div className="th-version-links">
                 <a href={v.href}>紹介を見る →</a>
-                <a href={v.demo} rel="noopener">▶ 見本を試す</a>
+                <a href={v.demo} rel="noopener">▶ 登録なしで試す</a>
               </div>
             </article>
           ))}
@@ -47,12 +47,12 @@ export function TemasuiStrengths() {
     <section className="th-section th-section--white">
       <div className="container th-two">
         <article className="th-box">
-          <h2 className="th-h3">外国の職員さんの言葉でも、日本語の記録に</h2>
+          <h2 className="th-h3">外国人スタッフが母国語で話しても、自然な日本語の記録に</h2>
           <p>母国語（ミャンマー語・ベトナム語など）で話すだけで、自然な日本語の記録の下書きに整えます。</p>
           <a href="/temasui/guide/gaikokujin-kiroku/">書き方ガイド「外国の職員さんの記録」へ →</a>
         </article>
         <article className="th-box">
-          <h2 className="th-h3">地域連携室の紹介状・FAXを、撮るだけで一覧に</h2>
+          <h2 className="th-h3">地域連携室に届いた紹介状・FAXを、スマホで撮るだけで一覧表に</h2>
           <p>撮影するだけで自動で一覧台帳を作成。画像データは保管せず、一覧は90日後に自動で消去されます。</p>
           <a href="/temasui/hospital/">病院版の紹介へ →</a>
         </article>
@@ -70,17 +70,17 @@ export function TemasuiPricing() {
         <div className="th-table-wrap">
           <table className="th-table">
             <thead>
-              <tr><th scope="col">版</th><th scope="col">月額</th><th scope="col">ご契約時（初期サポート）</th></tr>
+              <tr><th scope="col">対象の業種</th><th scope="col">月額</th><th scope="col">ご契約時（初期サポート）</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">5つの版とも同じ（介護・病院・工場・中小企業・士業）</th><td><b>10,000円</b>（会社・施設・病院全体で定額）</td><td>30,000円</td></tr>
+              <tr><th scope="row">すべての業種で共通（介護・病院・工場・中小企業・士業）</th><td><b>10,000円</b>（会社・施設・病院全体で定額）</td><td>30,000円</td></tr>
             </tbody>
           </table>
         </div>
         <ul className="th-terms">
           <li>はじめの1か月は無料です。無料期間が終わっても、自動で料金がかかることはありません。</li>
           <li>最低契約期間は3か月です（無料の1か月は含みません）。</li>
-          <li>ご契約時に、身近な作業を1つ自動化します。詳しくは各版のページをご覧ください。</li>
+          <li>ご契約時に、普段のExcel作業などを1つ自動化します（初期サポートに含まれます）。詳しくは各業種のページをご覧ください。</li>
         </ul>
       </div>
     </section>
@@ -110,7 +110,7 @@ export function TemasuiSafety() {
     <section className="th-section th-section--white">
       <div className="container th-narrow">
         <h2 className="th-h2">安心してお使いいただくために</h2>
-        <p className="th-desc">てますい（ご契約版・見本）について</p>
+        <p className="th-desc">てますい（ご契約後・無料体験・お試し）でのデータの扱い</p>
         <ul className="th-safety">
           <li>入力データや写真が AI の学習に使われることは一切ありません。</li>
           <li>データの保存は国内（東京のサーバー）で、厳重に保護されます。</li>

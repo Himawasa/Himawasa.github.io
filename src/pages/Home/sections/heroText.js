@@ -11,7 +11,7 @@ export const TEMASUI_HERO = {
   lead: 'スマホに向かって話すか、箇条書きを入力するだけで、日報や介護記録のきれいな下書きがすぐに出来上がります。',
   chips: ['ダウンロード不要', '🎤 話すだけ（外国語も日本語に）', '月1万円から', '1か月無料'],
   ctaPrimary: { href: '/temasui/start/', label: '1か月無料で試す' },
-  ctaSecondary: { href: '#versions', label: '見本を試す（登録なし）' },
+  ctaSecondary: { href: '#versions', label: '登録なしで試す' },
   note: '無料期間が終わっても、自動で料金がかかることはありません。運営：HiMaWaSa Sync',
   shot: { src: '/home-temasui-screen.webp', width: 480, height: 1039, alt: 'てますいの画面。「様子」と「対応」に短いメモを入れて「下書きを作る」を押すと、介護記録の下書きができている' },
 }
