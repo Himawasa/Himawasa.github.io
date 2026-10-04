@@ -536,7 +536,7 @@ export const PUBLIC_PAGES = [
   { path: '/cardsync/', lastmod: '2026-09-21', changefreq: 'weekly', priority: '0.85' },
   { path: '/privacy/', lastmod: '2026-08-17', changefreq: 'yearly', priority: '0.2' },
   { path: '/kintone-dx/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
-  { path: '/pro-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
+  { path: '/pro-dx/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
   { path: '/power-automate/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
   { path: '/rk/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.5' },
   { path: '/rk/care/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.4' },
@@ -621,6 +621,7 @@ export function generateLlmsTxt() {
 - [施設で改善できること](https://himawasa-sync.com/Guide/care/): 持ち物・シフト・予定・常勤換算などの一覧
 - [介護のシフト表自動化](https://himawasa-sync.com/shiftsync/): KING OF TIMEの実績 → 今の勤務表様式
 - [病院・医療機関のDX](https://himawasa-sync.com/medical-dx/): FAX、カルテ周辺、日計
+- [士業事務所の業務効率化、どこから始める？](https://himawasa-sync.com/pro-dx/): 事務所の手間を「書く手間（てますい 士業版）」「くり返しの手間（今のExcelのまま自動化）」「まとめる手間（kintone）」に分けて選べる案内
 - [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳、期日、請求
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
 - [Power Automate の自動化](https://himawasa-sync.com/power-automate/): デスクトップ版（Windows）とクラウド版（Microsoft 365）で、転記・集計・ファイル整理・通知を自動に。てますいとは直接つながず、人が確かめた文章の先の作業を受け持つ。作る費用はいただかず、使い続ける月額を作る前にお見積り
@@ -1134,7 +1135,7 @@ function navHtml() {
       <a href="/rk/biz/">中小企業RK</a>
       <a href="/rk/click/">クリックRK</a>
       <a href="/kintone-dx/">kintone導入支援</a>
-      <a href="/pro-dx/">士業DX</a>
+      <a href="/pro-dx/">士業事務所の業務効率化、どこから始める？</a>
       <a href="/shiftsync/">シフトシンク</a>
     </nav>`
 }
