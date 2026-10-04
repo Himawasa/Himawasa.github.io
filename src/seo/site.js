@@ -508,6 +508,7 @@ export const PUBLIC_PAGES = [
   { path: '/temasui/biz/', lastmod: '2026-09-27', changefreq: 'weekly', priority: '0.85' },
   { path: '/temasui/pro/', lastmod: '2026-09-27', changefreq: 'weekly', priority: '0.85' },
   { path: '/temasui/hospital/', lastmod: '2026-10-04', changefreq: 'weekly', priority: '0.85' },
+  { path: '/temasui/security/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.5' },
   { path: '/temasui/guide/', lastmod: '2026-09-27', changefreq: 'weekly', priority: '0.7' },
   { path: '/temasui/guide/hiyari-hatto/', lastmod: '2026-09-27', changefreq: 'monthly', priority: '0.7' },
   { path: '/temasui/guide/kaigo-kiroku/', lastmod: '2026-09-27', changefreq: 'monthly', priority: '0.7' },

@@ -6,8 +6,8 @@
 <title>セキュリティとデータの取り扱い｜てますい | HiMaWaSa Sync</title>
 <meta name="description" content="てますい（介護・病院・工場・中小企業・士業向けのアシスタント）の、データの保存場所・保存しないもの・保存期間・AI の処理・アクセスの守り・運用について。院内・社内のご確認用に印刷してお使いいただけます。">
 <link rel="canonical" href="https://himawasa-sync.com/temasui/security/">
-<!-- 下書き（2026-10-04・WEBスレッド）。岩城さんの OK と【確認】がすべて決まるまで検索に出さない。公開するときは index,follow にし、サイトマップに足し、黄色い【確認】の枠を全部消す -->
-<meta name="robots" content="noindex,nofollow">
+<!-- 2026-10-04 岩城さんの決定で4つの方針を確定（閲覧は保守に必要な範囲だけ・二段階認証は2027年4月までに対応・障害は平日日中・控えは多重保存）。毎日の控えを入れたら4.を書き足す -->
+<meta name="robots" content="index,follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 <!-- 中身の元：himawasa-care/docs/temasui-hospital/書類一式/01_サービス仕様適合開示書_案.md と server/chatKnowledge.js（2026-10-04 時点） -->
@@ -29,8 +29,6 @@
   thead th { width: auto; }
   ul.points { margin: 0 0 8px 1.3em; }
   .note { font-size: .88rem; color: var(--gray); }
-  .todo { background: #fff3b0; border: 2px dashed #e0b000; border-radius: 8px; padding: 6px 10px; font-size: .88rem; margin: 6px 0; }
-  .todo::before { content: "【確認】"; font-weight: 900; color: #a06a00; }
   .print { display: inline-block; margin-top: 8px; padding: 8px 18px; border-radius: 999px; border: 2px solid var(--bd); background: #fff; font-weight: 700; cursor: pointer; font-family: inherit; }
   footer { margin: 48px 0 0; padding: 24px 0 40px; border-top: 1px solid var(--bd); font-size: .88rem; color: var(--gray); }
   footer a { color: var(--ink); }
@@ -72,20 +70,17 @@
     <tr><th>ほかの会社・施設からの閲覧</th><td>相互に閲覧することはできません。サーバー側で認証キーから会社・施設を判別し、その施設専用の区画にのみアクセスを制限しています。</td></tr>
     <tr><th>通信の暗号化</th><td>すべての通信を HTTPS（TLS）で暗号化しています（care.himawasa-sync.com）。</td></tr>
     <tr><th>提供者による閲覧</th><td>不具合の調査など保守のため、提供者が必要な範囲に限ってデータを閲覧する場合があります。</td></tr>
-    <tr><th>二段階認証</th><td>現在は、端末に保存した専用の認証キーによるアクセス制御を採用しています。</td></tr>
+    <tr><th>二段階認証</th><td>現在は、端末に保存した専用の認証キーによるアクセス制御を採用しています。医療情報システムの安全管理に関するガイドライン（第7.0版）が求める時期にあわせ、<b>2027年4月までに二段階認証に対応する予定</b>です。</td></tr>
   </table>
-  <p class="todo">提供者が閲覧した記録（アクセスログ）は、今は仕組みがありません。「記録を保管しています」と書くには、先に記録の仕組みを作る必要があります</p>
-  <p class="todo">二段階認証の今後の方針（医療のガイドラインでは2027年4月から求められる）。「順次対応予定」と書くなら、岩城さんの決定が要る</p>
 
   <h2>4. 運用</h2>
   <table>
     <tr><th>システム障害時の復旧対応</th><td>安定した稼働実績のある Google Cloud 上で運用しています。障害が発生した場合は、直前の安定した版への切り替えなどにより復旧にあたります。なお、稼働率の保証（SLA）は設けておりません。</td></tr>
+    <tr><th>障害時の対応時間</th><td>平日の日中に対応いたします。夜間・土日祝日はメールで受け付け、翌営業日に順次対応いたします。</td></tr>
     <tr><th>データの保護（冗長化）</th><td>Google Cloud の自動的な冗長化（データの多重保存）により保護されています。</td></tr>
     <tr><th>変更のお知らせ</th><td>機能の変更は、専用ページとメールでお知らせいたします。</td></tr>
     <tr><th>ご契約終了時のデータの扱い</th><td>お預かりしたデータは提供者が消去し、消去した旨を書面でお知らせいたします。紹介状の一覧と名簿は、終了前に Excel 形式で書き出せます。</td></tr>
   </table>
-  <p class="todo">止まったときの対応時間（平日夜・土日はどうするか）</p>
-  <p class="todo">定期的なバックアップ（決まった時点に戻せる控え）を入れるか。今は Google Cloud の冗長化だけ</p>
 
   <h2>5. 医療情報の安全管理ガイドライン（3省2ガイドライン）への対応</h2>
   <p>医療機関が患者さまの情報を外部のクラウドサービスに預けるときは、国の2つのガイドライン（厚生労働省・総務省・経済産業省の3省による2つのガイドライン。いわゆる「3省2ガイドライン」）に沿って、委託先を選び、役割を取り決めることが求められています。てますいは、次のとおり対応しています。</p>
