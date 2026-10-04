@@ -12,9 +12,9 @@ const lpCards = [
   },
   {
     icon: '🟡', badge: '公開中',
-    title: 'kintone × DX 提案ページ',
-    desc: '中小企業向けkintone導入支援。業務をkintoneで一元管理し、コピペ・手入力ゼロを目指す提案ページです。',
-    tags: ['kintone', '中小企業DX', '業務自動化'],
+    title: 'kintone の導入・見直しと自動化',
+    desc: '今のExcelからの移し替え、使われていない kintone の見直し、メール・チャットとの自動のつなぎ込み。書く手間は てますい で。',
+    tags: ['kintone', 'てますい', '業務自動化'],
     url: 'himawasa-sync.com/kintone-dx/', href: '/kintone-dx/',
   },
   {

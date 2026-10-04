@@ -179,7 +179,7 @@ export const INDUSTRIES = {
     links: [
       { href: '/temasui/biz/', title: 'てますい 中小企業版（中小企業のアシスタント）', desc: '業務日報・議事録・お客さまへのメール・電話メモの下書きと、備品・在庫チェック。1か月無料。', cta: 'てますい 中小企業版を見る' },
       { href: '/rk/biz/', title: '中小企業RK', desc: 'キーエンスRKで帳票転記とExcel整理。工場RKも。', cta: '中小企業RKの案内を見る' },
-      { href: '/kintone-dx/', title: 'kintone導入支援', desc: '業務をkintoneでまとめ、コピペを減らす。', cta: 'kintone導入支援を見る' },
+      { href: '/kintone-dx/', title: 'kintone の導入・見直し', desc: '今のExcelからの移し替えと、使われていない kintone の見直し。てますい・自動化とも組み合わせて。', cta: 'kintone の案内を見る' },
       { href: '/power-automate/', title: 'Power Automate の自動化', desc: 'デスクトップ版もクラウド版も。転記・集計・ファイル整理・通知を、今のExcelとMicrosoft 365のまま。', cta: 'Power Automate の案内を見る' },
       { href: '/cardsync/', title: '社員証・来訪者証の社内発行', desc: 'Excel の名簿から、社員証や来訪者証をその場で。登録なしで試せます。', cta: 'CardSync を見る' },
     ],
