@@ -521,6 +521,8 @@ export const PUBLIC_PAGES = [
   { path: '/temasui/guide/kaigo-kiroku/', lastmod: '2026-09-27', changefreq: 'monthly', priority: '0.7' },
   { path: '/temasui/guide/gaikokujin-kiroku/', lastmod: '2026-09-27', changefreq: 'monthly', priority: '0.7' },
   { path: '/temasui/guide/sagyo-nippo/', lastmod: '2026-09-27', changefreq: 'monthly', priority: '0.7' },
+  { path: '/temasui/guide/shokaijo-fax/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.7' },
+  { path: '/temasui/guide/kango-summary/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.7' },
   { path: '/shiftsync/', lastmod: '2026-08-26', changefreq: 'weekly', priority: '0.9' },
   { path: '/medical-dx/', lastmod: '2026-08-26', changefreq: 'weekly', priority: '0.9' },
   { path: '/Guide/mochisync2/', lastmod: '2026-08-30', changefreq: 'monthly', priority: '0.55' },
@@ -614,7 +616,7 @@ export function generateLlmsTxt() {
 - [てますい 中小企業版（中小企業のアシスタント）](https://himawasa-sync.com/temasui/biz/): 業務日報・議事録・お客さまへのメール・クレーム対応記録・報告書・電話メモ・引き継ぎの下書き、備品・在庫チェック、来客・納期・社内予定の共有。1か月無料。
 - [てますい 士業版（士業事務所のアシスタント）](https://himawasa-sync.com/temasui/pro/): 面談記録・顧問先への書類依頼・法改正のお知らせ文・電話メモ・所内の引き継ぎ・議事録・メール・業務日報の下書き（法律や税の判断は書かない）、預かり書類チェック、顧問先の期限・面談・所内予定の共有。ご契約後は国内で処理。1か月無料。
 - [てますい 病院版（病棟・地域連携室のアシスタント）](https://himawasa-sync.com/temasui/hospital/): 届いた紹介状・FAX を撮るだけで一覧（台帳）に（氏名・生年月日は2回読んで1文字違いを要確認。一覧は90日で自動削除）。看護サマリ・退院時の情報提供・入院時情報の整理・ご家族への連絡・返書・申し送り・インシデント報告・電話メモの下書き（診断・薬・検査値は書かない）。入院時の持ち物チェック、入退院・検査・面会の共有。電子カルテとはつながない。月額10,000円・初期30,000円（税別。ほかの版と同じ）・最低3か月・1か月無料。
-- [てますい 書き方ガイド](https://himawasa-sync.com/temasui/guide/): 現場の記録・報告の書き方を例文つきで。ヒヤリハット報告書（介護・工場）／介護記録（「様子見」で終わらせない5つのコツ）／外国籍の職員さんの記録の助け方（母国語で話すと日本語の記録になる こえメモ）／作業日報のひな形
+- [てますい 書き方ガイド](https://himawasa-sync.com/temasui/guide/): 現場の記録・報告の書き方を例文つきで。ヒヤリハット報告書（介護・工場）／介護記録（「様子見」で終わらせない5つのコツ）／外国籍の職員さんの記録の助け方（母国語で話すと日本語の記録になる こえメモ）／作業日報のひな形／紹介状・FAXの受付台帳の回し方（地域連携室）／看護サマリを書く時間を短くするには
 - [てますい 工場版（工場のアシスタント）](https://himawasa-sync.com/temasui/factory/): 作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告などの下書き、工具・備品チェック（確かめる目印は会社ごとに設定）。料金は介護版と同じ
 - [てますい セキュリティとデータの取り扱い](https://himawasa-sync.com/temasui/security/): データの保管場所（東京）・保存しないもの・保存期間・AI の処理・アクセスの守り・3省2ガイドラインへの対応。院内・社内の確認用に印刷できる
 - [介護施設・病院](https://himawasa-sync.com/for/care/): シフト表、持ち物チェック、日計・カルテ転記
