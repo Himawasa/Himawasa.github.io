@@ -1,37 +1,9 @@
 import { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
 import Reveal from '../../../components/Reveal'
 import { SITE } from '../../../seo/site'
 import '../../rk/Rk.css'
 
 const FORM = SITE.formUrl
-
-const plans = [
-  {
-    name: 'スタートプラン',
-    price: '10,000',
-    unit: '円 / 月',
-    desc: 'まずは1つの自動化から',
-    features: ['DXメニューから機能を1つ選択', '今のPC・Excelのまま利用', '初期導入の設定サポート'],
-    highlight: false,
-  },
-  {
-    name: 'スタンダードDX',
-    price: '25,000',
-    unit: '円 / 月',
-    desc: '現場の主要業務をまとめて',
-    features: ['自動化機能を3つ組み合わせ', '月1回の業務改善メンテナンス', '代表が直接対応'],
-    highlight: true,
-  },
-  {
-    name: '現場フル自動化',
-    price: '50,000',
-    unit: '円〜 / 月',
-    desc: '基幹連携まで含めた構築',
-    features: ['ShiftSync等の特化ツール', 'KING OF TIME・既存システム連携', '独自の仕組みを一緒に設計'],
-    highlight: false,
-  },
-]
 
 const HOURLY = 2000
 const SAVE_RATE = 0.9
@@ -50,7 +22,7 @@ export default function Pricing() {
       <div className="container">
         <Reveal direction="up" className="section-header">
           <span className="section-label">PRICING</span>
-          <h2 className="section-title">わかりやすい料金の目安</h2>
+          <h2 className="section-title">自動化のご相談・RK代行の料金</h2>
           <p className="section-desc">
             高額なシステム入れ替えは不要です。現場に合わせて小さく始められます。<br />
             ※ 下記は目安です。実際のご提案は無料相談で個別にお出しします。
@@ -75,31 +47,13 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="pricing-grid">
-          {plans.map((p, i) => (
-            <motion.div
-              key={p.name}
-              className={`price-card${p.highlight ? ' featured' : ''}`}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-            >
-              {p.highlight && <div className="price-badge">よく選ばれます</div>}
-              <h3>{p.name}</h3>
-              <p className="price-desc">{p.desc}</p>
-              <div className="price-amount">
-                <span className="price-num">{p.price}</span>
-                <span className="price-unit">{p.unit}</span>
-              </div>
-              <ul>
-                {p.features.map(f => <li key={f}>{f}</li>)}
-              </ul>
-              <a href={FORM} target="_blank" rel="noopener noreferrer" className="price-cta">
-                この内容で相談する
-              </a>
-            </motion.div>
-          ))}
+        {/* 2026-10-04 前の3つのプラン（月1万・2.5万・5万〜）を外した。てますいの月1万円と混同されるため。
+            自動化のご相談は、提案の資料と同じく「作る費用はいただかず、使い続ける月額を作る前にお見積り」（岩城さん承認） */}
+        <div className="rk-price-card is-main" style={{ maxWidth: 760, margin: '0 auto 36px' }}>
+          <p className="rk-price-label">今のExcelのままの自動化のご相談</p>
+          <p className="rk-price-num" style={{ fontSize: 24 }}>お見積り</p>
+          <p>シフト表・請求・転記など、今のExcelややり方に合わせて仕組みを作ります。作る費用はいただかず、使い続けるときの月額を、作る前にお見積りします。初回相談は無料（30分）です。</p>
+          <p><a href={FORM} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 800, color: '#8A6D00' }}>自動化について相談する →</a></p>
         </div>
 
         <Reveal direction="up" className="roi-box">
