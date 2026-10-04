@@ -83,11 +83,12 @@ export const PAGES = {
   works: {
     key: 'works',
     path: '/works/',
-    title: '導入効果・開発実績（現場45件以上） | HiMaWaSa Sync',
+    // 2026-10-04 「現場45件以上」はお客さまの数に読まれるので、代表が作って本番で動かしてきた仕組みの数と分かる書き方に（岩城さん「すべて私の実績で経験値」）
+    title: '導入効果・開発実績（本番で動く仕組み45件以上） | HiMaWaSa Sync',
     h1: '導入効果・開発実績',
     description:
       '士業・介護・医療・中小企業の現場で動かしてきた実績です。5時間かかっていた手作業が、3分になった例もあります。許可をいただいた範囲の効果と、公開できる開発事例を掲載しています。',
-    og: '現場45件以上。手作業が短くなった例と、公開できる開発実績。',
+    og: '代表がこれまでに作り、本番で動かしてきた仕組みは45件以上。医療・介護・士業・製造・卸の現場で。',
     crumb: '実績',
   },
   about: {
@@ -1188,7 +1189,7 @@ function pageBodyHtml(page) {
     return `<h2>事業概要</h2><p>屋号 ${esc(BUSINESS.tradeName)} / ${esc(BUSINESS.type)}</p><p>${esc(BUSINESS.work)}</p>`
   }
   if (page.key === 'works') {
-    return `<p>現場45件以上。士業・介護・医療・中小企業。例：5時間の手作業が3分に。</p>`
+    return `<p>代表がこれまでに作り、本番で動かしてきた仕組みは45件以上。医療・介護・士業・製造・卸の現場で。例：5時間の手作業が3分に。</p>`
   }
   if (page.key === 'rk' || page.key.startsWith('rk')) {
     const rk = RK_BY_PAGE[page.key]

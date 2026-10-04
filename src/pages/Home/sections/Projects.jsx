@@ -166,7 +166,7 @@ export default function Projects() {
         <Reveal direction="up" delay={0.2} className="projects-note">
           <div className="projects-more-box">
             <div className="projects-more-num">45<span style={{ fontSize: '0.6em' }}>+</span></div>
-            <div>上記以外にも、薬剤在庫管理・施設カレンダー・外来予約・勤怠管理支援・FAX連携・AI自動ログイン など<br />45件以上のシステムを設計・開発・運用しています。</div>
+            <div>上記以外にも、薬剤在庫管理・施設カレンダー・外来予約・勤怠管理支援・FAX連携・AI自動ログイン・社労士事務所の業務の仕組み・入社手続きの仕組み・卸の業務の自動化 など<br />これまでに45件以上の仕組みを設計・開発し、本番で動かしてきました。</div>
           </div>
           <a href="https://note.com/himawasa_sync" target="_blank" rel="noopener noreferrer" className="btn-yellow-sm">
             noteで開発記録を読む →
