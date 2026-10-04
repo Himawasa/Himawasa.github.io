@@ -22,6 +22,18 @@ export default function Footer() {
           </p>
         </div>
 
+        {/* 2026-10-04 主役の てますい を全ページの下の欄に（素の HTML のページなので <a> で開く） */}
+        <nav className="footer-col" aria-label="てますい">
+          <p className="footer-col-title">てますい</p>
+          <a href="/temasui/start/">始め方（1か月無料）</a>
+          <a href="/temasui/">介護版</a>
+          <a href="/temasui/hospital/">病院版</a>
+          <a href="/temasui/factory/">工場版</a>
+          <a href="/temasui/biz/">中小企業版</a>
+          <a href="/temasui/pro/">士業版</a>
+          <a href="/temasui/security/">セキュリティ</a>
+        </nav>
+
         <nav className="footer-col" aria-label="現場から">
           <p className="footer-col-title">現場から</p>
           <Link to="/for/pro">士業の方</Link>

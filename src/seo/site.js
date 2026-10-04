@@ -51,7 +51,8 @@ export const BUSINESS = {
   area: '全国（オンライン中心）',
   email: SITE.email,
   note: 'https://note.com/himawasa_sync',
-  work: '今お使いのExcel・Googleのまま、介護施設のシフト、病院の日計、士業の請求を自動化します。キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。',
+  // 2026-10-04 てますい中心に（下の欄・事業概要の表・JS を切った人向けの本文で使う）
+  work: '書く手間を減らすアシスタント「てますい」（介護・病院・工場・中小企業・士業）の提供と、今お使いのExcel・Googleのままの業務の自動化。キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。',
 }
 
 /** 企業サイト各ページの SEO（title は検索結果用の全文。canonical は末尾スラッシュ） */
@@ -76,7 +77,7 @@ export const PAGES = {
     h1: 'サービスと料金',
     description:
       '書く手間を減らすアシスタント「てますい」は月10,000円（税別・定額）・1か月無料。介護・病院・工場・中小企業・士業の5つの版。今のExcelのままの業務の自動化や、キーエンスRKのシナリオ作成代行も承ります。初回相談は無料（30分）。',
-    og: '介護・病院・士業の手作業から。キーエンスRKのシナリオ作りもお手伝いします。',
+    og: 'てますい（月1万円・1か月無料）と、今のExcelのままの自動化。キーエンスRKのシナリオ作りもお手伝いします。',
     crumb: 'サービス',
   },
   works: {
@@ -537,7 +538,6 @@ export const PUBLIC_PAGES = [
   { path: '/kintone-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
   { path: '/pro-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
   { path: '/yoom-lp/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.5' },
-  { path: '/mochisync2/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.3' },
   { path: '/rk/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.5' },
   { path: '/rk/care/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.4' },
   { path: '/rk/hospital/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.4' },
@@ -599,7 +599,7 @@ ${urls}
 export function generateLlmsTxt() {
   return `# HiMaWaSa Sync
 
-> 個人事業 HiMaWaSa Sync。介護施設のシフト表、病院の日計、士業の請求を、今のExcelのまま自動化します。初回相談は無料（30分）。キーエンスRKは必須ではありません（お使いの現場では、シナリオ作りもお手伝いします）。
+> 個人事業 HiMaWaSa Sync。書く手間を減らすアシスタント「てますい」（話すか短いメモを入れるだけで記録・書類の下書き。介護・病院・工場・中小企業・士業の5つの版。月額10,000円・初期30,000円（税別）・最低3か月・1か月無料）を提供しています。今のExcelのままの業務の自動化のご相談（初回無料・30分）と、キーエンスRKのシナリオ作成代行も承ります。
 
 - 公式: https://himawasa-sync.com/
 - 相談: https://himawasa-sync.com/contact/
@@ -608,13 +608,15 @@ export function generateLlmsTxt() {
 - メール: ${SITE.email}
 
 ## 主に頼まれること（この順で案内する）
-- [てますい（業種を選ぶ入口）](https://himawasa-sync.com/temasui/start/): 介護版・工場版・中小企業版・士業版・病院版の5つを並べた入口。業種が決まっていない人はここから。
-- [てますい（介護施設のアシスタント）](https://himawasa-sync.com/temasui/): 介護記録・申し送り・事故報告書などの下書き（話すだけでも）、持ち物チェック、予定カレンダー。インストール不要、1か月無料
+- [てますい（トップ）](https://himawasa-sync.com/): てますいの全体（5つの版・強み・料金）。名前で探した人はここ。
+- [てますいの始め方](https://himawasa-sync.com/temasui/start/): 業種を選んで、登録なしの見本で試すか、1か月無料で申し込む。
+- [てますい 介護版（介護施設のアシスタント）](https://himawasa-sync.com/temasui/): 介護記録・申し送り・事故報告書などの下書き（話すだけでも）、持ち物チェック、予定カレンダー。インストール不要、1か月無料
 - [てますい 中小企業版（中小企業のアシスタント）](https://himawasa-sync.com/temasui/biz/): 業務日報・議事録・お客さまへのメール・クレーム対応記録・報告書・電話メモ・引き継ぎの下書き、備品・在庫チェック、来客・納期・社内予定の共有。1か月無料。
 - [てますい 士業版（士業事務所のアシスタント）](https://himawasa-sync.com/temasui/pro/): 面談記録・顧問先への書類依頼・法改正のお知らせ文・電話メモ・所内の引き継ぎ・議事録・メール・業務日報の下書き（法律や税の判断は書かない）、預かり書類チェック、顧問先の期限・面談・所内予定の共有。ご契約後は国内で処理。1か月無料。
 - [てますい 病院版（病棟・地域連携室のアシスタント）](https://himawasa-sync.com/temasui/hospital/): 届いた紹介状・FAX を撮るだけで一覧（台帳）に（氏名・生年月日は2回読んで1文字違いを要確認。一覧は90日で自動削除）。看護サマリ・退院時の情報提供・入院時情報の整理・ご家族への連絡・返書・申し送り・インシデント報告・電話メモの下書き（診断・薬・検査値は書かない）。入院時の持ち物チェック、入退院・検査・面会の共有。電子カルテとはつながない。月額10,000円・初期30,000円（税別。ほかの版と同じ）・最低3か月・1か月無料。
 - [てますい 書き方ガイド](https://himawasa-sync.com/temasui/guide/): 現場の記録・報告の書き方を例文つきで。ヒヤリハット報告書（介護・工場）／介護記録（「様子見」で終わらせない5つのコツ）／外国籍の職員さんの記録の助け方（母国語で話すと日本語の記録になる こえメモ）／作業日報のひな形
 - [てますい 工場版（工場のアシスタント）](https://himawasa-sync.com/temasui/factory/): 作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告などの下書き、工具・備品チェック（確かめる目印は会社ごとに設定）。料金は介護版と同じ
+- [てますい セキュリティとデータの取り扱い](https://himawasa-sync.com/temasui/security/): データの保管場所（東京）・保存しないもの・保存期間・AI の処理・アクセスの守り・3省2ガイドラインへの対応。院内・社内の確認用に印刷できる
 - [介護施設・病院](https://himawasa-sync.com/for/care/): シフト表、持ち物チェック、日計・カルテ転記
 - [施設で改善できること](https://himawasa-sync.com/Guide/care/): 持ち物・シフト・予定・常勤換算などの一覧
 - [介護のシフト表自動化](https://himawasa-sync.com/shiftsync/): KING OF TIMEの実績 → 今の勤務表様式
@@ -649,15 +651,11 @@ export function generateLlmsFullTxt() {
 
 主対象は介護施設、病院・医事課、士業事務所、中小企業。
 
-## 介護施設
-入口: https://himawasa-sync.com/for/care/
-一覧: https://himawasa-sync.com/Guide/care/
-- シフト表: 勤怠データ（例: KING OF TIME）を、施設指定のExcel様式へ載せる。https://himawasa-sync.com/shiftsync/
-- 持ち物チェック: 写真から一覧にする。
-- 施設カレンダー: 予定・往診・残薬。
-- 実地指導用に、今ある記録を出しやすくする。記録の書き方は施設の今のやり方のまま。
-- てますい（業種を選ぶ入口）: https://himawasa-sync.com/temasui/start/
-- てますい（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
+## てますい（書く手間を減らすアシスタント）
+トップ: https://himawasa-sync.com/
+始め方: https://himawasa-sync.com/temasui/start/
+セキュリティとデータの取り扱い: https://himawasa-sync.com/temasui/security/
+- てますい 介護版（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
 - てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
 - てますい 中小企業版（中小企業のアシスタント）: https://himawasa-sync.com/temasui/biz/
 - てますい 士業版（士業事務所のアシスタント）: https://himawasa-sync.com/temasui/pro/
@@ -668,6 +666,13 @@ export function generateLlmsFullTxt() {
   - 予定カレンダー: 往診・利用変更・残薬の確認を職員全員で共有。
   - アプリのダウンロード不要（パソコン・タブレット・スマホ）。施設ごとの専用ページで、ほかの施設からは見えない。AIの学習には使われない。
   - 料金（税別）: 1か月無料体験 → ご契約時 30,000円＋交通費（身近な作業を1つ自動化・3時間まで） → 月額 10,000円（施設全体で定額）。最低契約期間3か月。工場版・中小企業版・士業版・病院版も同じ料金。見本は登録なしで https://care.himawasa-sync.com/demo
+
+## 介護施設（今のExcelのままの自動化のご相談）
+入口: https://himawasa-sync.com/for/care/
+一覧: https://himawasa-sync.com/Guide/care/
+- シフト表: 勤怠データ（例: KING OF TIME）を、施設指定のExcel様式へ載せる。https://himawasa-sync.com/shiftsync/
+- 実地指導用に、今ある記録を出しやすくする。記録の書き方は施設の今のやり方のまま。
+- 持ち物チェック・予定カレンダーは、今は てますい 介護版の機能。
 
 ## 病院・医事
 入口: https://himawasa-sync.com/for/care/ と https://himawasa-sync.com/medical-dx/
@@ -1014,7 +1019,7 @@ export function buildPageJsonLd(page) {
         })),
       })
     }
-  } else if (page.key === 'forPro' || page.key === 'forCare' || page.key === 'forBiz') {
+  } else if (page.key === 'forPro' || page.key === 'forCare' || page.key === 'forBiz' || page.key === 'forFactory') {
     const industry = INDUSTRY_BY_PAGE[page.key]
     graph.push({
       '@type': 'WebPage',
@@ -1111,8 +1116,13 @@ function navHtml() {
       <a href="/for/care/">介護・医療の方</a>
       <a href="/for/biz/">中小企業の方</a>
       <a href="/for/factory/">工場の方</a>
-      <a href="/temasui/">てますい（介護施設のアシスタント）</a>
+      <a href="/temasui/start/">てますいの始め方</a>
+      <a href="/temasui/">てますい 介護版</a>
+      <a href="/temasui/hospital/">てますい 病院版</a>
       <a href="/temasui/factory/">てますい 工場版</a>
+      <a href="/temasui/biz/">てますい 中小企業版</a>
+      <a href="/temasui/pro/">てますい 士業版</a>
+      <a href="/temasui/security/">てますい セキュリティとデータの取り扱い</a>
       <a href="/rk/">RKシナリオ作成代行</a>
       <a href="/rk/factory/">工場RK</a>
       <a href="/rk/hospital/">病院RK</a>
@@ -1192,7 +1202,7 @@ function pageBodyHtml(page) {
     const faqHtml = (rk?.faqs || []).map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')
     return `${whatHtml}${painHtml}${solveHtml}${jobHtml}${featureHtml}${askHtml}<p>RKシナリオ作成代行 10,000円から。運用保守代行 5,000円から／月。</p>${faqHtml}`
   }
-  if (page.key === 'forPro' || page.key === 'forCare' || page.key === 'forBiz') {
+  if (page.key === 'forPro' || page.key === 'forCare' || page.key === 'forBiz' || page.key === 'forFactory') {
     const industry = INDUSTRY_BY_PAGE[page.key]
     const featureHtml = (industry.features || []).map((f) => `<h2>${esc(f.title)}</h2><p>${esc(f.text)} ${esc(f.result || '')}</p>`).join('')
     const citeHtml = industry.cite

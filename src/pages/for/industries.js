@@ -35,6 +35,7 @@ export const INDUSTRIES = {
       },
     ],
     links: [
+      { href: '/temasui/pro/', title: 'てますい 士業版（士業事務所のアシスタント）', desc: '面談記録・顧問先への書類のお願い・お知らせ文・電話メモの下書きと、預かり書類チェック。1か月無料。', cta: 'てますい 士業版を見る' },
       { href: '/rk/pro/', title: '士業RK', desc: 'キーエンスRKで台帳・期日・請求。シナリオ1万円から。', cta: '士業RKの案内を見る' },
       { href: '/pro-dx/', title: '士業DXの提案', desc: '帳票・給与・契約まわりを、今のPCのまま。', cta: '士業DXの提案を見る' },
     ],
@@ -176,6 +177,7 @@ export const INDUSTRIES = {
       },
     ],
     links: [
+      { href: '/temasui/biz/', title: 'てますい 中小企業版（中小企業のアシスタント）', desc: '業務日報・議事録・お客さまへのメール・電話メモの下書きと、備品・在庫チェック。1か月無料。', cta: 'てますい 中小企業版を見る' },
       { href: '/rk/biz/', title: '中小企業RK', desc: 'キーエンスRKで帳票転記とExcel整理。工場RKも。', cta: '中小企業RKの案内を見る' },
       { href: '/kintone-dx/', title: 'kintone導入支援', desc: '業務をkintoneでまとめ、コピペを減らす。', cta: 'kintone導入支援を見る' },
       { href: '/yoom-lp/', title: 'Yoom導入・保守', desc: '設定から月額の運用まで。', cta: 'Yoom導入・保守を見る' },
