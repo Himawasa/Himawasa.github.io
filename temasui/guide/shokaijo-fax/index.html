@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>紹介状・FAXの受付台帳、どう回す？｜地域連携室の書き写しを減らす方法 | てますい</title>
+<meta name="description" content="地域連携室に届く紹介状・FAXを、受付台帳（Excel）に書き写す手間と写し間違いを減らす方法。台帳の項目のひな形、今日からできる工夫、撮るだけで一覧になる「てますい 病院版」の使い方をまとめました。">
+<link rel="canonical" href="https://himawasa-sync.com/temasui/guide/shokaijo-fax/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="HiMaWaSa Sync">
+<meta property="og:title" content="紹介状・FAXの受付台帳、どう回す？｜地域連携室の書き写しを減らす方法">
+<meta property="og:description" content="台帳の項目のひな形と、今日からできる工夫。撮るだけで一覧になる「てますい 病院版」の使い方も。">
+<meta property="og:url" content="https://himawasa-sync.com/temasui/guide/shokaijo-fax/">
+<meta property="og:image" content="https://himawasa-sync.com/temasui/hospital/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://himawasa-sync.com/temasui/hospital/img/ogp.jpg">
+<!-- 2026-10-04 新設（SEO の大胆な提案：病院のすき間の言葉）。てますい病院版の機能の説明は himawasa-care/server/chatKnowledge.js（2026-10-04）の事実だけを使う -->
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "紹介状・FAXの受付台帳、どう回す？｜地域連携室の書き写しを減らす方法", "description": "地域連携室に届く紹介状・FAXを、受付台帳に書き写す手間と写し間違いを減らす方法。", "image": "https://himawasa-sync.com/temasui/hospital/img/ogp.jpg", "datePublished": "2026-10-04", "dateModified": "2026-10-04", "inLanguage": "ja", "mainEntityOfPage": "https://himawasa-sync.com/temasui/guide/shokaijo-fax/", "author": {"@type": "Organization", "name": "HiMaWaSa Sync", "url": "https://himawasa-sync.com/"}, "publisher": {"@type": "Organization", "name": "HiMaWaSa Sync", "url": "https://himawasa-sync.com/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://himawasa-sync.com/"}, {"@type": "ListItem", "position": 2, "name": "てますい", "item": "https://himawasa-sync.com/temasui/start/"}, {"@type": "ListItem", "position": 3, "name": "書き方ガイド", "item": "https://himawasa-sync.com/temasui/guide/"}, {"@type": "ListItem", "position": 4, "name": "紹介状・FAXの受付台帳", "item": "https://himawasa-sync.com/temasui/guide/shokaijo-fax/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "読み取った紹介状の画像は、保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "保存しません。文字を読み取ったあと、画像やPDFは残しません。一覧（台帳）は登録から90日で自動的に消えます。病院の正式な記録は、これまでどおり電子カルテや病院の台帳に残してください。"}}, {"@type": "Question", "name": "電子カルテとつながりますか？", "acceptedAnswer": {"@type": "Answer", "text": "標準ではつなぎません。一覧の内容を確かめてから、電子カルテに貼って使う形です。電子カルテ側に仕組み（API）が用意されている場合は、別途ご相談のうえ接続もできます（費用は別途お見積り）。"}}, {"@type": "Question", "name": "何枚もまとめて届いたFAXも読めますか？", "acceptedAnswer": {"@type": "Answer", "text": "今は1回に1人分です。何人分かが1つにまとまって届いたFAXの切り分けには、まだ対応していません。"}}, {"@type": "Question", "name": "読み間違いはありませんか？", "acceptedAnswer": {"@type": "Answer", "text": "あります。そのため、読み取った内容は人が紙と見比べて確かめてから一覧に入れる作りです。氏名と生年月日は2回読み、1文字でも違えば「要確認」の印を付けます。"}}]}]</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<style>
+  /* てますいの紹介ページと同じ色・字。記事は読みやすい幅にしぼる（書き方ガイドの共通の形） */
+  :root {
+    --yellow: #FFD700; --yellow-lt: #FFF8CC; --cream: #FFFBF0; --cream-bd: #F0E4C4;
+    --ink: #1A1A1A; --gray: #5a5a5a; --white: #fff; --green: #2F9E44; --red: #C92A2A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: var(--ink); background: var(--white); line-height: 1.9; word-break: auto-phrase; }
+  a { color: inherit; }
+  .round { font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif; }
+  .topbar { background: var(--yellow); padding: 10px 16px; font-size: 14px; font-weight: 700; }
+  .topbar .in { max-width: 760px; margin: 0 auto; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .topbar a { text-decoration: none; }
+  .topbar .brand { font-size: 18px; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 56px; }
+  .crumbs { font-size: 13px; color: var(--gray); margin-bottom: 18px; }
+  .crumbs a { color: var(--gray); }
+  h1 { font-size: clamp(24px, 4.6vw, 34px); line-height: 1.45; margin-bottom: 10px; }
+  .meta { font-size: 13px; color: var(--gray); margin-bottom: 22px; }
+  .lead { font-size: 17px; background: var(--cream); border-left: 6px solid var(--yellow); padding: 16px 18px; border-radius: 0 12px 12px 0; margin-bottom: 26px; }
+  .toc { border: 2px solid var(--cream-bd); border-radius: 16px; padding: 16px 20px; margin-bottom: 34px; font-size: 15px; }
+  .toc b { display: block; margin-bottom: 4px; }
+  .toc ol { padding-left: 1.4em; }
+  h2 { font-size: clamp(20px, 3.6vw, 25px); line-height: 1.5; margin: 44px 0 14px; padding-bottom: 6px; border-bottom: 3px solid var(--yellow); }
+  h3 { font-size: 18px; margin: 26px 0 8px; }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 16px; padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 18px; font-size: 15px; }
+  th, td { border: 1px solid var(--cream-bd); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--cream); white-space: nowrap; }
+  .flow { width: 100%; height: auto; display: block; margin: 8px 0 12px; }
+  .note { font-size: 13px; color: var(--gray); }
+  .cta { background: var(--yellow); border-radius: 22px; padding: 26px 22px; margin: 44px 0 20px; }
+  .cta h2 { border: 0; margin: 0 0 8px; padding: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 20px; border-radius: 999px; font-weight: 900; text-decoration: none; font-size: 15px; }
+  .btn.dark { background: var(--ink); color: var(--white); }
+  .btn.light { background: var(--white); color: var(--ink); border: 2px solid var(--ink); }
+  .faq dt { font-weight: 900; margin-top: 16px; }
+  .faq dt::before { content: 'Q. '; color: var(--green); }
+  .faq dd { margin: 4px 0 0; }
+  .faq dd::before { content: 'A. '; font-weight: 900; }
+  .related { margin-top: 36px; }
+  .related ul { list-style: none; padding: 0; display: grid; gap: 10px; }
+  .related a { display: block; background: var(--cream); border: 2px solid var(--cream-bd); border-radius: 14px; padding: 12px 16px; text-decoration: none; font-weight: 700; }
+  footer { padding: 28px 16px; text-align: center; font-size: 14px; color: var(--gray); border-top: 1px solid var(--cream-bd); }
+  footer a { color: var(--gray); }
+  @media (max-width: 640px) { th { white-space: normal; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in"><a class="round brand" href="/temasui/start/">てますい</a><a href="/temasui/guide/">📚 書き方ガイド</a></div></div>
+<main>
+<nav class="crumbs" aria-label="パンくず"><a href="/">ホーム</a>　＞　<a href="/temasui/start/">てますい</a>　＞　<a href="/temasui/guide/">書き方ガイド</a>　＞　紹介状・FAXの受付台帳</nav>
+
+<h1>紹介状・FAXの受付台帳、どう回す？｜地域連携室の書き写しを減らす方法</h1>
+<p class="meta">更新：2026-10-04　／　HiMaWaSa Sync</p>
+<p class="lead">地域連携室には、診療所や施設から紹介状・照会の FAX が毎日届きます。紙を見ながら受付台帳の Excel に<b>送り元・患者さんのお名前・生年月日・用件を書き写す</b>のは、時間がかかるうえに、写し間違いも起きやすい作業です。台帳の回し方の工夫と、書き写しそのものを減らす方法をまとめました。</p>
+<div class="toc"><b>この記事の中身</b><ol>
+<li><a href="#problem">どこで手間と間違いが起きる？</a></li><li><a href="#template">受付台帳の項目のひな形</a></li><li><a href="#today">今日からできる4つの工夫</a></li>
+<li><a href="#temasui">撮るだけで一覧に（てますい 病院版）</a></li><li><a href="#care">使うときに気をつけること</a></li><li><a href="#faq">よくある質問</a></li></ol></div>
+
+<h2 id="problem">どこで手間と間違いが起きる？</h2>
+<ul>
+<li><b>書き写し</b>：FAX は字がかすれたり、手書きだったりして、読むだけで時間がかかります。</li>
+<li><b>写し間違い</b>：お名前の漢字や生年月日の数字は、1文字違うだけで別の方になってしまいます。</li>
+<li><b>対応の状況</b>：誰が受けて、返事をしたのか、紙と Excel だけでは追いにくくなります。</li>
+<li><b>返書</b>：受診のご報告（返書）を書くとき、また台帳と紙を見比べて宛先を書き直しています。</li>
+</ul>
+
+<h2 id="template">受付台帳の項目のひな形</h2>
+<p>台帳の列をそろえておくと、誰が入れても同じ形になり、探すのも楽になります。</p>
+<table>
+<tr><th>受付日時</th><td>FAX が届いた日と時刻</td></tr>
+<tr><th>送り元</th><td>医療機関・施設の名前、担当の方、電話・FAX</td></tr>
+<tr><th>患者さん</th><td>お名前・生年月日（ここは必ず2人で見比べる）</td></tr>
+<tr><th>希望の科</th><td>紹介先の診療科</td></tr>
+<tr><th>用件</th><td>紹介・受診の相談・入院の相談・照会への回答 など</td></tr>
+<tr><th>担当</th><td>受けた人</td></tr>
+<tr><th>状況</th><td>受付／予約調整中／予約済み／返書済み</td></tr>
+</table>
+
+<h2 id="today">今日からできる4つの工夫</h2>
+<h3>① 受付番号を振る</h3>
+<p>届いた紙の右上に番号を書き、台帳にも同じ番号を入れます。紙と台帳を行き来するときに迷いません。</p>
+<h3>② お名前と生年月日は2人で見比べる</h3>
+<p>いちばん間違えてはいけない所だけは、入れた人とは別の人が紙と見比べます。全部を二重に確かめるより、続けやすくなります。</p>
+<h3>③ 「状況」の列を必ず入れる</h3>
+<p>受付・予約調整中・予約済み・返書済みのように、決まった言葉から選ぶ形にすると、休みの人がいても状況が分かります。</p>
+<h3>④ 紙の置き場を決める</h3>
+<p>処理が終わった紙と、まだの紙を分けて置きます。紙の保管は、病院の決まりに沿ってください。</p>
+
+<h2 id="temasui">撮るだけで一覧に（てますい 病院版）</h2>
+<p>てますい 病院版では、届いた紹介状・FAX を<b>スマホで撮るか、PDF を選ぶだけ</b>で、AI が送り元・患者さんのお名前・生年月日・希望の科・用件を読み取ります。</p>
+<svg class="flow" viewBox="0 0 760 150" role="img" aria-label="1 撮るかPDFを選ぶ。2 AIが読み取る。3 人が紙と見比べて確かめる。4 一覧に入る。">
+  <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a3d"/></marker></defs>
+  <rect x="5" y="25" width="160" height="100" rx="14" fill="#FFF8CC" stroke="#e0c97a" stroke-width="2"/><text x="85" y="68" text-anchor="middle" font-size="17" font-weight="900">① 撮る</text><text x="85" y="96" text-anchor="middle" font-size="13" fill="#333">またはPDFを選ぶ</text>
+  <line x1="170" y1="75" x2="195" y2="75" stroke="#8a6a3d" stroke-width="4" marker-end="url(#ar)"/>
+  <rect x="200" y="25" width="160" height="100" rx="14" fill="#fff" stroke="#e0c97a" stroke-width="2"/><text x="280" y="68" text-anchor="middle" font-size="17" font-weight="900">② 読み取り</text><text x="280" y="96" text-anchor="middle" font-size="13" fill="#333">お名前・生年月日は2回</text>
+  <line x1="365" y1="75" x2="390" y2="75" stroke="#8a6a3d" stroke-width="4" marker-end="url(#ar)"/>
+  <rect x="395" y="25" width="160" height="100" rx="14" fill="#fff" stroke="#e0c97a" stroke-width="2"/><text x="475" y="68" text-anchor="middle" font-size="17" font-weight="900">③ 人が確かめる</text><text x="475" y="96" text-anchor="middle" font-size="13" fill="#333">紙と見比べる</text>
+  <line x1="560" y1="75" x2="585" y2="75" stroke="#8a6a3d" stroke-width="4" marker-end="url(#ar)"/>
+  <rect x="590" y="25" width="165" height="100" rx="14" fill="#E8F0FE" stroke="#9db8f2" stroke-width="2"/><text x="672" y="68" text-anchor="middle" font-size="17" font-weight="900">④ 一覧に入る</text><text x="672" y="96" text-anchor="middle" font-size="13" fill="#333">返書の下書きへも</text>
+</svg>
+<ul>
+<li><b>確かめてから入る</b>：読み取った内容は、人が紙と見比べて「確かめて入れる」を押すまで一覧に入りません。</li>
+<li><b>お名前と生年月日は2回読む</b>：1文字でも違えば「要確認」の印が付きます。</li>
+<li><b>画像は残さない</b>：読み取ったあと、画像や PDF は保存しません。一覧は登録から90日で自動的に消えます。</li>
+<li><b>返書の下書きへ</b>：一覧から、宛先が入った状態で返書（受診のご報告）の下書きに移れます。</li>
+<li><b>Excel に書き出せる</b>：一覧の書き出しは、管理者の方だけができます。</li>
+</ul>
+<p class="note">※ 1回に読めるのは1人分です。何人分かが1つにまとまって届いた FAX の切り分けには、まだ対応していません。</p>
+
+<h2 id="care">使うときに気をつけること</h2>
+<ul>
+<li><b>正式な記録は病院の仕組みに</b>：てますいの一覧は、受付の手間を減らすためのものです。病院の正式な記録は、これまでどおり電子カルテや病院の台帳に残してください。</li>
+<li><b>見比べを省かない</b>：AI の読み取りは間違えることがあります。「要確認」の印がなくても、お名前と生年月日は紙と見比べてください。</li>
+<li><b>院内の決まりと合わせる</b>：外部のサービスを使うときの院内の手続きのために、<a href="/temasui/security/">セキュリティとデータの取り扱い</a>を印刷してお使いいただけます。</li>
+</ul>
+
+<h2 id="faq">よくある質問</h2>
+<dl class="faq">
+  <dt>読み取った紹介状の画像は、保存されますか？</dt><dd>保存しません。文字を読み取ったあと、画像やPDFは残しません。一覧（台帳）は登録から90日で自動的に消えます。病院の正式な記録は、これまでどおり電子カルテや病院の台帳に残してください。</dd>
+  <dt>電子カルテとつながりますか？</dt><dd>標準ではつなぎません。一覧の内容を確かめてから、電子カルテに貼って使う形です。電子カルテ側に仕組み（API）が用意されている場合は、別途ご相談のうえ接続もできます（費用は別途お見積り）。</dd>
+  <dt>何枚もまとめて届いたFAXも読めますか？</dt><dd>今は1回に1人分です。何人分かが1つにまとまって届いたFAXの切り分けには、まだ対応していません。</dd>
+  <dt>読み間違いはありませんか？</dt><dd>あります。そのため、読み取った内容は人が紙と見比べて確かめてから一覧に入れる作りです。氏名と生年月日は2回読み、1文字でも違えば「要確認」の印を付けます。</dd>
+</dl>
+
+<section class="cta"><h2>架空の紹介状で、今すぐ試せます</h2><p>登録なしの見本で、読み取りから一覧に入るまでを試せます。本物の患者さんの書類は入れないでください。病院版は月額10,000円（税別・病院全体で定額）、1か月無料です。</p><div class="btns"><a class="btn dark" href="/temasui/hospital/">病院版を見る</a><a class="btn light" href="https://care.himawasa-sync.com/demo?industry=hospital">▶ 見本を試す（登録なし）</a></div></section>
+<section class="related"><h2>ほかの書き方ガイド</h2><ul><li><a href="/temasui/guide/kango-summary/">看護サマリを書く時間を短くするには｜項目のひな形と下書きの作り方 →</a></li><li><a href="/temasui/guide/gaikokujin-kiroku/">外国籍の職員さんの記録、どう助ける？ →</a></li><li><a href="/temasui/guide/hiyari-hatto/">ヒヤリハット報告書の書き方と例文 →</a></li></ul></section>
+
+</main>
+<footer>
+  <p class="round" style="font-size:20px;color:var(--ink)">てますい <span style="font-size:13px">by HiMaWaSa Sync</span></p>
+  <p><a href="/temasui/guide/">書き方ガイド</a>　／　<a href="/temasui/start/">てますいの始め方</a>　／　<a href="/">HiMaWaSa Sync</a>　／　お問い合わせ：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a></p>
+</footer>
+<script src="https://care.himawasa-sync.com/chat-widget.js" defer></script>
+</body>
+</html>

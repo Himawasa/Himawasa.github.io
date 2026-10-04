@@ -90,7 +90,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/temasui/guide/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
 
@@ -119,6 +119,20 @@
   <url>
     <loc>https://himawasa-sync.com/temasui/guide/sagyo-nippo/</loc>
     <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+
+  </url>
+  <url>
+    <loc>https://himawasa-sync.com/temasui/guide/shokaijo-fax/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+
+  </url>
+  <url>
+    <loc>https://himawasa-sync.com/temasui/guide/kango-summary/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 
@@ -278,7 +292,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/pro-dx/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 

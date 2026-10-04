@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>看護サマリを書く時間を短くするには｜項目のひな形と下書きの作り方 | てますい</title>
+<meta name="description" content="退院や転院のたびに書く看護サマリ。書く時間がかかる理由と、項目のひな形、今日からできる工夫をまとめました。短いメモから下書きを作る「てますい 病院版」の使い方と、使うときに気をつけることも。">
+<link rel="canonical" href="https://himawasa-sync.com/temasui/guide/kango-summary/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="HiMaWaSa Sync">
+<meta property="og:title" content="看護サマリを書く時間を短くするには｜項目のひな形と下書きの作り方">
+<meta property="og:description" content="書く時間がかかる理由と、項目のひな形、今日からできる工夫。短いメモから下書きを作る方法も。">
+<meta property="og:url" content="https://himawasa-sync.com/temasui/guide/kango-summary/">
+<meta property="og:image" content="https://himawasa-sync.com/temasui/hospital/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://himawasa-sync.com/temasui/hospital/img/ogp.jpg">
+<!-- 2026-10-04 新設（SEO の大胆な提案：病院のすき間の言葉。「書き方」ではなく「書く時間」の言葉で狙う）。
+     医療の判断にあたることは書かない。てますい病院版の決まりは himawasa-care/server/chatKnowledge.js（2026-10-04）の事実だけを使う -->
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "看護サマリを書く時間を短くするには｜項目のひな形と下書きの作り方", "description": "退院や転院のたびに書く看護サマリの、書く時間を短くする工夫と項目のひな形。", "image": "https://himawasa-sync.com/temasui/hospital/img/ogp.jpg", "datePublished": "2026-10-04", "dateModified": "2026-10-04", "inLanguage": "ja", "mainEntityOfPage": "https://himawasa-sync.com/temasui/guide/kango-summary/", "author": {"@type": "Organization", "name": "HiMaWaSa Sync", "url": "https://himawasa-sync.com/"}, "publisher": {"@type": "Organization", "name": "HiMaWaSa Sync", "url": "https://himawasa-sync.com/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://himawasa-sync.com/"}, {"@type": "ListItem", "position": 2, "name": "てますい", "item": "https://himawasa-sync.com/temasui/start/"}, {"@type": "ListItem", "position": 3, "name": "書き方ガイド", "item": "https://himawasa-sync.com/temasui/guide/"}, {"@type": "ListItem", "position": 4, "name": "看護サマリを書く時間を短くするには", "item": "https://himawasa-sync.com/temasui/guide/kango-summary/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI が病名や薬を書き足すことはありますか？", "acceptedAnswer": {"@type": "Answer", "text": "書き足しません。てますい 病院版は、薬の名前・量・検査の値・病名・日付を、入れたものだけ書きます。入力に無いものは作らず【要確認】と残します。医学的な診断・判断・治療方針・見通しも書きません。"}}, {"@type": "Question", "name": "患者さんのお名前は入れますか？", "acceptedAnswer": {"@type": "Answer", "text": "入れません。「Aさん」などで下書きを作り、電子カルテに貼るときに本当のお名前に置き換えてください。"}}, {"@type": "Question", "name": "そのまま送ってよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。できるのは下書きです。中身を看護師さんが確かめ、病院の様式に合わせて直してからお使いください。"}}]}]</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<style>
+  /* てますいの紹介ページと同じ色・字。記事は読みやすい幅にしぼる（書き方ガイドの共通の形） */
+  :root {
+    --yellow: #FFD700; --yellow-lt: #FFF8CC; --cream: #FFFBF0; --cream-bd: #F0E4C4;
+    --ink: #1A1A1A; --gray: #5a5a5a; --white: #fff; --green: #2F9E44; --red: #C92A2A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: var(--ink); background: var(--white); line-height: 1.9; word-break: auto-phrase; }
+  a { color: inherit; }
+  .round { font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif; }
+  .topbar { background: var(--yellow); padding: 10px 16px; font-size: 14px; font-weight: 700; }
+  .topbar .in { max-width: 760px; margin: 0 auto; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .topbar a { text-decoration: none; }
+  .topbar .brand { font-size: 18px; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 56px; }
+  .crumbs { font-size: 13px; color: var(--gray); margin-bottom: 18px; }
+  .crumbs a { color: var(--gray); }
+  h1 { font-size: clamp(24px, 4.6vw, 34px); line-height: 1.45; margin-bottom: 10px; }
+  .meta { font-size: 13px; color: var(--gray); margin-bottom: 22px; }
+  .lead { font-size: 17px; background: var(--cream); border-left: 6px solid var(--yellow); padding: 16px 18px; border-radius: 0 12px 12px 0; margin-bottom: 26px; }
+  .toc { border: 2px solid var(--cream-bd); border-radius: 16px; padding: 16px 20px; margin-bottom: 34px; font-size: 15px; }
+  .toc b { display: block; margin-bottom: 4px; }
+  .toc ol { padding-left: 1.4em; }
+  h2 { font-size: clamp(20px, 3.6vw, 25px); line-height: 1.5; margin: 44px 0 14px; padding-bottom: 6px; border-bottom: 3px solid var(--yellow); }
+  h3 { font-size: 18px; margin: 26px 0 8px; }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 16px; padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 18px; font-size: 15px; }
+  th, td { border: 1px solid var(--cream-bd); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--cream); white-space: nowrap; }
+  pre { white-space: pre-wrap; font-family: inherit; }
+  .pair { display: grid; grid-template-columns: 1fr auto 1.3fr; gap: 12px; align-items: center; margin: 10px 0 8px; }
+  .memo { background: #fffdf2; border-radius: 8px; padding: 16px; box-shadow: 0 6px 16px rgba(0,0,0,.08); font-size: 15px; }
+  .draft { background: var(--white); border: 3px solid var(--ink); border-radius: 14px; padding: 16px; font-size: 15px; }
+  .memo .t, .draft .t { font-size: 13px; color: var(--gray); font-weight: 700; margin-bottom: 4px; }
+  .arrow { font-size: 30px; font-weight: 900; text-align: center; }
+  .note { font-size: 13px; color: var(--gray); }
+  .cta { background: var(--yellow); border-radius: 22px; padding: 26px 22px; margin: 44px 0 20px; }
+  .cta h2 { border: 0; margin: 0 0 8px; padding: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 20px; border-radius: 999px; font-weight: 900; text-decoration: none; font-size: 15px; }
+  .btn.dark { background: var(--ink); color: var(--white); }
+  .btn.light { background: var(--white); color: var(--ink); border: 2px solid var(--ink); }
+  .faq dt { font-weight: 900; margin-top: 16px; }
+  .faq dt::before { content: 'Q. '; color: var(--green); }
+  .faq dd { margin: 4px 0 0; }
+  .faq dd::before { content: 'A. '; font-weight: 900; }
+  .related { margin-top: 36px; }
+  .related ul { list-style: none; padding: 0; display: grid; gap: 10px; }
+  .related a { display: block; background: var(--cream); border: 2px solid var(--cream-bd); border-radius: 14px; padding: 12px 16px; text-decoration: none; font-weight: 700; }
+  footer { padding: 28px 16px; text-align: center; font-size: 14px; color: var(--gray); border-top: 1px solid var(--cream-bd); }
+  footer a { color: var(--gray); }
+  @media (max-width: 640px) { .pair { grid-template-columns: 1fr; } .arrow { transform: rotate(90deg); } th { white-space: normal; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in"><a class="round brand" href="/temasui/start/">てますい</a><a href="/temasui/guide/">📚 書き方ガイド</a></div></div>
+<main>
+<nav class="crumbs" aria-label="パンくず"><a href="/">ホーム</a>　＞　<a href="/temasui/start/">てますい</a>　＞　<a href="/temasui/guide/">書き方ガイド</a>　＞　看護サマリを書く時間</nav>
+
+<h1>看護サマリを書く時間を短くするには｜項目のひな形と下書きの作り方</h1>
+<p class="meta">更新：2026-10-04　／　HiMaWaSa Sync</p>
+<p class="lead">退院や転院、施設への入所が決まるたびに書く看護サマリ。日々の記録を読み返して、必要なところを拾い、相手に伝わる文章にまとめるのは、勤務の終わりに残りやすい仕事です。<b>書く時間を短くするための工夫</b>と、短いメモから下書きを作る方法をまとめました。</p>
+<div class="toc"><b>この記事の中身</b><ol>
+<li><a href="#why">なぜ時間がかかる？</a></li><li><a href="#template">よく使われる項目のひな形</a></li><li><a href="#today">今日からできる4つの工夫</a></li>
+<li><a href="#temasui">短いメモから下書きに（てますい 病院版）</a></li><li><a href="#care">使うときに気をつけること</a></li><li><a href="#faq">よくある質問</a></li></ol></div>
+
+<h2 id="why">なぜ時間がかかる？</h2>
+<ul>
+<li><b>拾い出し</b>：入院中の記録から、引き継ぐことを探して拾うのに時間がかかります。</li>
+<li><b>文章にする</b>：箇条の情報を、読み手に伝わる文章に組み立て直す手間があります。</li>
+<li><b>読み手が違う</b>：送り先が病院か、施設か、ケアマネジャーかで、伝わる言葉が変わります。</li>
+<li><b>まとめて重なる</b>：退院が重なる日は、何人分ものサマリが一度に必要になります。</li>
+</ul>
+
+<h2 id="template">よく使われる項目のひな形</h2>
+<p>様式は病院ごとに違いますが、次のような項目がよく使われます。院内の様式に合わせて使ってください。</p>
+<table>
+<tr><th>基本の情報</th><td>入院日・退院（予定）日・送り先・連絡先</td></tr>
+<tr><th>入院中の経過</th><td>入院のきっかけと、入院中の大きな出来事（医師の記録に沿って）</td></tr>
+<tr><th>今の状態</th><td>食事・排泄・清潔・移動・睡眠・コミュニケーション など</td></tr>
+<tr><th>医療処置</th><td>続いている処置と、そのやり方</td></tr>
+<tr><th>お薬</th><td>お薬の情報は、処方の記録や薬剤の情報提供書に沿って</td></tr>
+<tr><th>ご本人・ご家族</th><td>ご本人の思い、ご家族の状況や意向</td></tr>
+<tr><th>続けてほしいこと</th><td>送り先で続けてほしいケアや、気をつけてほしいこと</td></tr>
+</table>
+
+<h2 id="today">今日からできる4つの工夫</h2>
+<h3>① 日々の記録に「サマリに使う」印を付ける</h3>
+<p>引き継ぎたい出来事があった日に、記録の頭に印を付けておくと、あとで拾い出すのが楽になります。</p>
+<h3>② 送り先ごとにひな形を分ける</h3>
+<p>病院あて・施設あて・ケアマネジャーあてで、項目の並びや言葉づかいを分けておくと、書き直しが減ります。</p>
+<h3>③ 院内の略語は、送り先に合わせて書き換える</h3>
+<p>病棟の中で通じる略語は、施設や在宅の方には伝わらないことがあります。読み手の言葉で書きます。</p>
+<h3>④ 先に箇条で並べてから文章にする</h3>
+<p>いきなり文章にせず、項目ごとに短いメモで並べてから文章にすると、抜けが減り、早く書けます。</p>
+
+<h2 id="temasui">短いメモから下書きに（てますい 病院版）</h2>
+<p>てますい 病院版では、書類の種類で「看護サマリ」を選んで<b>短いメモを入れるか、話すだけ</b>で、文章の下書きができます。退院時の情報提供（ケアマネジャー・施設あて）や、返書、申し送りなども同じように作れます。</p>
+<div class="pair">
+  <div class="memo"><div class="t">入れるメモ（イメージ）</div><pre>Aさん　施設へ退院予定
+食事：自力で全量。むせなし
+移動：歩行器で病棟内
+排泄：日中トイレ、夜間ポータブル
+家族：長女が週末面会
+続けてほしい：夜間の転倒に注意</pre></div>
+  <div class="arrow">➜</div>
+  <div class="draft"><div class="t">看護サマリの下書き（イメージ）</div><pre>Aさんは、施設への退院を予定しています。
+食事は自力で全量摂取されており、むせは見られません。
+移動は歩行器を使用し、病棟内を歩行されています。
+排泄は、日中はトイレ、夜間はポータブルトイレを使用されています。
+ご家族は、長女の方が週末に面会に来られています。
+夜間の転倒に注意し、見守りを続けてください。</pre></div>
+</div>
+<p class="note">※ 流れを分かりやすくするためのイメージです。実際の下書きは、入れたメモによって変わります。</p>
+<ul>
+<li><b>入れたことだけを書く</b>：薬の名前・量・検査の値・病名・日付は、入れたものだけを書きます。入力に無いものは作らず【要確認】と残します。</li>
+<li><b>判断は書かない</b>：医学的な診断・判断・治療方針・見通しは書きません。</li>
+<li><b>お名前は「Aさん」で</b>：本当のお名前は入れず、電子カルテに貼るときに置き換えます。</li>
+</ul>
+
+<h2 id="care">使うときに気をつけること</h2>
+<ul>
+<li><b>下書きは必ず確かめる</b>：できるのは下書きです。看護師さんが中身を確かめ、院内の様式に合わせて直してから使ってください。</li>
+<li><b>正式な記録は電子カルテに</b>：てますいは書く手間を減らすための補助です。正式な記録は、これまでどおり電子カルテに残してください。</li>
+<li><b>院内の決まりと合わせる</b>：外部のサービスを使うときの院内の手続きのために、<a href="/temasui/security/">セキュリティとデータの取り扱い</a>を印刷してお使いいただけます。</li>
+</ul>
+
+<h2 id="faq">よくある質問</h2>
+<dl class="faq">
+  <dt>AI が病名や薬を書き足すことはありますか？</dt><dd>書き足しません。てますい 病院版は、薬の名前・量・検査の値・病名・日付を、入れたものだけ書きます。入力に無いものは作らず【要確認】と残します。医学的な診断・判断・治療方針・見通しも書きません。</dd>
+  <dt>患者さんのお名前は入れますか？</dt><dd>入れません。「Aさん」などで下書きを作り、電子カルテに貼るときに本当のお名前に置き換えてください。</dd>
+  <dt>そのまま送ってよいですか？</dt><dd>いいえ。できるのは下書きです。中身を看護師さんが確かめ、病院の様式に合わせて直してからお使いください。</dd>
+</dl>
+
+<section class="cta"><h2>看護サマリの下書きを、見本で試せます</h2><p>登録なしの見本で、メモから下書きができるまでを試せます。本物の患者さんの情報は入れないでください。病院版は月額10,000円（税別・病院全体で定額）、1か月無料です。</p><div class="btns"><a class="btn dark" href="/temasui/hospital/">病院版を見る</a><a class="btn light" href="https://care.himawasa-sync.com/demo?industry=hospital">▶ 見本を試す（登録なし）</a></div></section>
+<section class="related"><h2>ほかの書き方ガイド</h2><ul><li><a href="/temasui/guide/shokaijo-fax/">紹介状・FAXの受付台帳、どう回す？｜地域連携室の書き写しを減らす方法 →</a></li><li><a href="/temasui/guide/gaikokujin-kiroku/">外国籍の職員さんの記録、どう助ける？ →</a></li><li><a href="/temasui/guide/kaigo-kiroku/">介護記録の書き方と例文 →</a></li></ul></section>
+
+</main>
+<footer>
+  <p class="round" style="font-size:20px;color:var(--ink)">てますい <span style="font-size:13px">by HiMaWaSa Sync</span></p>
+  <p><a href="/temasui/guide/">書き方ガイド</a>　／　<a href="/temasui/start/">てますいの始め方</a>　／　<a href="/">HiMaWaSa Sync</a>　／　お問い合わせ：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a></p>
+</footer>
+<script src="https://care.himawasa-sync.com/chat-widget.js" defer></script>
+</body>
+</html>
