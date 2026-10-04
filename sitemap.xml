@@ -5,7 +5,10 @@
     <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-
+    <image:image>
+      <image:loc>https://himawasa-sync.com/temasui/start/img/ogp.jpg</image:loc>
+      <image:title>てますい 書く手間が、すいすい減っていく。介護版・病院版・工場版・中小企業版・士業版</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/care/</loc>
@@ -45,28 +48,28 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/temasui/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
 
   </url>
   <url>
     <loc>https://himawasa-sync.com/temasui/factory/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
 
   </url>
   <url>
     <loc>https://himawasa-sync.com/temasui/biz/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
 
   </url>
   <url>
     <loc>https://himawasa-sync.com/temasui/pro/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
 
@@ -216,7 +219,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/services/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
 
@@ -292,13 +295,6 @@
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-
-  </url>
-  <url>
-    <loc>https://himawasa-sync.com/mochisync2/</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
 
   </url>
   <url>

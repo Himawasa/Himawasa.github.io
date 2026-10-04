@@ -12,15 +12,11 @@
 
 主対象は介護施設、病院・医事課、士業事務所、中小企業。
 
-## 介護施設
-入口: https://himawasa-sync.com/for/care/
-一覧: https://himawasa-sync.com/Guide/care/
-- シフト表: 勤怠データ（例: KING OF TIME）を、施設指定のExcel様式へ載せる。https://himawasa-sync.com/shiftsync/
-- 持ち物チェック: 写真から一覧にする。
-- 施設カレンダー: 予定・往診・残薬。
-- 実地指導用に、今ある記録を出しやすくする。記録の書き方は施設の今のやり方のまま。
-- てますい（業種を選ぶ入口）: https://himawasa-sync.com/temasui/start/
-- てますい（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
+## てますい（書く手間を減らすアシスタント）
+トップ: https://himawasa-sync.com/
+始め方: https://himawasa-sync.com/temasui/start/
+セキュリティとデータの取り扱い: https://himawasa-sync.com/temasui/security/
+- てますい 介護版（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
 - てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
 - てますい 中小企業版（中小企業のアシスタント）: https://himawasa-sync.com/temasui/biz/
 - てますい 士業版（士業事務所のアシスタント）: https://himawasa-sync.com/temasui/pro/
@@ -31,6 +27,13 @@
   - 予定カレンダー: 往診・利用変更・残薬の確認を職員全員で共有。
   - アプリのダウンロード不要（パソコン・タブレット・スマホ）。施設ごとの専用ページで、ほかの施設からは見えない。AIの学習には使われない。
   - 料金（税別）: 1か月無料体験 → ご契約時 30,000円＋交通費（身近な作業を1つ自動化・3時間まで） → 月額 10,000円（施設全体で定額）。最低契約期間3か月。工場版・中小企業版・士業版・病院版も同じ料金。見本は登録なしで https://care.himawasa-sync.com/demo
+
+## 介護施設（今のExcelのままの自動化のご相談）
+入口: https://himawasa-sync.com/for/care/
+一覧: https://himawasa-sync.com/Guide/care/
+- シフト表: 勤怠データ（例: KING OF TIME）を、施設指定のExcel様式へ載せる。https://himawasa-sync.com/shiftsync/
+- 実地指導用に、今ある記録を出しやすくする。記録の書き方は施設の今のやり方のまま。
+- 持ち物チェック・予定カレンダーは、今は てますい 介護版の機能。
 
 ## 病院・医事
 入口: https://himawasa-sync.com/for/care/ と https://himawasa-sync.com/medical-dx/
