@@ -1,34 +1,25 @@
-import { Link } from 'react-router-dom'
 import Seo from '../../components/Seo'
 import { PAGES } from '../../seo/site'
-import Hero from './sections/Hero'
-import AudiencePaths from './sections/AudiencePaths'
-import TemasuiBand from './sections/TemasuiBand'
-import HomeProof from './sections/HomeProof'
+import TemasuiHero from './sections/TemasuiHero'
+import { TemasuiVersions, TemasuiStrengths, TemasuiPricing, ConsultBand, TemasuiSafety, TemasuiFinalCta } from './sections/TemasuiSections'
 import TryTeaser from './sections/TryTeaser'
-import Flow from './sections/Flow'
 import FloatingCta from './sections/FloatingCta'
+import './TemasuiHome.css'
 
+// 2026-10-04 トップを「てますい」1本の話に作り直した（下書き：HiMaWaSa-Sync-3007/docs/seo/トップ作り直し_下書き_20261004.html）。
+// 前のトップの部品（Hero・HomeProof・AudiencePaths・TemasuiBand・Flow）はファイルとして残してある（ここでは使っていない）
 export default function Home() {
   return (
     <>
       <Seo page={PAGES.home} />
-      <Hero />
-      <HomeProof />
-      <AudiencePaths />
-      <TemasuiBand />
+      <TemasuiHero />
+      <TemasuiVersions />
+      <TemasuiStrengths />
+      <TemasuiPricing />
+      <ConsultBand />
       <TryTeaser />
-      <Flow />
-      <section className="home-cta">
-        <div className="container">
-          <h2>まずは、いまの困りごとから</h2>
-          <p>まずは話を聞いてみたいだけでも大丈夫です。返信はメールかフォームです。</p>
-          <Link to="/contact" className="btn-yellow">無料相談はこちら</Link>
-          <p className="home-cta-sub">
-            <Link to="/try">先に、無料体験してみる →</Link>
-          </p>
-        </div>
-      </section>
+      <TemasuiSafety />
+      <TemasuiFinalCta />
       <FloatingCta />
     </>
   )

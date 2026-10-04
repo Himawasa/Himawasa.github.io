@@ -13,8 +13,8 @@ export default function TryTeaser() {
     <section className="try-teaser" id="try-teaser">
       <div className="container">
         <div className="section-header">
-          <span className="section-label">TRY NOW</span>
-          <h2 className="section-title">まずはスマホで試してみる</h2>
+          <span className="section-label">FREE TOOLS</span>
+          <h2 className="section-title">てますいの無料ツール（登録なし）</h2>
           <p className="section-desc">ご相談の前に、まずは気軽にお試しいただけます。登録不要・無料です。</p>
         </div>
         <div className="try-teaser-grid">

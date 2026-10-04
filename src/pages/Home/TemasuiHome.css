@@ -1,0 +1,74 @@
+/* トップの「てますい」の各欄（2026-10-04 作り直し）。色は index.css のひまわりの変数を使う。
+   いちばん上（.th-hero）は、JavaScript が動く前の HTML にも同じ形で出る（heroText.js）。 */
+
+.th-hero-wrap { display: contents; }
+
+/* ── ① いちばん上 ── */
+.th-hero { padding: 104px 0 56px; background: linear-gradient(165deg, #FFFBF0 0%, #FFF8E7 45%, #FFF3C4 100%); }
+.th-hero-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 40px; align-items: center; }
+.th-kicker { font-size: 0.95rem; font-weight: 700; color: #8a6a3d; margin-bottom: 8px; }
+.th-title { margin: 0 0 16px; line-height: 1.3; }
+.th-name { display: block; font-size: clamp(2.6rem, 6vw, 3.6rem); font-weight: 900; letter-spacing: 0.04em; }
+.th-tagline { display: block; font-size: clamp(1.4rem, 3.4vw, 2rem); font-weight: 900; word-break: auto-phrase; }
+.th-lead { font-size: 1.08rem; line-height: 2; color: var(--black-s); max-width: 34em; }
+.th-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; padding: 0; }
+.th-chips li { background: var(--white); border: 1px solid var(--cream-bd); border-radius: 999px; padding: 5px 14px; font-size: 0.88rem; }
+.th-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.th-cta--center { justify-content: center; margin-top: 8px; }
+.th-btn { font-size: 1.05rem; }
+.th-btn-sub { display: inline-block; padding: 12px 24px; border-radius: 30px; border: 2px solid var(--cream-bd); background: var(--white); color: var(--black-s); font-weight: 700; }
+.th-btn-sub:hover { border-color: #8a6a3d; }
+.th-btn-sub--light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.5); }
+.th-note { margin-top: 14px; font-size: 0.85rem; color: var(--gray); line-height: 1.8; }
+.th-hero-shot { display: flex; justify-content: center; }
+.th-hero-shot img { width: min(280px, 100%); height: auto; border-radius: 28px; border: 8px solid #222; box-shadow: var(--shadow); background: #fff; }
+
+/* ── 共通の欄 ── */
+.th-section { padding: 56px 0; }
+.th-section--white { background: var(--white); }
+.th-narrow { max-width: 760px; }
+.th-h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 900; line-height: 1.5; margin-bottom: 12px; text-wrap: balance; word-break: auto-phrase; }
+.th-h2--light { color: #fff; }
+.th-h3 { font-size: 1.15rem; font-weight: 900; line-height: 1.6; margin-bottom: 10px; word-break: auto-phrase; }
+.th-desc { color: var(--gray); line-height: 1.9; margin-bottom: 24px; }
+
+/* ── ② 版を選ぶ ── */
+.th-versions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.th-version { background: var(--white); border: 1px solid var(--cream-bd); border-radius: var(--radius); padding: 18px 16px; display: flex; flex-direction: column; }
+.th-version h3 { font-size: 1.05rem; font-weight: 900; margin-bottom: 8px; }
+.th-version p { color: var(--gray); font-size: 0.9rem; line-height: 1.85; flex: 1; }
+.th-version-links { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; font-size: 0.9rem; font-weight: 700; }
+.th-version-links a { color: #8a6a3d; }
+
+/* ── ③ 強み ── */
+.th-two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.th-box { background: var(--cream); border: 1px solid var(--cream-bd); border-radius: var(--radius); padding: 22px 20px; }
+.th-box p { color: var(--black-s); line-height: 1.95; margin-bottom: 10px; }
+.th-box a { font-weight: 700; color: #8a6a3d; font-size: 0.92rem; }
+
+/* ── ④ 料金 ── */
+.th-table-wrap { overflow-x: auto; }
+.th-table { width: 100%; border-collapse: collapse; background: var(--white); font-size: 0.95rem; }
+.th-table th, .th-table td { border: 1px solid var(--cream-bd); padding: 12px 14px; text-align: left; line-height: 1.7; }
+.th-table thead th { background: #FFF8CC; }
+.th-table tbody th { font-weight: 700; }
+.th-terms { margin: 16px 0 0 1.2em; color: var(--gray); line-height: 1.9; font-size: 0.92rem; }
+
+/* ── ⑤ 自動化のご相談（てますいとは別の入口なので、色を変えて分ける） ── */
+.th-consult { padding: 56px 0; background: #2d2a24; color: #eee; }
+.th-consult p { line-height: 2; color: #ddd; margin-bottom: 20px; }
+.th-consult-label { font-size: 0.82rem; font-weight: 900; letter-spacing: 0.08em; color: var(--yellow); margin-bottom: 8px !important; }
+
+/* ── ⑦ 安心 ── */
+.th-safety { margin-left: 1.2em; line-height: 2.1; color: var(--black-s); }
+
+@media (max-width: 1000px) {
+  .th-versions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .th-hero { padding: 88px 0 40px; }
+  .th-hero-inner { grid-template-columns: 1fr; gap: 28px; }
+  .th-hero-shot img { width: min(220px, 70%); }
+  .th-versions, .th-two { grid-template-columns: 1fr; }
+  .th-section, .th-consult { padding: 40px 0; }
+}

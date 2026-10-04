@@ -58,10 +58,11 @@ export const PAGES = {
   home: {
     key: 'home',
     path: '/',
-    title: SITE.title,
-    h1: '今のExcelのまま、現場の手作業を自動化',
-    description: SITE.description,
-    og: SITE.ogDescription,
+    // 2026-10-04 トップを「てますい」1本の話に作り直した。名前で検索した人に、何ができて、いくらかがすぐ分かるように
+    title: 'てますい｜書く手間を減らすアシスタント（介護・病院・工場・中小企業・士業） | HiMaWaSa Sync',
+    h1: 'てますい 書く手間が、すいすい減っていく。',
+    description: 'スマホに向かって話すか、箇条書きを入力するだけで、日報や介護記録のきれいな下書きがすぐに出来上がる「てますい」。介護・病院・工場・中小企業・士業の5つの版。月1万円から・1か月無料。今のExcelのままの自動化のご相談も承ります。',
+    og: '話すだけ・書くだけで、記録と書類の下書きに。てますい（介護・病院・工場・中小企業・士業）。月1万円から・1か月無料。',
     crumb: 'トップ',
   },
   services: {
@@ -1136,19 +1137,14 @@ export function staticLinksHtml(current = '') {
 
 function pageBodyHtml(page) {
   if (!page || page.key === 'home') {
+    // 2026-10-04 トップを「てますい」1本に作り直したのに合わせる（JS を動かさない相手向けの控え）
     return `
-    <h2>あなたのお仕事に合わせてお選びください</h2>
-    <p><a href="/for/pro/">士業事務所の方</a> — 期日管理・請求書自動化</p>
-    <p><a href="/for/care/">介護施設・病院の方</a> — シフト表・日計・持ち物チェック</p>
-    <p><a href="/shiftsync/">介護のシフト表自動化</a> / <a href="/medical-dx/">病院・医療機関のDX</a></p>
-    <p><a href="/for/biz/">中小企業の方</a> — PDF→Excel・kintone</p>
-    <p>例：シフト作成 5時間→3分。請求の一括 半日→0分。<a href="/works/">実績</a></p>
-    <p>まずは触る：<a href="/mochisync/">MochiSync</a> / <a href="/pdfuse/">PDFuse</a> / <a href="/legosync/">LegoSync</a> / <a href="/try/">無料体験</a></p>
-    <h2>RKシナリオ作成代行</h2>
-    <p><a href="/rk/">RKシリーズ シナリオ作成代行</a> — キーエンスRK／RK-10の作成代行 1万円から</p>
-    <p><a href="/rk/factory/">工場RK</a> / <a href="/rk/hospital/">病院RK</a> / <a href="/rk/care/">介護RK</a> / <a href="/rk/pro/">士業RK</a> / <a href="/rk/biz/">中小企業RK</a> / <a href="/rk/click/">クリックRK</a></p>
-    <h2>${esc(AI_ERA.heading)}</h2>
-    <p>${esc(AI_ERA.lead)}</p>`
+    <h2>てますい — 書く手間が、すいすい減っていく。</h2>
+    <p>スマホに向かって話すか、箇条書きを入力するだけで、日報や介護記録のきれいな下書きがすぐに出来上がります。ダウンロード不要・1か月無料。</p>
+    <p><a href="/temasui/">介護版</a> / <a href="/temasui/hospital/">病院版</a> / <a href="/temasui/factory/">工場版</a> / <a href="/temasui/biz/">中小企業版</a> / <a href="/temasui/pro/">士業版</a> / <a href="/temasui/start/">版を選ぶ</a></p>
+    <h2>今のExcelやシステムはそのままで、自動化のご相談も承ります</h2>
+    <p>シフト表・請求・転記など、毎月の手作業を短くします。<a href="/contact/">ご相談（30分・無料）</a> / <a href="/services/">サービスと料金</a></p>
+    <p>無料ツール：<a href="https://try.himawasa-sync.com/tekipaki/">てきぱき</a> / <a href="/try/">無料体験の一覧</a></p>`
   }
   if (page.key === 'services') {
     return SERVICE_ITEMS.map((s) => `<h2>${esc(s.name)}</h2><p>${esc(s.desc)}</p>`).join('')

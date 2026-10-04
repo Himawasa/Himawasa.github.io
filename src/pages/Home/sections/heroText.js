@@ -1,8 +1,22 @@
-// トップ画面（Hero）の文章。画面（Hero.jsx）と、最初の HTML（vite.config.js が index.html に埋め込む静的な見出し）の両方がここを読む。
+// トップ画面のいちばん上の文章と HTML。画面（TemasuiHero.jsx）と、最初の HTML（vite.config.js が index.html に埋め込む静的な見出し）の両方がここを読む。
 // 2か所に同じ文を書くと食い違うので、文章はここだけで直す。
 // 注意：このファイルは vite.config.js（Node.js の環境）からも直接 import される。React の Hooks・JSX・CSS の import を書くとビルドが止まる。
 // ここに書いてよいのは、ただの定数と文字列を作る関数だけ。
 
+// 2026-10-04 トップを「てますい」1本の話に作り直した（下書き：HiMaWaSa-Sync-3007/docs/seo/トップ作り直し_下書き_20261004.html）
+export const TEMASUI_HERO = {
+  kicker: '介護・病院・工場・中小企業・士業の',
+  name: 'てますい',
+  tagline: '書く手間が、すいすい減っていく。',
+  lead: 'スマホに向かって話すか、箇条書きを入力するだけで、日報や介護記録のきれいな下書きがすぐに出来上がります。',
+  chips: ['ダウンロード不要', '🎤 話すだけ（外国語も日本語に）', '月1万円から', '1か月無料'],
+  ctaPrimary: { href: '/temasui/start/', label: '1か月無料で試す' },
+  ctaSecondary: { href: '#versions', label: '見本を試す（登録なし）' },
+  note: '無料期間が終わっても、自動で料金がかかることはありません。運営：HiMaWaSa Sync',
+  shot: { src: '/home-temasui-screen.webp', width: 480, height: 1039, alt: 'てますいの画面。「様子」と「対応」に短いメモを入れて「下書きを作る」を押すと、介護記録の下書きができている' },
+}
+
+// ここから下の HERO・PHRASES は、前のトップ（Hero.jsx・今は使っていない）用。Hero.jsx を消すときに一緒に消す
 export const HERO = {
   badge: '毎月の手作業を、今のExcelのまま。',
   titleStatic: '今のExcelのまま、',
@@ -12,7 +26,6 @@ export const HERO = {
   ctaSecondary: '改善事例を見る',
   micro: '事前の準備はいりません。オンライン（30分）またはメールでお気軽にご相談いただけます。',
   trust: ['現場 45件以上', 'シフト 5時間→3分', '請求 半日→0分', '今のExcelのまま'],
-  // 業種の入口（最初の HTML にも出す。無いと React 起動時にボタンが突然現れて画面がずれる）
   paths: [
     { href: '/for/pro', label: '士業の方' },
     { href: '/for/care', label: '介護・医療の方' },
@@ -20,8 +33,6 @@ export const HERO = {
     { href: '/for/factory', label: '工場の方' },
   ],
 }
-
-// 見出しの、1字ずつ出る部分の文（Hero.jsx の TypingText が順に出す。最初の HTML には [0] を出す）
 export const PHRASES = [
   '毎月の手作業を、もっと短く。',
   '現場の事務を低価格で自動化。',
@@ -30,21 +41,21 @@ export const PHRASES = [
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
-// JavaScript を読み終わる前に出しておく、トップ画面の静的な HTML。
-// 見た目の class は Hero.jsx と同じものを使う（CSS は共通）。React が起動したら、同じ内容の画面に置き換わる。
+// トップのいちばん上の HTML。TemasuiHero.jsx はこれをそのまま画面に出す（dangerouslySetInnerHTML）ので、
+// JavaScript が動く前と後で、文字も形も1文字も違わない（ずれ・ちらつきが起きない）。中身は上の定数だけで、外から来る値は入らない
 export function heroStaticHtml() {
-  const trust = HERO.trust.map((t) => `<span class="hero-trust-item">${esc(t)}</span>`).join('<span class="hero-trust-sep">·</span>')
-  const paths = HERO.paths.map((p) => `<a href="${esc(p.href)}" class="hero-path-chip">${esc(p.label)}</a>`).join('')
+  const h = TEMASUI_HERO
+  const chips = h.chips.map((c) => `<li>${esc(c)}</li>`).join('')
   return [
-    '<section class="hero" id="home"><div class="hero-content"><div class="hero-left">',
-    `<div class="hero-logo-wrap"><img src="/logo-160.png" alt="HiMaWaSa Sync" class="hero-logo-img" width="36" height="34" fetchpriority="high" /><span class="hero-logo-text">HiMaWaSa Sync</span></div>`,
-    `<div class="hero-badge"><span class="hero-badge-dot"></span>${esc(HERO.badge)}</div>`,
-    `<h1 class="hero-title"><span class="hero-title-static">${esc(HERO.titleStatic)}</span><span class="hero-title-typing"><span class="hero-typing">${esc(PHRASES[0])}<span class="hero-cursor">|</span></span></span></h1>`,
-    `<p class="hero-sub">${esc(HERO.sub)}</p>`,
-    `<div class="hero-cta"><a href="/contact" class="btn-hero-primary">${esc(HERO.ctaPrimary)}</a><a href="/works" class="btn-hero-secondary">${esc(HERO.ctaSecondary)}</a></div>`,
-    `<p class="hero-micro">${esc(HERO.micro)}</p>`,
-    `<div class="hero-trust">${trust}</div>`,
-    `<div class="hero-paths">${paths}</div>`,
-    '</div></div></section>',
+    '<section class="th-hero" id="home"><div class="container th-hero-inner"><div class="th-hero-text">',
+    `<p class="th-kicker">${esc(h.kicker)}</p>`,
+    `<h1 class="th-title"><span class="th-name">${esc(h.name)}</span><span class="th-tagline">${esc(h.tagline)}</span></h1>`,
+    `<p class="th-lead">${esc(h.lead)}</p>`,
+    `<ul class="th-chips">${chips}</ul>`,
+    `<div class="th-cta"><a href="${esc(h.ctaPrimary.href)}" class="btn-yellow th-btn">${esc(h.ctaPrimary.label)}</a><a href="${esc(h.ctaSecondary.href)}" class="th-btn-sub">${esc(h.ctaSecondary.label)}</a></div>`,
+    `<p class="th-note">${esc(h.note)}</p>`,
+    '</div>',
+    `<div class="th-hero-shot"><img src="${esc(h.shot.src)}" alt="${esc(h.shot.alt)}" width="${h.shot.width}" height="${h.shot.height}" fetchpriority="high" /></div>`,
+    '</div></section>',
   ].join('')
 }
