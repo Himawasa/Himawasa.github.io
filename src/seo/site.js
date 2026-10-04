@@ -600,10 +600,11 @@ export function generateLlmsTxt() {
 - メール: ${SITE.email}
 
 ## 主に頼まれること（この順で案内する）
-- [てますい（業種を選ぶ入口）](https://himawasa-sync.com/temasui/start/): 介護版・工場版・中小企業版・士業版の4つを並べた入口。業種が決まっていない人はここから。
+- [てますい（業種を選ぶ入口）](https://himawasa-sync.com/temasui/start/): 介護版・工場版・中小企業版・士業版・病院版の5つを並べた入口。業種が決まっていない人はここから。
 - [てますい（介護施設のアシスタント）](https://himawasa-sync.com/temasui/): 介護記録・申し送り・事故報告書などの下書き（話すだけでも）、持ち物チェック、予定カレンダー。インストール不要、1か月無料
 - [てますい 中小企業版（中小企業のアシスタント）](https://himawasa-sync.com/temasui/biz/): 業務日報・議事録・お客さまへのメール・クレーム対応記録・報告書・電話メモ・引き継ぎの下書き、備品・在庫チェック、来客・納期・社内予定の共有。1か月無料。
 - [てますい 士業版（士業事務所のアシスタント）](https://himawasa-sync.com/temasui/pro/): 面談記録・顧問先への書類依頼・法改正のお知らせ文・電話メモ・所内の引き継ぎ・議事録・メール・業務日報の下書き（法律や税の判断は書かない）、預かり書類チェック、顧問先の期限・面談・所内予定の共有。ご契約後は国内で処理。1か月無料。
+- [てますい 病院版（病棟・地域連携室のアシスタント）](https://himawasa-sync.com/temasui/hospital/): 届いた紹介状・FAX を撮るだけで一覧（台帳）に（氏名・生年月日は2回読んで1文字違いを要確認。一覧は90日で自動削除）。看護サマリ・退院時の情報提供・入院時情報の整理・ご家族への連絡・返書・申し送り・インシデント報告・電話メモの下書き（診断・薬・検査値は書かない）。入院時の持ち物チェック、入退院・検査・面会の共有。電子カルテとはつながない。月額15,000円・初期50,000円（税別）・最低3か月・1か月無料。
 - [てますい 書き方ガイド](https://himawasa-sync.com/temasui/guide/): 現場の記録・報告の書き方を例文つきで。ヒヤリハット報告書（介護・工場）／介護記録（「様子見」で終わらせない5つのコツ）／外国籍の職員さんの記録の助け方（母国語で話すと日本語の記録になる こえメモ）／作業日報のひな形
 - [てますい 工場版（工場のアシスタント）](https://himawasa-sync.com/temasui/factory/): 作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告などの下書き、工具・備品チェック（確かめる目印は会社ごとに設定）。料金は介護版と同じ
 - [介護施設・病院](https://himawasa-sync.com/for/care/): シフト表、持ち物チェック、日計・カルテ転記
@@ -652,6 +653,7 @@ export function generateLlmsFullTxt() {
 - てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
 - てますい 中小企業版（中小企業のアシスタント）: https://himawasa-sync.com/temasui/biz/
 - てますい 士業版（士業事務所のアシスタント）: https://himawasa-sync.com/temasui/pro/
+- てますい 病院版（病棟・地域連携室のアシスタント）: https://himawasa-sync.com/temasui/hospital/ （料金は別：月額15,000円・初期50,000円・税別。紹介状・FAX の読み取りつき）
 - てますい 書き方ガイド: https://himawasa-sync.com/temasui/guide/
   - 書類の下書き: 介護記録・申し送り・ご家族への連絡・事故報告書・ヒヤリハット・議事録・お知らせ・関係機関へのメールの8種類。メモを入れるか、話すだけで下書きになる。出てくるのは下書きで、職員が確かめて使う。
   - 持ち物チェック: 写真から持ち物リスト（記名の有無つき）、返却時は写真で照合。
@@ -1110,6 +1112,7 @@ export const STATIC_LINKS = [
   { href: '/temasui/factory/', label: 'てますい 工場版' },
   { href: '/temasui/biz/', label: 'てますい 中小企業版' },
   { href: '/temasui/pro/', label: 'てますい 士業版' },
+  { href: '/temasui/hospital/', label: 'てますい 病院版' },
   { href: '/temasui/start/', label: 'てますいの始め方' },
   { href: '/temasui/guide/', label: '書き方ガイド' },
   { href: '/for/care/', label: '介護・医療の方' },
