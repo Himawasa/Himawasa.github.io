@@ -11,11 +11,11 @@ const DEMO = 'https://care.himawasa-sync.com/demo'
 
 // ② 版を選ぶ（/temasui/start/ と同じ5つ）
 const VERSIONS = [
-  { icon: '🏥', name: '介護版', text: '日々の介護記録や申し送り、ご家族への連絡文、事故報告書を話すだけで下書き。持ち物や予定の管理も。', href: '/temasui/', demo: DEMO },
-  { icon: '🏨', name: '病院版', text: '届いた紹介状やFAXをスマホで撮るだけで一覧化。看護サマリや返書の下書きも素早く作成。', href: '/temasui/hospital/', demo: `${DEMO}?industry=hospital` },
-  { icon: '🏭', name: '工場版', text: '作業日報や交代時の引き継ぎ、設備のメンテ記録、ヒヤリハットを話すだけで下書き。工具・備品の点検にも。', href: '/temasui/factory/', demo: `${DEMO}?industry=factory` },
-  { icon: '🏢', name: '中小企業版', text: '業務日報や議事録、お客さまへのメール、電話メモを話すだけで下書き。備品・在庫の確認にも。', href: '/temasui/biz/', demo: `${DEMO}?industry=biz` },
-  { icon: '⚖️', name: '士業版', text: '面談記録や顧問先への書類のお願い、お知らせ文、電話メモを話すだけで下書き。預かり書類の確認にも。', href: '/temasui/pro/', demo: `${DEMO}?industry=pro` },
+  { icon: '🏥', name: '介護施設向け', edition: '介護版', text: '日々の介護記録や申し送り、ご家族への連絡文、事故報告書を話すだけで下書き。持ち物や予定の管理も。', href: '/temasui/', demo: DEMO },
+  { icon: '🏨', name: '病院向け', edition: '病院版', text: '届いた紹介状やFAXをスマホで撮るだけで一覧化。看護サマリや返書の下書きも素早く作成。', href: '/temasui/hospital/', demo: `${DEMO}?industry=hospital` },
+  { icon: '🏭', name: '工場向け', edition: '工場版', text: '作業日報や交代時の引き継ぎ、設備のメンテ記録、ヒヤリハットを話すだけで下書き。工具・備品の点検にも。', href: '/temasui/factory/', demo: `${DEMO}?industry=factory` },
+  { icon: '🏢', name: '中小企業向け', edition: '中小企業版', text: '業務日報や議事録、お客さまへのメール、電話メモを話すだけで下書き。備品・在庫の確認にも。', href: '/temasui/biz/', demo: `${DEMO}?industry=biz` },
+  { icon: '⚖️', name: '士業事務所向け', edition: '士業版', text: '面談記録や顧問先への書類のお願い、お知らせ文、電話メモを話すだけで下書き。預かり書類の確認にも。', href: '/temasui/pro/', demo: `${DEMO}?industry=pro` },
 ]
 
 export function TemasuiVersions() {
@@ -23,14 +23,14 @@ export function TemasuiVersions() {
     <section className="th-section" id="versions">
       <div className="container">
         <h2 className="th-h2">業種に合わせて、お選びください</h2>
-        <p className="th-desc">見本は登録なしで、その場で試せます。入れた内容も写真も保存されません。</p>
+        <p className="th-desc">登録なしで、その場でお試しいただけます。入力した文字や写真は保存されませんので、安心してお試しください。</p>
         <div className="th-versions">
           {VERSIONS.map((v) => (
             <article className="th-version" key={v.name}>
               <h3><span aria-hidden="true">{v.icon}</span> {v.name}</h3>
               <p>{v.text}</p>
               <div className="th-version-links">
-                <a href={v.href}>紹介を見る →</a>
+                <a href={v.href}>{v.edition}の紹介を見る →</a>
                 <a href={v.demo} rel="noopener">▶ 登録なしで試す</a>
               </div>
             </article>
@@ -48,12 +48,12 @@ export function TemasuiStrengths() {
       <div className="container th-two">
         <article className="th-box">
           <h2 className="th-h3">外国人スタッフが母国語で話しても、自然な日本語の記録に</h2>
-          <p>母国語（ミャンマー語・ベトナム語など）で話すだけで、自然な日本語の記録の下書きに整えます。</p>
+          <p>母国語（ミャンマー語・ベトナム語など）で話すだけで、読みやすい日本語の記録の下書きができあがります。</p>
           <a href="/temasui/guide/gaikokujin-kiroku/">書き方ガイド「外国の職員さんの記録」へ →</a>
         </article>
         <article className="th-box">
           <h2 className="th-h3">地域連携室に届いた紹介状・FAXを、スマホで撮るだけで一覧表に</h2>
-          <p>撮影するだけで自動で一覧台帳を作成。画像データは保管せず、一覧は90日後に自動で消去されます。</p>
+          <p>スマホで撮影するだけで、一覧表を自動で作ります。写真は残さず、一覧も90日たつと自動で消去されます。</p>
           <a href="/temasui/hospital/">病院版の紹介へ →</a>
         </article>
       </div>
@@ -94,7 +94,7 @@ export function ConsultBand() {
       <div className="container">
         <p className="th-consult-label">今のExcelのまま、自動化のご相談</p>
         <h2 className="th-h2 th-h2--light">今のExcelやシステムはそのままで、自動化のご相談も承ります</h2>
-        <p>今お使いのExcelややり方のまま作業を減らしたい現場向けです。シフト表・請求・転記など、毎月の手作業を短くします。例：シフト作成 5時間→3分／請求の一括 半日→0分（許可をいただいた現場の例）。キーエンスRKをお使いの現場では、シナリオ作成もお手伝いします。</p>
+        <p>今お使いのExcelややり方のまま作業を減らしたい現場向けです。シフト表・請求・転記など、毎月の手作業にかかる時間を減らします。例：シフト作成 5時間→3分／請求の一括 半日→0分（許可をいただいた現場の例）。キーエンスRKをお使いの現場では、シナリオ作成もお手伝いします。</p>
         <div className="th-cta">
           <Link to="/contact" className="btn-yellow th-btn">自動化について相談する（30分・無料）</Link>
           <Link to="/services" className="th-btn-sub th-btn-sub--light">サービスと料金を見る</Link>
@@ -110,7 +110,7 @@ export function TemasuiSafety() {
     <section className="th-section th-section--white">
       <div className="container th-narrow">
         <h2 className="th-h2">安心してお使いいただくために</h2>
-        <p className="th-desc">てますい（ご契約後・無料体験・お試し）でのデータの扱い</p>
+        <p className="th-desc">てますい（各業種向けのアシスタント）では、データを次のように扱います。無料ツールの扱いは、それぞれのページをご覧ください。</p>
         <ul className="th-safety">
           <li>入力データや写真が AI の学習に使われることは一切ありません。</li>
           <li>データの保存は国内（東京のサーバー）で、厳重に保護されます。</li>
