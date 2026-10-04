@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power Automate の自動化（デスクトップ版・クラウド版）｜てますいと組み合わせて | HiMaWaSa Sync</title>
+<meta name="description" content="Power Automate のデスクトップ版（Windows）とクラウド版（Microsoft 365）で、転記・集計・ファイル整理・通知を自動にします。書く手間は「てますい」で。作る費用はいただかず、使い続ける月額を作る前にお見積り。初回相談は無料（30分）。">
+<link rel="canonical" href="https://himawasa-sync.com/power-automate/">
+<!-- 2026-10-04 新設（岩城さん「Yoom はいらない。代わりに Power Automate。デスクトップもクラウドも」）。料金の考え方は /services/ の「自動化のご相談」と同じ -->
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HiMaWaSa Sync">
+<meta property="og:title" content="Power Automate の自動化（デスクトップ版・クラウド版）｜てますいと組み合わせて">
+<meta property="og:description" content="転記・集計・ファイル整理・通知は Power Automate、書く手間は てますい。今のExcelとMicrosoft 365のまま。">
+<meta property="og:url" content="https://himawasa-sync.com/power-automate/">
+<meta property="og:image" content="https://himawasa-sync.com/temasui/start/img/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://himawasa-sync.com/temasui/start/img/ogp.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Power Automate の自動化（デスクトップ版・クラウド版）", "url": "https://himawasa-sync.com/power-automate/", "serviceType": "業務の自動化（Microsoft Power Automate）", "areaServed": {"@type": "Country", "name": "Japan"}, "provider": {"@type": "Organization", "name": "HiMaWaSa Sync", "url": "https://himawasa-sync.com/"}, "description": "Power Automate のデスクトップ版とクラウド版で、転記・集計・ファイル整理・通知を自動にします。作る費用はいただかず、使い続ける月額を作る前にお見積りします。", "offers": {"@type": "Offer", "name": "初回相談", "price": "0", "priceCurrency": "JPY", "description": "無料・30分", "url": "https://himawasa-sync.com/contact/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://himawasa-sync.com/"}, {"@type": "ListItem", "position": 2, "name": "Power Automate の自動化", "item": "https://himawasa-sync.com/power-automate/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Power Automate を使うのに、追加のお金はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "デスクトップ版は、Windows 10／11 なら追加費用なしで使えます。クラウド版は、Microsoft 365 の会社のアカウントがあれば、基本の連携（標準のコネクタ）は追加費用なしで使えます。夜間に無人で動かす使い方や、一部の連携（プレミアムのコネクタ）には、Microsoft の有料ライセンスが別に要ります。必要かどうかは、作る前にお伝えします。"}}, {"@type": "Question", "name": "Mac でも使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "デスクトップ版は Windows 専用です。クラウド版はブラウザで動くので、Mac からも作ったフローを使えます。"}}, {"@type": "Question", "name": "今あるフローが止まってしまいました。直してもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、拝見します。画面やファイルの形が変わって止まることが多いので、どこで止まっているかを一緒に確かめてから直します。"}}, {"@type": "Question", "name": "お客さまの情報は、外に出ませんか？", "acceptedAnswer": {"@type": "Answer", "text": "作ったフローは、お客さまの パソコンと Microsoft 365 の中で動きます。HiMaWaSa Sync のサーバーにデータを送る作りにはしません。作るときは見本のデータを使います。"}}, {"@type": "Question", "name": "てますいと Power Automate は、つながっているのですか？", "acceptedAnswer": {"@type": "Answer", "text": "直接はつなぎません。てますいで作った下書きを人が確かめてから貼り、その先の転記・集計・通知を Power Automate が受け持つ形です。確かめていない文章が自動で流れていかないようにするためです。"}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1A1A1A; --gray:#5a5a5a; --bd:#F0E4C4; --cream:#FFFBF0; --y:#FFD700; --ylt:#FFF8CC; --blue:#2563eb; --white:#fff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Noto Sans JP", sans-serif; color: var(--ink); background: var(--cream); line-height: 1.9; }
+  a { color: inherit; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  .top { background: var(--white); border-bottom: 3px solid var(--y); padding: 14px 0; }
+  .top a { text-decoration: none; font-weight: 900; }
+  .top small { color: var(--gray); font-weight: 400; margin-left: 6px; }
+  .hero { background: linear-gradient(165deg, #FFFBF0 0%, #FFF3C4 100%); padding: 56px 0 48px; }
+  .kicker { font-weight: 700; color: #8a6a3d; margin-bottom: 6px; }
+  h1 { font-size: clamp(1.7rem, 4.4vw, 2.5rem); line-height: 1.45; margin-bottom: 14px; word-break: auto-phrase; }
+  .lead { font-size: 1.05rem; color: #333; max-width: 40em; }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
+  .chips li { background: var(--white); border: 1px solid var(--bd); border-radius: 999px; padding: 4px 14px; font-size: .9rem; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 900; text-decoration: none; border: 2px solid var(--ink); color: var(--ink); }
+  .btn.main { background: var(--y); }
+  .btn.sub { background: var(--white); }
+  section { padding: 52px 0; }
+  section.white { background: var(--white); }
+  h2 { font-size: clamp(1.3rem, 3vw, 1.7rem); line-height: 1.5; margin-bottom: 12px; word-break: auto-phrase; }
+  .desc { color: var(--gray); margin-bottom: 22px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .card { background: var(--white); border: 1px solid var(--bd); border-radius: 16px; padding: 22px 20px; }
+  section.white .card { background: var(--cream); }
+  .card h3 { font-size: 1.12rem; margin-bottom: 4px; }
+  .card .tag { display: inline-block; font-size: .8rem; font-weight: 700; background: var(--ylt); border-radius: 6px; padding: 0 8px; margin-bottom: 8px; }
+  .card ul { margin-left: 1.2em; color: #333; }
+  .card p { color: #333; }
+  .flow { width: 100%; height: auto; display: block; margin: 8px 0 14px; }
+  .note { font-size: .9rem; color: var(--gray); }
+  .cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .case b { display: block; margin-bottom: 4px; }
+  table { width: 100%; border-collapse: collapse; background: var(--white); font-size: .95rem; }
+  th, td { border: 1px solid var(--bd); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--ylt); width: 32%; }
+  ol.steps { margin-left: 1.3em; }
+  ol.steps li { margin-bottom: 6px; }
+  .faq dt { font-weight: 900; margin-top: 16px; }
+  .faq dd { color: #333; margin-left: 0; }
+  .cta { background: #2d2a24; color: #eee; text-align: center; }
+  .cta h2 { color: #fff; }
+  .cta p { color: #ddd; margin-bottom: 18px; }
+  footer { padding: 24px 0 40px; border-top: 1px solid var(--bd); font-size: .88rem; color: var(--gray); }
+  @media (max-width: 760px) { .two, .cases { grid-template-columns: 1fr; } th { width: 38%; } }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="/">HiMaWaSa Sync<small>てますい と 業務の自動化</small></a></div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Power Automate（デスクトップ版・クラウド版）</p>
+    <h1>毎日の転記と集計は Power Automate に。<br>書く手間は「てますい」に。</h1>
+    <p class="lead">Microsoft の Power Automate で、Excel への転記、集計、ファイルの整理、Teams やメールへの通知を自動にします。今お使いの Windows パソコンと Microsoft 365 のまま始められます。</p>
+    <ul class="chips"><li>デスクトップ版（Windows）</li><li>クラウド版（Microsoft 365）</li><li>今のExcelのまま</li><li>初回相談は無料（30分）</li></ul>
+    <div class="btns"><a class="btn main" href="/contact/">自動化について相談する</a><a class="btn sub" href="/">てますいを見る</a></div>
+  </div>
+</header>
+
+<section class="white">
+  <div class="wrap">
+    <h2>2つの Power Automate を、使い分けます</h2>
+    <p class="desc">パソコンの画面で人がしている操作はデスクトップ版、Microsoft 365 の中のやり取りはクラウド版が得意です。どちらが合うかは、今の作業を拝見してからご提案します。</p>
+    <div class="two">
+      <article class="card">
+        <span class="tag">デスクトップ版</span>
+        <h3>パソコンの操作を、そのまま自動に</h3>
+        <ul>
+          <li>Excel から業務ソフトの画面への転記</li>
+          <li>毎月のファイルを開いて集計し、決まった様式に貼る</li>
+          <li>届いた PDF やファイルの名前を付け直して、決まったフォルダへ</li>
+          <li>決まった手順の画面操作のくり返し</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">クラウド版</span>
+        <h3>Microsoft 365 の中のやり取りを、自動に</h3>
+        <ul>
+          <li>Forms の回答を Excel の台帳に書き足す</li>
+          <li>Outlook に届いた添付ファイルを OneDrive や SharePoint に保存</li>
+          <li>Teams やメールで、担当の人にお知らせ</li>
+          <li>申請と承認の流れ（届いたら上長へ、承認されたら記録）</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>てますいと組み合わせると</h2>
+    <p class="desc">文章を考えて書くところは てますい、その先の決まった作業は Power Automate が受け持ちます。</p>
+    <svg class="flow" viewBox="0 0 900 190" role="img" aria-label="1 話すかメモを入れると、てますいが下書きを作る。2 人が確かめて、いつもの記録やExcelに貼る。3 Power Automate が転記・集計・通知をする。">
+      <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a3d"/></marker></defs>
+      <rect x="10" y="20" width="250" height="150" rx="18" fill="#FFF8CC" stroke="#e0c97a" stroke-width="2"/>
+      <text x="135" y="62" text-anchor="middle" font-size="22" font-weight="900" fill="#1A1A1A">① てますい</text>
+      <text x="135" y="100" text-anchor="middle" font-size="16" fill="#333">話すか、短いメモで</text>
+      <text x="135" y="128" text-anchor="middle" font-size="16" fill="#333">記録や報告の下書き</text>
+      <line x1="268" y1="95" x2="318" y2="95" stroke="#8a6a3d" stroke-width="4" marker-end="url(#ar)"/>
+      <rect x="325" y="20" width="250" height="150" rx="18" fill="#fff" stroke="#e0c97a" stroke-width="2"/>
+      <text x="450" y="62" text-anchor="middle" font-size="22" font-weight="900" fill="#1A1A1A">② 人が確かめる</text>
+      <text x="450" y="100" text-anchor="middle" font-size="16" fill="#333">中身を見て、いつもの</text>
+      <text x="450" y="128" text-anchor="middle" font-size="16" fill="#333">記録や Excel に貼る</text>
+      <line x1="583" y1="95" x2="633" y2="95" stroke="#8a6a3d" stroke-width="4" marker-end="url(#ar)"/>
+      <rect x="640" y="20" width="250" height="150" rx="18" fill="#E8F0FE" stroke="#9db8f2" stroke-width="2"/>
+      <text x="765" y="62" text-anchor="middle" font-size="22" font-weight="900" fill="#1A1A1A">③ Power Automate</text>
+      <text x="765" y="100" text-anchor="middle" font-size="16" fill="#333">転記・集計・ファイル</text>
+      <text x="765" y="128" text-anchor="middle" font-size="16" fill="#333">整理・お知らせを自動に</text>
+    </svg>
+    <p class="note">てますいと Power Automate は直接つなぎません。人が確かめた文章だけが、その先の作業に流れるようにしています。</p>
+  </div>
+</section>
+
+<section class="white">
+  <div class="wrap">
+    <h2>たとえば、こんな作業を</h2>
+    <p class="desc">業種ごとによくご相談いただく形の例です。実際の作り方は、今のファイルと画面を拝見してから決めます。</p>
+    <div class="cases">
+      <div class="card case"><b>介護施設</b>てますいで書いた記録を月末にまとめるときの、利用者さんごとの集計と、決まった様式への転記。</div>
+      <div class="card case"><b>病院</b>届いた書類の PDF を、名前を付け直して担当のフォルダへ。担当の人に Teams でお知らせ。</div>
+      <div class="card case"><b>士業事務所</b>顧問先から届いたメールの添付を、顧問先ごとのフォルダへ保存。期日の近いものを毎朝お知らせ。</div>
+      <div class="card case"><b>工場・中小企業</b>Forms で受けた日報や申請を Excel の台帳へ。承認の流れと、毎月の集計表づくり。</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>これまでの経験</h2>
+    <p>医療法人の情報システムの担当として、届いた FAX を決まったフォルダへ移し、チャットで担当の人にお知らせする仕組みを、Power Automate で作って動かしてきました。</p>
+    <p style="margin-top:10px">FAX の中身の読み取りまで自動にしたいところは、既存のサービスでは足りなかったため、AI で書類を読み取って仕分ける仕組みを自分で作りました。この経験は、<a href="/temasui/hospital/">てますい 病院版</a>の紹介状・FAX の読み取りにも生きています。</p>
+  </div>
+</section>
+
+<section class="white">
+  <div class="wrap">
+    <h2>料金</h2>
+    <table>
+      <tr><th>Power Automate の仕組みづくり</th><td>作る費用はいただかず、使い続けるときの月額を、作る前にお見積りします。初回相談は無料（30分）です。</td></tr>
+      <tr><th>てますい（書く手間を減らすアシスタント）</th><td>月額10,000円（税別・会社や施設全体で定額）、ご契約時の初期サポート30,000円。1か月無料。<a href="/">てますいを見る →</a></td></tr>
+      <tr><th>Microsoft のライセンス</th><td>デスクトップ版は Windows 10／11 なら追加費用なしで使えます。クラウド版は Microsoft 365 の会社のアカウントがあれば、基本の連携（標準のコネクタ）は追加費用なしです。夜間に無人で動かす使い方や、一部の連携（プレミアムのコネクタ）には、Microsoft の有料ライセンスが別に要ります。要るかどうかは、作る前にお伝えします。</td></tr>
+    </table>
+    <p class="note" style="margin-top:8px">Microsoft のライセンスの内容と料金は、Microsoft の案内が正です。変わることがあります。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>進め方</h2>
+    <ol class="steps">
+      <li><b>ご相談（無料・30分）</b> 困っている作業と、今のファイルや画面を伺います。</li>
+      <li><b>作る前のお約束</b> 何が入って何が出るか、どこまで自動にするかを紙に書いて、月額と一緒にお伝えします。</li>
+      <li><b>仕組みづくり</b> お客さまのパソコンと Microsoft 365 の中に作ります。作るときは見本のデータを使います。</li>
+      <li><b>使い方の説明</b> 動かし方と、止まったときの確かめ方をお伝えします。</li>
+      <li><b>使い続ける間の手入れ</b> 画面やファイルの形が変わって止まったときは、動く状態に戻します。</li>
+    </ol>
+  </div>
+</section>
+
+<section class="white">
+  <div class="wrap">
+    <h2>よくあるご質問</h2>
+    <dl class="faq">
+      <dt>Power Automate を使うのに、追加のお金はかかりますか？</dt>
+      <dd>デスクトップ版は、Windows 10／11 なら追加費用なしで使えます。クラウド版は、Microsoft 365 の会社のアカウントがあれば、基本の連携（標準のコネクタ）は追加費用なしで使えます。夜間に無人で動かす使い方や、一部の連携（プレミアムのコネクタ）には、Microsoft の有料ライセンスが別に要ります。必要かどうかは、作る前にお伝えします。</dd>
+      <dt>Mac でも使えますか？</dt>
+      <dd>デスクトップ版は Windows 専用です。クラウド版はブラウザで動くので、Mac からも作ったフローを使えます。</dd>
+      <dt>今あるフローが止まってしまいました。直してもらえますか？</dt>
+      <dd>はい、拝見します。画面やファイルの形が変わって止まることが多いので、どこで止まっているかを一緒に確かめてから直します。</dd>
+      <dt>お客さまの情報は、外に出ませんか？</dt>
+      <dd>作ったフローは、お客さまの パソコンと Microsoft 365 の中で動きます。HiMaWaSa Sync のサーバーにデータを送る作りにはしません。作るときは見本のデータを使います。</dd>
+      <dt>てますいと Power Automate は、つながっているのですか？</dt>
+      <dd>直接はつなぎません。てますいで作った下書きを人が確かめてから貼り、その先の転記・集計・通知を Power Automate が受け持つ形です。確かめていない文章が自動で流れていかないようにするためです。</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>まずは、今の作業を見せてください</h2>
+    <p>どの作業から自動にするかは、ご相談のときに一緒に決めます。できないことは、その場で正直にお伝えします。</p>
+    <div class="btns" style="justify-content:center"><a class="btn main" href="/contact/">自動化について相談する（30分・無料）</a><a class="btn sub" href="/temasui/start/">てますいを1か月無料で試す</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>HiMaWaSa Sync（大阪府・全国オンライン対応）／ <a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a></p>
+    <p><a href="/">トップ</a>　／　<a href="/services/">サービスと料金</a>　／　<a href="/rk/">キーエンスRKのシナリオ作成代行</a>　／　<a href="/temasui/security/">てますいのセキュリティ</a>　／　<a href="/privacy/">プライバシー</a></p>
+    <p class="note">Microsoft、Power Automate、Microsoft 365、Excel、Teams、Outlook、OneDrive、SharePoint は、Microsoft グループの商標です。</p>
+  </div>
+</footer>
+</body>
+</html>

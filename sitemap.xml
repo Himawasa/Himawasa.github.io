@@ -145,13 +145,6 @@
 
   </url>
   <url>
-    <loc>https://himawasa-sync.com/Guide/caresync/</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-
-  </url>
-  <url>
     <loc>https://himawasa-sync.com/for/pro/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -278,7 +271,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/kintone-dx/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
@@ -291,10 +284,10 @@
 
   </url>
   <url>
-    <loc>https://himawasa-sync.com/yoom-lp/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <loc>https://himawasa-sync.com/power-automate/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
 
   </url>
   <url>
