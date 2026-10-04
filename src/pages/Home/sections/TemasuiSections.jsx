@@ -22,7 +22,7 @@ export function TemasuiVersions() {
   return (
     <section className="th-section" id="versions">
       <div className="container">
-        <h2 className="th-h2">業種に合わせて、5種類からお選びいただけます</h2>
+        <h2 className="th-h2">業種に合わせて、お選びください</h2>
         <p className="th-desc">見本は登録なしで、その場で試せます。入れた内容も写真も保存されません。</p>
         <div className="th-versions">
           {VERSIONS.map((v) => (
