@@ -48,7 +48,7 @@ export default function Pricing() {
         </div>
 
         {/* 2026-10-04 前の3つのプラン（月1万・2.5万・5万〜）を外した。てますいの月1万円と混同されるため。
-            自動化のご相談は、提案の資料と同じく「作る費用はいただかず、使い続ける月額を作る前にお見積り」（岩城さん承認） */}
+            自動化のご相談は、提案の資料と同じく「作る費用はいただかず、使い続ける月額を作る前にお見積り」（代表承認） */}
         <div className="rk-price-card is-main" style={{ maxWidth: 760, margin: '0 auto 36px' }}>
           <p className="rk-price-label">今のExcelのままの自動化のご相談</p>
           <p className="rk-price-num" style={{ fontSize: 24 }}>お見積り</p>

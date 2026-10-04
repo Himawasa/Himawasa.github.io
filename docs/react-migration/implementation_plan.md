@@ -16,7 +16,7 @@
 ## Git 正本
 
 作業：C:\dev\himawasa-react\（GitHub clone・npm install はここのみ）
-Q:\マイドライブ\IWAKI開発\HiMaWaSa-Sync-3007\ = 参照用ミラー（npm install 禁止）
+Q:\マイドライブ\開発フォルダ\HiMaWaSa-Sync-3007\ = 参照用ミラー（npm install 禁止）
 
 ## 技術スタック
 
