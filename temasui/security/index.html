@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティとデータの取り扱い｜てますい | HiMaWaSa Sync</title>
+<meta name="description" content="てますい（介護・病院・工場・中小企業・士業向けのアシスタント）の、データの保存場所・保存しないもの・保存期間・AI の処理・アクセスの守り・運用について。院内・社内のご確認用に印刷してお使いいただけます。">
+<link rel="canonical" href="https://himawasa-sync.com/temasui/security/">
+<!-- 2026-10-04 岩城さんの決定で4つの方針を確定（閲覧は保守に必要な範囲だけ・二段階認証は2027年4月までに対応・障害は平日日中・控えは多重保存）。毎日の控えを入れたら4.を書き足す -->
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<!-- 中身の元：himawasa-care/docs/temasui-hospital/書類一式/01_サービス仕様適合開示書_案.md と server/chatKnowledge.js（2026-10-04 時点） -->
+<style>
+  :root { --ink:#2d2a24; --gray:#5b5650; --bd:#eadfc4; --cream:#fffbf0; --y:#ffd700; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Noto Sans JP", sans-serif; color: var(--ink); background: var(--cream); line-height: 1.9; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  .top { background: #fff; border-bottom: 3px solid var(--y); padding: 14px 0; }
+  .top a { color: var(--ink); text-decoration: none; font-weight: 900; }
+  .top small { color: var(--gray); font-weight: 400; margin-left: 6px; }
+  h1 { font-size: 1.7rem; margin: 36px 0 8px; line-height: 1.5; }
+  .lead { color: var(--gray); margin-bottom: 8px; }
+  .meta { font-size: .85rem; color: var(--gray); margin-bottom: 28px; }
+  h2 { font-size: 1.2rem; margin: 36px 0 12px; padding-left: 10px; border-left: 5px solid var(--y); }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: .93rem; margin-bottom: 8px; }
+  th, td { border: 1px solid var(--bd); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: #fff8cc; width: 30%; font-weight: 700; }
+  thead th { width: auto; }
+  ul.points { margin: 0 0 8px 1.3em; }
+  .note { font-size: .88rem; color: var(--gray); }
+  .print { display: inline-block; margin-top: 8px; padding: 8px 18px; border-radius: 999px; border: 2px solid var(--bd); background: #fff; font-weight: 700; cursor: pointer; font-family: inherit; }
+  footer { margin: 48px 0 0; padding: 24px 0 40px; border-top: 1px solid var(--bd); font-size: .88rem; color: var(--gray); }
+  footer a { color: var(--ink); }
+  @media print { .top, .print, footer .links { display: none; } body { background: #fff; } h2 { break-after: avoid; } table { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="/temasui/start/">てますい<small>by HiMaWaSa Sync</small></a></div></div>
+<main class="wrap">
+  <h1>セキュリティとデータの取り扱い</h1>
+  <p class="lead">てますい（介護施設・病院・工場・中小企業・士業事務所向けのアシスタント）で、お預かりするデータをどこに置き、どう守っているかをまとめました。院内・社内でのご確認や稟議に、このまま印刷してお使いいただけます。</p>
+  <p class="meta">提供：HiMaWaSa Sync（大阪府）／最終更新：2026年10月　<button class="print" onclick="window.print()">このページを印刷する</button></p>
+
+  <h2>1. サーバー環境とデータの保管場所</h2>
+  <table>
+    <tr><th>稼働環境（システム基盤）</th><td>Google Cloud 東京リージョン（日本国内のデータセンター）</td></tr>
+    <tr><th>データの保管場所</th><td>Google Cloud 東京リージョン。名簿・予定・持ち物の一覧と写真・紹介状の一覧を、会社・施設ごとに区分して保管します。</td></tr>
+    <tr><th>AI による処理</th><td>Google Cloud の生成 AI（Vertex AI）を利用しています。<b>Google Cloud の規約に基づき、入力いただいた内容が AI の学習に利用されることはありません。</b>処理のために一時的に送信するのみで、AI 側には保存されません。<br>
+      処理を行う場所は<b>国内に限定していません</b>（国外のデータセンターを利用する場合があります）。なお、<b>士業事務所向けはご契約後、国内（東京）で処理</b>します。<b>病院向けも、ご希望により国内（東京）での処理に切り替えが可能</b>です（料金は変わりません）。</td></tr>
+  </table>
+
+  <h2>2. お預かりするデータと保存期間</h2>
+  <table>
+    <thead><tr><th>データ</th><th>保存</th><th>保存期間</th></tr></thead>
+    <tr><td>書類の下書きに入れたメモ・できた下書き</td><td><b>保存しません</b></td><td>—</td></tr>
+    <tr><td>音声入力（こえメモ）の音声</td><td><b>保存しません</b></td><td>—</td></tr>
+    <tr><td>紹介状・FAX の画像・PDF（病院向け）</td><td><b>保存しません</b>（文字の読み取り後、直ちに破棄します）</td><td>—</td></tr>
+    <tr><td>質問チャットの会話</td><td><b>保存しません</b></td><td>—</td></tr>
+    <tr><td>紹介状の一覧（送り元・患者さんのお名前・生年月日・用件など。病院向け）</td><td>保存します</td><td>登録から<b>90日後に自動消去</b></td></tr>
+    <tr><td>名簿（お名前・お部屋など）・予定</td><td>保存します</td><td>ご契約期間中（終了時に消去）</td></tr>
+    <tr><td>持ち物・備品の一覧と写真</td><td>保存します</td><td>ご契約期間中（終了時に消去）</td></tr>
+    <tr><td>動作の記録（ログ）</td><td>保存します（件数・種類・処理時間・結果のみ。<b>お名前・文章・画像は記録しません</b>）</td><td>30日</td></tr>
+  </table>
+  <p class="note">登録不要のお試し（見本）では、入力された文字・写真は一切保存しません。</p>
+
+  <h2>3. アクセス制御と情報漏洩対策</h2>
+  <table>
+    <tr><th>アクセス方法・認証</th><td>会社・施設ごとの専用ページに、お渡しする QR コードに組み込まれた認証キーを用いてアクセスします。管理者用と職員用の2種類があり、利用できる機能を分けられます。紛失時は、該当するキーを直ちに無効化し、再発行いたします。</td></tr>
+    <tr><th>ほかの会社・施設からの閲覧</th><td>相互に閲覧することはできません。サーバー側で認証キーから会社・施設を判別し、その施設専用の区画にのみアクセスを制限しています。</td></tr>
+    <tr><th>通信の暗号化</th><td>すべての通信を HTTPS（TLS）で暗号化しています（care.himawasa-sync.com）。</td></tr>
+    <tr><th>提供者による閲覧</th><td>不具合の調査など保守のため、提供者が必要な範囲に限ってデータを閲覧する場合があります。</td></tr>
+    <tr><th>二段階認証</th><td>現在は、端末に保存した専用の認証キーによるアクセス制御を採用しています。医療情報システムの安全管理に関するガイドライン（第7.0版）が求める時期にあわせ、<b>2027年4月までに二段階認証に対応する予定</b>です。</td></tr>
+  </table>
+
+  <h2>4. 運用</h2>
+  <table>
+    <tr><th>システム障害時の復旧対応</th><td>安定した稼働実績のある Google Cloud 上で運用しています。障害が発生した場合は、直前の安定した版への切り替えなどにより復旧にあたります。なお、稼働率の保証（SLA）は設けておりません。</td></tr>
+    <tr><th>障害時の対応時間</th><td>平日の日中に対応いたします。夜間・土日祝日はメールで受け付け、翌営業日に順次対応いたします。</td></tr>
+    <tr><th>データの保護（冗長化）</th><td>Google Cloud の自動的な冗長化（データの多重保存）により保護されています。</td></tr>
+    <tr><th>変更のお知らせ</th><td>機能の変更は、専用ページとメールでお知らせいたします。</td></tr>
+    <tr><th>ご契約終了時のデータの扱い</th><td>お預かりしたデータは提供者が消去し、消去した旨を書面でお知らせいたします。紹介状の一覧と名簿は、終了前に Excel 形式で書き出せます。</td></tr>
+  </table>
+
+  <h2>5. 医療情報の安全管理ガイドライン（3省2ガイドライン）への対応</h2>
+  <p>医療機関が患者さまの情報を外部のクラウドサービスに預けるときは、国の2つのガイドライン（厚生労働省・総務省・経済産業省の3省による2つのガイドライン。いわゆる「3省2ガイドライン」）に沿って、委託先を選び、役割を取り決めることが求められています。てますいは、次のとおり対応しています。</p>
+  <table>
+    <thead><tr><th>ガイドライン</th><th>だれが守るものか</th><th>てますいの対応</th></tr></thead>
+    <tr><td>医療情報システムの安全管理に関するガイドライン 第7.0版（厚生労働省・2026年6月）</td><td>医療機関</td><td>同ガイドラインの「保守委託機関編」に沿って、医療機関が委託先を確認するために必要な事項を「サービス仕様適合開示書」にまとめ、ご提示します。</td></tr>
+    <tr><td>医療情報を取り扱う情報システム・サービスの提供事業者における安全管理ガイドライン 第2.0版（総務省・経済産業省・2025年3月）</td><td>サービスの提供事業者</td><td>提供事業者として、同ガイドラインに沿って運用し、年1回の自己点検を行います。</td></tr>
+  </table>
+  <h3 style="font-size:1rem;margin:20px 0 8px;">病院向けにお渡しする書類</h3>
+  <table>
+    <tr><th>サービス仕様適合開示書</th><td>データの保管場所・AI による処理の場所・保存期間・アクセス制御などを開示します。ご契約の前に、病院の安全管理責任者さまと読み合わせを行います。</td></tr>
+    <tr><th>責任分界表</th><td>病院・提供者（HiMaWaSa Sync）・システム基盤（Google Cloud）のそれぞれが何を受け持つかを、通常時と非常時に分けて明記します。例：入力内容の確認と下書きの採用は病院、プログラムの修正は提供者、サーバーの運用と保存データの暗号化は基盤。</td></tr>
+    <tr><th>個人情報の取り扱いに関する覚書</th><td>委託の範囲、事故が起きたときの連絡、ご契約終了時のデータの消去と消去の証明などを取り決めます。</td></tr>
+    <tr><th>自己点検の結果</th><td>上記の提供事業者向けガイドラインと、AI 事業者ガイドライン（総務省・経済産業省）に沿って、年1回点検し、結果をご提示します。</td></tr>
+    <tr><th>患者さま向け掲示の見本</th><td>院内で、AI を利用したサービスを使っていることを患者さまにお知らせするための掲示の見本です。</td></tr>
+  </table>
+  <ul class="points">
+    <li>てますいは記録作成の補助です。万一てますいが使えなくなっても、紙と電子カルテで業務を続けられるよう、電子カルテ等とは直接連動させていません。</li>
+    <li>提供者としての第三者認証（プライバシーマーク・ISMS）は取得していません。システム基盤である Google Cloud の国際的なセキュリティ認証（ISO/IEC 27001 など）と、上記の書類・自己点検により安全管理を行っています。</li>
+  </ul>
+
+  <h2>6. コンプライアンスとデータ保護の基本方針</h2>
+  <ul class="points">
+    <li>お客さまの許可なく、データの分析・二次利用・第三者への提供を行うことはありません。</li>
+    <li>外部への業務委託（再委託）は、システム基盤としての Google Cloud のみに限定しています。</li>
+    <li>介護施設など医療機関以外のお客さまのデータも、上記1.〜4.と同じ仕組み（東京リージョンでの保管・保存期間・アクセス制御・通信の暗号化・AI の学習に使わないこと）で取り扱います。</li>
+  </ul>
+
+  <h2>7. 無料ツールについて</h2>
+  <p>本ページは「てますい」（各業種向けのアシスタント）についての説明です。無料ツール（てきぱき・持ち物リストなど）は仕組みが異なりますので、それぞれのページの説明をご覧ください。</p>
+
+  <footer>
+    <p>ご質問・書類のご請求：<a href="mailto:info@himawasa-sync.com">info@himawasa-sync.com</a></p>
+    <p class="links"><a href="/temasui/start/">てますい（業種を選ぶ）</a>　／　<a href="/privacy/">プライバシーポリシー</a>　／　<a href="/">HiMaWaSa Sync のトップ</a></p>
+  </footer>
+</main>
+</body>
+</html>
