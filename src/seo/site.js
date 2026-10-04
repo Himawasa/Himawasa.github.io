@@ -537,7 +537,7 @@ export const PUBLIC_PAGES = [
   { path: '/privacy/', lastmod: '2026-08-17', changefreq: 'yearly', priority: '0.2' },
   { path: '/kintone-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
   { path: '/pro-dx/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.6' },
-  { path: '/yoom-lp/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.5' },
+  { path: '/power-automate/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
   { path: '/rk/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.5' },
   { path: '/rk/care/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.4' },
   { path: '/rk/hospital/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.4' },
@@ -623,6 +623,7 @@ export function generateLlmsTxt() {
 - [病院・医療機関のDX](https://himawasa-sync.com/medical-dx/): FAX、カルテ周辺、日計
 - [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳、期日、請求
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
+- [Power Automate の自動化](https://himawasa-sync.com/power-automate/): デスクトップ版（Windows）とクラウド版（Microsoft 365）で、転記・集計・ファイル整理・通知を自動に。てますいとは直接つながず、人が確かめた文章の先の作業を受け持つ。作る費用はいただかず、使い続ける月額を作る前にお見積り
 - [キーエンスRK シナリオ作成代行](https://himawasa-sync.com/rk/): シナリオ作成代行1万円から。代理店ではない。ライセンスは売らない
 - [社員証・来訪者証の社内発行 CardSync](https://himawasa-sync.com/cardsync/): Excelの名簿と顔写真ZIPから、社員証・来訪者証・立入許可証をブラウザで発行。登録不要で体験できる
 
@@ -1123,6 +1124,7 @@ function navHtml() {
       <a href="/temasui/biz/">てますい 中小企業版</a>
       <a href="/temasui/pro/">てますい 士業版</a>
       <a href="/temasui/security/">てますい セキュリティとデータの取り扱い</a>
+      <a href="/power-automate/">Power Automate の自動化</a>
       <a href="/rk/">RKシナリオ作成代行</a>
       <a href="/rk/factory/">工場RK</a>
       <a href="/rk/hospital/">病院RK</a>
@@ -1155,6 +1157,7 @@ export const STATIC_LINKS = [
   { href: '/cardsync/', label: 'CardSync' },
   { href: '/services/', label: 'サービス' },
   { href: '/works/', label: '実績' },
+  { href: '/power-automate/', label: 'Power Automate の自動化' },
   { href: '/rk/', label: 'RKシナリオ作成代行' },
   { href: '/about/', label: '会社概要' },
   { href: '/contact/', label: 'お問い合わせ' },

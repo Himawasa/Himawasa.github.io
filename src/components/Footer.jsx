@@ -39,6 +39,7 @@ export default function Footer() {
           <Link to="/for/pro">士業の方</Link>
           <Link to="/for/care">介護施設・病院の方</Link>
           <Link to="/for/biz">中小企業の方</Link>
+          <a href="/power-automate/">Power Automate の自動化</a>
           <Link to="/rk">RKシナリオ作成代行</Link>
           <Link to="/services">サービス・料金</Link>
         </nav>

@@ -4,11 +4,11 @@ import Reveal from '../../../components/Reveal'
 /** ⑪ サービスLPページ一覧 */
 const lpCards = [
   {
-    icon: '🗓️', badge: '紹介',
-    title: 'CareSync ─ 介護予定カレンダー',
-    desc: '施設全体の予定・利用変更・往診・残薬をひと目で。現場が同じ画面を見ながら動ける介護向けカレンダーです。',
-    tags: ['介護DX', '予定管理', '残薬'],
-    url: '紹介のみ', href: null,
+    icon: '📝', badge: '公開中',
+    title: 'てますい ─ 書く手間を減らすアシスタント',
+    desc: '話すか短いメモを入れるだけで、記録や書類の下書きに。介護・病院・工場・中小企業・士業の5つの版。施設のカレンダー（旧 CareSync）も、今はてますいの予定の共有で。',
+    tags: ['てますい', '記録の下書き', '1か月無料'],
+    url: 'himawasa-sync.com/', href: '/',
   },
   {
     icon: '🟡', badge: '公開中',
@@ -32,11 +32,11 @@ const lpCards = [
     url: 'himawasa-sync.com/shiftsync/', href: '/shiftsync/',
   },
   {
-    icon: '🚀', badge: '公開中',
-    title: 'Yoom 導入支援・運用サポート',
-    desc: 'Yoomの設定・構築から月額保守まで一括対応。入社手続き・FAX受注・労働生産性など繰り返し業務を全自動化。',
-    tags: ['Yoom', 'AI-OCR', 'SaaS連携', '月額保守'],
-    url: 'himawasa-sync.com/yoom-lp/', href: '/yoom-lp/',
+    icon: '⚙️', badge: '公開中',
+    title: 'Power Automate の自動化',
+    desc: 'デスクトップ版（Windows）もクラウド版（Microsoft 365）も。転記・集計・ファイル整理・通知を、今のExcelのまま自動に。',
+    tags: ['Power Automate', 'Microsoft 365', 'Excel'],
+    url: 'himawasa-sync.com/power-automate/', href: '/power-automate/',
   },
 ]
 
