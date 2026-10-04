@@ -7,6 +7,8 @@ import Services from './Home/sections/Services'
 import Pricing from './Home/sections/Pricing'
 import LpGallery from './Home/sections/LpGallery'
 import TrustSafe from './Home/sections/TrustSafe'
+import { TemasuiPricing } from './Home/sections/TemasuiSections'
+import './Home/TemasuiHome.css'
 import './rk/Rk.css'
 
 export default function ServicesPage() {
@@ -26,6 +28,8 @@ export default function ServicesPage() {
         }
         crumb={p.crumb}
       />
+      {/* 2026-10-04 トップの「サービスと料金を見る」から来た人に、まず てますい の料金を見せる */}
+      <TemasuiPricing id="temasui-pricing" title="てますい（書く手間を減らすアシスタント）の料金（税別）" />
       <ForJump title="現場ごとの案内" />
       <section className="services-rk">
         <div className="container">

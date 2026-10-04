@@ -61,12 +61,12 @@ export function TemasuiStrengths() {
   )
 }
 
-// ④ 料金（税別）
-export function TemasuiPricing() {
+// ④ 料金（税別）。/services/ でも使う（そのページには別の料金表 id="pricing" があるので、id と見出しを変えられるようにした）
+export function TemasuiPricing({ id = 'pricing', title = '料金（税別）' }) {
   return (
-    <section className="th-section" id="pricing">
+    <section className="th-section" id={id}>
       <div className="container">
-        <h2 className="th-h2">料金（税別）</h2>
+        <h2 className="th-h2">{title}</h2>
         <div className="th-table-wrap">
           <table className="th-table">
             <thead>
