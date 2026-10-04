@@ -148,10 +148,11 @@
 
   .safe { background: var(--cream); }
   .qa { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  .qa div { background: var(--white); border-radius: 20px; padding: 22px; display: grid; grid-template-columns: 48px 1fr; gap: 4px 14px; }
+  .qa div { background: var(--white); border-radius: 20px; padding: 22px; display: grid; grid-template-columns: 48px 1fr; gap: 4px 14px; align-content: start; }
   .qa .i { grid-row: span 2; font-size: 36px; }
   .qa .q { font-weight: 900; }
-  .qa .a { font-size: 15px; color: #333; }
+  .qa .a { font-size: 15px; color: #333; word-break: normal; line-height: 1.8; }
+  .qa .a b { display: block; margin-top: 10px; }
 
   .prices { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: 12px; }
   .price { border: 3px solid var(--cream-bd); border-radius: 24px; padding: 26px 18px; text-align: center; }
@@ -419,10 +420,10 @@
     <h2>安心してお使いいただくために</h2>
     <p class="lead">患者さんの大切な情報を扱うからこそ、最初から気をつけて作っています。</p>
     <div class="qa">
-      <div><span class="i">🩺</span><p class="q">診断や薬のことを勝手に書かない？</p><p class="a">書きません。医学的な診断・判断・治療方針・見通しは書かず、薬の名前・量・検査の値・病名・日付は入れたものだけを書きます。入力に無ければ作らず【要確認】と空けます。最後の確認は、スタッフの皆さまでお願いします。</p></div>
-      <div><span class="i">🖥️</span><p class="q">電子カルテとつながる？</p><p class="a">標準ではつながりません。病院のパソコンやスマホのブラウザで使い、できた文章はコピーして電子カルテに貼ります。メーカーとの調整やつなぎ込みの費用はいりません。ご要望があれば、別途ご相談のうえ接続もできます（電子カルテ側に外部とつなぐ仕組み＝APIが用意されている場合に限ります。費用は別途お見積り）。つなぐときも、AIの結果をそのまま書き込まず、人が確かめてから入れる作りにします。</p></div>
-      <div><span class="i">🔒</span><p class="q">患者さんの情報はどこに保存される？</p><p class="a">名簿・予定・持ち物の一覧・紹介状の一覧は、国内（東京）の専用の場所に保存します。書類の下書きに入れたメモ・音声・紹介状の画像は保存しません。紹介状の一覧は90日で自動的に消えます。AIの学習には使われません。3省2ガイドライン（厚生労働省・総務省・経済産業省の、医療情報を扱うときの決まり）に沿って運用し、年1回自己点検します。説明の書類（開示書・覚書・掲示の見本）は、ご契約時にお渡しします。</p></div>
-      <div><span class="i">🏥</span><p class="q">ほかの病院から見られる心配は？</p><p class="a">病院ごとの専用ページになっていますので、ほかの病院からは見えません。管理者用と職員用の2種類のQRで、できることを分けられます。</p></div>
+      <div><span class="i">🩺</span><p class="q">診断や薬のことを勝手に書かない？</p><p class="a">書きません。<br>医学的な診断・判断・治療方針・見通しは書かず、薬の名前・量・検査の値・病名・日付は、入れたものだけを書きます。<br>入力に無ければ作らず、【要確認】と空けます。<br>最後の確認は、スタッフの皆さまでお願いします。</p></div>
+      <div><span class="i">🖥️</span><p class="q">電子カルテとつながる？</p><p class="a">標準ではつながりません。<br>病院のパソコンやスマホのブラウザで使い、できた文章はコピーして電子カルテに貼ります。メーカーとの調整や、つなぎ込みの費用はいりません。<b>ご要望があれば、別途ご相談のうえ接続もできます</b>・電子カルテ側に、外部とつなぐ仕組み（API）がある場合に限ります<br>・費用は別途お見積りです<br>・つなぐときも、AIの結果をそのまま書き込まず、人が確かめてから入れる作りにします</p></div>
+      <div><span class="i">🔒</span><p class="q">患者さんの情報はどこに保存される？</p><p class="a"><b style="margin-top:0">保存するもの</b>名簿・予定・持ち物の一覧・紹介状の一覧。国内（東京）の専用の場所に置きます。紹介状の一覧は、90日で自動的に消えます。<b>保存しないもの</b>書類の下書きに入れたメモ・音声・紹介状の画像。<br>どちらも、AIの学習には使われません。<b>守り方</b>3省2ガイドライン（厚生労働省・総務省・経済産業省の、医療情報を扱うときの決まり）に沿って運用し、年1回自己点検します。説明の書類（開示書・覚書・掲示の見本）は、ご契約時にお渡しします。</p></div>
+      <div><span class="i">🏥</span><p class="q">ほかの病院から見られる心配は？</p><p class="a">病院ごとの専用ページになっていますので、ほかの病院からは見えません。<br>管理者用と職員用の2種類のQRで、できることを分けられます。</p></div>
     </div>
   </div>
 </section>
