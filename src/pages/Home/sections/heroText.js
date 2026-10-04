@@ -9,7 +9,7 @@ export const TEMASUI_HERO = {
   name: 'てますい',
   tagline: '書く手間が、すいすい減っていく。',
   lead: 'スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録の下書きがすぐに出来上がります。',
-  chips: ['ダウンロード不要', '🎤 話すだけ（外国語も日本語に）', '月1万円から', '1か月無料'],
+  chips: ['ダウンロード不要', '🎤 話すだけ（外国語も日本語に）', '月1万円（定額）', '1か月無料'],
   ctaPrimary: { href: '/temasui/start/', label: '1か月無料で試す' },
   ctaSecondary: { href: '#versions', label: '登録なしで試す' },
   note: '無料期間が終わっても、自動で料金がかかることはありません。運営：HiMaWaSa Sync',

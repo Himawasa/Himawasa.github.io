@@ -15,11 +15,12 @@ export const SITE = {
   url: SITE_URL,
   locale: 'ja_JP',
   lang: 'ja',
-  title: '介護・病院・士業・工場の業務自動化｜今のExcelのまま | HiMaWaSa Sync',
+  // 2026-10-04 会社全体の説明を「てますい」中心に（構造化データの Organization・WebSite・Service の説明にも使われる）
+  title: 'てますい（書く手間を減らすアシスタント）と業務の自動化 | HiMaWaSa Sync',
   description:
-    '介護施設のシフト表、病院の日計、士業の請求を、今のExcelのまま自動化します。HiMaWaSa Sync。初回相談は無料（30分）。',
+    'HiMaWaSa Sync は、話すか短いメモを入れるだけで記録や書類の下書きができるアシスタント「てますい」（介護・病院・工場・中小企業・士業）を提供しています。今のExcelのままの業務の自動化のご相談も承ります。',
   ogDescription:
-    '今のExcelのまま、介護・医療・士業の現場DX。使い方がわからなくても相談できます。',
+    '話すだけ・短いメモだけで、記録と書類の下書きに。てますい（介護・病院・工場・中小企業・士業）。',
   ogImage: `${SITE_URL}/ogp.png`,
   ogImageAlt: 'HiMaWaSa Sync — 今のExcelのまま、現場の手作業を自動化',
   logo: `${SITE_URL}/logo.png`,
@@ -61,8 +62,10 @@ export const PAGES = {
     // 2026-10-04 トップを「てますい」1本の話に作り直した。名前で検索した人に、何ができて、いくらかがすぐ分かるように
     title: 'てますい｜書く手間を減らすアシスタント（介護・病院・工場・中小企業・士業） | HiMaWaSa Sync',
     h1: 'てますい 書く手間が、すいすい減っていく。',
-    description: 'スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録のきれいな下書きがすぐに出来上がる「てますい」。介護・病院・工場・中小企業・士業の5つの版。月1万円から・1か月無料。今のExcelのままの自動化のご相談も承ります。',
-    og: '話すだけ・書くだけで、記録と書類の下書きに。てますい（介護・病院・工場・中小企業・士業）。月1万円から・1か月無料。',
+    description: 'スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録のきれいな下書きがすぐに出来上がる「てますい」。介護・病院・工場・中小企業・士業の5つの版。月1万円（定額）・1か月無料。今のExcelのままの自動化のご相談も承ります。',
+    og: '話すだけ・書くだけで、記録と書類の下書きに。てますい（介護・病院・工場・中小企業・士業）。月1万円（定額）・1か月無料。',
+    ogImage: '/temasui/start/img/ogp.jpg',
+    ogImageAlt: 'てますい 書く手間が、すいすい減っていく。介護版・病院版・工場版・中小企業版・士業版',
     crumb: 'トップ',
   },
   services: {
@@ -738,7 +741,7 @@ export function buildJsonLd() {
         image: SITE.ogImage,
         areaServed: { '@type': 'Country', name: 'Japan' },
         serviceType: [
-          'てますい（業種別の書類下書きアシスタント：介護・工場）',
+          'てますい（書く手間を減らすアシスタント：介護・病院・工場・中小企業・士業）',
           '介護施設のシフト表自動化',
           '病院の日計・カルテ転記',
           '士業の期日・請求自動化',
@@ -767,14 +770,28 @@ export function buildJsonLd() {
           audienceType: 'AIの使い方がわからない企業、既存システムの保守に困っている現場',
         },
       },
+      // 2026-10-04 トップの画面に無い質問集（FAQPage）を外した（画面に無い FAQ は Google の決まりに反する。質問集は /contact/ に画面と一緒にある）。
+      // 代わりに、トップの主役「てますい」を商品として説明する。料金は src/pages/Home/sections/TemasuiSections.jsx の料金表と同じにする
       {
-        '@type': 'FAQPage',
-        '@id': `${SITE.url}/#faq`,
-        mainEntity: FAQS.map(({ q, a }) => ({
-          '@type': 'Question',
-          name: q,
-          acceptedAnswer: { '@type': 'Answer', text: a },
-        })),
+        '@type': 'SoftwareApplication',
+        '@id': `${SITE.url}/#temasui`,
+        name: 'てますい',
+        alternateName: ['temasui', 'テマスイ'],
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web（スマホ・タブレット・パソコンのブラウザ。ダウンロード不要）',
+        url: `${SITE.url}/`,
+        image: `${SITE.url}/temasui/start/img/ogp.jpg`,
+        description: 'スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録などの下書きができる、書く手間を減らすアシスタント。介護・病院・工場・中小企業・士業の5つの版。外国語で話しても日本語の記録に。',
+        audience: { '@type': 'Audience', audienceType: '介護施設、病院、工場、中小企業、士業事務所' },
+        provider: { '@id': orgId },
+        offers: {
+          '@type': 'Offer',
+          price: '10000',
+          priceCurrency: 'JPY',
+          priceSpecification: { '@type': 'UnitPriceSpecification', price: '10000', priceCurrency: 'JPY', unitText: '月', valueAddedTaxIncluded: false },
+          description: '月額10,000円（税別。会社・施設・病院全体で定額）。ご契約時の初期サポート30,000円（税別）。1か月無料・最低3か月。5つの版とも同じ料金。',
+          url: `${SITE.url}/#pricing`,
+        },
       },
     ],
   }
