@@ -138,6 +138,8 @@
     <section class="card">
       <h2>2. 領収書を撮る</h2>
       <p class="hint">スマホのカメラで撮影します</p>
+      <label class="hint" for="receipt-date" style="display:block;">領収書の日付（選択した利用月のフォルダへ保存されます）</label>
+      <input type="date" class="inline-input" id="receipt-date" />
       <input type="file" id="photo-input" accept="image/*" capture="environment" />
       <button type="button" class="btn-primary" id="btn-capture">撮影する</button>
       <div class="preview-wrap" id="preview-wrap" hidden>
