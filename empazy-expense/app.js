@@ -58,6 +58,7 @@
   const previewWrap = $("preview-wrap");
   const statusEl = $("status");
   const memoEl = $("memo");
+  const dateEl = $("receipt-date");
   const accountEl = $("account-name");
   const destPathEl = $("dest-path");
   const picker = $("picker");
@@ -112,6 +113,48 @@
     return pad(d.getFullYear() % 100) + "年" + (d.getMonth() + 1) + "月経費報告";
   }
 
+  // 自分のフォルダの中の置き場。お客さまが手で入れている形（例：2026-08 ＞ 領収書）に合わせる
+  const RECEIPT_FOLDER = "領収書";
+
+  function yearMonthFolderName(d) {
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1);
+  }
+
+  // ---------- 領収書の日付（この日の月のフォルダに保存する） ----------
+  // 先月分の領収書をあとから撮る人がいるため（2026-10-12 面談のご要望）、撮った日ではなく
+  // 選んだ日付で月を決める。1枚ごとに今日へ戻すので、「先月のまま」になる戻し忘れが起きない。
+
+  function dateValue(d) {
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+  }
+
+  /** 選べる範囲（1年前の月初〜今日）。夜0時をまたいで開いたままでも合うよう、触るたびに作り直す */
+  function updateDateRange() {
+    const today = new Date();
+    dateEl.max = dateValue(today);
+    dateEl.min = dateValue(new Date(today.getFullYear() - 1, today.getMonth(), 1));
+  }
+
+  function resetReceiptDate() {
+    updateDateRange();
+    dateEl.value = dateValue(new Date());
+  }
+
+  /** 選ばれた日付。空・壊れた値・範囲外のときは null */
+  function validReceiptDate() {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateEl.value || "");
+    if (!m) return null;
+    const d = new Date(parseInt(m[1], 10), parseInt(m[2], 10) - 1, parseInt(m[3], 10));
+    // 2月31日のような無い日は、Date が勝手に翌月へずらすので、月・日が入れたとおりかも確かめる
+    if (isNaN(d.getTime()) || d.getMonth() + 1 !== parseInt(m[2], 10) || d.getDate() !== parseInt(m[3], 10)) return null;
+    if (dateEl.value > dateEl.max || dateEl.value < dateEl.min) return null;
+    return d;
+  }
+
+  function receiptDate() {
+    return validReceiptDate() || new Date();
+  }
+
   function el(tag, cls, text) {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -160,7 +203,9 @@
       btnPick.textContent = "保存先を選ぶ";
       return;
     }
-    const parts = [dest.siteName, dest.parentName, monthFolderName(new Date()), dest.person].filter(Boolean);
+    const rd = receiptDate();
+    const parts = [dest.siteName, dest.parentName, monthFolderName(rd), dest.person,
+      yearMonthFolderName(rd), RECEIPT_FOLDER].filter(Boolean);
     destPathEl.textContent = parts.join(" ＞ ");
     destPathEl.classList.remove("unset");
     btnPick.textContent = "保存先を選び直す";
@@ -940,6 +985,27 @@
 
   // ---------- 保存 ----------
 
+  /** 自分のフォルダの「頭」。月によって「○○分」「○○分+オフィス」「○○」のように違うため、
+   *  「分」の前までを比べる（「分」が無い名前は、+・＋・空白の前まで） */
+  function personKey(name) {
+    const s = String(name || "").trim();
+    const i = s.indexOf("分");
+    if (i > 0) return s.slice(0, i);
+    return s.split(/[+＋\s]/)[0];
+  }
+
+  /** その月の中の自分のフォルダ。同じ名前 → 頭が同じフォルダ（1つだけのとき）→ 無ければ作る */
+  async function ensurePersonFolder(driveId, monthId, name) {
+    const children = await listChildFolders(driveId, monthId);
+    const exact = children.find(function (f) { return f.name === name; });
+    if (exact) return { id: exact.id, name: exact.name };
+    const key = personKey(name);
+    const same = key ? children.filter(function (f) { return personKey(f.name) === key; }) : [];
+    // 2つ以上あるとどれか決められないので、勝手に選ばず、設定した名前で作る
+    if (same.length === 1) return { id: same[0].id, name: same[0].name };
+    return { id: await ensureFolder(driveId, monthId, name, null), name: name };
+  }
+
   async function ensureFolder(driveId, parentId, name, matchMonth) {
     const children = await listChildFolders(driveId, parentId);
     const found = children.find(function (f) {
@@ -995,11 +1061,17 @@
   async function uploadReceipt(imageBlob, payCode, memo) {
     const now = new Date();
     const base = "receipt_" + stamp(now) + "_" + payCode;
-    const monthName = monthFolderName(now);
+    // ファイル名は撮った時刻のまま（重ならないため）。入れる月だけ、選んだ領収書の日付で決める
+    const rd = receiptDate();
+    const monthName = monthFolderName(rd);
     const monthId = await ensureFolder(dest.driveId, dest.parentId, monthName,
-      { year: now.getFullYear(), month: now.getMonth() + 1 });
-    const personId = await ensureFolder(dest.driveId, monthId, dest.person, null);
-    const target = "/drives/" + dest.driveId + "/items/" + personId + ":/";
+      { year: rd.getFullYear(), month: rd.getMonth() + 1 });
+    const person = await ensurePersonFolder(dest.driveId, monthId, dest.person);
+    // 自分のフォルダ ＞ YYYY-MM ＞ 領収書（無ければ作る）
+    const ymName = yearMonthFolderName(rd);
+    const ymId = await ensureFolder(dest.driveId, person.id, ymName, null);
+    const receiptId = await ensureFolder(dest.driveId, ymId, RECEIPT_FOLDER, null);
+    const target = "/drives/" + dest.driveId + "/items/" + receiptId + ":/";
 
     const jpeg = await shrinkImage(imageBlob);
     await graph(target + encodeURIComponent(base + ".jpg") + ":/content", {
@@ -1011,6 +1083,7 @@
       payment_type: PAY_LABELS[payCode] || payCode,
       payment_code: payCode,
       captured_at: isoStamp(now),
+      receipt_date: dateValue(rd),
       memo: memo || "",
     };
     await graph(target + encodeURIComponent(base + ".json") + ":/content", {
@@ -1018,7 +1091,8 @@
       headers: { "Content-Type": "application/json; charset=utf-8" },
       body: JSON.stringify(meta, null, 2),
     });
-    return monthName + " ＞ " + dest.person + " ＞ " + base + ".jpg";
+    // 実際に入れたフォルダの名前を見せる（設定と違う名前のフォルダに入れたときに分かるように）
+    return [monthName, person.name, ymName, RECEIPT_FOLDER, base + ".jpg"].join(" ＞ ");
   }
 
   // ---------- 操作 ----------
@@ -1112,6 +1186,9 @@
       );
       clearPreview();
       memoEl.value = "";
+      resetReceiptDate();
+      renderDest();
+      renderSummary();
       updateConfirmButton();
       return;
     }
@@ -1124,6 +1201,10 @@
       showStatus("保存しました: " + where, false);
       clearPreview();
       memoEl.value = "";
+      // 次の1枚は今日の日付から（先月のまま撮り続ける戻し忘れを防ぐ）
+      resetReceiptDate();
+      renderDest();
+      renderSummary();
     } catch (err) {
       const text = err && err.errorCode ? friendlyLoginError(err) : (err && err.message ? err.message : String(err));
       showStatus(text, true);
@@ -1139,7 +1220,21 @@
     });
   }
 
+  // 日付を変えたら、上の「保存先」の月もすぐ変える（どの月に入るかを撮る前に見せる）
+  dateEl.addEventListener("focus", updateDateRange);
+  dateEl.addEventListener("change", function () {
+    updateDateRange();
+    // 空・未来・1年より前は、画面の日付も今日に戻す（画面と保存先の月が食い違わないように）
+    if (!validReceiptDate()) {
+      dateEl.value = dateValue(new Date());
+      showStatus("領収書の日付は、1年前の月初から本日までの範囲で選択してください。（本日の日付に再設定しました）", true);
+    }
+    renderDest();
+    renderSummary();
+  });
+
   updateChrome();
+  resetReceiptDate();
   renderDest();
   // 入口（ID・パスワード）を通ってから Microsoft ログインの準備を始める
   (window.EmpazyGate ? window.EmpazyGate.ready : Promise.resolve())
