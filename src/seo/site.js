@@ -525,7 +525,6 @@ export const PUBLIC_PAGES = [
   { path: '/temasui/guide/kango-summary/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.7' },
   { path: '/shiftsync/', lastmod: '2026-08-26', changefreq: 'weekly', priority: '0.9' },
   { path: '/medical-dx/', lastmod: '2026-08-26', changefreq: 'weekly', priority: '0.9' },
-  { path: '/Guide/mochisync2/', lastmod: '2026-08-30', changefreq: 'monthly', priority: '0.55' },
   { path: '/for/pro/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.85' },
   { path: '/for/factory/', lastmod: '2026-09-26', changefreq: 'weekly', priority: '0.85' },
   { path: '/for/biz/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.85' },

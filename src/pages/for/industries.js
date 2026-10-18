@@ -79,8 +79,8 @@ export const INDUSTRIES = {
         result: '紙を見ながら一つずつ確かめる手間を減らします。',
         image: '/dm/dm-mochi.jpg',
         imageAlt: '入所時の持ち物を写真から一覧にするチェック作業',
-        href: '/Guide/mochisync2/',
-        hrefLabel: '持ち物チェックの説明を見る',
+        href: '/temasui/',
+        hrefLabel: 'てますいの持ち物チェックを見る',
       },
       {
         num: '02　毎月',

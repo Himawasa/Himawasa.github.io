@@ -4,9 +4,8 @@ import { TRY_APPS } from '../../../seo/site'
 // 体験アプリは4つともトップから行けるようにする（以前は先頭3つだけで SukkiriSync が出ていなかった）
 const teasers = TRY_APPS
 
-const GUIDES = {
-  MochiSync: { href: '/Guide/mochisync2/', label: '使い方・画面を見る' },
-}
+// 体験アプリの「使い方・画面を見る」。MochiSync2 の説明ページはてますいに引き継いだので、今は載せるものなし
+const GUIDES = {}
 
 export default function TryTeaser() {
   return (
