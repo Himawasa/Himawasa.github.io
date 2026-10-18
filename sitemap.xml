@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://himawasa-sync.com/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/care/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/Guide/care/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
 
@@ -152,15 +152,8 @@
 
   </url>
   <url>
-    <loc>https://himawasa-sync.com/Guide/mochisync2/</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-
-  </url>
-  <url>
     <loc>https://himawasa-sync.com/for/pro/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -182,7 +175,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/factory/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -204,7 +197,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/biz/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
