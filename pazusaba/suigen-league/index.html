@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水源リーグ（浄水リーグ戦）のルールを図解でやさしく | パズル＆サバイバル</title>
+<meta name="description" content="パズル＆サバイバルのギルド対抗戦「水源リーグ（浄水リーグ戦）」の仕組みを、初心者向けに図解で整理しました。エントリー条件・グループ戦・トーナメント・プレーオフ・ポイント・ボーナス・やってはいけないこと。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>💧</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ---------- 基本 ---------- */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0b1220;        /* ページの背景（夜の空） */
+  --bg2:#111b2e;       /* 少し明るい背景 */
+  --card:#182438;      /* カードの背景 */
+  --line:#2a3a55;      /* 枠線 */
+  --text:#e8eef7;
+  --muted:#9fb0c8;
+  --water:#4fc3f7;     /* 水の色＝主役の色 */
+  --water-deep:#0288d1;
+  --gold:#f5c542;
+  --red:#ef5350;
+  --green:#66bb6a;
+  --radius:14px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans JP",system-ui,-apple-system,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.9;
+  font-size:16px;overflow-x:hidden;
+  word-break:normal;overflow-wrap:anywhere;line-break:strict;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--water)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+h1,h2,h3{line-height:1.45;font-weight:900}
+h2{font-size:1.5rem;margin:0 0 18px;padding-bottom:10px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:10px}
+h2 .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--water-deep);color:#fff;font-size:.95rem;flex:none}
+h3{font-size:1.1rem;margin:22px 0 10px;color:var(--water)}
+p{margin:0 0 12px}
+section{padding:40px 0}
+section:nth-of-type(even){background:var(--bg2)}
+.lead{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+ul,ol{padding-left:1.4em;margin:0 0 12px}
+li{margin:4px 0}
+.note{font-size:.9rem;color:var(--muted)}
+.tag{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.8rem;font-weight:700;color:#fff;vertical-align:middle;margin-right:6px}
+.tag-red{background:#c62828}.tag-blue{background:var(--water-deep)}.tag-gold{background:#b8860b}.tag-green{background:#2e7d32}.tag-gray{background:#546e7a}
+.big{font-size:1.25rem;font-weight:900;color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:.93rem;margin:10px 0 16px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#1f2e47;color:#fff;font-weight:700;white-space:nowrap}
+td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+figure{margin:16px 0}
+figure svg{width:100%;height:auto;display:block}
+.fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:700px){.fig-scroll svg{min-width:760px}.fig-scroll::after{content:"← 横にスクロールできます →";display:block;text-align:center;font-size:.8rem;color:var(--muted);margin-top:4px}}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:6px;text-align:center}
+/* ---------- いちばん上 ---------- */
+.hero{background:radial-gradient(ellipse at 50% 0%,#14365a 0%,var(--bg) 65%);padding:56px 0 40px;text-align:center}
+.hero .sub{color:var(--water);font-weight:700;letter-spacing:.08em;font-size:.9rem;margin-bottom:10px}
+.hero h1{font-size:clamp(1.5rem,4.5vw,2.4rem);margin-bottom:16px}
+.hero p{color:var(--muted);max-width:720px;margin:0 auto 10px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:26px auto 0;max-width:900px;text-align:left}
+.summary .card{padding:16px}
+.summary .k{font-size:.8rem;color:var(--muted);font-weight:700}
+.summary .v{font-size:1.1rem;font-weight:900;color:#fff}
+/* ---------- 目次 ---------- */
+.toc{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px}
+.toc a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;text-decoration:none;color:var(--text);font-size:.9rem}
+.toc a:hover{border-color:var(--water)}
+/* ---------- 手順の帯 ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;text-align:center}
+.step .no{display:inline-block;width:30px;height:30px;line-height:30px;border-radius:50%;background:var(--water-deep);color:#fff;font-weight:900;margin-bottom:6px}
+.step b{display:block;color:#fff}
+.step small{color:var(--muted);display:block;line-height:1.6}
+/* ---------- NG 一覧 ---------- */
+.ng{display:grid;gap:12px}
+.ng .card{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ng .mark{width:40px;height:40px;border-radius:50%;background:#c62828;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+/* ---------- 画面の写真 ---------- */
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.shots figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.shots img{aspect-ratio:837/1953;object-fit:cover;object-position:top}
+.shots figcaption{padding:8px}
+
+/* ---------- スマホ用の縦積みの図 ---------- */
+.m-only{display:none}
+.flow-m{display:grid;gap:0}
+.flow-m .fm{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.flow-m .fm.main{background:#143a5c;border-color:var(--water)}
+.flow-m .fm.gold{background:#3b2f08;border-color:var(--gold)}
+.flow-m .fm b{display:block;color:#fff;font-size:1.05rem}
+.flow-m .fm.main b,.flow-m .fm.gold b{color:var(--gold);font-size:1.3rem}
+.flow-m .fm small{color:var(--muted);display:block;line-height:1.6}
+.flow-m .ar{text-align:center;color:var(--water);font-size:1.4rem;line-height:1.4}
+.grp-m{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grp-m .gm{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.grp-m .gm b{display:block;color:#fff;margin-bottom:6px}
+.grp-m .r{display:block;border-radius:6px;color:#fff;font-size:.78rem;font-weight:700;padding:2px 0;margin:3px 0}
+.grp-m .w{background:#2e7d32}.grp-m .l{background:#546e7a}
+.grp-m .pt{display:block;color:var(--gold);font-weight:900;font-size:1.05rem;margin-top:6px}
+.grp-m .pt.out{color:var(--muted)}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0 6px}
+.tier{border-radius:10px;padding:12px 8px;text-align:center;color:#fff;font-weight:700}
+.tier small{display:block;font-weight:400;color:#e8eef7;opacity:.85;margin-top:4px}
+.t0{background:#2a3a55}.t1{background:#1e5a8a}.t2{background:#0288d1}.t3{background:#b8860b}
+@media (max-width:700px){
+  .pc-only{display:none}
+  .m-only{display:block}
+}
+footer{padding:30px 0 50px;text-align:center;color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+@media (max-width:600px){
+  h2{font-size:1.25rem}
+  table{font-size:.85rem}
+  th,td{padding:7px 6px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== いちばん上 ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="sub">パズル＆サバイバル　ギルド対抗イベント</div>
+    <h1>水源リーグ（浄水リーグ戦）の<br>ルールを図解でやさしく</h1>
+    <p>ゲーム内の説明は情報が多く読みにくいため、初心者の方でも「全体の流れ」と「自分が何をすればよいか」がつかめる順番に整理しました。</p>
+    <p class="note">ゲーム内の画面では「水源リーグ」、公式のお知らせや攻略記事では「浄水リーグ戦」と呼ばれています。同じイベントです。</p>
+
+    <div class="summary">
+      <div class="card"><div class="k">概要</div><div class="v">毎週の「浄水の戦」を土台にした、64 ギルドのトーナメント大会</div></div>
+      <div class="card"><div class="k">参加できるギルド</div><div class="v">戦力ランキング上位 64 ギルド</div></div>
+      <div class="card"><div class="k">期間</div><div class="v">予選 5 週間 ＋ プレーオフ 3 試合</div></div>
+      <div class="card"><div class="k">ゴール</div><div class="v">エリア優勝 → プレーオフ優勝</div></div>
+    </div>
+
+    <nav class="toc">
+      <a href="#overview">全体の流れ</a>
+      <a href="#entry">エントリー</a>
+      <a href="#group">グループ戦</a>
+      <a href="#tournament">トーナメント・プレーオフ</a>
+      <a href="#battle">1試合の戦い方</a>
+      <a href="#bonus">ボーナス</a>
+      <a href="#predict">予想（ベット）</a>
+      <a href="#ng">やってはいけないこと</a>
+      <a href="#tips">初心者のコツ</a>
+      <a href="#screens">ゲーム内の原文</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== 1. 全体の流れ ===== -->
+<section id="overview">
+  <div class="wrap">
+    <h2><span class="num">1</span>全体の流れ（まずはここだけ）</h2>
+    <p class="lead">予選とプレーオフを経て、64 ギルドの中から優勝ギルドを決める大会です。自分のギルドが今どの段階にいるかを、下の図で確かめてください。</p>
+
+    <figure>
+      <div class="fig-scroll pc-only">
+      <svg viewBox="0 0 960 430" role="img" aria-label="水源リーグの全体の流れ">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4fc3f7"/></marker>
+        </defs>
+        <style>
+          .bx{fill:#182438;stroke:#2a3a55;stroke-width:2;rx:12}
+          .bx-main{fill:#143a5c;stroke:#4fc3f7;stroke-width:2;rx:12}
+          .bx-gold{fill:#3b2f08;stroke:#f5c542;stroke-width:2;rx:12}
+          .t{fill:#e8eef7;font-family:"Noto Sans JP",sans-serif;font-size:17px;font-weight:700;text-anchor:middle}
+          .s{fill:#9fb0c8;font-family:"Noto Sans JP",sans-serif;font-size:13px;text-anchor:middle}
+          .big{fill:#f5c542;font-family:"Noto Sans JP",sans-serif;font-size:30px;font-weight:900;text-anchor:middle}
+          .ln{stroke:#4fc3f7;stroke-width:3;fill:none;marker-end:url(#arrow)}
+        </style>
+        <!-- 段1：64ギルド -->
+        <rect class="bx-main" x="20" y="30" width="200" height="110"/>
+        <text class="big" x="120" y="75">64 ギルド</text>
+        <text class="s" x="120" y="102">戦力ランキング上位が</text>
+        <text class="s" x="120" y="122">抽選で選ばれる</text>
+        <!-- 段2：8エリア -->
+        <path class="ln" d="M220 85 H262"/>
+        <rect class="bx" x="270" y="30" width="200" height="110"/>
+        <text class="big" x="370" y="75">8 エリア</text>
+        <text class="s" x="370" y="102">1 エリア＝8 ギルド</text>
+        <text class="s" x="370" y="122">さらに 4 ギルド×2 グループ</text>
+        <!-- 段3：グループ戦 -->
+        <path class="ln" d="M470 85 H512"/>
+        <rect class="bx" x="520" y="30" width="200" height="110"/>
+        <text class="t" x="620" y="62">グループ戦（3 週）</text>
+        <text class="s" x="620" y="88">同じグループの 3 ギルドと</text>
+        <text class="s" x="620" y="106">1 回ずつ対戦</text>
+        <text class="s" x="620" y="126">勝ち＝3 点・負け＝0 点</text>
+        <!-- 段4：上位2 -->
+        <path class="ln" d="M720 85 H762"/>
+        <rect class="bx" x="770" y="30" width="170" height="110"/>
+        <text class="t" x="855" y="70">上位 2 ギルド</text>
+        <text class="s" x="855" y="96">グループごとに</text>
+        <text class="s" x="855" y="116">トーナメントへ</text>
+        <!-- 折り返し -->
+        <path class="ln" d="M855 140 V175 H120 V208"/>
+        <!-- 段5：エリアトーナメント -->
+        <rect class="bx" x="20" y="215" width="260" height="110"/>
+        <text class="t" x="150" y="247">エリア内トーナメント（2 週）</text>
+        <text class="s" x="150" y="273">4 ギルドで準決勝 → 決勝</text>
+        <text class="s" x="150" y="293">勝った 1 ギルドが「エリアチャンピオン」</text>
+        <text class="s" x="150" y="313">（負けたら終わり）</text>
+        <!-- 段6：プレーオフ -->
+        <path class="ln" d="M280 270 H322"/>
+        <rect class="bx-main" x="330" y="215" width="300" height="110"/>
+        <text class="t" x="480" y="247">プレーオフ（3 試合）</text>
+        <text class="s" x="480" y="273">8 エリアのチャンピオンが集合</text>
+        <text class="s" x="480" y="293">ベスト 4 → 準決勝 → 決勝</text>
+        <text class="s" x="480" y="313">1 回負けたら敗退</text>
+        <!-- 段7：優勝 -->
+        <path class="ln" d="M630 270 H672"/>
+        <rect class="bx-gold" x="680" y="215" width="260" height="110"/>
+        <text class="big" x="810" y="262">優勝</text>
+        <text class="s" x="810" y="292">今回の浄水リーグ戦</text>
+        <text class="s" x="810" y="312">チャンピオン</text>
+        <!-- 下の注 -->
+        <text class="s" x="480" y="370">自分のギルドが出ていなくても「予想（ベット）」で参加できます（プレーオフから）</text>
+        <text class="s" x="480" y="400">※ 1 試合の戦い方は、いつもの「浄水の戦」と同じです</text>
+      </svg>
+      </div>
+      <div class="m-only flow-m">
+        <div class="fm main"><b>64 ギルド</b><small>戦力ランキング上位が抽選で選ばれる</small></div>
+        <div class="ar">↓</div>
+        <div class="fm"><b>8 エリアに分かれる</b><small>1 エリア＝8 ギルド。さらに 4 ギルド×2 グループ</small></div>
+        <div class="ar">↓</div>
+        <div class="fm"><b>グループ戦（3 週）</b><small>同じグループの 3 ギルドと 1 回ずつ対戦。勝ち＝3 点・負け＝0 点</small></div>
+        <div class="ar">↓</div>
+        <div class="fm"><b>上位 2 ギルドが進出</b><small>グループごとにトーナメントへ</small></div>
+        <div class="ar">↓</div>
+        <div class="fm"><b>エリア内トーナメント（2 週）</b><small>4 ギルドで準決勝 → 決勝。勝った 1 ギルドが「エリアチャンピオン」（負けたら終わり）</small></div>
+        <div class="ar">↓</div>
+        <div class="fm main"><b>プレーオフ（3 試合）</b><small>8 エリアのチャンピオンが集合。ベスト 4 → 準決勝 → 決勝。1 回負けたら敗退</small></div>
+        <div class="ar">↓</div>
+        <div class="fm gold"><b>優勝</b><small>今回の浄水リーグ戦チャンピオン</small></div>
+        <p class="note" style="margin-top:10px">自分のギルドが出ていなくても「予想（ベット）」で参加できます（プレーオフから）。1 試合の戦い方は、いつもの「浄水の戦」と同じです。</p>
+      </div>
+      <figcaption>図1：64 ギルドから優勝までの道のり</figcaption>
+    </figure>
+
+    <div class="grid grid-3">
+      <div class="card"><h3 style="margin-top:0">予選（5 週間）</h3><p>グループ戦 3 回 ＋ エリア内トーナメント 2 回。各エリアの優勝ギルドだけが次へ進めます。</p></div>
+      <div class="card"><h3 style="margin-top:0">プレーオフ（3 試合）</h3><p>8 エリアのチャンピオンによる一発勝負のトーナメント。ベスト 4・準決勝・決勝の 3 ラウンドです。</p></div>
+      <div class="card"><h3 style="margin-top:0">選ばれなかったら</h3><p>いつもどおり「浄水の戦」や「ギルド大乱闘」にエントリーできます。損はありません。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. エントリー ===== -->
+<section id="entry">
+  <div class="wrap">
+    <h2><span class="num">2</span>エントリー（参加の申し込み）</h2>
+
+    <h3>参加できるギルドの条件</h3>
+    <div class="grid grid-2">
+      <div class="card">
+        <p><span class="tag tag-blue">条件 1</span><b>ギルドのレベルが 8 以上</b></p>
+        <p><span class="tag tag-blue">条件 2</span><b>避難所レベル 22 以上のメンバーが 30 名以上</b></p>
+        <p class="note">※ イベントが始まる前の時点で満たしている必要があります。</p>
+      </div>
+      <div class="card">
+        <p><span class="tag tag-gold">申し込む人</span><b>ギルドマスターか管理者</b>がイベント画面から申し込みます。一般メンバーは申し込めません。</p>
+        <p><span class="tag tag-gold">申し込みの期間</span>リーグ戦が始まった後の<b>決められた期間内</b>。過ぎると申し込めません。</p>
+      </div>
+    </div>
+
+    <h3>申し込みから試合までの流れ</h3>
+    <div class="steps">
+      <div class="step"><span class="no">1</span><b>条件を確認</b><small>ギルド Lv.8・避難所 Lv.22 が 30 名</small></div>
+      <div class="step"><span class="no">2</span><b>マスターが申し込み</b><small>イベント画面から</small></div>
+      <div class="step"><span class="no">3</span><b>時間帯を 4 つ選ぶ</b><small>エントリー終了まで変更可</small></div>
+      <div class="step"><span class="no">4</span><b>抽選</b><small>戦力ランキング上位 64 が参加決定</small></div>
+      <div class="step"><span class="no">5</span><b>グループ分け</b><small>エリアと組をシステムが自動で決める</small></div>
+      <div class="step"><span class="no">6</span><b>試合</b><small>両ギルドが選んだ時間帯で決まる</small></div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3 style="margin-top:0">試合の時間帯について</h3>
+      <ul>
+        <li>申し込みのとき、<b>参加できる時間帯を 4 つ</b>選びます。</li>
+        <li>対戦相手が決まったあと、<b>両方のギルドが選んだ時間帯</b>から試合の時間が決まります。</li>
+        <li>エントリー終了後は、<b>予選のあいだ時間帯を変えられません</b>。ギルドで相談してから選びましょう。</li>
+      </ul>
+      <p class="note">戦闘エリア（＝どの国どうしで戦うか）は、国のサービス開始時期をもとに 15 に分けられ、近い国どうしが同じエリアになります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. グループ戦 ===== -->
+<section id="group">
+  <div class="wrap">
+    <h2><span class="num">3</span>グループ戦（予選の前半・3 週）</h2>
+    <p class="lead">同じグループの 4 ギルドが、総当たりで 1 回ずつ戦います（1 試合はギルド対ギルドの 1 対 1）。</p>
+    <p class="note">※ ゲーム内の説明には「グループ内で 2vs2 対戦」とありますが、グループ内の 4 ギルドによる 1 対 1 の総当たり戦のことを指しています。</p>
+
+    <figure>
+      <div class="fig-scroll pc-only">
+      <svg viewBox="0 0 960 300" role="img" aria-label="グループ戦の例">
+        <style>
+          .g{fill:#182438;stroke:#2a3a55;stroke-width:2;rx:10}
+          .gt{fill:#e8eef7;font-family:"Noto Sans JP",sans-serif;font-size:16px;font-weight:700;text-anchor:middle}
+          .gs{fill:#9fb0c8;font-family:"Noto Sans JP",sans-serif;font-size:13px;text-anchor:middle}
+          .pt{fill:#f5c542;font-family:"Noto Sans JP",sans-serif;font-size:22px;font-weight:900;text-anchor:middle}
+          .win{fill:#2e7d32}.lose{fill:#546e7a}
+          .lbl{fill:#fff;font-family:"Noto Sans JP",sans-serif;font-size:12px;font-weight:700;text-anchor:middle}
+        </style>
+        <text class="gt" x="480" y="28">例：エリア 1・グループ A（4 ギルド）</text>
+        <!-- 4ギルド -->
+        <rect class="g" x="40" y="55" width="200" height="190"/>
+        <text class="gt" x="140" y="85">ギルド A</text>
+        <rect class="win" x="60" y="100" width="160" height="24" rx="6"/><text class="lbl" x="140" y="117">第1戦 勝ち　+3</text>
+        <rect class="win" x="60" y="132" width="160" height="24" rx="6"/><text class="lbl" x="140" y="149">第2戦 勝ち　+3</text>
+        <rect class="win" x="60" y="164" width="160" height="24" rx="6"/><text class="lbl" x="140" y="181">第3戦 勝ち　+3</text>
+        <text class="pt" x="140" y="225">9 点 ▶ 進出</text>
+
+        <rect class="g" x="270" y="55" width="200" height="190"/>
+        <text class="gt" x="370" y="85">ギルド B</text>
+        <rect class="lose" x="290" y="100" width="160" height="24" rx="6"/><text class="lbl" x="370" y="117">第1戦 負け　0</text>
+        <rect class="win" x="290" y="132" width="160" height="24" rx="6"/><text class="lbl" x="370" y="149">第2戦 勝ち　+3</text>
+        <rect class="win" x="290" y="164" width="160" height="24" rx="6"/><text class="lbl" x="370" y="181">第3戦 勝ち　+3</text>
+        <text class="pt" x="370" y="225">6 点 ▶ 進出</text>
+
+        <rect class="g" x="500" y="55" width="200" height="190"/>
+        <text class="gt" x="600" y="85">ギルド C</text>
+        <rect class="win" x="520" y="100" width="160" height="24" rx="6"/><text class="lbl" x="600" y="117">第1戦 勝ち　+3</text>
+        <rect class="lose" x="520" y="132" width="160" height="24" rx="6"/><text class="lbl" x="600" y="149">第2戦 負け　0</text>
+        <rect class="lose" x="520" y="164" width="160" height="24" rx="6"/><text class="lbl" x="600" y="181">第3戦 負け　0</text>
+        <text class="pt" x="600" y="225" style="fill:#9fb0c8">3 点</text>
+
+        <rect class="g" x="730" y="55" width="200" height="190"/>
+        <text class="gt" x="830" y="85">ギルド D</text>
+        <rect class="lose" x="750" y="100" width="160" height="24" rx="6"/><text class="lbl" x="830" y="117">第1戦 負け　0</text>
+        <rect class="lose" x="750" y="132" width="160" height="24" rx="6"/><text class="lbl" x="830" y="149">第2戦 負け　0</text>
+        <rect class="lose" x="750" y="164" width="160" height="24" rx="6"/><text class="lbl" x="830" y="181">第3戦 負け　0</text>
+        <text class="pt" x="830" y="225" style="fill:#9fb0c8">0 点</text>
+
+        <text class="gs" x="480" y="275">3 試合が終わった時点で、点数の上位 2 ギルドがエリア内トーナメントへ。同点なら「得失点差」で順位を決めます。</text>
+      </svg>
+      </div>
+      <div class="m-only">
+        <p class="note" style="text-align:center;margin-bottom:8px">例：エリア 1・グループ A（4 ギルド）</p>
+        <div class="grp-m">
+          <div class="gm"><b>ギルド A</b><span class="r w">第1戦 勝ち +3</span><span class="r w">第2戦 勝ち +3</span><span class="r w">第3戦 勝ち +3</span><span class="pt">9 点 ▶ 進出</span></div>
+          <div class="gm"><b>ギルド B</b><span class="r l">第1戦 負け 0</span><span class="r w">第2戦 勝ち +3</span><span class="r w">第3戦 勝ち +3</span><span class="pt">6 点 ▶ 進出</span></div>
+          <div class="gm"><b>ギルド C</b><span class="r w">第1戦 勝ち +3</span><span class="r l">第2戦 負け 0</span><span class="r l">第3戦 負け 0</span><span class="pt out">3 点</span></div>
+          <div class="gm"><b>ギルド D</b><span class="r l">第1戦 負け 0</span><span class="r l">第2戦 負け 0</span><span class="r l">第3戦 負け 0</span><span class="pt out">0 点</span></div>
+        </div>
+        <p class="note" style="margin-top:8px">3 試合が終わった時点で、点数の上位 2 ギルドがエリア内トーナメントへ。同点なら「得失点差」で順位を決めます。</p>
+      </div>
+      <figcaption>図2：グループ戦の点の入り方（例）</figcaption>
+    </figure>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin-top:0">点の入り方</h3>
+        <ul>
+          <li>勝ったギルド：<b class="big">3 点</b></li>
+          <li>負けたギルド：<b>0 点</b></li>
+          <li>3 試合の合計点で順位を決め、<b>上位 2 ギルド</b>が進出。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">同点のときは「得失点差」</h3>
+        <p>3 試合で取った「戦場ポイント」の合計から、相手に取られたポイントの合計を引いた差で順位をつけます。</p>
+        <p class="note">つまり、勝つだけでなく<b>大差で勝つ・負けても点差を小さくする</b>ことが大事です。1 試合の中で同点なら、先にその点に達したギルドの勝ちです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. トーナメント・プレーオフ ===== -->
+<section id="tournament">
+  <div class="wrap">
+    <h2><span class="num">4</span>トーナメントとプレーオフ（一発勝負）</h2>
+
+    <figure>
+      <div class="fig-scroll">
+      <svg viewBox="0 0 960 360" role="img" aria-label="トーナメントの図">
+        <style>
+          .tb{fill:#182438;stroke:#2a3a55;stroke-width:2;rx:8}
+          .tbm{fill:#143a5c;stroke:#4fc3f7;stroke-width:2;rx:8}
+          .tbg{fill:#3b2f08;stroke:#f5c542;stroke-width:2;rx:8}
+          .tt{fill:#e8eef7;font-family:"Noto Sans JP",sans-serif;font-size:14px;font-weight:700;text-anchor:middle}
+          .ts{fill:#9fb0c8;font-family:"Noto Sans JP",sans-serif;font-size:13px;text-anchor:middle}
+          .th{fill:#4fc3f7;font-family:"Noto Sans JP",sans-serif;font-size:16px;font-weight:900;text-anchor:middle}
+          .tl{stroke:#4fc3f7;stroke-width:2.5;fill:none}
+        </style>
+        <!-- 左：エリア内トーナメント -->
+        <text class="th" x="230" y="30">エリア内トーナメント（予選の後半・2 週）</text>
+        <text class="ts" x="230" y="52">各エリアで 4 ギルド（グループ A・B の上位 2 ずつ）</text>
+        <rect class="tb" x="30" y="80" width="120" height="36"/><text class="tt" x="90" y="104">A 組 1 位</text>
+        <rect class="tb" x="30" y="130" width="120" height="36"/><text class="tt" x="90" y="154">B 組 2 位</text>
+        <rect class="tb" x="30" y="200" width="120" height="36"/><text class="tt" x="90" y="224">B 組 1 位</text>
+        <rect class="tb" x="30" y="250" width="120" height="36"/><text class="tt" x="90" y="274">A 組 2 位</text>
+        <path class="tl" d="M150 98 H175 V148 H150 M175 123 H200"/>
+        <path class="tl" d="M150 218 H175 V268 H150 M175 243 H200"/>
+        <rect class="tbm" x="200" y="105" width="110" height="36"/><text class="tt" x="255" y="129">準決勝</text>
+        <rect class="tbm" x="200" y="225" width="110" height="36"/><text class="tt" x="255" y="249">準決勝</text>
+        <path class="tl" d="M310 123 H335 V243 H310 M335 183 H360"/>
+        <rect class="tbm" x="360" y="165" width="90" height="36"/><text class="tt" x="405" y="189">決勝</text>
+        <text class="ts" x="230" y="320">※ 組み合わせはシステムが決めます（上の並びは例）</text>
+        <text class="ts" x="230" y="342">※ 勝った 1 ギルド＝エリアチャンピオン</text>
+        <!-- 矢印 -->
+        <path class="tl" d="M450 183 H500" marker-end="url(#arrow)"/>
+        <!-- 右：プレーオフ -->
+        <text class="th" x="720" y="30">プレーオフ（3 試合）</text>
+        <text class="ts" x="720" y="52">8 エリアのチャンピオンが集合</text>
+        <rect class="tb" x="520" y="75" width="100" height="26"/><text class="tt" x="570" y="93">エリア 1</text>
+        <rect class="tb" x="520" y="108" width="100" height="26"/><text class="tt" x="570" y="126">エリア 2</text>
+        <rect class="tb" x="520" y="141" width="100" height="26"/><text class="tt" x="570" y="159">エリア 3</text>
+        <rect class="tb" x="520" y="174" width="100" height="26"/><text class="tt" x="570" y="192">エリア 4</text>
+        <rect class="tb" x="520" y="207" width="100" height="26"/><text class="tt" x="570" y="225">エリア 5</text>
+        <rect class="tb" x="520" y="240" width="100" height="26"/><text class="tt" x="570" y="258">エリア 6</text>
+        <rect class="tb" x="520" y="273" width="100" height="26"/><text class="tt" x="570" y="291">エリア 7</text>
+        <rect class="tb" x="520" y="306" width="100" height="26"/><text class="tt" x="570" y="324">エリア 8</text>
+        <path class="tl" d="M620 88 H640 V121 H620 M640 104 H660"/>
+        <path class="tl" d="M620 154 H640 V187 H620 M640 170 H660"/>
+        <path class="tl" d="M620 220 H640 V253 H620 M640 236 H660"/>
+        <path class="tl" d="M620 286 H640 V319 H620 M640 302 H660"/>
+        <rect class="tbm" x="660" y="91" width="80" height="26"/><text class="tt" x="700" y="109">ベスト4</text>
+        <rect class="tbm" x="660" y="157" width="80" height="26"/><text class="tt" x="700" y="175">ベスト4</text>
+        <rect class="tbm" x="660" y="223" width="80" height="26"/><text class="tt" x="700" y="241">ベスト4</text>
+        <rect class="tbm" x="660" y="289" width="80" height="26"/><text class="tt" x="700" y="307">ベスト4</text>
+        <path class="tl" d="M740 104 H760 V170 H740 M760 137 H780"/>
+        <path class="tl" d="M740 236 H760 V302 H740 M760 269 H780"/>
+        <rect class="tbm" x="780" y="124" width="80" height="26"/><text class="tt" x="820" y="142">準決勝</text>
+        <rect class="tbm" x="780" y="256" width="80" height="26"/><text class="tt" x="820" y="274">準決勝</text>
+        <path class="tl" d="M860 137 H880 V269 H860 M880 203 H895"/>
+        <rect class="tbg" x="895" y="190" width="60" height="26"/><text class="tt" x="925" y="208">優勝</text>
+      </svg>
+      </div>
+      <figcaption>図3：エリア内トーナメント（左）と、プレーオフ（右）</figcaption>
+    </figure>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin-top:0">エリア内トーナメント</h3>
+        <ul>
+          <li>グループ戦の上位 2 ギルド × 2 グループ ＝ <b>4 ギルド</b>で戦います。</li>
+          <li>準決勝 → 決勝の 2 試合。組み合わせはシステムが決めます。</li>
+          <li>決勝で勝ったギルドが<b>エリアチャンピオン</b>としてプレーオフへ。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">プレーオフ</h3>
+        <ul>
+          <li>8 エリアのチャンピオン ＝ <b>8 ギルド</b>。</li>
+          <li><b>ベスト 4 → 準決勝 → 決勝</b>の 3 ラウンド。勝てば次へ、負けたらその場で敗退。</li>
+          <li>最後まで勝ち残ったギルドが<b>今回のチャンピオン</b>です。</li>
+          <li>プレーオフの期間中は、リーグコインとチャンピオン勲章を専用ショップで品物に交換できます。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. 1試合の戦い方 ===== -->
+<section id="battle">
+  <div class="wrap">
+    <h2><span class="num">5</span>1 試合の戦い方（毎週の「浄水の戦」と同じルール）</h2>
+    <p class="lead">リーグ戦の試合そのものは、毎週の「浄水の戦（浄水争奪戦）」とまったく同じルールです。専用マップで拠点を取り合い、<b>1 時間でギルドポイントが多いほうの勝ち</b>です。</p>
+
+    <figure>
+      <div class="fig-scroll">
+      <svg viewBox="0 0 960 420" role="img" aria-label="浄水の戦のマップのイメージ">
+        <style>
+          .map{fill:#0f1a2b;stroke:#2a3a55;stroke-width:2;rx:16}
+          .safe{fill:#1b2a3e;stroke:#3a4d6a;stroke-dasharray:6 4}
+          .f{fill:#5d3a1a;stroke:#f5c542;stroke-width:2}
+          .h{fill:#2d4a2d;stroke:#66bb6a;stroke-width:2}
+          .m{fill:#4a2d2d;stroke:#ef5350;stroke-width:2}
+          .w{fill:#2d3a4a;stroke:#9fb0c8;stroke-width:2}
+          .sb{fill:#1f3a4a;stroke:#4fc3f7;stroke-width:2}
+          .mt{fill:#e8eef7;font-family:"Noto Sans JP",sans-serif;font-size:13px;font-weight:700;text-anchor:middle}
+          .ms{fill:#9fb0c8;font-family:"Noto Sans JP",sans-serif;font-size:12px;text-anchor:middle}
+          .truck{stroke:#66bb6a;stroke-width:3;stroke-dasharray:8 6;fill:none}
+        </style>
+        <rect class="map" x="20" y="20" width="600" height="380"/>
+        <!-- 安全地帯 -->
+        <rect class="safe" x="30" y="30" width="580" height="360" rx="14"/>
+        <text class="ms" x="80" y="52">荒れ地（安全地帯）</text>
+        <text class="ms" x="560" y="380">荒れ地（安全地帯）</text>
+        <!-- 中心の要塞 -->
+        <rect class="f" x="285" y="185" width="70" height="50" rx="8"/><text class="mt" x="320" y="215">末日要塞</text>
+        <!-- 軍事基地・病院 -->
+        <rect class="m" x="130" y="110" width="80" height="40" rx="8"/><text class="mt" x="170" y="135">軍事基地</text>
+        <rect class="h" x="430" y="110" width="80" height="40" rx="8"/><text class="mt" x="470" y="135">戦地病院</text>
+        <rect class="h" x="130" y="270" width="80" height="40" rx="8"/><text class="mt" x="170" y="295">戦地病院</text>
+        <rect class="m" x="430" y="270" width="80" height="40" rx="8"/><text class="mt" x="470" y="295">軍事基地</text>
+        <!-- 見張り塔 -->
+        <rect class="w" x="70" y="190" width="60" height="34" rx="8"/><text class="mt" x="100" y="212">見張り塔</text>
+        <rect class="w" x="510" y="190" width="60" height="34" rx="8"/><text class="mt" x="540" y="212">見張り塔</text>
+        <rect class="w" x="290" y="70" width="60" height="34" rx="8"/><text class="mt" x="320" y="92">見張り塔</text>
+        <rect class="w" x="290" y="320" width="60" height="34" rx="8"/><text class="mt" x="320" y="342">見張り塔</text>
+        <!-- 支援基地 -->
+        <rect class="sb" x="200" y="190" width="60" height="34" rx="8"/><text class="mt" x="230" y="212">支援基地</text>
+        <rect class="sb" x="380" y="190" width="60" height="34" rx="8"/><text class="mt" x="410" y="212">支援基地</text>
+        <!-- 浄水輸送隊の道 -->
+        <path class="truck" d="M320 235 C 360 260, 420 290, 470 270 C 520 250, 540 230, 540 224"/>
+        <text class="ms" x="440" y="245" style="fill:#66bb6a">浄水輸送隊の道（例）</text>
+        <!-- 右の凡例 -->
+        <text class="mt" x="790" y="45" style="font-size:15px">拠点の種類と役割</text>
+        <rect class="f" x="650" y="65" width="26" height="20" rx="4"/><text class="ms" x="690" y="80" style="text-anchor:start;fill:#e8eef7">末日要塞：いちばん高得点（中央）</text>
+        <rect class="m" x="650" y="105" width="26" height="20" rx="4"/><text class="ms" x="690" y="120" style="text-anchor:start;fill:#e8eef7">軍事基地：味方の攻撃力アップ</text>
+        <rect class="h" x="650" y="145" width="26" height="20" rx="4"/><text class="ms" x="690" y="160" style="text-anchor:start;fill:#e8eef7">戦地病院：治療が速くなる</text>
+        <rect class="w" x="650" y="185" width="26" height="20" rx="4"/><text class="ms" x="690" y="200" style="text-anchor:start;fill:#e8eef7">見張り塔：数が多い・取りやすい</text>
+        <rect class="sb" x="650" y="225" width="26" height="20" rx="4"/><text class="ms" x="690" y="240" style="text-anchor:start;fill:#e8eef7">支援基地：ワープ回数が増える</text>
+        <text class="ms" x="650" y="290" style="text-anchor:start">・拠点は「3 分間守り切る」と占領が確定</text>
+        <text class="ms" x="650" y="312" style="text-anchor:start">・占領し続けると毎分ポイントが入る</text>
+        <text class="ms" x="650" y="334" style="text-anchor:start">・開始 15 分後に「浄水輸送隊」が出発し、</text>
+        <text class="ms" x="650" y="356" style="text-anchor:start">　通った拠点を持っているギルドに大きな点</text>
+        <text class="ms" x="650" y="378" style="text-anchor:start">・荒れ地にいれば避難所は攻撃されない</text>
+      </svg>
+      </div>
+      <figcaption>図4：試合のマップのイメージ（拠点の配置は回によって変わります）</figcaption>
+    </figure>
+
+    <h3>試合の時間の流れ</h3>
+    <div class="steps">
+      <div class="step"><span class="no">0</span><b>開始〜5 分</b><small>専用マップへワープ。最初は安全地帯に置かれる</small></div>
+      <div class="step"><span class="no">5</span><b>5 分〜</b><small>見張り塔・支援基地が取れるようになる</small></div>
+      <div class="step"><span class="no">10</span><b>10 分〜</b><small>末日要塞・軍事基地・戦地病院が取れるようになる</small></div>
+      <div class="step"><span class="no">15</span><b>15 分〜</b><small>浄水輸送隊（トラック）が出発</small></div>
+      <div class="step"><span class="no">60</span><b>60 分</b><small>終了。ギルドポイントが多いほうの勝ち</small></div>
+    </div>
+
+    <h3>ポイントの入り方（攻略サイトの調べ・目安）</h3>
+    <p class="note">数値はギルドのグレードや時期で変わることがあります。「どれが高いか」の比較として見てください。</p>
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>拠点</th><th>最初に占領</th><th>持ち続ける（1 分ごと）</th><th>輸送隊が通る</th><th>おまけの効果</th></tr></thead>
+      <tbody>
+        <tr><td>末日要塞</td><td class="n">6,000</td><td class="n">1,200</td><td class="n">15,000</td><td>なし</td></tr>
+        <tr><td>軍事基地</td><td class="n">3,000</td><td class="n">600</td><td class="n">9,000</td><td>味方の部隊の攻撃力アップ</td></tr>
+        <tr><td>戦地病院</td><td class="n">3,000</td><td class="n">600</td><td class="n">9,000</td><td>治療の速さアップ</td></tr>
+        <tr><td>見張り塔</td><td class="n">1,200</td><td class="n">240</td><td class="n">9,000</td><td>なし</td></tr>
+        <tr><td>支援基地</td><td class="n">1,200</td><td class="n">240</td><td class="n">9,000</td><td>ギルド全体のワープ回数が増える</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">上はギルドポイント。個人ポイントは別に数えられ（要塞 1,800／病院・基地 1,500／塔・支援基地 1,200 など）、個人のボーナスはこの個人ポイントで決まります。</p>
+
+    <div class="card">
+      <h3 style="margin-top:0">試合で大切な 3 つのこと</h3>
+      <ol>
+        <li><b>拠点は 3 分間守り切って、初めて「占領」になります。</b>入っただけではポイントになりません。</li>
+        <li><b>浄水輸送隊の通り道にある拠点がいちばん大切です。</b>輸送隊が通った拠点を持っているギルドに、9,000〜15,000 ポイントがまとめて入ります。</li>
+        <li><b>負傷した兵士は試合が終わると無料で回復し、資源も奪われません。</b>そのため、戦力を出し惜しみせずに投入できます。</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. ボーナス ===== -->
+<section id="bonus">
+  <div class="wrap">
+    <h2><span class="num">6</span>ボーナス（受け取れる報酬）</h2>
+    <p class="lead">ボーナスは 3 種類あります。どれも<b>メールで届きます</b>（個人ポイントのボーナスだけは、通常の浄水の戦では画面から受け取る形です）。</p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3 style="margin-top:0"><span class="tag tag-green">1</span>エントリーボーナス</h3>
+        <p>申し込みに成功したギルドのメンバー全員に、エントリー終了後にメールで配布されます。</p>
+        <p class="note">※ エントリー終了後に加入したメンバーはもらえません。</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0"><span class="tag tag-blue">2</span>戦闘ボーナス（毎試合）</h3>
+        <p><b>ギルドポイント報酬</b>：その試合で戦場ポイントが 0 より多かった人に配布されます。勝ったときと負けたときで内容が異なります。</p>
+        <p><b>個人ポイント報酬</b>：自分の個人ポイントの段階に応じて配布されます。</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0"><span class="tag tag-gold">3</span>ランキングボーナス</h3>
+        <p>プレーオフに進んだ 8 ギルドに、最終順位（1 位／2 位／3〜4 位／5〜8 位）に応じて配布されます。決勝が終わったあとにまとめて届きます。</p>
+      </div>
+    </div>
+
+    <h3>個人ポイントの段階（毎試合）</h3>
+    <figure>
+      <div class="tiers">
+        <div class="tier t0">0 〜 8,099<small>段階ボーナスなし</small></div>
+        <div class="tier t1">8,100 〜 16,199<small>段階 1</small></div>
+        <div class="tier t2">16,200 〜 32,399<small>段階 2</small></div>
+        <div class="tier t3">32,400 以上<small>段階 3（最高）</small></div>
+      </div>
+      <p class="note" style="text-align:center">例：個人ポイントが 16,399 なら「16,200〜32,399」の段階のボーナス</p>
+      <figcaption>図5：個人ポイントの段階。右へ行くほど豪華になります</figcaption>
+    </figure>
+
+    <h3>目安の数字（ゲーム内の画面より）</h3>
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>ボーナス</th><th>勝ったとき</th><th>負けたとき</th></tr></thead>
+      <tbody>
+        <tr><td>ギルドポイント報酬（水のアイテム）</td><td class="n">10,800</td><td class="n">7,200</td></tr>
+        <tr><td>個人 8,100〜16,199（水のアイテム）</td><td class="n">1,440</td><td class="n">1,200</td></tr>
+        <tr><td>個人 16,200〜32,399（水のアイテム）</td><td class="n">2,880</td><td class="n">2,400</td></tr>
+        <tr><td>個人 32,400 以上（水のアイテム）</td><td class="n">7,200</td><td class="n">6,000</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">「水のアイテム」は、ゲーム内で水色の容器のアイコンで表示される専用のアイテムです。正式な名称はゲーム内の画面でご確認ください。そのほかに加速アイテム・資源・宝箱などが付きます。品目はゲーム内の「ボーナス」の画面（下の原文の写真）でご確認ください。</p>
+
+    <div class="card">
+      <h3 style="margin-top:0">ボーナスの注意</h3>
+      <ul>
+        <li><b>対戦相手がいなかった場合</b>（不戦勝）：参加資格のあるメンバーは、ギルドボーナスと「最高段階」の個人ボーナスがもらえます。</li>
+        <li>ランキングボーナスは、<b>どれかの試合で自分のポイントが 0 より大きい</b>人だけ。1 回も出撃しないともらえません。</li>
+        <li>ギルドが敗退したあとにギルドを抜けても、ランキングボーナスはもらえます。</li>
+        <li>ただし<b>試合の精算が終わる前にギルドを抜けると、その試合のボーナスはもらえません</b>。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. 予想 ===== -->
+<section id="predict">
+  <div class="wrap">
+    <h2><span class="num">7</span>リーグ戦予想（ベット）</h2>
+    <p class="lead">自分のギルドが出ていなくても楽しめる仕組みです。「どちらのギルドが勝つか」を予想して、当たればコインが増えます。</p>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin-top:0">いつ・どうやって</h3>
+        <ul>
+          <li>リーグ戦が<b>プレーオフまで進むと</b>予想が開放されます。</li>
+          <li>各試合の<b>開始前 24 時間</b>が予想の受付時間です。</li>
+          <li>対戦する 2 つのギルドのうち、勝つと思うほうを選びます。</li>
+          <li>プレーオフ期間中は、リーグコインとチャンピオン勲章を<b>リーグショップ・チャンピオンショップ</b>で品物に交換できます。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">攻略記事に書かれているコツ</h3>
+        <ul>
+          <li>倍率は「支持率（みんながどちらに賭けたか）」で決まり、<b>実力差はあまり反映されません</b>。人気だけで選ぶと外れやすいとされています。</li>
+          <li>1 試合に賭けられるのは最大 1,000 枚、払い戻しは最大 7,000 枚、という記事があります（2024 年時点の情報にもとづく目安です。最新の数値はゲーム内の画面でご確認ください）。</li>
+          <li>優勝ギルドを当てる「チャンピオン予想」は、<b>初週の倍率がいちばん高く</b>、週が進むと下がります。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. やってはいけないこと ===== -->
+<section id="ng">
+  <div class="wrap">
+    <h2><span class="num">8</span>注意したいこと（期間中のギルドの移動）</h2>
+    <p class="lead">開催期間中にギルドを抜けたり移ったりすると、<b>参加資格やボーナスを受け取る権利を失うことがあります</b>。もっとも起こりやすい失敗ですので、特にご注意ください。</p>
+    <div class="ng">
+      <div class="card"><div class="mark">×</div><div><b>エントリー後にほかのギルドへ移る</b><p class="note">新しいギルドでは参戦資格がありません。元のギルドに戻れば資格は保てます（グループ分け完了後の話）。</p></div></div>
+      <div class="card"><div class="mark">×</div><div><b>元のギルドを抜けて、別のギルドで「浄水の戦」や「ギルド大乱闘」に出る</b><p class="note">元のギルドに戻っても、その週の水源リーグには参加できません。</p></div></div>
+      <div class="card"><div class="mark">×</div><div><b>試合の精算が終わる前にギルドを抜ける</b><p class="note">その試合のボーナスがもらえません。</p></div></div>
+      <div class="card"><div class="mark">×</div><div><b>エントリー〜グループ分けの間にギルドを抜ける</b><p class="note">ギルドの戦力が変わり、グループ分けとマッチングの結果に影響します。この期間のギルド変更は控えるよう公式に書かれています。</p></div></div>
+      <div class="card"><div class="mark">×</div><div><b>エントリー終了後にギルドに加入して、エントリーボーナスを期待する</b><p class="note">後から加入した人にはエントリーボーナスは配布されません。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. 初心者のコツ ===== -->
+<section id="tips">
+  <div class="wrap">
+    <h2><span class="num">9</span>初心者の方へ：まず押さえておきたい動き方</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin-top:0">試合の前に</h3>
+        <ul>
+          <li><b>自分のギルドの試合時間を確認</b>します（4 つの候補から、相手との組み合わせで決まります）。</li>
+          <li>ギルドが相手と結んでいる<b>取り決め（NAP：攻めない約束）</b>を聞いておきます。どの拠点を攻めてよいか・いけないかが決まっていることが多いためです。</li>
+          <li>資源採集の部隊は開始前に戻しておきます（ワープのときに自動で戻されます）。</li>
+          <li>ワープ・治療のアイテムを少し用意しておきます。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">試合の中で</h3>
+        <ul>
+          <li><b>空いている部隊は必ずどこかの拠点へ出します。</b>兵士 1 人でも入っていれば個人ポイントが入り、ボーナスの段階が上がります。</li>
+          <li>リーダーの集結（ギャザー）の呼びかけには素早く応じます。受付は 1 分しかありません。</li>
+          <li>自分より強い相手には挑まず、味方が取った拠点への<b>増援</b>を優先します。安全で、ギルドへの貢献も大きい動き方です。</li>
+          <li>浄水輸送隊（緑の点線）の通り道にある拠点を守る、または取りに行きます。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3 style="margin-top:0">役割の目安</h3>
+      <div class="table-scroll">
+      <table>
+        <thead><tr><th>あなたの戦力</th><th>役割</th><th>やること</th></tr></thead>
+        <tbody>
+          <tr><td>相手ギルドの上位 10 人に入る</td><td><span class="tag tag-red">攻め</span></td><td>偵察→編成→出撃を素早く。輸送隊の通り道の拠点を優先。</td></tr>
+          <tr><td>それ以外</td><td><span class="tag tag-blue">守り</span></td><td>安全地帯から、味方の拠点へ増援。空き部隊は必ず拠点へ。</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. 原文 ===== -->
+<section id="screens">
+  <div class="wrap">
+    <h2><span class="num">10</span>ゲーム内の原文（画面の写真）</h2>
+    <p class="lead">正確な文言と、ボーナスの品目はこちらでご確認ください。タップすると大きく表示されます。</p>
+    <div class="shots">
+      <figure><a href="img/screen1.jpg" target="_blank" rel="noopener"><img src="img/screen1.jpg" alt="あらすじ・エントリー条件・エントリー・リーグ戦予想" loading="lazy"></a><figcaption>あらすじ／エントリー条件／予想</figcaption></figure>
+      <figure><a href="img/screen2.jpg" target="_blank" rel="noopener"><img src="img/screen2.jpg" alt="試合スケジュール：エントリーとくじ引き・予選" loading="lazy"></a><figcaption>スケジュール（前半）</figcaption></figure>
+      <figure><a href="img/screen3.jpg" target="_blank" rel="noopener"><img src="img/screen3.jpg" alt="試合スケジュール：グループ戦・トーナメント・プレーオフ" loading="lazy"></a><figcaption>スケジュール（後半）</figcaption></figure>
+      <figure><a href="img/screen4.jpg" target="_blank" rel="noopener"><img src="img/screen4.jpg" alt="ボーナス：エントリーボーナス・戦闘ボーナス（勝者）" loading="lazy"></a><figcaption>ボーナス（1）</figcaption></figure>
+      <figure><a href="img/screen5.jpg" target="_blank" rel="noopener"><img src="img/screen5.jpg" alt="ボーナス：戦闘ボーナス（敗者）・ギルドランキングボーナス" loading="lazy"></a><figcaption>ボーナス（2）</figcaption></figure>
+      <figure><a href="img/screen6.jpg" target="_blank" rel="noopener"><img src="img/screen6.jpg" alt="ボーナス：ギルドランキングボーナスと個人ボーナスの表" loading="lazy"></a><figcaption>ボーナス（3）</figcaption></figure>
+      <figure><a href="img/screen7.jpg" target="_blank" rel="noopener"><img src="img/screen7.jpg" alt="他のルール：スペシャルルール" loading="lazy"></a><figcaption>他のルール</figcaption></figure>
+    </div>
+    <p class="note" style="margin-top:14px">画面はゲーム「パズル＆サバイバル」（37GAMES）の説明画面です。ルールは運営の更新で変わることがあります。最新はゲーム内の説明と公式のお知らせをご確認ください。</p>
+
+    <h3>参考にしたページ</h3>
+    <ul class="note">
+      <li>公式 X（2023 年 2 月の告知）：浄水リーグ戦の形式（エリア分けとプレーオフ、ベット）</li>
+      <li><a href="https://pns-mit.org/guild-event/04_rw/" target="_blank" rel="noopener">浄水争奪戦／ギルド大乱闘（pns-mit.org）</a>：拠点のポイント表・時間の流れ</li>
+      <li><a href="https://kenken-zakki.com/puzzles-survival-water-war/" target="_blank" rel="noopener">初心者向け 浄水争奪戦について（kenken-zakki.com）</a>：占領の仕組み・報酬</li>
+      <li><a href="https://gamerch.com/pazusaba-s1/327764" target="_blank" rel="noopener">浄水争奪戦（パズサバwiki）</a>：攻め・守りの役割</li>
+      <li><a href="https://game.maru1244.jp/2021/04/30/%E6%B5%84%E6%B0%B4%E6%88%A6%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%9E%E3%82%84%EF%BC%9F/" target="_blank" rel="noopener">浄水戦イベントとは何ぞや？</a>：初心者向けの流れ</li>
+      <li><a href="https://note.com/ps_subcreator/n/n24b4f65c0962" target="_blank" rel="noopener">浄水リーグ予想の完全攻略（note）</a>：予想（ベット）の倍率と上限</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>本ページは「パズル＆サバイバル」のプレイヤー向けに作成した非公式の解説ページです。ゲームの著作権および商標は 37GAMES に帰属します。</p>
+    <p><a href="/">HiMaWaSa Sync のトップへ</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
