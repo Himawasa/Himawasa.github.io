@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import HashRedirect from './components/HashRedirect'
+import MovedAway from './components/MovedAway'
 import Home from './pages/Home'
 import ServicesPage from './pages/ServicesPage'
 import WorksPage from './pages/WorksPage'
@@ -15,7 +16,6 @@ import PrivacyPage from './pages/PrivacyPage'
 import NotFoundPage from './pages/NotFoundPage'
 // トップを開くだけで全ページ分を読まないよう、重いページは開いたときに読み込む（2026-09-26。JS 572KB が1本だった）
 const AsksDemoPage = lazy(() => import('./pages/AsksDemo/AsksDemoPage'))
-const CardSyncPage = lazy(() => import('./pages/CardSync/CardSyncPage'))
 const IndustryPage = lazy(() => import('./pages/for/IndustryPage'))
 const RkPage = lazy(() => import('./pages/rk/RkPage'))
 import FloatingCta from './pages/Home/sections/FloatingCta'
@@ -103,11 +103,11 @@ function AppShell() {
           <Route path="/supply/" element={<AsksDemoPage />} />
           <Route path="/asks-demo" element={<Navigate to="/supply/" replace />} />
           <Route path="/asks-demo/" element={<Navigate to="/supply/" replace />} />
-          {/* 合言葉つきの見本は役目を終えた。同じ中身を、登録なしで開ける CardSync の案内へ送る。 */}
-          <Route path="/card" element={<Navigate to="/cardsync/" replace />} />
-          <Route path="/card/" element={<Navigate to="/cardsync/" replace />} />
-          <Route path="/cardsync" element={<CardSyncPage />} />
-          <Route path="/cardsync/" element={<CardSyncPage />} />
+          {/* カード発行は 2026-10-26 に別の事業へ移管した。サイトの中から来たときも、移転先のページへ移す */}
+          <Route path="/card" element={<MovedAway to="https://digisapo-dx.com/idcard/" />} />
+          <Route path="/card/" element={<MovedAway to="https://digisapo-dx.com/idcard/" />} />
+          <Route path="/cardsync" element={<MovedAway to="https://digisapo-dx.com/idcard/" />} />
+          <Route path="/cardsync/" element={<MovedAway to="https://digisapo-dx.com/idcard/" />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

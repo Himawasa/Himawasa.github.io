@@ -333,7 +333,8 @@ export const PAGES = {
 }
 
 // CardSync の体験版（Cloud Run）の URL。空のあいだは、説明ページは「まもなく公開」と出し、体験一覧にも載せない。
-export const CARDSYNC_TRIAL_URL = 'https://card.himawasa-sync.com'
+// 2026-10-26 カード発行は別の事業へ移管したため、空にして体験一覧から外す（/cardsync/ は移転先へ移るページ）
+export const CARDSYNC_TRIAL_URL = ''
 
 // よくあるご質問。ページの本文と、検索向けの構造化データ（FAQPage）で同じものを使う。
 // 検索で見せる答えと、ページに書いてある答えが違うと、検索側に嫌われるため。
@@ -534,7 +535,6 @@ export const PUBLIC_PAGES = [
   { path: '/ai/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.6' },
   { path: '/contact/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.7' },
   { path: '/try/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.6' },
-  { path: '/cardsync/', lastmod: '2026-09-21', changefreq: 'weekly', priority: '0.85' },
   { path: '/privacy/', lastmod: '2026-08-17', changefreq: 'yearly', priority: '0.2' },
   { path: '/kintone-dx/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
   { path: '/pro-dx/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
@@ -628,7 +628,6 @@ export function generateLlmsTxt() {
 - [Power Automate の自動化](https://himawasa-sync.com/power-automate/): デスクトップ版（Windows）とクラウド版（Microsoft 365）で、転記・集計・ファイル整理・通知を自動に。てますいとは直接つながず、人が確かめた文章の先の作業を受け持つ。作る費用はいただかず、使い続ける月額を作る前にお見積り
 - [kintone の導入・見直しと自動化](https://himawasa-sync.com/kintone-dx/): 今のExcelからの移し替え、使われていない kintone の見直し、GAS・Power Automate での他システム・メール・チャットとのつなぎ込み。書く手間は てますい（直接はつながず、確かめて貼る）。導入はお見積り
 - [キーエンスRK シナリオ作成代行](https://himawasa-sync.com/rk/): シナリオ作成代行1万円から。代理店ではない。ライセンスは売らない
-- [社員証・来訪者証の社内発行 CardSync](https://himawasa-sync.com/cardsync/): Excelの名簿と顔写真ZIPから、社員証・来訪者証・立入許可証をブラウザで発行。登録不要で体験できる
 
 ## 事実（引用してよい）
 - 屋号は HiMaWaSa Sync。個人事業。開業は2024年。
@@ -1157,7 +1156,6 @@ export const STATIC_LINKS = [
   { href: '/for/pro/', label: '士業の方' },
   { href: '/for/biz/', label: '中小企業の方' },
   { href: '/try/', label: '無料体験' },
-  { href: '/cardsync/', label: 'CardSync' },
   { href: '/services/', label: 'サービス' },
   { href: '/works/', label: '実績' },
   { href: '/power-automate/', label: 'Power Automate の自動化' },

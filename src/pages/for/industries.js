@@ -116,7 +116,6 @@ export const INDUSTRIES = {
       { href: '/shiftsync/', title: '介護のシフト表自動化', desc: 'KING OF TIMEの実績から、今の勤務表様式へ。', cta: '介護のシフト表自動化を見る' },
       { href: '/medical-dx/', title: '病院・医療機関のDX', desc: 'FAX・カルテ・日計・画像など、現場で使ってきた仕組みをご紹介します。', cta: '病院・医療機関のDXを見る' },
       { href: '/rk/care/', title: 'キーエンスRK導入施設向けサポート', desc: '勤怠データからシフト表へ転記するシナリオ作成をお手伝いします。', cta: 'RK作成代行の案内を見る' },
-      { href: '/cardsync/', title: '職員証・面会証をご自分で', desc: '名簿と顔写真から、職員証や面会証をその場で発行。登録なしで試せます。', cta: 'CardSync を見る' },
     ],
     faqs: [
       {
@@ -181,7 +180,6 @@ export const INDUSTRIES = {
       { href: '/rk/biz/', title: '中小企業RK', desc: 'キーエンスRKで帳票転記とExcel整理。工場RKも。', cta: '中小企業RKの案内を見る' },
       { href: '/kintone-dx/', title: 'kintone の導入・見直し', desc: '今のExcelからの移し替えと、使われていない kintone の見直し。てますい・自動化とも組み合わせて。', cta: 'kintone の案内を見る' },
       { href: '/power-automate/', title: 'Power Automate の自動化', desc: 'デスクトップ版もクラウド版も。転記・集計・ファイル整理・通知を、今のExcelとMicrosoft 365のまま。', cta: 'Power Automate の案内を見る' },
-      { href: '/cardsync/', title: '社員証・来訪者証の社内発行', desc: 'Excel の名簿から、社員証や来訪者証をその場で。登録なしで試せます。', cta: 'CardSync を見る' },
     ],
     faqs: [
       {
@@ -257,7 +255,6 @@ export const INDUSTRIES = {
     links: [
       { href: '/temasui/factory/', title: 'てますい 工場版（工場のアシスタント）', desc: '作業日報・引き継ぎ・設備のメンテ記録などの下書きと、工具・備品チェック。1か月無料。', cta: 'てますい 工場版を見る' },
       { href: '/rk/factory/', title: 'キーエンスRKをお使いの工場は', desc: 'キーエンスRKをご導入済みの工場向けに、試験・実績・発注のシナリオ作成をお手伝いします。', cta: '工場のRKの案内を見る' },
-      { href: '/cardsync/', title: '社員証・入館証を社内で', desc: 'Excel の名簿から、社員証や入館証をその場で発行。登録なしで試せます。', cta: 'CardSync を見る' },
     ],
     faqs: [
       {

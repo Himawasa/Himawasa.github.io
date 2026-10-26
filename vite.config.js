@@ -54,6 +54,25 @@ function lastmodOf(p) {
   return (src && gitDate(src)) || p.lastmod
 }
 
+/** 移転したページの置き換え（すぐに移転先へ移る。正規の住所も移転先にする） */
+function movedHtml(to) {
+  return `<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ページを移転しました</title>
+<link rel="canonical" href="${to}" />
+<meta http-equiv="refresh" content="0; url=${to}" />
+<script>location.replace(${JSON.stringify(to)})</script>
+</head>
+<body>
+<p>このページは移転しました。<a href="${to}">移転先のページ</a>へお進みください。</p>
+</body>
+</html>
+`
+}
+
 export default defineConfig({
   root: projectRoot,
   base: '/',
@@ -107,7 +126,7 @@ export default defineConfig({
         // GH Pages が未知のURLに返すページ。ホームのtitle/canonicalを名乗らせない
         writeFileSync(join(dist, '404.html'), generateRouteHtml(PAGES.notFound, assets))
         for (const key of [
-          'services', 'works', 'about', 'ai', 'contact', 'try', 'privacy', 'supply', 'card', 'cardsync',
+          'services', 'works', 'about', 'ai', 'contact', 'try', 'privacy', 'supply',
           'forPro', 'forCare', 'forBiz', 'forFactory',
           'rk', 'rkFactory', 'rkHospital', 'rkCare', 'rkPro', 'rkBiz', 'rkClick',
         ]) {
@@ -115,6 +134,13 @@ export default defineConfig({
           const dir = join(dist, page.path.replace(/^\//, ''))
           mkdirSync(dir, { recursive: true })
           writeFileSync(join(dir, 'index.html'), generateRouteHtml(page, assets))
+        }
+        // カード発行は 2026-10-26 に別の事業へ移管した。GitHub Pages は恒久的な転送を出せないため、
+        // 正規の住所を移転先にし、すぐに移るページを置く（検索エンジンは転送と同じように扱う）
+        for (const dirName of ['card', 'cardsync']) {
+          const dir = join(dist, dirName)
+          mkdirSync(dir, { recursive: true })
+          writeFileSync(join(dir, 'index.html'), movedHtml('https://digisapo-dx.com/idcard/'))
         }
       },
     },
