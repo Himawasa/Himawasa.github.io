@@ -61,13 +61,13 @@ function movedHtml(to) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ページを移転しました</title>
+<title>社員証・来訪者証の発行（旧 CardSync）は移転いたしました</title>
 <link rel="canonical" href="${to}" />
 <meta http-equiv="refresh" content="0; url=${to}" />
 <script>location.replace(${JSON.stringify(to)})</script>
 </head>
 <body>
-<p>このページは移転しました。<a href="${to}">移転先のページ</a>へお進みください。</p>
+<p>社員証・来訪者証の発行（旧 CardSync）は、移転いたしました。自動で切り替わらない場合は、<a href="${to}">移転先のページ（IDカードかんたん発行）</a>へお進みください。</p>
 </body>
 </html>
 `

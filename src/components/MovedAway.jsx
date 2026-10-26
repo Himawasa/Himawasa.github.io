@@ -7,7 +7,7 @@ export default function MovedAway({ to }) {
   }, [to])
   return (
     <main style={{ padding: '120px 20px', textAlign: 'center' }}>
-      <p>このページは移転しました。<a href={to}>移転先のページ</a>へお進みください。</p>
+      <p>社員証・来訪者証の発行（旧 CardSync）は、移転いたしました。自動で切り替わらない場合は、<a href={to}>移転先のページ（IDカードかんたん発行）</a>へお進みください。</p>
     </main>
   )
 }
