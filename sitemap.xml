@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/care/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -153,7 +153,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/pro/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -175,7 +175,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/factory/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -197,7 +197,7 @@
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/biz/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -258,16 +258,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
 
-  </url>
-  <url>
-    <loc>https://himawasa-sync.com/cardsync/</loc>
-    <lastmod>2026-09-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://himawasa-sync.com/cardsync/og-cardsync.png</image:loc>
-      <image:title>CardSync。いつもの名簿から、社員証・来訪者証・立入許可証をそのまま発行</image:title>
-    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/privacy/</loc>
