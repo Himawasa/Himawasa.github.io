@@ -9,7 +9,7 @@ const services = [
     icon: '⚙️', title: 'RKシナリオ作成代行',
     desc: 'キーエンスRKシリーズ／RK-10のシナリオ作成を代行します。工場の試験転記、病院の日計、介護のシフト、士業の請求など、「自分でシナリオを組む時間がない」という現場をしっかりサポートします。',
     list: ['シナリオ作成代行 1万円から', '運用保守代行 月5,000円から', '業種ごとの覚える操作を掲載'],
-    to: '/rk',
+    to: 'https://digisapo-dx.com/rk/',
   },
   {
     icon: '📱', title: '業務アプリ開発',
@@ -80,7 +80,8 @@ export default function Services() {
                 whileHover={{ y: -10, boxShadow: '0 16px 40px rgba(180,140,40,0.16)' }}
                 transition={{ type: 'spring', stiffness: 260, damping: 20 }}
               >
-                {to ? <Link to={to} className="service-card-link">{inner}</Link> : inner}
+                {/* RK は 2026-10-29 に別の事業へ移管したため、外の住所はふつうのリンクで開く */}
+                {to ? (to.startsWith('http') ? <a href={to} className="service-card-link">{inner}</a> : <Link to={to} className="service-card-link">{inner}</Link>) : inner}
               </motion.div>
             )
           })}

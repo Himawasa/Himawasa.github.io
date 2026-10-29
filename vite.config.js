@@ -128,7 +128,6 @@ export default defineConfig({
         for (const key of [
           'services', 'works', 'about', 'ai', 'contact', 'try', 'privacy', 'supply',
           'forPro', 'forCare', 'forBiz', 'forFactory',
-          'rk', 'rkFactory', 'rkHospital', 'rkCare', 'rkPro', 'rkBiz', 'rkClick',
         ]) {
           const page = PAGES[key]
           const dir = join(dist, page.path.replace(/^\//, ''))
@@ -141,6 +140,12 @@ export default defineConfig({
           const dir = join(dist, dirName)
           mkdirSync(dir, { recursive: true })
           writeFileSync(join(dir, 'index.html'), movedHtml('https://digisapo-dx.com/idcard/'))
+        }
+        // RK のシナリオ作成代行も 2026-10-29 に別の事業へ移管した。業種別の6ページも、移転先の1ページへまとめる
+        for (const dirName of ['rk', 'rk/factory', 'rk/hospital', 'rk/care', 'rk/pro', 'rk/biz', 'rk/click']) {
+          const dir = join(dist, dirName)
+          mkdirSync(dir, { recursive: true })
+          writeFileSync(join(dir, 'index.html'), movedHtml('https://digisapo-dx.com/rk/'))
         }
       },
     },

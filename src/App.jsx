@@ -17,7 +17,6 @@ import NotFoundPage from './pages/NotFoundPage'
 // トップを開くだけで全ページ分を読まないよう、重いページは開いたときに読み込む（2026-09-26。JS 572KB が1本だった）
 const AsksDemoPage = lazy(() => import('./pages/AsksDemo/AsksDemoPage'))
 const IndustryPage = lazy(() => import('./pages/for/IndustryPage'))
-const RkPage = lazy(() => import('./pages/rk/RkPage'))
 import FloatingCta from './pages/Home/sections/FloatingCta'
 import { useGaPageView } from './lib/ga'
 import './index.css'
@@ -85,29 +84,30 @@ function AppShell() {
           <Route path="/for/factory" element={<IndustryPage kind="factory" />} />
           <Route path="/for/factory/" element={<IndustryPage kind="factory" />} />
           <Route path="/for/biz/" element={<IndustryPage kind="biz" />} />
-          <Route path="/rk" element={<RkPage kind="hub" />} />
-          <Route path="/rk/" element={<RkPage kind="hub" />} />
-          <Route path="/rk/factory" element={<RkPage kind="factory" />} />
-          <Route path="/rk/factory/" element={<RkPage kind="factory" />} />
-          <Route path="/rk/hospital" element={<RkPage kind="hospital" />} />
-          <Route path="/rk/hospital/" element={<RkPage kind="hospital" />} />
-          <Route path="/rk/care" element={<RkPage kind="care" />} />
-          <Route path="/rk/care/" element={<RkPage kind="care" />} />
-          <Route path="/rk/pro" element={<RkPage kind="pro" />} />
-          <Route path="/rk/pro/" element={<RkPage kind="pro" />} />
-          <Route path="/rk/biz" element={<RkPage kind="biz" />} />
-          <Route path="/rk/biz/" element={<RkPage kind="biz" />} />
-          <Route path="/rk/click" element={<RkPage kind="click" />} />
-          <Route path="/rk/click/" element={<RkPage kind="click" />} />
+          {/* RK のシナリオ作成代行は 2026-10-29 に別の事業へ移管した。サイトの中から来たときも、移転先のページへ移す */}
+          <Route path="/rk" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/factory" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/factory/" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/hospital" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/hospital/" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/care" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/care/" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/pro" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/pro/" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/biz" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/biz/" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/click" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
+          <Route path="/rk/click/" element={<MovedAway to="https://digisapo-dx.com/rk/" what="RK のシナリオ作成代行" label="RPA作成代行" />} />
           <Route path="/supply" element={<AsksDemoPage />} />
           <Route path="/supply/" element={<AsksDemoPage />} />
           <Route path="/asks-demo" element={<Navigate to="/supply/" replace />} />
           <Route path="/asks-demo/" element={<Navigate to="/supply/" replace />} />
           {/* カード発行は 2026-10-26 に別の事業へ移管した。サイトの中から来たときも、移転先のページへ移す */}
-          <Route path="/card" element={<MovedAway to="https://digisapo-dx.com/idcard/" />} />
-          <Route path="/card/" element={<MovedAway to="https://digisapo-dx.com/idcard/" />} />
-          <Route path="/cardsync" element={<MovedAway to="https://digisapo-dx.com/idcard/" />} />
-          <Route path="/cardsync/" element={<MovedAway to="https://digisapo-dx.com/idcard/" />} />
+          <Route path="/card" element={<MovedAway to="https://digisapo-dx.com/idcard/" what="社員証・来訪者証の発行（旧 CardSync）" label="IDカードかんたん発行" />} />
+          <Route path="/card/" element={<MovedAway to="https://digisapo-dx.com/idcard/" what="社員証・来訪者証の発行（旧 CardSync）" label="IDカードかんたん発行" />} />
+          <Route path="/cardsync" element={<MovedAway to="https://digisapo-dx.com/idcard/" what="社員証・来訪者証の発行（旧 CardSync）" label="IDカードかんたん発行" />} />
+          <Route path="/cardsync/" element={<MovedAway to="https://digisapo-dx.com/idcard/" what="社員証・来訪者証の発行（旧 CardSync）" label="IDカードかんたん発行" />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

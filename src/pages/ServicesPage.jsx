@@ -41,14 +41,14 @@ export default function ServicesPage() {
               <span>介護・病院の案内を見る →</span>
             </div>
           </Link>
-          <Link to="/rk" className="services-rk-card">
+          <a href="https://digisapo-dx.com/rk/" className="services-rk-card">
             <img src="/dm/dm-smb-cover.jpg" alt="" width="440" height="280" />
             <div>
               <h2>RKシナリオ作成代行</h2>
               <p>キーエンス製RPA「RKシリーズ」「RK-10」のシナリオ作成を代行します。「導入したものの多忙でシナリオを作れない」現場をお手伝いします。</p>
               <span>RKシリーズの代行を見る →</span>
             </div>
-          </Link>
+          </a>
         </div>
       </section>
       <Services />

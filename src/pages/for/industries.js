@@ -36,7 +36,7 @@ export const INDUSTRIES = {
     ],
     links: [
       { href: '/temasui/pro/', title: 'てますい 士業版（士業事務所のアシスタント）', desc: '面談記録・顧問先への書類のお願い・お知らせ文・電話メモの下書きと、預かり書類チェック。1か月無料。', cta: 'てますい 士業版を見る' },
-      { href: '/rk/pro/', title: '士業RK', desc: 'キーエンスRKで台帳・期日・請求。シナリオ1万円から。', cta: '士業RKの案内を見る' },
+      { href: 'https://digisapo-dx.com/rk/', title: '士業RK', desc: 'キーエンスRKで台帳・期日・請求。シナリオ1万円から。', cta: '士業RKの案内を見る' },
       { href: '/pro-dx/', title: '何から手をつけるか選ぶ', desc: '書く手間・くり返しの手間・まとめる手間に分けて、合う方法を選べる案内です。', cta: '選び方の案内を見る' },
     ],
     faqs: [
@@ -115,7 +115,7 @@ export const INDUSTRIES = {
       { href: '/Guide/care/', title: '施設で改善できること', desc: '持ち物・シフト・予定・常勤換算・チラシなど、一覧でご覧いただけます。', cta: '施設で改善できること一覧を見る' },
       { href: '/shiftsync/', title: '介護のシフト表自動化', desc: 'KING OF TIMEの実績から、今の勤務表様式へ。', cta: '介護のシフト表自動化を見る' },
       { href: '/medical-dx/', title: '病院・医療機関のDX', desc: 'FAX・カルテ・日計・画像など、現場で使ってきた仕組みをご紹介します。', cta: '病院・医療機関のDXを見る' },
-      { href: '/rk/care/', title: 'キーエンスRK導入施設向けサポート', desc: '勤怠データからシフト表へ転記するシナリオ作成をお手伝いします。', cta: 'RK作成代行の案内を見る' },
+      { href: 'https://digisapo-dx.com/rk/', title: 'キーエンスRK導入施設向けサポート', desc: '勤怠データからシフト表へ転記するシナリオ作成をお手伝いします。', cta: 'RK作成代行の案内を見る' },
     ],
     faqs: [
       {
@@ -177,7 +177,7 @@ export const INDUSTRIES = {
     ],
     links: [
       { href: '/temasui/biz/', title: 'てますい 中小企業版（中小企業のアシスタント）', desc: '業務日報・議事録・お客さまへのメール・電話メモの下書きと、備品・在庫チェック。1か月無料。', cta: 'てますい 中小企業版を見る' },
-      { href: '/rk/biz/', title: '中小企業RK', desc: 'キーエンスRKで帳票転記とExcel整理。工場RKも。', cta: '中小企業RKの案内を見る' },
+      { href: 'https://digisapo-dx.com/rk/', title: '中小企業RK', desc: 'キーエンスRKで帳票転記とExcel整理。工場RKも。', cta: '中小企業RKの案内を見る' },
       { href: '/kintone-dx/', title: 'kintone の導入・見直し', desc: '今のExcelからの移し替えと、使われていない kintone の見直し。てますい・自動化とも組み合わせて。', cta: 'kintone の案内を見る' },
       { href: '/power-automate/', title: 'Power Automate の自動化', desc: 'デスクトップ版もクラウド版も。転記・集計・ファイル整理・通知を、今のExcelとMicrosoft 365のまま。', cta: 'Power Automate の案内を見る' },
     ],
@@ -242,7 +242,7 @@ export const INDUSTRIES = {
         result: '写す作業だけを減らします。確認は現場の方が行います。',
         image: '/temasui/factory/img/photo-data.jpg',
         imageAlt: '品質管理室で、測定値を表計算ソフトに入力している作業者（イメージ）',
-        href: '/rk/factory/',
+        href: 'https://digisapo-dx.com/rk/',
         hrefLabel: '工場のRKの案内を見る',
       },
     ],
@@ -254,7 +254,7 @@ export const INDUSTRIES = {
     ],
     links: [
       { href: '/temasui/factory/', title: 'てますい 工場版（工場のアシスタント）', desc: '作業日報・引き継ぎ・設備のメンテ記録などの下書きと、工具・備品チェック。1か月無料。', cta: 'てますい 工場版を見る' },
-      { href: '/rk/factory/', title: 'キーエンスRKをお使いの工場は', desc: 'キーエンスRKをご導入済みの工場向けに、試験・実績・発注のシナリオ作成をお手伝いします。', cta: '工場のRKの案内を見る' },
+      { href: 'https://digisapo-dx.com/rk/', title: 'キーエンスRKをお使いの工場は', desc: 'キーエンスRKをご導入済みの工場向けに、試験・実績・発注のシナリオ作成をお手伝いします。', cta: '工場のRKの案内を見る' },
     ],
     faqs: [
       {

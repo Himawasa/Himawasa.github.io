@@ -539,13 +539,6 @@ export const PUBLIC_PAGES = [
   { path: '/kintone-dx/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
   { path: '/pro-dx/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
   { path: '/power-automate/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
-  { path: '/rk/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.5' },
-  { path: '/rk/care/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.4' },
-  { path: '/rk/hospital/', lastmod: '2026-08-26', changefreq: 'monthly', priority: '0.4' },
-  { path: '/rk/factory/', lastmod: '2026-08-25', changefreq: 'monthly', priority: '0.4' },
-  { path: '/rk/pro/', lastmod: '2026-08-25', changefreq: 'monthly', priority: '0.4' },
-  { path: '/rk/biz/', lastmod: '2026-08-25', changefreq: 'monthly', priority: '0.4' },
-  { path: '/rk/click/', lastmod: '2026-08-25', changefreq: 'monthly', priority: '0.4' },
 ]
 
 function pageOgUrl(page) {
@@ -627,7 +620,6 @@ export function generateLlmsTxt() {
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
 - [Power Automate の自動化](https://himawasa-sync.com/power-automate/): デスクトップ版（Windows）とクラウド版（Microsoft 365）で、転記・集計・ファイル整理・通知を自動に。てますいとは直接つながず、人が確かめた文章の先の作業を受け持つ。作る費用はいただかず、使い続ける月額を作る前にお見積り
 - [kintone の導入・見直しと自動化](https://himawasa-sync.com/kintone-dx/): 今のExcelからの移し替え、使われていない kintone の見直し、GAS・Power Automate での他システム・メール・チャットとのつなぎ込み。書く手間は てますい（直接はつながず、確かめて貼る）。導入はお見積り
-- [キーエンスRK シナリオ作成代行](https://himawasa-sync.com/rk/): シナリオ作成代行1万円から。代理店ではない。ライセンスは売らない
 
 ## 事実（引用してよい）
 - 屋号は HiMaWaSa Sync。個人事業。開業は2024年。
@@ -688,13 +680,6 @@ export function generateLlmsFullTxt() {
 入口: https://himawasa-sync.com/for/pro/
 - 顧客台帳、期日のお知らせ、請求・届いた書類の振り分け。
 - 顧問先名はサイトに出さない。
-
-## キーエンスRK シナリオ作成代行
-入口: https://himawasa-sync.com/rk/
-RKシリーズ／RK-10のシナリオ作成代行と、止まったあとの運用保守だけ。
-作成 10,000円から。保守 月5,000円から。
-ライセンスは売らない。契約はメーカーへ。
-介護・病院の自動化にRKは必須ではない。お使いの現場では、シナリオ作成代行も承る。
 
 ## 方針
 初回は無料・30分。
@@ -1127,13 +1112,6 @@ function navHtml() {
       <a href="/temasui/pro/">てますい 士業版</a>
       <a href="/temasui/security/">てますい セキュリティとデータの取り扱い</a>
       <a href="/power-automate/">Power Automate の自動化</a>
-      <a href="/rk/">RKシナリオ作成代行</a>
-      <a href="/rk/factory/">工場RK</a>
-      <a href="/rk/hospital/">病院RK</a>
-      <a href="/rk/care/">介護RK</a>
-      <a href="/rk/pro/">士業RK</a>
-      <a href="/rk/biz/">中小企業RK</a>
-      <a href="/rk/click/">クリックRK</a>
       <a href="/kintone-dx/">kintone導入支援</a>
       <a href="/pro-dx/">士業事務所の業務効率化、どこから始める？</a>
       <a href="/shiftsync/">シフトシンク</a>
@@ -1159,7 +1137,6 @@ export const STATIC_LINKS = [
   { href: '/services/', label: 'サービス' },
   { href: '/works/', label: '実績' },
   { href: '/power-automate/', label: 'Power Automate の自動化' },
-  { href: '/rk/', label: 'RKシナリオ作成代行' },
   { href: '/about/', label: '会社概要' },
   { href: '/contact/', label: 'お問い合わせ' },
 ]

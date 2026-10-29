@@ -43,7 +43,7 @@ export default function Pricing() {
           <div className="rk-price-card">
             <p className="rk-price-label">業種ごとの詳細</p>
             <p className="rk-price-num" style={{ fontSize: 22 }}>工場 / 病院 / 介護</p>
-            <p><a href="/rk/" style={{ fontWeight: 800, color: '#8A6D00' }}>RK作成代行の詳細を見る →</a></p>
+            <p><a href="https://digisapo-dx.com/rk/" style={{ fontWeight: 800, color: '#8A6D00' }}>RK作成代行の詳細を見る →</a></p>
           </div>
         </div>
 
