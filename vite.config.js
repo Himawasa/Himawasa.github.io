@@ -55,19 +55,20 @@ function lastmodOf(p) {
 }
 
 /** 移転したページの置き換え（すぐに移転先へ移る。正規の住所も移転先にする） */
-function movedHtml(to) {
+// what は移転したもの、label は移転先のページの名前（カード発行・RK で共通に使う。React 側の MovedAway と同じ文面）
+function movedHtml(to, what, label) {
   return `<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>社員証・来訪者証の発行（旧 CardSync）は移転いたしました</title>
+<title>${what}は移転いたしました</title>
 <link rel="canonical" href="${to}" />
 <meta http-equiv="refresh" content="0; url=${to}" />
 <script>location.replace(${JSON.stringify(to)})</script>
 </head>
 <body>
-<p>社員証・来訪者証の発行（旧 CardSync）は、移転いたしました。自動で切り替わらない場合は、<a href="${to}">移転先のページ（IDカードかんたん発行）</a>へお進みください。</p>
+<p>${what}は、移転いたしました。自動で切り替わらない場合は、<a href="${to}">移転先のページ（${label}）</a>へお進みください。</p>
 </body>
 </html>
 `
@@ -139,13 +140,13 @@ export default defineConfig({
         for (const dirName of ['card', 'cardsync']) {
           const dir = join(dist, dirName)
           mkdirSync(dir, { recursive: true })
-          writeFileSync(join(dir, 'index.html'), movedHtml('https://digisapo-dx.com/idcard/'))
+          writeFileSync(join(dir, 'index.html'), movedHtml('https://digisapo-dx.com/idcard/', '社員証・来訪者証の発行（旧 CardSync）', 'IDカードかんたん発行'))
         }
         // RK のシナリオ作成代行も 2026-10-29 に別の事業へ移管した。業種別の6ページも、移転先の1ページへまとめる
         for (const dirName of ['rk', 'rk/factory', 'rk/hospital', 'rk/care', 'rk/pro', 'rk/biz', 'rk/click']) {
           const dir = join(dist, dirName)
           mkdirSync(dir, { recursive: true })
-          writeFileSync(join(dir, 'index.html'), movedHtml('https://digisapo-dx.com/rk/'))
+          writeFileSync(join(dir, 'index.html'), movedHtml('https://digisapo-dx.com/rk/', 'RK のシナリオ作成代行', 'RPA作成代行'))
         }
       },
     },
