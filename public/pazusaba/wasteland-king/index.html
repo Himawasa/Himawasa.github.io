@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>荒野の王 図解 / Wasteland King Visual Guide | パズル＆サバイバル</title>
+<meta name="description" content="パズル＆サバイバルの「荒野の王（Wasteland King）」を、図だけで分かるように日本語と英語でまとめました。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🏜️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#FFFDF5;--paper2:#FFF8E1;--ink:#141414;--ink2:#5F5F5F;--yel:#FFD000;--yel2:#FFF6CC;
+  --red:#E53935;--green:#2E7D32;--blue:#1E88E5;--brown:#6D4C41;
+}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP","Kalam",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;overflow-x:hidden;word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--blue)}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+h1,h2,h3{line-height:1.4;font-weight:900}
+h2{font-size:1.5rem;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+h2 .num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--yel);font-size:1.1rem;flex:none;border:3px solid var(--ink)}
+h2 .ic{font-size:1.5rem}
+h2 .t{background:linear-gradient(transparent 55%,var(--yel) 55%);padding:0 4px}
+section{padding:36px 0}
+section:nth-of-type(even){background:var(--paper2)}
+.one{color:var(--ink2);font-size:1rem;margin:0 0 14px}
+.one b{color:var(--ink)}
+.note{font-size:.85rem;color:var(--ink2);margin-top:10px}
+/* 言語の切り替え */
+.lang-bar{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;padding:8px 0}
+.lang-bar .wrap{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+.lang-bar button{font:inherit;font-weight:700;border:2px solid var(--yel);background:transparent;color:#fff;border-radius:999px;padding:4px 14px;cursor:pointer}
+.lang-bar button[aria-pressed="true"]{background:var(--yel);color:var(--ink)}
+.lang-bar span{font-size:.85rem;color:#ddd}
+body[data-lang="ja"] .en{display:none !important}
+body[data-lang="en"] .ja{display:none !important}
+.ja{display:block}.en{display:block;color:var(--ink2);font-size:.92em}
+b .en,strong .en{color:var(--ink)}
+.tile .en{font-size:.88rem}
+/* 札 */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.tile{background:#fff;border:3px solid var(--ink);border-radius:16px;padding:16px 12px;text-align:center;box-shadow:4px 4px 0 var(--ink)}
+.tile .ic{font-size:2.5rem;line-height:1.2;display:block}
+.tile .big{font-size:1.5rem;font-weight:900;color:var(--ink);display:block;line-height:1.3;background:linear-gradient(transparent 60%,var(--yel) 60%);display:inline-block;padding:0 4px}
+.tile b{display:block;font-size:1.02rem;margin-top:6px;line-height:1.4}
+.tile small{display:block;color:var(--ink2);font-size:.85rem;margin-top:4px;line-height:1.5}
+.tile.yes{background:#E8F5E9;border-color:var(--green);box-shadow:4px 4px 0 var(--green)}
+.tile.no{background:#FFEBEE;border-color:var(--red);box-shadow:4px 4px 0 var(--red)}
+.tile.key{background:var(--yel2)}
+.tile .no-num{display:inline-block;width:32px;height:32px;line-height:28px;border-radius:50%;background:var(--ink);color:var(--yel);font-weight:900;margin-bottom:6px;border:2px solid var(--ink)}
+/* 図 */
+figure{margin:12px auto;max-width:520px}
+figure svg{width:100%;height:auto;display:block;border:3px solid #141414;border-radius:16px;box-shadow:4px 4px 0 #141414}
+figcaption{font-size:.9rem;color:var(--ink2);margin-top:8px;text-align:center}
+figcaption b{color:var(--ink)}
+/* 用語 */
+.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.term{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center}
+.term .ic{font-size:1.8rem}
+.term b{display:block;font-size:1rem}
+.term small{display:block;color:var(--ink2);font-size:.85rem;line-height:1.5}
+/* いちばん上 */
+.hero{background:var(--paper);padding:36px 0 28px;text-align:center;border-bottom:3px dashed var(--ink)}
+.hero .sub{font-weight:700;letter-spacing:.08em;font-size:.9rem;color:var(--ink2)}
+.hero h1{font-size:clamp(1.6rem,5vw,2.4rem);margin:6px 0}
+.hero h1 .t{background:linear-gradient(transparent 55%,var(--yel) 55%);padding:0 6px}
+.hero .tiles{margin-top:22px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px}
+.toc a{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:5px 12px;text-decoration:none;color:var(--ink);font-size:.88rem;font-weight:700}
+details{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 16px;margin-top:16px;font-size:.9rem;color:var(--ink2)}
+summary{cursor:pointer;color:var(--ink);font-weight:700}
+details ul{padding-left:1.3em;margin-top:8px}
+footer{padding:28px 0 48px;text-align:center;color:var(--ink2);font-size:.85rem;border-top:3px dashed var(--ink)}
+footer a{color:var(--ink2)}
+.m-only{display:none}
+@media (max-width:700px){.pc-only{display:none}.m-only{display:block}}
+@media (max-width:600px){h2{font-size:1.25rem}.tile .ic{font-size:2.2rem}.tile .big{font-size:1.3rem}}
+</style>
+</head>
+<body data-lang="both">
+
+<div class="lang-bar">
+  <div class="wrap">
+    <span>🌐 Language</span>
+    <button type="button" data-set="both" aria-pressed="true">日本語 + English</button>
+    <button type="button" data-set="ja" aria-pressed="false">日本語</button>
+    <button type="button" data-set="en" aria-pressed="false">English</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="sub">Puzzles &amp; Survival</div>
+    <h1>🏜️ <span class="t">荒野の王</span><br><span class="t" style="font-size:.8em">Wasteland King</span></h1>
+    <p class="one"><span class="ja">3 つの国が 24 時間、まん中の「実験基地（HUB）」を取り合うイベント。図だけで分かるようにまとめました。</span><span class="en">Three states fight for the central Hub for 24 hours. This guide explains it with pictures only.</span></p>
+    <div class="tiles">
+      <div class="tile"><span class="ic">🚩</span><span class="big">3</span><b><span class="ja">つの国で戦う</span><span class="en">states</span></b></div>
+      <div class="tile"><span class="ic">⏰</span><span class="big">24h</span><b><span class="ja">土 19:00 →​日 19:00</span><span class="en">Sat 19:00 → Sun 19:00 (JST)</span></b></div>
+      <div class="tile key"><span class="ic">🏭</span><span class="big">HUB</span><b><span class="ja">8 時間​つづけて​守れば勝ち</span><span class="en">Hold it 8 hours straight = win</span></b></div>
+    </div>
+    <nav class="toc">
+      <a href="#map"><span class="ja">地図</span><span class="en">Map</span></a>
+      <a href="#win"><span class="ja">勝ち方</span><span class="en">How to win</span></a>
+      <a href="#points"><span class="ja">ポイント</span><span class="en">Points</span></a>
+      <a href="#hospital"><span class="ja">病院と深部</span><span class="en">Infirmary</span></a>
+      <a href="#taxi"><span class="ja">タクシー</span><span class="en">Taxis</span></a>
+      <a href="#orders"><span class="ja">指示の読み方</span><span class="en">Reading orders</span></a>
+      <a href="#dodont"><span class="ja">やる・やらない</span><span class="en">Do / Don't</span></a>
+      <a href="#after"><span class="ja">終わったあと</span><span class="en">After</span></a>
+      <a href="#words"><span class="ja">用語</span><span class="en">Glossary</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- 1 地図 -->
+<section id="map">
+  <div class="wrap">
+    <h2><span class="num">1</span><span class="ic">🗺️</span><span class="t"><span class="ja">地図：攻めてよいのは「黒土」の中だけ</span><span class="en">Map: fighting happens only in the black soil</span></span></h2>
+    <figure>
+      <svg viewBox="0 0 420 600" role="img" aria-label="荒野の王の地図"><defs><filter id="hand" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.5"/></filter><marker id="ar2" markerWidth="12" markerHeight="12" refX="6" refY="9" orient="0"><path d="M1 1 L6 10 L11 1" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/></marker></defs><rect width="420" height="600" fill="#FFFDF5"/><g filter="url(#hand)">
+        <rect x="12" y="12" width="396" height="576" rx="22" fill="#DCEDC8" stroke="#141414" stroke-width="4"/>
+        <text class="ja" x="26" y="44" font-size="19" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">🌿 緑の土地：攻撃できない</text>
+        <text class="en" x="26" y="66" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">Green land: nobody can attack you</text>
+        <rect x="60" y="84" width="300" height="394" rx="18" fill="#3E2723" stroke="#141414" stroke-width="4"/>
+        <text class="ja" x="76" y="112" font-size="18" font-weight="700" fill="#FFD000" text-anchor="start" font-family="Noto Sans JP, sans-serif">🟫 黒土（荒野）：ここだけ攻撃 OK</text>
+        <text class="en" x="76" y="132" font-size="13" font-weight="500" fill="#FFE082" text-anchor="start" font-family="Noto Sans JP, sans-serif">Black soil / mud: fight here only</text>
+        <rect x="160" y="230" width="100" height="100" rx="14" fill="#FFD000" stroke="#141414" stroke-width="4"/>
+        <text x="210" y="270" font-size="32" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🏭</text>
+        <text x="210" y="302" font-size="18" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">HUB</text>
+        <text x="210" y="320" font-size="12" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">実験基地</text>
+        <rect x="178" y="160" width="64" height="48" rx="10" fill="#fff" stroke="#141414" stroke-width="3"/>
+        <text x="210" y="182" font-size="16" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🔫</text>
+        <text x="210" y="201" font-size="13" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">北 N</text>
+        <rect x="178" y="350" width="64" height="48" rx="10" fill="#fff" stroke="#141414" stroke-width="3"/>
+        <text x="210" y="372" font-size="16" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🔫</text>
+        <text x="210" y="391" font-size="13" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">南 S</text>
+        <rect x="80" y="254" width="64" height="48" rx="10" fill="#fff" stroke="#141414" stroke-width="3"/>
+        <text x="112" y="276" font-size="16" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🔫</text>
+        <text x="112" y="295" font-size="13" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">西 W</text>
+        <rect x="276" y="254" width="64" height="48" rx="10" fill="#fff" stroke="#141414" stroke-width="3"/>
+        <text x="308" y="276" font-size="16" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🔫</text>
+        <text x="308" y="295" font-size="13" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">東 E</text>
+        <text x="88" y="178" font-size="22" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">🏠</text>
+        <text x="314" y="178" font-size="22" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">🏠</text>
+        <text x="88" y="418" font-size="22" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">🏠</text>
+        <text x="314" y="418" font-size="22" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">🏠</text>
+        <text class="ja" x="76" y="440" font-size="15" font-weight="700" fill="#fff" text-anchor="start" font-family="Noto Sans JP, sans-serif">🔫 砲台 ×4：敵が持つと HUB を撃つ</text>
+        <text class="en" x="76" y="456" font-size="12" font-weight="500" fill="#FFE082" text-anchor="start" font-family="Noto Sans JP, sans-serif">Turrets ×4: they shoot the Hub</text>
+        <text class="en" x="76" y="471" font-size="12" font-weight="500" fill="#FFE082" text-anchor="start" font-family="Noto Sans JP, sans-serif">when the enemy holds them</text>
+        <text class="ja" x="26" y="506" font-size="18" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">🏠 黒土の中の避難所は攻撃される</text>
+        <text class="ja" x="26" y="530" font-size="18" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">　→ シールド必須</text>
+        <text class="en" x="26" y="554" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">A sanctuary in the mud can be hit</text>
+        <text class="en" x="26" y="572" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">→ keep a shield on</text>
+        </g></svg>
+      <figcaption><span class="ja">緑＝安全。黒土＝戦場。まん中の HUB と 4 つの砲台を取り合う。</span><span class="en">Green = safe. Black soil = battlefield. Everyone fights for the Hub and the 4 turrets.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2 勝ち方 -->
+<section id="win">
+  <div class="wrap">
+    <h2><span class="num">2</span><span class="ic">🏆</span><span class="t"><span class="ja">勝ち方</span><span class="en">How a state wins</span></span></h2>
+    <div class="tiles">
+      <div class="tile key"><span class="ic">⏱️</span><span class="big">8h</span><b><span class="ja">HUB を​8 時間​つづけて持つ →​その場で勝ち</span><span class="en">Hold the Hub 8 hours in a row → instant win</span></b></div>
+      <div class="tile"><span class="ic">⌛</span><span class="big">24h</span><b><span class="ja">だれも​8 時間​持てなければ、​合計の時間が​いちばん長い所が​勝ち</span><span class="en">If nobody does, the longest total time wins</span></b></div>
+      <div class="tile no"><span class="ic">😱</span><span class="big"><span class="ja">負け</span><span class="en">Lose</span></span><b><span class="ja">他国に​HUB を​取られる＝​植民地。​2 週間、​大統領も​国バフもなし</span><span class="en">Lose the Hub = colony. No governor or state buffs for 2 weeks</span></b></div>
+    </div>
+    <p class="note"><span class="ja">🤝 多くの国は 3 国で NAP（攻めない約束）を結び、HUB は取らずにポイントだけ稼ぐ。今回もそう。</span><span class="en">🤝 Most states sign a NAP (non-aggression pact) with the other two, keep every Hub, and only farm points. That is what we did this time.</span></p>
+  </div>
+</section>
+
+<!-- 3 ポイント -->
+<section id="points">
+  <div class="wrap">
+    <h2><span class="num">3</span><span class="ic">🎯</span><span class="t"><span class="ja">ポイントは 3 種類</span><span class="en">3 kinds of points</span></span></h2>
+    <div class="tiles">
+      <div class="tile"><span class="ic">⚔️</span><b><span class="ja">殲滅</span><span class="en">Kill</span></b><small><span class="ja">敵の兵を倒す​（T10 で​1 人 60 点）</span><span class="en">Kill enemy troops (T10 = 60 pts each)</span></small></div>
+      <div class="tile key"><span class="ic">💀</span><b><span class="ja">死亡</span><span class="en">Casualty</span></b><small><span class="ja">自分の兵が​「死亡」になる​（T10 で​1 人 60 点）</span><span class="en">Your own troops count as dead (T10 = 60 pts each)</span></small></div>
+      <div class="tile"><span class="ic">🏳️</span><b><span class="ja">占領</span><span class="en">Occupation</span></b><small><span class="ja">HUB か砲台に​兵を置く時間​（120 分で​上限 2,000）</span><span class="en">Time inside the Hub / a turret (max 2,000 at 120 min)</span></small></div>
+    </div>
+    <p class="note"><span class="ja">点は「HUB・砲台」の戦いだけ。黒土の避難所や採集タイルの戦いは、殲滅・死亡の点にはなるが、あとの訓練ブーストにはならない。10,000 点で報酬は全部。</span><span class="en">Death points come only from Hub / turret fights. Fights at sanctuaries or tiles in the mud give kill / casualty points but no training boost later. 10,000 pts = all rewards.</span></p>
+  </div>
+</section>
+
+<!-- 4 病院 -->
+<section id="hospital">
+  <div class="wrap">
+    <h2><span class="num">4</span><span class="ic">🏥</span><span class="t"><span class="ja">傷ついた兵はどこへ行く？</span><span class="en">Where do wounded troops go?</span></span></h2>
+    <p class="one"><span class="ja">ここがいちばん分かりにくい所。<b>「深部」に入った兵が「死亡」として点になる。</b></span><span class="en">This is the confusing part. <b>Troops that go to Deep Healing count as "dead" and give points.</b></span></p>
+    <figure>
+      <svg viewBox="0 0 420 1040" role="img" aria-label="負傷兵の流れ"><rect width="420" height="1040" fill="#FFFDF5"/><g filter="url(#hand)">
+        <rect x="20" y="16" width="380" height="124" rx="16" fill="#141414"/>
+        <text class="ja" x="210" y="50" font-size="22" font-weight="700" fill="#FFD000" text-anchor="middle" font-family="Noto Sans JP, sans-serif">⚔️ 砲台・HUB を攻める</text>
+        <text class="en" x="210" y="74" font-size="15" font-weight="500" fill="#fff" text-anchor="middle" font-family="Noto Sans JP, sans-serif">Attack a turret or the Hub</text>
+        <text class="ja" x="210" y="102" font-size="14" font-weight="500" fill="#fff" text-anchor="middle" font-family="Noto Sans JP, sans-serif">兵の 70% が負傷 → うち 30% は「死亡」行き</text>
+        <text class="en" x="210" y="124" font-size="13" font-weight="500" fill="#fff" text-anchor="middle" font-family="Noto Sans JP, sans-serif">70% get wounded → 30% of them count as dead</text>
+        <path d="M210 144 L210 170" stroke="#141414" stroke-width="4" fill="none" marker-end="url(#ar2)"/>
+        <rect x="20" y="180" width="380" height="176" rx="16" fill="#fff" stroke="#141414" stroke-width="4"/>
+        <circle cx="44" cy="230" r="20" fill="#141414"/><text x="44" y="238" font-size="20" font-weight="700" fill="#FFD000" text-anchor="middle" font-family="Noto Sans JP, sans-serif">1</text>
+        <text x="76" y="220" font-size="24" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">🏥 病院</text>
+        <text x="76" y="244" font-size="15" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">Infirmary</text>
+        <text class="ja" x="76" y="272" font-size="15" font-weight="500" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">まず空きに入る。治療に資源がかかる</text>
+        <text class="en" x="76" y="292" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">Fills first. Healing costs resources.</text>
+        <text class="ja" x="76" y="322" font-size="18" font-weight="700" fill="#E53935" text-anchor="start" font-family="Noto Sans JP, sans-serif">点にならない ✕</text>
+        <text class="en" x="76" y="344" font-size="16" font-weight="700" fill="#E53935" text-anchor="start" font-family="Noto Sans JP, sans-serif">No points ✕</text>
+        <path d="M210 360 L210 386" stroke="#141414" stroke-width="4" fill="none" marker-end="url(#ar2)"/>
+        <text class="ja" x="236" y="374" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">満員になったら ↓</text><text class="en" x="236" y="392" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">when full ↓</text>
+        <rect x="20" y="404" width="380" height="226" rx="16" fill="#FFF6CC" stroke="#141414" stroke-width="4"/>
+        <circle cx="44" cy="454" r="20" fill="#141414"/><text x="44" y="462" font-size="20" font-weight="700" fill="#FFD000" text-anchor="middle" font-family="Noto Sans JP, sans-serif">2</text>
+        <text x="76" y="444" font-size="24" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">🛏️ 深部</text>
+        <text x="76" y="468" font-size="15" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">Deep Healing</text>
+        <text class="ja" x="76" y="496" font-size="15" font-weight="500" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">時間はかかるが無料で治る</text>
+        <text class="en" x="76" y="516" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">Heals for free, but slowly.</text>
+        <text class="ja" x="76" y="546" font-size="18" font-weight="700" fill="#2E7D32" text-anchor="start" font-family="Noto Sans JP, sans-serif">「死亡」扱い → 点になる ◎</text>
+        <text class="en" x="76" y="568" font-size="16" font-weight="700" fill="#2E7D32" text-anchor="start" font-family="Noto Sans JP, sans-serif">Counts as dead → points ◎</text>
+        <text class="ja" x="76" y="594" font-size="14" font-weight="500" fill="#2E7D32" text-anchor="start" font-family="Noto Sans JP, sans-serif">終了後の訓練ブーストにもなる</text>
+        <text class="en" x="76" y="614" font-size="13" font-weight="500" fill="#2E7D32" text-anchor="start" font-family="Noto Sans JP, sans-serif">Also gives the training boost later</text>
+        <path d="M210 638 L210 664" stroke="#141414" stroke-width="4" fill="none" marker-end="url(#ar2)"/>
+        <text class="ja" x="236" y="652" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">満員になったら ↓</text><text class="en" x="236" y="670" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">when full ↓</text>
+        <rect x="20" y="678" width="380" height="170" rx="16" fill="#fff" stroke="#141414" stroke-width="4"/>
+        <circle cx="44" cy="728" r="20" fill="#141414"/><text x="44" y="736" font-size="20" font-weight="700" fill="#FFD000" text-anchor="middle" font-family="Noto Sans JP, sans-serif">3</text>
+        <text x="76" y="718" font-size="24" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">🏨 ギルド病院</text>
+        <text x="76" y="742" font-size="15" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">Alliance Infirmary</text>
+        <text class="ja" x="76" y="770" font-size="15" font-weight="500" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">これも「死亡」扱いで点になる</text>
+        <text class="en" x="76" y="790" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">Also counts as dead → points</text>
+        <text class="ja" x="76" y="816" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">1 人あたりの上限あり</text>
+        <text class="en" x="76" y="836" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="start" font-family="Noto Sans JP, sans-serif">Has a limit per player</text>
+        <path d="M210 852 L210 878" stroke="#141414" stroke-width="4" fill="none" marker-end="url(#ar2)"/>
+        <rect x="20" y="888" width="380" height="136" rx="16" fill="#FFEBEE" stroke="#E53935" stroke-width="4"/>
+        <text class="ja" x="210" y="934" font-size="26" font-weight="700" fill="#E53935" text-anchor="middle" font-family="Noto Sans JP, sans-serif">☠️ 本当に消える</text>
+        <text class="en" x="210" y="962" font-size="18" font-weight="700" fill="#E53935" text-anchor="middle" font-family="Noto Sans JP, sans-serif">Gone forever</text>
+        <text class="ja" x="210" y="988" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">全部が満員になるとここ。戻らない</text>
+        <text class="en" x="210" y="1008" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">When everything is full. No return.</text>
+        </g></svg>
+      <figcaption><span class="ja">病院 → 深部 → ギルド病院 の順に埋まる。<b>深部とギルド病院に入った分だけが「死亡」の点。</b></span><span class="en">They fill in this order: Infirmary → Deep Healing → Alliance Infirmary. <b>Only Deep Healing and Alliance Infirmary count as casualties.</b></span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 5 タクシー -->
+<section id="taxi">
+  <div class="wrap">
+    <h2><span class="num">5</span><span class="ic">🚕</span><span class="t"><span class="ja">「病院をタクシーで埋める」とは</span><span class="en">What "fill the infirmary with taxis" means</span></span></h2>
+    <p class="one"><span class="ja">タクシー＝いちばん安い兵（T1 の改造車など）。<b>イベントが始まる前に</b>、わざと病院を安い兵で満員にしておく準備のこと。</span><span class="en">A "taxi" is your cheapest troop (T1 vehicles). <b>Before the event starts</b>, you fill your infirmary with them on purpose.</span></p>
+    <figure>
+      <svg viewBox="0 0 420 820" role="img" aria-label="タクシーで病院を埋める理由"><rect width="420" height="820" fill="#FFFDF5"/><g filter="url(#hand)">
+        <rect x="14" y="14" width="392" height="360" rx="16" fill="#FFEBEE" stroke="#E53935" stroke-width="4"/>
+        <text class="ja" x="30" y="48" font-size="22" font-weight="700" fill="#E53935" text-anchor="start" font-family="Noto Sans JP, sans-serif">✕ 準備なしで攻める</text>
+        <text class="en" x="30" y="70" font-size="15" font-weight="700" fill="#E53935" text-anchor="start" font-family="Noto Sans JP, sans-serif">Attack without preparing</text>
+        <rect x="30" y="90" width="170" height="130" rx="12" fill="#fff" stroke="#141414" stroke-width="3"/>
+        <text class="ja" x="115" y="118" font-size="16" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🏥 病院（空き）</text>
+        <text class="en" x="115" y="136" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">Infirmary (empty)</text>
+        <text x="115" y="190" font-size="34" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🪖🪖🪖</text>
+        <text x="225" y="165" font-size="30" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">➡</text>
+        <text class="ja" x="320" y="120" font-size="17" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">強い兵が</text>
+        <text class="ja" x="320" y="142" font-size="17" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">病院に入る</text>
+        <text class="en" x="320" y="164" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">Strong troops</text>
+        <text class="en" x="320" y="182" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">land here</text>
+        <text class="ja" x="320" y="214" font-size="15" font-weight="700" fill="#E53935" text-anchor="middle" font-family="Noto Sans JP, sans-serif">治療に資源が大量 💸</text>
+        <text class="en" x="320" y="232" font-size="13" font-weight="700" fill="#E53935" text-anchor="middle" font-family="Noto Sans JP, sans-serif">Huge healing cost 💸</text>
+        <text class="ja" x="210" y="290" font-size="17" font-weight="700" fill="#E53935" text-anchor="middle" font-family="Noto Sans JP, sans-serif">しかも「負傷」なので</text>
+        <text class="ja" x="210" y="314" font-size="17" font-weight="700" fill="#E53935" text-anchor="middle" font-family="Noto Sans JP, sans-serif">点にならない</text>
+        <text class="en" x="210" y="340" font-size="15" font-weight="700" fill="#E53935" text-anchor="middle" font-family="Noto Sans JP, sans-serif">And “wounded” gives no points</text>
+        <rect x="14" y="400" width="392" height="400" rx="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="4"/>
+        <text class="ja" x="30" y="434" font-size="21" font-weight="700" fill="#2E7D32" text-anchor="start" font-family="Noto Sans JP, sans-serif">◎ 先にタクシーで満員にしておく</text>
+        <text class="en" x="30" y="456" font-size="15" font-weight="700" fill="#2E7D32" text-anchor="start" font-family="Noto Sans JP, sans-serif">Fill it with taxis first</text>
+        <rect x="30" y="476" width="170" height="130" rx="12" fill="#fff" stroke="#141414" stroke-width="3"/>
+        <text class="ja" x="115" y="504" font-size="16" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🏥 病院（満員）</text>
+        <text class="en" x="115" y="522" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">Infirmary (full)</text>
+        <text x="115" y="574" font-size="30" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🚕🚕🚕🚕</text>
+        <text x="225" y="551" font-size="30" font-weight="700" fill="#141414" text-anchor="start" font-family="Noto Sans JP, sans-serif">➡</text>
+        <rect x="250" y="476" width="150" height="130" rx="12" fill="#FFF6CC" stroke="#141414" stroke-width="3"/>
+        <text class="ja" x="325" y="504" font-size="16" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🛏️ 深部へ</text>
+        <text class="en" x="325" y="522" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">→ Deep Healing</text>
+        <text x="325" y="574" font-size="34" font-weight="700" fill="#141414" text-anchor="middle" font-family="Noto Sans JP, sans-serif">🪖🪖🪖</text>
+        <text class="ja" x="210" y="650" font-size="18" font-weight="700" fill="#2E7D32" text-anchor="middle" font-family="Noto Sans JP, sans-serif">強い兵は深部へ →</text>
+        <text class="ja" x="210" y="676" font-size="18" font-weight="700" fill="#2E7D32" text-anchor="middle" font-family="Noto Sans JP, sans-serif">無料で治る ＋ 点 ＋ 訓練ブースト</text>
+        <text class="en" x="210" y="702" font-size="15" font-weight="700" fill="#2E7D32" text-anchor="middle" font-family="Noto Sans JP, sans-serif">Strong troops → Deep Healing:</text>
+        <text class="en" x="210" y="722" font-size="15" font-weight="700" fill="#2E7D32" text-anchor="middle" font-family="Noto Sans JP, sans-serif">free heal + points + training boost</text>
+        <text class="ja" x="210" y="766" font-size="14" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">タクシーの治療はいちばん安い 🚕</text>
+        <text class="en" x="210" y="786" font-size="13" font-weight="500" fill="#5F5F5F" text-anchor="middle" font-family="Noto Sans JP, sans-serif">Taxis are the cheapest to heal 🚕</text>
+        </g></svg>
+      <figcaption><span class="ja">タクシーで病院を満員にする＝<b>強い兵を無料の「深部」に行かせる</b>ための準備。</span><span class="en">Filling the infirmary with taxis = <b>a trick to push your strong troops into free Deep Healing.</b></span></figcaption>
+    </figure>
+    <div class="tiles">
+      <div class="tile"><span class="no-num">1</span><span class="ic">🚕</span><b><span class="ja">イベント前に</span><span class="en">Before the event</span></b><small><span class="ja">タクシーで​採集タイルを攻めて、​わざと負傷させ​病院を満員に</span><span class="en">Send taxis to lose on purpose and fill the infirmary</span></small></div>
+      <div class="tile"><span class="no-num">2</span><span class="ic">🛏️</span><b><span class="ja">深部の空きを​見る</span><span class="en">Check Deep Healing space</span></b><small><span class="ja">攻める兵 × 30%​くらいが入る。​あふれると​本当に死ぬ</span><span class="en">About 30% of the attackers go there. Overflow = real death</span></small></div>
+      <div class="tile"><span class="no-num">3</span><span class="ic">🩹</span><b><span class="ja">攻める前に​「戦地救助」</span><span class="en">Use First Aid before attacking</span></b><small><span class="ja">死亡を減らす​指揮官スキル​（30 分）</span><span class="en">Commander skill, lasts 30 min</span></small></div>
+      <div class="tile"><span class="no-num">4</span><span class="ic">🔫</span><b><span class="ja">指示の砲台を​攻める</span><span class="en">Attack the turret you were told</span></b><small><span class="ja">タクシーで​砲台を攻めては​いけない​（指示の兵種で）</span><span class="en">Not with taxis. Use the troop type in the orders</span></small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 指示の読み方 -->
+<section id="orders">
+  <div class="wrap">
+    <h2><span class="num">6</span><span class="ic">📣</span><span class="t"><span class="ja">ギルドの指示の読み方（今回の例）</span><span class="en">How to read the guild orders (this time)</span></span></h2>
+    <p class="one"><span class="ja">国ごと・回ごとに違う。<b>ゲームのルールではなく、今回の約束。</b></span><span class="en">They differ by state and by event. <b>These are this week's agreements, not game rules.</b></span></p>
+    <div class="tiles">
+      <div class="tile key"><span class="ic">🤝</span><b><span class="ja">3 国で NAP</span><span class="en">NAP with all 3 states</span></b><small><span class="ja">HUB は取らない。点だけ稼ぐ</span><span class="en">Nobody takes a Hub. Points only</span></small></div>
+      <div class="tile"><span class="ic">🚫🚚</span><b><span class="ja">移転は不要</span><span class="en">No need to relocate</span></b><small><span class="ja">自分の国の​砲台を攻めるから。​他国を攻めるとき​だけ移転</span><span class="en">We attack our own turret. Relocate only to hit another state</span></small></div>
+      <div class="tile"><span class="ic">🔫</span><b><span class="ja">西砲台を攻める</span><span class="en">Attack the West turret</span></b><small><span class="ja">自国の西砲台に​攻撃の許可が​出ている</span><span class="en">Our own West turret is open for attacks</span></small></div>
+      <div class="tile"><span class="ic">🏍️</span><b><span class="ja">ライダーだけ・​英雄つき OK</span><span class="en">Riders only, heroes allowed</span></b><small><span class="ja">部隊数の​制限なし。​タクシーや​他の兵種は ✕</span><span class="en">No march limit. No taxis or other troop types</span></small></div>
+      <div class="tile no"><span class="ic">⛏️</span><b><span class="ja">黒土で採集しない</span><span class="en">Don't gather in the black soil</span></b><small><span class="ja">他国に​攻められる。​今回もかなり​攻撃されている</span><span class="en">Other states will hit you. It happened a lot this time</span></small></div>
+      <div class="tile"><span class="ic">🧑‍✈️</span><b><span class="ja">各砲台に​リーダーがいる</span><span class="en">Each turret has a leader</span></b><small><span class="ja">守りの兵種​（ライダー 50%​ファイター 50%​など）は​リーダーの​指示に合わせる</span><span class="en">Match the defender's troop mix (e.g. 50% Rider / 50% Fighter)</span></small></div>
+    </div>
+    <p class="note"><span class="ja">分からないときは、攻める前にチャットで「どの砲台・どの兵種・英雄は？」の 3 つを聞けば足りる。</span><span class="en">If unsure, ask 3 things in chat before attacking: which turret, which troop type, heroes yes or no.</span></p>
+  </div>
+</section>
+
+<!-- 7 やる・やらない -->
+<section id="dodont">
+  <div class="wrap">
+    <h2><span class="num">7</span><span class="ic">✅</span><span class="t"><span class="ja">やること・やらないこと</span><span class="en">Do / Don't</span></span></h2>
+    <div class="tiles">
+      <div class="tile yes"><span class="ic">✅</span><b><span class="ja">指示の砲台を、​指示の兵種で</span><span class="en">Right turret, right troops</span></b></div>
+      <div class="tile yes"><span class="ic">✅</span><b><span class="ja">病院は​タクシーで​満員に</span><span class="en">Fill infirmary with taxis</span></b></div>
+      <div class="tile yes"><span class="ic">✅</span><b><span class="ja">深部と​ギルド病院の​空きを見る</span><span class="en">Watch Deep Healing space</span></b></div>
+      <div class="tile yes"><span class="ic">✅</span><b><span class="ja">黒土にいるなら​シールド</span><span class="en">Shield if you sit in the mud</span></b></div>
+    </div>
+    <div style="height:12px"></div>
+    <div class="tiles">
+      <div class="tile no"><span class="ic">❌</span><b><span class="ja">許可なく​自国の HUB・​砲台を攻める</span><span class="en">Hit your own Hub / turret without permission</span></b></div>
+      <div class="tile no"><span class="ic">❌</span><b><span class="ja">黒土で採集・​シールドなし</span><span class="en">Gather or sit unshielded in the mud</span></b></div>
+      <div class="tile no"><span class="ic">❌</span><b><span class="ja">緑の土地を攻める</span><span class="en">Attack anything in the green</span></b></div>
+      <div class="tile no"><span class="ic">❌</span><b><span class="ja">深部を​あふれさせる​（本当に死ぬ）</span><span class="en">Overflow Deep Healing (real death)</span></b></div>
+    </div>
+    <p class="note"><span class="ja">「永久に死ぬ」のは、病院・深部・ギルド病院が全部満員になった分だけ。空きを見ていれば大丈夫。</span><span class="en">"Permanent death" happens only when Infirmary, Deep Healing and Alliance Infirmary are all full. Watch the space and you are fine.</span></p>
+  </div>
+</section>
+
+<!-- 8 終わったあと -->
+<section id="after">
+  <div class="wrap">
+    <h2><span class="num">8</span><span class="ic">🎁</span><span class="t"><span class="ja">終わったあと</span><span class="en">After the event</span></span></h2>
+    <div class="tiles">
+      <div class="tile key"><span class="ic">⚡</span><span class="big">+300%</span><b><span class="ja">訓練の速さ​（戦後回復バフ）</span><span class="en">Training speed (Fast Comeback)</span></b><small><span class="ja">砲台・HUB で​「死亡」した兵の​1.2 倍分まで</span><span class="en">Up to 1.2× the might that died at Hub / turrets</span></small></div>
+      <div class="tile"><span class="ic">🚕</span><b><span class="ja">病院の​タクシーを​先に治す</span><span class="en">Heal the taxis first</span></b><small><span class="ja">病院が​埋まっていると​深部の回復が遅い</span><span class="en">A full infirmary slows Deep Healing</span></small></div>
+      <div class="tile"><span class="ic">🎖️</span><b><span class="ja">点の報酬を受け取る</span><span class="en">Collect point rewards</span></b><small><span class="ja">5,000 点で​訓練ブースト全部。​10,000 点で全部</span><span class="en">5,000 pts = all training boosts. 10,000 = everything</span></small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 用語 -->
+<section id="words">
+  <div class="wrap">
+    <h2><span class="num">9</span><span class="ic">📖</span><span class="t"><span class="ja">用語（日本語 ⇄ 英語）</span><span class="en">Glossary (JA ⇄ EN)</span></span></h2>
+    <div class="glossary">
+      <div class="term"><span class="ic">🏜️</span><div><b>荒野の王 ＝ Wasteland King (WK)</b><small>このイベント / this event</small></div></div>
+      <div class="term"><span class="ic">🏭</span><div><b>実験基地・HUB ＝ Hub (Zenith Hub)</b><small>まん中の建物 / the central building</small></div></div>
+      <div class="term"><span class="ic">🔫</span><div><b>砲台 ＝ Turret</b><small>東西南北の 4 つ / N, S, E, W</small></div></div>
+      <div class="term"><span class="ic">🟫</span><div><b>黒土・荒野 ＝ Black soil / Mud / Wasteland</b><small>攻撃できる場所 / the only place you can fight</small></div></div>
+      <div class="term"><span class="ic">🏥</span><div><b>病院 ＝ Infirmary</b><small>負傷。点にならない / wounded, no points</small></div></div>
+      <div class="term"><span class="ic">🛏️</span><div><b>深部 ＝ Deep Healing</b><small>無料・遅い・「死亡」扱い / free, slow, counts as dead</small></div></div>
+      <div class="term"><span class="ic">🏨</span><div><b>ギルド病院 ＝ Alliance Infirmary</b><small>「死亡」扱い・上限あり / counts as dead, has a limit</small></div></div>
+      <div class="term"><span class="ic">🚕</span><div><b>タクシー ＝ Taxi (T1 vehicles)</b><small>安い兵。病院を埋める用 / cheap troops to fill the infirmary</small></div></div>
+      <div class="term"><span class="ic">🤝</span><div><b>NAP ＝ Non-Aggression Pact</b><small>攻めない約束 / "we don't attack each other"</small></div></div>
+      <div class="term"><span class="ic">🩹</span><div><b>戦地救助 ＝ First Aid</b><small>死亡を減らすスキル / reduces deaths, 30 min</small></div></div>
+      <div class="term"><span class="ic">⚡</span><div><b>戦後回復 ＝ Fast Comeback</b><small>終了後の訓練 +300% / +300% training after</small></div></div>
+      <div class="term"><span class="ic">🚚</span><div><b>移転 ＝ Relocate</b><small>他国へ避難所を移す / move your sanctuary to another state</small></div></div>
+      <div class="term"><span class="ic">🏍️</span><div><b>ライダー・ファイター・シューター ＝ Rider / Fighter / Shooter</b><small>兵種 / troop types</small></div></div>
+      <div class="term"><span class="ic">📣</span><div><b>ギャザー・集結 ＝ Rally</b><small>みんなで一緒に攻める / attack together</small></div></div>
+    </div>
+    <details>
+      <summary><span class="ja">参考にしたページ</span><span class="en">Sources</span></summary>
+      <ul>
+        <li><a href="https://pns-mit.org/others/01_wk/" target="_blank" rel="noopener">荒野の王(WK)（pns-mit.org）</a></li>
+        <li><a href="https://kenken-zakki.com/puzzles-survival-kouya/" target="_blank" rel="noopener">初心者向け 荒野の王について（kenken-zakki.com）</a></li>
+        <li><a href="https://wikiwiki.jp/puzsurv/event/wasteland-king" target="_blank" rel="noopener">荒野の王（Wasteland King）（wikiwiki.jp）</a></li>
+        <li><a href="https://note.com/flazio/n/n2f5838fec55f" target="_blank" rel="noopener">荒野でのポイント獲得と病院の仕組み（note）</a></li>
+        <li><a href="https://ultimateguidetopns.com/wasteland-king/" target="_blank" rel="noopener">Wasteland King (ultimateguidetopns.com)</a></li>
+        <li><a href="https://pnsdme.com/what-is-wasteland-king" target="_blank" rel="noopener">What is Wasteland King? (pnsdme.com)</a></li>
+      </ul>
+      <p style="margin-top:8px"><span class="ja">数値はゲームの更新で変わることがあります。最新はゲーム内の説明をご確認ください。</span><span class="en">Numbers may change with game updates. Check the in-game help for the latest.</span></p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><span class="ja">本ページは「パズル＆サバイバル」のプレイヤー向けに作成した非公式の解説ページです。ゲームの著作権および商標は 37GAMES に帰属します。</span><span class="en">This is an unofficial fan guide for Puzzles &amp; Survival players. All game copyrights and trademarks belong to 37GAMES.</span></p>
+    <p><a href="/">HiMaWaSa Sync</a></p>
+  </div>
+</footer>
+
+<script>
+// 言語の切り替え（日本語だけ／英語だけ／両方）。選んだ言語は、この端末だけで覚える
+(function(){
+  var body=document.body, btns=document.querySelectorAll('.lang-bar button');
+  function set(v){
+    body.setAttribute('data-lang',v);
+    btns.forEach(function(b){b.setAttribute('aria-pressed', b.getAttribute('data-set')===v ? 'true':'false');});
+    try{localStorage.setItem('wk-lang',v);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-set'));});});
+  var saved=null; try{saved=localStorage.getItem('wk-lang');}catch(e){}
+  if(saved==='ja'||saved==='en'||saved==='both') set(saved);
+})();
+</script>
+</body>
+</html>
