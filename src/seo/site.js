@@ -523,7 +523,6 @@ export const PUBLIC_PAGES = [
   { path: '/temasui/guide/sagyo-nippo/', lastmod: '2026-09-27', changefreq: 'monthly', priority: '0.7' },
   { path: '/temasui/guide/shokaijo-fax/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.7' },
   { path: '/temasui/guide/kango-summary/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.7' },
-  { path: '/shiftsync/', lastmod: '2026-08-26', changefreq: 'weekly', priority: '0.9' },
   { path: '/for/pro/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.85' },
   { path: '/for/factory/', lastmod: '2026-09-26', changefreq: 'weekly', priority: '0.85' },
   { path: '/for/biz/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.85' },
@@ -534,7 +533,6 @@ export const PUBLIC_PAGES = [
   { path: '/contact/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.7' },
   { path: '/try/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.6' },
   { path: '/privacy/', lastmod: '2026-08-17', changefreq: 'yearly', priority: '0.2' },
-  { path: '/kintone-dx/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
   { path: '/pro-dx/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
   { path: '/power-automate/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
 ]
@@ -611,13 +609,13 @@ export function generateLlmsTxt() {
 - [てますい セキュリティとデータの取り扱い](https://himawasa-sync.com/temasui/security/): データの保管場所（東京）・保存しないもの・保存期間・AI の処理・アクセスの守り・3省2ガイドラインへの対応。院内・社内の確認用に印刷できる
 - [介護施設・病院](https://himawasa-sync.com/for/care/): シフト表、持ち物チェック、日計・カルテ転記
 - [持ち物チェック（てますい 持ち物当番・デジサポへ移転）](https://digisapo-dx.com/mochimono/): お泊まりの持ち物を撮影して一覧に、お返しのときに照合
-- [介護のシフト表自動化](https://himawasa-sync.com/shiftsync/): KING OF TIMEの実績 → 今の勤務表様式
+- [シフト表の自動作成（てますい シフト当番・デジサポへ移転）](https://digisapo-dx.com/temasui/shift/): KING OF TIME などの勤怠の記録から、今の勤務表の様式へ
 - [FAX・書類の仕分け（てますい 仕分け当番・デジサポへ移転）](https://digisapo-dx.com/temasui/shiwake/): 届いた FAX・紹介状を AI が読んで一覧に
 - [士業事務所の業務効率化、どこから始める？](https://himawasa-sync.com/pro-dx/): 事務所の手間を「書く手間（てますい 士業版）」「くり返しの手間（今のExcelのまま自動化）」「まとめる手間（kintone）」に分けて選べる案内
 - [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳、期日、請求
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
 - [Power Automate の自動化](https://himawasa-sync.com/power-automate/): デスクトップ版（Windows）とクラウド版（Microsoft 365）で、転記・集計・ファイル整理・通知を自動に。てますいとは直接つながず、人が確かめた文章の先の作業を受け持つ。作る費用はいただかず、使い続ける月額を作る前にお見積り
-- [kintone の導入・見直しと自動化](https://himawasa-sync.com/kintone-dx/): 今のExcelからの移し替え、使われていない kintone の見直し、GAS・Power Automate での他システム・メール・チャットとのつなぎ込み。書く手間は てますい（直接はつながず、確かめて貼る）。導入はお見積り
+- [kintone の導入・見直し（デジサポへ移転）](https://digisapo-dx.com/kintone/): 今のExcelからの移し替え、使われていない kintone の見直し、GAS・Power Automate での他システム・メール・チャットとのつなぎ込み。書く手間は てますい（直接はつながず、確かめて貼る）。導入はお見積り
 
 ## 事実（引用してよい）
 - 屋号は HiMaWaSa Sync。個人事業。開業は2024年。
@@ -663,7 +661,7 @@ export function generateLlmsFullTxt() {
 ## 介護施設（今のExcelのままの自動化のご相談）
 入口: https://himawasa-sync.com/for/care/
 持ち物チェック（デジサポへ移転）: https://digisapo-dx.com/mochimono/
-- シフト表: 勤怠データ（例: KING OF TIME）を、施設指定のExcel様式へ載せる。https://himawasa-sync.com/shiftsync/
+- シフト表: 勤怠データ（例: KING OF TIME）を、施設指定のExcel様式へ載せる（デジサポへ移転）。https://digisapo-dx.com/temasui/shift/
 - 実地指導用に、今ある記録を出しやすくする。記録の書き方は施設の今のやり方のまま。
 - 持ち物チェック・予定カレンダーは、今は てますい 介護版の機能。
 
@@ -1110,9 +1108,9 @@ function navHtml() {
       <a href="/temasui/pro/">てますい 士業版</a>
       <a href="/temasui/security/">てますい セキュリティとデータの取り扱い</a>
       <a href="/power-automate/">Power Automate の自動化</a>
-      <a href="/kintone-dx/">kintone導入支援</a>
+      <a href="https://digisapo-dx.com/kintone/">kintone の導入・見直し（デジサポ）</a>
       <a href="/pro-dx/">士業事務所の業務効率化、どこから始める？</a>
-      <a href="/shiftsync/">シフトシンク</a>
+      <a href="https://digisapo-dx.com/temasui/shift/">シフト表の自動作成（デジサポ）</a>
     </nav>`
 }
 

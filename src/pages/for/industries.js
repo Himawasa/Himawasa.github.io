@@ -89,8 +89,8 @@ export const INDUSTRIES = {
         result: '手入力の残業を減らします。',
         image: '/dm/dm-shift.jpg',
         imageAlt: '介護施設のシフト表をExcel様式へ自動で作る作業',
-        href: '/shiftsync/',
-        hrefLabel: 'シフト表自動化を見る',
+        href: 'https://digisapo-dx.com/temasui/shift/',
+        hrefLabel: 'シフト当番（デジサポ）を見る',
       },
       {
         num: '03　毎日の現場',
@@ -113,7 +113,7 @@ export const INDUSTRIES = {
       { href: '/temasui/', title: 'てますい（介護施設のアシスタント）', desc: '書類の下書き（話すだけでも）・持ち物チェック・予定カレンダーを1つの画面で。1か月無料。', cta: 'てますいを見る' },
       { href: '/temasui/hospital/', title: 'てますい 病院版（病棟・地域連携室のアシスタント）', desc: '届いた紹介状・FAXを撮るだけで一覧に。看護サマリ・退院時の情報提供・返書の下書き。電子カルテとはつながず、貼り付けで使えます。1か月無料。', cta: '病院版を見る' },
       { href: 'https://digisapo-dx.com/mochimono/', title: '持ち物チェック（てますい 持ち物当番）', desc: 'お泊まりの持ち物をタブレットで撮影して一覧に。お返しのときに写真で照合します（デジサポのページへ移ります）。', cta: '持ち物チェックを見る' },
-      { href: '/shiftsync/', title: '介護のシフト表自動化', desc: 'KING OF TIMEの実績から、今の勤務表様式へ。', cta: '介護のシフト表自動化を見る' },
+      { href: 'https://digisapo-dx.com/temasui/shift/', title: 'シフト表の自動作成（てますい シフト当番）', desc: 'KING OF TIME などの勤怠の記録から、今の勤務表の様式へ（デジサポのページへ移ります）。', cta: 'シフト当番を見る' },
       { href: 'https://digisapo-dx.com/temasui/shiwake/', title: 'FAX・書類の仕分け（てますい 仕分け当番）', desc: '届いた FAX・紹介状を AI が読んで一覧に。1文字違いは要確認（デジサポのページへ移ります）。', cta: 'FAX・書類の仕分けを見る' },
       { href: 'https://digisapo-dx.com/rk/', title: 'キーエンスRK導入施設向けサポート', desc: '勤怠データからシフト表へ転記するシナリオ作成をお手伝いします。', cta: 'RK作成代行の案内を見る' },
     ],
@@ -178,7 +178,7 @@ export const INDUSTRIES = {
     links: [
       { href: '/temasui/biz/', title: 'てますい 中小企業版（中小企業のアシスタント）', desc: '業務日報・議事録・お客さまへのメール・電話メモの下書きと、備品・在庫チェック。1か月無料。', cta: 'てますい 中小企業版を見る' },
       { href: 'https://digisapo-dx.com/rk/', title: '中小企業RK', desc: 'キーエンスRKで帳票転記とExcel整理。工場RKも。', cta: '中小企業RKの案内を見る' },
-      { href: '/kintone-dx/', title: 'kintone の導入・見直し', desc: '今のExcelからの移し替えと、使われていない kintone の見直し。てますい・自動化とも組み合わせて。', cta: 'kintone の案内を見る' },
+      { href: 'https://digisapo-dx.com/kintone/', title: 'kintone の導入・見直し（デジサポ）', desc: '今のExcelからの移し替えと、使われていない kintone の見直し。てますい・自動化とも組み合わせて。', cta: 'kintone の案内を見る' },
       { href: '/power-automate/', title: 'Power Automate の自動化', desc: 'デスクトップ版もクラウド版も。転記・集計・ファイル整理・通知を、今のExcelとMicrosoft 365のまま。', cta: 'Power Automate の案内を見る' },
     ],
     faqs: [

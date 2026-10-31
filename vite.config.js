@@ -153,6 +153,11 @@ export default defineConfig({
         writeFileSync(join(dist, 'medical-dx', 'index.html'), movedHtml('https://digisapo-dx.com/temasui/shiwake/', '病院・医療機関の DX（FAX・書類の仕分け）', 'てますい 仕分け当番'))
         mkdirSync(join(dist, 'Guide', 'care'), { recursive: true })
         writeFileSync(join(dist, 'Guide', 'care', 'index.html'), movedHtml('https://digisapo-dx.com/mochimono/', '介護施設で改善できること（持ち物チェックほか）', 'てますい 持ち物当番'))
+        // シフト表の自動化（ShiftSync）と kintone の導入・見直しも 2026-10-31 に別の事業へ移管した（段階3）
+        mkdirSync(join(dist, 'shiftsync'), { recursive: true })
+        writeFileSync(join(dist, 'shiftsync', 'index.html'), movedHtml('https://digisapo-dx.com/temasui/shift/', 'シフト表の自動作成（ShiftSync）', 'てますい シフト当番'))
+        mkdirSync(join(dist, 'kintone-dx'), { recursive: true })
+        writeFileSync(join(dist, 'kintone-dx', 'index.html'), movedHtml('https://digisapo-dx.com/kintone/', 'kintone の導入・見直しと自動化', 'kintone の導入・見直し'))
       },
     },
   ],

@@ -15,7 +15,7 @@ const lpCards = [
     title: 'kintone の導入・見直しと自動化',
     desc: '今のExcelからの移し替え、使われていない kintone の見直し、メール・チャットとの自動のつなぎ込み。書く手間は てますい で。',
     tags: ['kintone', 'てますい', '業務自動化'],
-    url: 'himawasa-sync.com/kintone-dx/', href: '/kintone-dx/',
+    url: 'digisapo-dx.com/kintone/', href: 'https://digisapo-dx.com/kintone/',
   },
   {
     icon: '⚖️', badge: '公開中',
@@ -29,7 +29,7 @@ const lpCards = [
     title: 'シフトシンク（ShiftSync）─ 勤務表の自動作成',
     desc: 'KING OF TIME連携のシフト表自動生成ツール。毎月のシフト表づくりを自動にする専用サービスです。',
     tags: ['KING OF TIME', 'シフト管理', 'API連携'],
-    url: 'himawasa-sync.com/shiftsync/', href: '/shiftsync/',
+    url: 'digisapo-dx.com/temasui/shift/', href: 'https://digisapo-dx.com/temasui/shift/',
   },
   {
     icon: '⚙️', badge: '公開中',
