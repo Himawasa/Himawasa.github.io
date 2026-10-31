@@ -112,9 +112,9 @@ export const INDUSTRIES = {
     links: [
       { href: '/temasui/', title: 'てますい（介護施設のアシスタント）', desc: '書類の下書き（話すだけでも）・持ち物チェック・予定カレンダーを1つの画面で。1か月無料。', cta: 'てますいを見る' },
       { href: '/temasui/hospital/', title: 'てますい 病院版（病棟・地域連携室のアシスタント）', desc: '届いた紹介状・FAXを撮るだけで一覧に。看護サマリ・退院時の情報提供・返書の下書き。電子カルテとはつながず、貼り付けで使えます。1か月無料。', cta: '病院版を見る' },
-      { href: '/Guide/care/', title: '施設で改善できること', desc: '持ち物・シフト・予定・常勤換算・チラシなど、一覧でご覧いただけます。', cta: '施設で改善できること一覧を見る' },
+      { href: 'https://digisapo-dx.com/mochimono/', title: '持ち物チェック（てますい 持ち物当番）', desc: 'お泊まりの持ち物をタブレットで撮影して一覧に。お返しのときに写真で照合します（デジサポのページへ移ります）。', cta: '持ち物チェックを見る' },
       { href: '/shiftsync/', title: '介護のシフト表自動化', desc: 'KING OF TIMEの実績から、今の勤務表様式へ。', cta: '介護のシフト表自動化を見る' },
-      { href: '/medical-dx/', title: '病院・医療機関のDX', desc: 'FAX・カルテ・日計・画像など、現場で使ってきた仕組みをご紹介します。', cta: '病院・医療機関のDXを見る' },
+      { href: 'https://digisapo-dx.com/temasui/shiwake/', title: 'FAX・書類の仕分け（てますい 仕分け当番）', desc: '届いた FAX・紹介状を AI が読んで一覧に。1文字違いは要確認（デジサポのページへ移ります）。', cta: 'FAX・書類の仕分けを見る' },
       { href: 'https://digisapo-dx.com/rk/', title: 'キーエンスRK導入施設向けサポート', desc: '勤怠データからシフト表へ転記するシナリオ作成をお手伝いします。', cta: 'RK作成代行の案内を見る' },
     ],
     faqs: [

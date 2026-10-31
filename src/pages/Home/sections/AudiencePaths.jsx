@@ -24,8 +24,8 @@ const paths = [
     to: '/for/care',
     cta: '介護・医療の案内を見る',
     // Guide は静的HTMLのため <a href> 必須（React Router に吸われない）
-    subHref: '/Guide/care/',
-    subCta: '施設で改善できること一覧',
+    subHref: 'https://digisapo-dx.com/mochimono/',
+    subCta: '持ち物チェック（デジサポ）を見る',
   },
   {
     id: 'for-biz',
