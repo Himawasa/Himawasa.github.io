@@ -7,7 +7,7 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://himawasa-sync.com/temasui/start/img/ogp.jpg</image:loc>
-      <image:title>てますい 書く手間が、すいすい減っていく。介護版・病院版・工場版・中小企業版・士業版</image:title>
+      <image:title>てますい 書く手間が、すいすい減っていく。介護版・病院版・工場版・中小企業版</image:title>
     </image:image>
   </url>
   <url>
@@ -61,13 +61,6 @@
 
   </url>
   <url>
-    <loc>https://himawasa-sync.com/temasui/pro/</loc>
-    <lastmod>2026-09-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-
-  </url>
-  <url>
     <loc>https://himawasa-sync.com/temasui/hospital/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -80,28 +73,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 
-  </url>
-  <url>
-    <loc>https://himawasa-sync.com/for/pro/</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://himawasa-sync.com/dm/dm-pro-cover.jpg</image:loc>
-      <image:title>士業事務所。顧客台帳・期日・請求の手作業を軽くする</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://himawasa-sync.com/dm/dm-pro-client.jpg</image:loc>
-      <image:title>士業事務所の顧客台帳。連絡先と履歴を一画面にまとめる</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://himawasa-sync.com/dm/dm-pro-deadline.jpg</image:loc>
-      <image:title>届出・申請の期日を数日前から知らせる画面</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://himawasa-sync.com/dm/dm-pro-docs.jpg</image:loc>
-      <image:title>請求書作成とFAX・届いた書類の整理</image:title>
-    </image:image>
   </url>
   <url>
     <loc>https://himawasa-sync.com/for/factory/</loc>
@@ -194,13 +165,6 @@
     <lastmod>2026-08-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
-
-  </url>
-  <url>
-    <loc>https://himawasa-sync.com/pro-dx/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
 
   </url>
   <url>
