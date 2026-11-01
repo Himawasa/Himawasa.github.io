@@ -158,6 +158,13 @@ export default defineConfig({
         writeFileSync(join(dist, 'shiftsync', 'index.html'), movedHtml('https://digisapo-dx.com/temasui/shift/', 'シフト表の自動作成（ShiftSync）', 'てますい シフト当番'))
         mkdirSync(join(dist, 'kintone-dx'), { recursive: true })
         writeFileSync(join(dist, 'kintone-dx', 'index.html'), movedHtml('https://digisapo-dx.com/kintone/', 'kintone の導入・見直しと自動化', 'kintone の導入・見直し'))
+        // てますい の書き方ガイド（一覧と6本）も 2026-11-01 に別の事業のコラムへ移した（段階4）。記事の名前は同じ
+        mkdirSync(join(dist, 'temasui', 'guide'), { recursive: true })
+        writeFileSync(join(dist, 'temasui', 'guide', 'index.html'), movedHtml('https://digisapo-dx.com/column/', 'てますい 書き方ガイド', 'コラム'))
+        for (const [slug, what] of [['kaigo-kiroku', '介護記録の書き方と例文'], ['hiyari-hatto', 'ヒヤリハット報告書の書き方と例文'], ['sagyo-nippo', '作業日報の書き方とひな形'], ['kango-summary', '看護サマリを書く時間を短くするには'], ['shokaijo-fax', '紹介状・FAX の受付台帳の回し方'], ['gaikokujin-kiroku', '外国籍の職員の記録の助け方']]) {
+          mkdirSync(join(dist, 'temasui', 'guide', slug), { recursive: true })
+          writeFileSync(join(dist, 'temasui', 'guide', slug, 'index.html'), movedHtml(`https://digisapo-dx.com/column/${slug}/`, what, 'コラム'))
+        }
       },
     },
   ],

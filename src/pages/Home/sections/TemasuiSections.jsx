@@ -49,7 +49,7 @@ export function TemasuiStrengths() {
         <article className="th-box">
           <h2 className="th-h3">外国人スタッフが母国語で話しても、自然な日本語の記録に</h2>
           <p>母国語（ミャンマー語・ベトナム語など）で話すだけで、読みやすい日本語の記録の下書きができあがります。</p>
-          <a href="/temasui/guide/gaikokujin-kiroku/">書き方ガイド「外国の職員さんの記録」へ →</a>
+          <a href="https://digisapo-dx.com/column/gaikokujin-kiroku/">「外国籍の職員の記録」の記事へ（デジサポ） →</a>
         </article>
         <article className="th-box">
           <h2 className="th-h3">地域連携室に届いた紹介状・FAXを、スマホで撮るだけで一覧表に</h2>
