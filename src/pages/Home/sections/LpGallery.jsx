@@ -6,7 +6,7 @@ const lpCards = [
   {
     icon: '📝', badge: '公開中',
     title: 'てますい ─ 書く手間を減らすアシスタント',
-    desc: '話すか短いメモを入れるだけで、記録や書類の下書きに。介護・病院・工場・中小企業・士業の5つの版。施設のカレンダー（旧 CareSync）も、今はてますいの予定の共有で。',
+    desc: '話すか短いメモを入れるだけで、記録や書類の下書きに。介護・病院・工場・中小企業の4つの版。施設のカレンダー（旧 CareSync）も、今はてますいの予定の共有で。',
     tags: ['てますい', '記録の下書き', '1か月無料'],
     url: 'himawasa-sync.com/', href: '/',
   },
@@ -16,13 +16,6 @@ const lpCards = [
     desc: '今のExcelからの移し替え、使われていない kintone の見直し、メール・チャットとの自動のつなぎ込み。書く手間は てますい で。',
     tags: ['kintone', 'てますい', '業務自動化'],
     url: 'digisapo-dx.com/kintone/', href: 'https://digisapo-dx.com/kintone/',
-  },
-  {
-    icon: '⚖️', badge: '公開中',
-    title: '士業事務所の業務効率化、どこから始める？',
-    desc: '事務所の手間を、書く手間・くり返しの手間・まとめる手間に分けて、てますい 士業版・自動化・kintone から合う方法を選べます。',
-    tags: ['社労士・税理士', 'てますい 士業版', '業務自動化'],
-    url: 'himawasa-sync.com/pro-dx/', href: '/pro-dx/',
   },
   {
     icon: '📅', badge: '公開中',

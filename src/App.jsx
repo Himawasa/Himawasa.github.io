@@ -76,8 +76,6 @@ function AppShell() {
           <Route path="/try/" element={<TryPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/privacy/" element={<PrivacyPage />} />
-          <Route path="/for/pro" element={<IndustryPage kind="pro" />} />
-          <Route path="/for/pro/" element={<IndustryPage kind="pro" />} />
           <Route path="/for/care" element={<IndustryPage kind="care" />} />
           <Route path="/for/care/" element={<IndustryPage kind="care" />} />
           <Route path="/for/biz" element={<IndustryPage kind="biz" />} />

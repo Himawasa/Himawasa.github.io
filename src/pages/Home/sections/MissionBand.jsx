@@ -17,7 +17,7 @@ export default function MissionBand() {
           <span className="mb-title-hl">現場で使える、シンプルなソフトウェア。</span>
         </h2>
         <div className="mb-chips">
-          {['介護現場', '医療機関', '士業事務所', '中小企業', 'スタートアップ'].map(t => (
+          {['介護現場', '医療機関', '工場', '中小企業', 'スタートアップ'].map(t => (
             <motion.span
               key={t}
               className="mb-chip"

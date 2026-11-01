@@ -9,13 +9,12 @@ import { Link } from 'react-router-dom'
 
 const DEMO = 'https://care.himawasa-sync.com/demo'
 
-// ② 版を選ぶ（/temasui/start/ と同じ5つ）
+// ② 版を選ぶ（/temasui/start/ と同じ4つ。士業版は 2026-11-01 にやめた）
 const VERSIONS = [
   { icon: '🏥', name: '介護施設向け', edition: '介護版', text: '日々の介護記録や申し送り、ご家族への連絡文、事故報告書を話すだけで下書き。持ち物や予定の管理も。', href: '/temasui/', demo: DEMO },
   { icon: '🏨', name: '病院向け', edition: '病院版', text: '届いた紹介状やFAXをスマホで撮るだけで一覧化。看護サマリや返書の下書きも素早く作成。', href: '/temasui/hospital/', demo: `${DEMO}?industry=hospital` },
   { icon: '🏭', name: '工場向け', edition: '工場版', text: '作業日報や交代時の引き継ぎ、設備のメンテ記録、ヒヤリハットを話すだけで下書き。工具・備品の点検にも。', href: '/temasui/factory/', demo: `${DEMO}?industry=factory` },
   { icon: '🏢', name: '中小企業向け', edition: '中小企業版', text: '業務日報や議事録、お客さまへのメール、電話メモを話すだけで下書き。備品・在庫の確認にも。', href: '/temasui/biz/', demo: `${DEMO}?industry=biz` },
-  { icon: '⚖️', name: '士業事務所向け', edition: '士業版', text: '面談記録や顧問先への書類のお願い、お知らせ文、電話メモを話すだけで下書き。預かり書類の確認にも。', href: '/temasui/pro/', demo: `${DEMO}?industry=pro` },
 ]
 
 export function TemasuiVersions() {
@@ -73,7 +72,7 @@ export function TemasuiPricing({ id = 'pricing', title = '料金（税別）' })
               <tr><th scope="col">対象の業種</th><th scope="col">月額</th><th scope="col">ご契約時（初期サポート）</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">すべての業種で共通（介護・病院・工場・中小企業・士業）</th><td><b>10,000円</b>（会社・施設・病院全体で定額）</td><td>30,000円</td></tr>
+              <tr><th scope="row">すべての業種で共通（介護・病院・工場・中小企業）</th><td><b>10,000円</b>（会社・施設・病院全体で定額）</td><td>30,000円</td></tr>
             </tbody>
           </table>
         </div>

@@ -5,7 +5,7 @@
 
 // 2026-10-04 トップを「てますい」1本の話に作り直した（下書き：HiMaWaSa-Sync-3007/docs/seo/トップ作り直し_下書き_20261004.html）
 export const TEMASUI_HERO = {
-  kicker: '介護・病院・工場・中小企業・士業の',
+  kicker: '介護・病院・工場・中小企業の',
   name: 'てますい',
   tagline: '書く手間が、すいすい減っていく。',
   lead: 'スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録の下書きがすぐに出来上がります。',
@@ -21,13 +21,12 @@ export const HERO = {
   badge: '毎月の手作業を、今のExcelのまま。',
   titleStatic: '今のExcelのまま、',
   titleFull: '今のExcelのまま、現場の手作業を自動化。',
-  sub: '介護・医療、士業、工場、中小企業の現場で毎日残る手作業を、今お使いのExcelややり方のまま自動化します。',
+  sub: '介護・医療、工場、中小企業の現場で毎日残る手作業を、今お使いのExcelややり方のまま自動化します。',
   ctaPrimary: 'まずは相談してみる（無料）',
   ctaSecondary: '改善事例を見る',
   micro: '事前の準備はいりません。オンライン（30分）またはメールでお気軽にご相談いただけます。',
   trust: ['現場 45件以上', 'シフト 5時間→3分', '請求 半日→0分', '今のExcelのまま'],
   paths: [
-    { href: '/for/pro', label: '士業の方' },
     { href: '/for/care', label: '介護・医療の方' },
     { href: '/for/biz', label: '中小企業の方' },
     { href: '/for/factory', label: '工場の方' },

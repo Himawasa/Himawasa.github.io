@@ -2,18 +2,8 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Reveal from '../../../components/Reveal'
 
-/** トップの4扉 — 業界玄関へ送る（工場は 2026-09-26 追加） */
+/** トップの扉 — 業界玄関へ送る（工場は 2026-09-26 追加・士業は 2026-11-01 にやめた） */
 const paths = [
-  {
-    id: 'for-pro',
-    tone: 'pro',
-    icon: '⚖️',
-    title: '士業事務所の方',
-    lead: '事務所に残る手作業を、シンプルにする。',
-    points: ['顧客台帳を一画面に', '届出の期日を前もってお知らせ', '請求書づくりとFAXの仕分け'],
-    to: '/for/pro',
-    cta: '士業の案内を見る',
-  },
   {
     id: 'for-care',
     tone: 'care',

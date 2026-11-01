@@ -18,9 +18,9 @@ export const SITE = {
   // 2026-10-04 会社全体の説明を「てますい」中心に（構造化データの Organization・WebSite・Service の説明にも使われる）
   title: 'てますい（書く手間を減らすアシスタント）と業務の自動化 | HiMaWaSa Sync',
   description:
-    'HiMaWaSa Sync は、話すか短いメモを入れるだけで記録や書類の下書きができるアシスタント「てますい」（介護・病院・工場・中小企業・士業）を提供しています。今のExcelのままの業務の自動化のご相談も承ります。',
+    'HiMaWaSa Sync は、話すか短いメモを入れるだけで記録や書類の下書きができるアシスタント「てますい」（介護・病院・工場・中小企業）を提供しています。今のExcelのままの業務の自動化のご相談も承ります。',
   ogDescription:
-    '話すだけ・短いメモだけで、記録と書類の下書きに。てますい（介護・病院・工場・中小企業・士業）。',
+    '話すだけ・短いメモだけで、記録と書類の下書きに。てますい（介護・病院・工場・中小企業）。',
   ogImage: `${SITE_URL}/ogp.png`,
   ogImageAlt: 'HiMaWaSa Sync — 今のExcelのまま、現場の手作業を自動化',
   logo: `${SITE_URL}/logo.png`,
@@ -52,7 +52,7 @@ export const BUSINESS = {
   email: SITE.email,
   note: 'https://note.com/himawasa_sync',
   // 2026-10-04 てますい中心に（下の欄・事業概要の表・JS を切った人向けの本文で使う）
-  work: '書く手間を減らすアシスタント「てますい」（介護・病院・工場・中小企業・士業）の提供と、今お使いのExcel・Googleのままの業務の自動化。キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。',
+  work: '書く手間を減らすアシスタント「てますい」（介護・病院・工場・中小企業）の提供と、今お使いのExcel・Googleのままの業務の自動化。キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。',
 }
 
 /** 企業サイト各ページの SEO（title は検索結果用の全文。canonical は末尾スラッシュ） */
@@ -61,12 +61,12 @@ export const PAGES = {
     key: 'home',
     path: '/',
     // 2026-10-04 トップを「てますい」1本の話に作り直した。名前で検索した人に、何ができて、いくらかがすぐ分かるように
-    title: 'てますい｜書く手間を減らすアシスタント（介護・病院・工場・中小企業・士業） | HiMaWaSa Sync',
+    title: 'てますい｜書く手間を減らすアシスタント（介護・病院・工場・中小企業） | HiMaWaSa Sync',
     h1: 'てますい 書く手間が、すいすい減っていく。',
-    description: 'スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録のきれいな下書きがすぐに出来上がる「てますい」。介護・病院・工場・中小企業・士業の5つの版。月1万円（定額）・1か月無料。今のExcelのままの自動化のご相談も承ります。',
-    og: '話すだけ・書くだけで、記録と書類の下書きに。てますい（介護・病院・工場・中小企業・士業）。月1万円（定額）・1か月無料。',
+    description: 'スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録のきれいな下書きがすぐに出来上がる「てますい」。介護・病院・工場・中小企業の4つの版。月1万円（定額）・1か月無料。今のExcelのままの自動化のご相談も承ります。',
+    og: '話すだけ・書くだけで、記録と書類の下書きに。てますい（介護・病院・工場・中小企業）。月1万円（定額）・1か月無料。',
     ogImage: '/temasui/start/img/ogp.jpg',
-    ogImageAlt: 'てますい 書く手間が、すいすい減っていく。介護版・病院版・工場版・中小企業版・士業版',
+    ogImageAlt: 'てますい 書く手間が、すいすい減っていく。介護版・病院版・工場版・中小企業版',
     crumb: 'トップ',
   },
   services: {
@@ -76,7 +76,7 @@ export const PAGES = {
     title: 'サービスと料金｜てますい（月1万円・1か月無料）と業務の自動化 | HiMaWaSa Sync',
     h1: 'サービスと料金',
     description:
-      '書く手間を減らすアシスタント「てますい」は月10,000円（税別・定額）・1か月無料。介護・病院・工場・中小企業・士業の5つの版。今のExcelのままの業務の自動化や、キーエンスRKのシナリオ作成代行も承ります。初回相談は無料（30分）。',
+      '書く手間を減らすアシスタント「てますい」は月10,000円（税別・定額）・1か月無料。介護・病院・工場・中小企業の4つの版。今のExcelのままの業務の自動化や、キーエンスRKのシナリオ作成代行も承ります。初回相談は無料（30分）。',
     og: 'てますい（月1万円・1か月無料）と、今のExcelのままの自動化。キーエンスRKのシナリオ作りもお手伝いします。',
     crumb: 'サービス',
   },
@@ -97,7 +97,7 @@ export const PAGES = {
     title: '事業概要・代表 | HiMaWaSa Sync',
     h1: '私たちについて',
     description:
-      'HiMaWaSa Syncです。IT業界25年、カスタマーサクセスの現場を長く経験してきました。士業・介護・病院・中小企業の現場に残る手作業を、今のやり方のまま自動化します。キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。',
+      'HiMaWaSa Syncです。IT業界25年、カスタマーサクセスの現場を長く経験してきました。介護・病院・工場・中小企業の現場に残る手作業を、今のやり方のまま自動化します。キーエンスのRKシリーズをお使いの現場では、シナリオ作りもお手伝いします。',
     og: '聞いてから作り、止まったら戻します。今のExcelのまま自動化します。',
     crumb: '私たち',
   },
@@ -149,19 +149,6 @@ export const PAGES = {
     og: 'お探しのページは見つかりませんでした。',
     crumb: 'ページが見つかりません',
     noindex: true,
-  },
-  forPro: {
-    key: 'forPro',
-    path: '/for/pro/',
-    title: '社労士・税理士の期日管理・請求書自動化 | HiMaWaSa Sync',
-    h1: '士業事務所に残る手作業を、シンプルにする',
-    description:
-      '社労士・税理士事務所の顧客台帳、期日のお知らせ、請求・FAX整理を自動化。今のExcel・Wordのまま始められます。初回相談は無料（30分）。',
-    og: '士業事務所に残る手作業を、今のやり方のままシンプルにします。',
-    crumb: '士業の方',
-    audience: '士業事務所',
-    ogImage: '/dm/dm-pro-cover.jpg',
-    ogImageAlt: '士業事務所。顧客台帳・期日・請求の手作業を軽くする',
   },
   forCare: {
     key: 'forCare',
@@ -425,11 +412,10 @@ export const TRY_APPS = [
 ]
 
 export const SERVICE_ITEMS = [
-  { name: 'てますい（書く手間を減らすアシスタント）', desc: '話すか短いメモを入れるだけで、記録や書類の下書きに。介護・病院・工場・中小企業・士業の5つの版。月10,000円（税別・定額）・初期30,000円・1か月無料。' },
+  { name: 'てますい（書く手間を減らすアシスタント）', desc: '話すか短いメモを入れるだけで、記録や書類の下書きに。介護・病院・工場・中小企業の4つの版。月10,000円（税別・定額）・初期30,000円・1か月無料。' },
   { name: 'RKシナリオ作成代行', desc: 'キーエンスRKシリーズ／RK-10のシナリオ作成を代行。1万円から。何を自動化するか決まっていなくても可。' },
   { name: '業務アプリ開発', desc: '写真撮影からチェックリストまで、スマホで使える現場向けツール。' },
   { name: '業務自動化（GAS・AI）', desc: '転記・集計・帳票など、毎月の繰り返しを自動化。' },
-  { name: '士業向けDX支援', desc: '社労士・税理士などの期日・帳票・顧問先対応をシンプルに。' },
   { name: '業務改善コンサルティング', desc: '何から始めるかを、現場の困りごとから整理します。' },
   { name: 'システム保守・運用', desc: 'AIで作った仕組みの点検も含め、わかる人が残って直します。' },
   { name: 'AI活用コンサルティング', desc: '使い方がわからないところから、隙間を埋める使い方まで。' },
@@ -455,7 +441,7 @@ export const FAQS = [
   },
   {
     q: 'うちの規模でも、お願いできますか？',
-    a: '士業事務所、介護・医療の現場、中小企業が中心です。大企業向けのパッケージ売りではありません。「毎月の泥臭い作業」が残っている現場なら、お役に立てることがあります。',
+    a: '介護・医療の現場と中小企業が中心です。大企業向けのパッケージ売りではありません。「毎月の泥臭い作業」が残っている現場なら、お役に立てることがあります。',
   },
   {
     q: 'AIで作ったシステムでも、見てもらえますか？',
@@ -513,10 +499,8 @@ export const PUBLIC_PAGES = [
   { path: '/temasui/', lastmod: '2026-10-03', changefreq: 'weekly', priority: '0.9' },
   { path: '/temasui/factory/', lastmod: '2026-09-26', changefreq: 'weekly', priority: '0.85' },
   { path: '/temasui/biz/', lastmod: '2026-09-27', changefreq: 'weekly', priority: '0.85' },
-  { path: '/temasui/pro/', lastmod: '2026-09-27', changefreq: 'weekly', priority: '0.85' },
   { path: '/temasui/hospital/', lastmod: '2026-10-04', changefreq: 'weekly', priority: '0.85' },
   { path: '/temasui/security/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.5' },
-  { path: '/for/pro/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.85' },
   { path: '/for/factory/', lastmod: '2026-09-26', changefreq: 'weekly', priority: '0.85' },
   { path: '/for/biz/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.85' },
   { path: '/services/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.8' },
@@ -526,7 +510,6 @@ export const PUBLIC_PAGES = [
   { path: '/contact/', lastmod: '2026-08-17', changefreq: 'monthly', priority: '0.7' },
   { path: '/try/', lastmod: '2026-08-17', changefreq: 'weekly', priority: '0.6' },
   { path: '/privacy/', lastmod: '2026-08-17', changefreq: 'yearly', priority: '0.2' },
-  { path: '/pro-dx/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
   { path: '/power-automate/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.6' },
 ]
 
@@ -582,7 +565,7 @@ ${urls}
 export function generateLlmsTxt() {
   return `# HiMaWaSa Sync
 
-> 個人事業 HiMaWaSa Sync。書く手間を減らすアシスタント「てますい」（話すか短いメモを入れるだけで記録・書類の下書き。介護・病院・工場・中小企業・士業の5つの版。月額10,000円・初期30,000円（税別）・最低3か月・1か月無料）を提供しています。今のExcelのままの業務の自動化のご相談（初回無料・30分）と、キーエンスRKのシナリオ作成代行も承ります。
+> 個人事業 HiMaWaSa Sync。書く手間を減らすアシスタント「てますい」（話すか短いメモを入れるだけで記録・書類の下書き。介護・病院・工場・中小企業の4つの版。月額10,000円・初期30,000円（税別）・最低3か月・1か月無料）を提供しています。今のExcelのままの業務の自動化のご相談（初回無料・30分）と、キーエンスRKのシナリオ作成代行も承ります。
 
 - 公式: https://himawasa-sync.com/
 - 相談: https://himawasa-sync.com/contact/
@@ -595,7 +578,6 @@ export function generateLlmsTxt() {
 - [てますいの始め方](https://himawasa-sync.com/temasui/start/): 業種を選んで、登録なしの見本で試すか、1か月無料で申し込む。
 - [てますい 介護版（介護施設のアシスタント）](https://himawasa-sync.com/temasui/): 介護記録・申し送り・事故報告書などの下書き（話すだけでも）、持ち物チェック、予定カレンダー。インストール不要、1か月無料
 - [てますい 中小企業版（中小企業のアシスタント）](https://himawasa-sync.com/temasui/biz/): 業務日報・議事録・お客さまへのメール・クレーム対応記録・報告書・電話メモ・引き継ぎの下書き、備品・在庫チェック、来客・納期・社内予定の共有。1か月無料。
-- [てますい 士業版（士業事務所のアシスタント）](https://himawasa-sync.com/temasui/pro/): 面談記録・顧問先への書類依頼・法改正のお知らせ文・電話メモ・所内の引き継ぎ・議事録・メール・業務日報の下書き（法律や税の判断は書かない）、預かり書類チェック、顧問先の期限・面談・所内予定の共有。ご契約後は国内で処理。1か月無料。
 - [てますい 病院版（病棟・地域連携室のアシスタント）](https://himawasa-sync.com/temasui/hospital/): 2026-10-04 提供開始。中小病院のほか、在宅クリニック・診療所でも、紹介状・FAX の読み取りと書類の下書きが使える。AI の処理は標準では国内に限らず、ご契約後ご希望で国内（東京）に切り替えられる（料金は同じ）。届いた紹介状・FAX を撮るだけで一覧（台帳）に（氏名・生年月日は2回読んで1文字違いを要確認。一覧は90日で自動削除）。看護サマリ・退院時の情報提供・入院時情報の整理・ご家族への連絡・返書・申し送り・インシデント報告・電話メモの下書き（診断・薬・検査値は書かない）。入院時の持ち物チェック、入退院・検査・面会の共有。電子カルテとはつながない。月額10,000円・初期30,000円（税別。ほかの版と同じ）・最低3か月・1か月無料。
 - [記録・報告の書き方の記事（デジサポのコラムへ移転）](https://digisapo-dx.com/column/): ヒヤリハット報告書（介護・工場）／介護記録（「様子見」で終わらせない5つのコツ）／外国籍の職員の記録の助け方／作業日報のひな形／紹介状・FAXの受付台帳の回し方（地域連携室）／看護サマリを書く時間を短くするには
 - [てますい 工場版（工場のアシスタント）](https://himawasa-sync.com/temasui/factory/): 作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告などの下書き、工具・備品チェック（確かめる目印は会社ごとに設定）。料金は介護版と同じ
@@ -604,8 +586,6 @@ export function generateLlmsTxt() {
 - [持ち物チェック（てますい 持ち物当番・デジサポへ移転）](https://digisapo-dx.com/mochimono/): お泊まりの持ち物を撮影して一覧に、お返しのときに照合
 - [シフト表の自動作成（てますい シフト当番・デジサポへ移転）](https://digisapo-dx.com/temasui/shift/): KING OF TIME などの勤怠の記録から、今の勤務表の様式へ
 - [FAX・書類の仕分け（てますい 仕分け当番・デジサポへ移転）](https://digisapo-dx.com/temasui/shiwake/): 届いた FAX・紹介状を AI が読んで一覧に
-- [士業事務所の業務効率化、どこから始める？](https://himawasa-sync.com/pro-dx/): 事務所の手間を「書く手間（てますい 士業版）」「くり返しの手間（今のExcelのまま自動化）」「まとめる手間（kintone）」に分けて選べる案内
-- [士業事務所](https://himawasa-sync.com/for/pro/): 顧客台帳、期日、請求
 - [中小企業](https://himawasa-sync.com/for/biz/): PDF→Excel、kintone、GAS
 - [Power Automate の自動化](https://himawasa-sync.com/power-automate/): デスクトップ版（Windows）とクラウド版（Microsoft 365）で、転記・集計・ファイル整理・通知を自動に。てますいとは直接つながず、人が確かめた文章の先の作業を受け持つ。作る費用はいただかず、使い続ける月額を作る前にお見積り
 - [kintone の導入・見直し（デジサポへ移転）](https://digisapo-dx.com/kintone/): 今のExcelからの移し替え、使われていない kintone の見直し、GAS・Power Automate での他システム・メール・チャットとのつなぎ込み。書く手間は てますい（直接はつながず、確かめて貼る）。導入はお見積り
@@ -633,7 +613,7 @@ export function generateLlmsFullTxt() {
 今使っているExcel・勤怠ソフト・電子カルテの「出している画面」を前提に、転記と確認を短くする。
 新しいソフトへの乗り換えが目的ではない。
 
-主対象は介護施設、病院・医事課、士業事務所、中小企業。
+主対象は介護施設、病院・医事課、工場、中小企業。
 
 ## てますい（書く手間を減らすアシスタント）
 トップ: https://himawasa-sync.com/
@@ -642,14 +622,13 @@ export function generateLlmsFullTxt() {
 - てますい 介護版（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
 - てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
 - てますい 中小企業版（中小企業のアシスタント）: https://himawasa-sync.com/temasui/biz/
-- てますい 士業版（士業事務所のアシスタント）: https://himawasa-sync.com/temasui/pro/
 - てますい 病院版（病棟・地域連携室のアシスタント）: https://himawasa-sync.com/temasui/hospital/ （2026-10-04 提供開始。料金はほかの版と同じ。紹介状・FAX の読み取りつき。在宅クリニック・診療所でも使える。ご契約後ご希望で AI の処理を国内に切り替えられる）
 - 記録・報告の書き方の記事（デジサポのコラムへ移転）: https://digisapo-dx.com/column/
   - 書類の下書き: 介護記録・申し送り・ご家族への連絡・事故報告書・ヒヤリハット・議事録・お知らせ・関係機関へのメールの8種類。メモを入れるか、話すだけで下書きになる。出てくるのは下書きで、職員が確かめて使う。
   - 持ち物チェック: 写真から持ち物リスト（記名の有無つき）、返却時は写真で照合。
   - 予定カレンダー: 往診・利用変更・残薬の確認を職員全員で共有。
   - アプリのダウンロード不要（パソコン・タブレット・スマホ）。施設ごとの専用ページで、ほかの施設からは見えない。AIの学習には使われない。
-  - 料金（税別）: 1か月無料体験 → ご契約時 30,000円＋交通費（身近な作業を1つ自動化・3時間まで） → 月額 10,000円（施設全体で定額）。最低契約期間3か月。工場版・中小企業版・士業版・病院版も同じ料金。見本は登録なしで https://care.himawasa-sync.com/demo
+  - 料金（税別）: 1か月無料体験 → ご契約時 30,000円＋交通費（身近な作業を1つ自動化・3時間まで） → 月額 10,000円（施設全体で定額）。最低契約期間3か月。工場版・中小企業版・病院版も同じ料金。見本は登録なしで https://care.himawasa-sync.com/demo
 
 ## 介護施設（今のExcelのままの自動化のご相談）
 入口: https://himawasa-sync.com/for/care/
@@ -665,10 +644,6 @@ export function generateLlmsFullTxt() {
 - 複数拠点のExcel統合。
 - カルテの中の診療記録を読む作業はしない。出せる統計・CSVの範囲だけ。
 
-## 士業
-入口: https://himawasa-sync.com/for/pro/
-- 顧客台帳、期日のお知らせ、請求・届いた書類の振り分け。
-- 顧問先名はサイトに出さない。
 
 ## 方針
 初回は無料・30分。
@@ -725,10 +700,9 @@ export function buildJsonLd() {
         image: SITE.ogImage,
         areaServed: { '@type': 'Country', name: 'Japan' },
         serviceType: [
-          'てますい（書く手間を減らすアシスタント：介護・病院・工場・中小企業・士業）',
+          'てますい（書く手間を減らすアシスタント：介護・病院・工場・中小企業）',
           '介護施設のシフト表自動化',
           '病院の日計・カルテ転記',
-          '士業の期日・請求自動化',
           'Excel業務の自動化',
           'GAS開発',
           'AI活用支援',
@@ -736,7 +710,7 @@ export function buildJsonLd() {
         ],
         audience: {
           '@type': 'Audience',
-          audienceType: '介護施設、病院・医事課、士業事務所、中小企業、工場',
+          audienceType: '介護施設、病院・医事課、中小企業、工場',
         },
         provider: { '@id': orgId },
         description: SITE.description,
@@ -765,8 +739,8 @@ export function buildJsonLd() {
         operatingSystem: 'Web（スマホ・タブレット・パソコンのブラウザ。ダウンロード不要）',
         url: `${SITE.url}/`,
         image: `${SITE.url}/temasui/start/img/ogp.jpg`,
-        description: 'スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録などの下書きができる、書く手間を減らすアシスタント。介護・病院・工場・中小企業・士業の5つの版。外国語で話しても日本語の記録に。',
-        audience: { '@type': 'Audience', audienceType: '介護施設、病院、工場、中小企業、士業事務所' },
+        description: 'スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録などの下書きができる、書く手間を減らすアシスタント。介護・病院・工場・中小企業の4つの版。外国語で話しても日本語の記録に。',
+        audience: { '@type': 'Audience', audienceType: '介護施設、病院、工場、中小企業' },
         provider: { '@id': orgId },
         offers: {
           '@type': 'Offer',
@@ -1089,7 +1063,6 @@ function navHtml() {
       <a href="/try/">無料体験</a>
       <a href="/contact/">お問い合わせ</a>
       <a href="/privacy/">プライバシー</a>
-      <a href="/for/pro/">士業の方</a>
       <a href="/for/care/">介護・医療の方</a>
       <a href="/for/biz/">中小企業の方</a>
       <a href="/for/factory/">工場の方</a>
@@ -1098,11 +1071,9 @@ function navHtml() {
       <a href="/temasui/hospital/">てますい 病院版</a>
       <a href="/temasui/factory/">てますい 工場版</a>
       <a href="/temasui/biz/">てますい 中小企業版</a>
-      <a href="/temasui/pro/">てますい 士業版</a>
       <a href="/temasui/security/">てますい セキュリティとデータの取り扱い</a>
       <a href="/power-automate/">Power Automate の自動化</a>
       <a href="https://digisapo-dx.com/kintone/">kintone の導入・見直し（デジサポ）</a>
-      <a href="/pro-dx/">士業事務所の業務効率化、どこから始める？</a>
       <a href="https://digisapo-dx.com/temasui/shift/">シフト表の自動作成（デジサポ）</a>
     </nav>`
 }
@@ -1114,13 +1085,11 @@ export const STATIC_LINKS = [
   { href: '/temasui/', label: 'てますい（介護施設のアシスタント）' },
   { href: '/temasui/factory/', label: 'てますい 工場版' },
   { href: '/temasui/biz/', label: 'てますい 中小企業版' },
-  { href: '/temasui/pro/', label: 'てますい 士業版' },
   { href: '/temasui/hospital/', label: 'てますい 病院版' },
   { href: '/temasui/start/', label: 'てますいの始め方' },
   { href: 'https://digisapo-dx.com/column/', label: '書き方の記事（デジサポ）' },
   { href: '/for/care/', label: '介護・医療の方' },
   { href: '/for/factory/', label: '工場の方' },
-  { href: '/for/pro/', label: '士業の方' },
   { href: '/for/biz/', label: '中小企業の方' },
   { href: '/try/', label: '無料体験' },
   { href: '/services/', label: 'サービス' },
@@ -1141,7 +1110,7 @@ function pageBodyHtml(page) {
     return `
     <h2>てますい — 書く手間が、すいすい減っていく。</h2>
     <p>スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録のきれいな下書きがすぐに出来上がります。ダウンロード不要・1か月無料。</p>
-    <p><a href="/temasui/">介護版</a> / <a href="/temasui/hospital/">病院版</a> / <a href="/temasui/factory/">工場版</a> / <a href="/temasui/biz/">中小企業版</a> / <a href="/temasui/pro/">士業版</a> / <a href="/temasui/start/">版を選ぶ</a></p>
+    <p><a href="/temasui/">介護版</a> / <a href="/temasui/hospital/">病院版</a> / <a href="/temasui/factory/">工場版</a> / <a href="/temasui/biz/">中小企業版</a> / <a href="/temasui/start/">版を選ぶ</a></p>
     <h2>今のExcelやシステムはそのままで、自動化のご相談も承ります</h2>
     <p>シフト表・請求・転記など、毎月の手作業を短くします。<a href="/contact/">ご相談（30分・無料）</a> / <a href="/services/">サービスと料金</a></p>
     <p>無料ツール：<a href="https://try.himawasa-sync.com/tekipaki/">てきぱき</a> / <a href="/try/">無料体験の一覧</a></p>`

@@ -17,7 +17,6 @@ const HASH_MAP = {
   '#brand': '/about',
   '#try': '/try',
   '#try-apps': '/try',
-  '#for-pro': '/for/pro',
   '#for-care': '/for/care',
   '#for-biz': '/for/biz',
   '#rk': '/rk',

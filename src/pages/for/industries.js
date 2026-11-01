@@ -1,59 +1,4 @@
 export const INDUSTRIES = {
-  pro: {
-    pageKey: 'forPro',
-    tone: 'pro',
-    label: 'FOR PROFESSIONALS',
-    who: '士業事務所のみなさまへ',
-    promise: '顧客台帳・期日の確認・請求とFAX整理',
-    close: '今のPCのまま、ひとつずつ軽くします。',
-    heroImage: '/dm/dm-pro-cover.jpg',
-    heroAlt: '士業事務所。顧客台帳・期日・請求など残る手作業を軽くする案内',
-    features: [
-      {
-        num: '01　顧客ごとに',
-        title: '顧客台帳',
-        text: '連絡先・履歴・書類を、一画面にまとめます。',
-        result: '「あの書類はどこ？」と探す時間を減らします。',
-        image: '/dm/dm-pro-client.jpg',
-        imageAlt: '士業事務所の顧客台帳。連絡先と履歴を一画面にまとめる',
-      },
-      {
-        num: '02　届出・申請',
-        title: '期日のお知らせ',
-        text: '期限の数日前から、自動で通知します。',
-        result: '届出の出し忘れや期限切れを防ぎます。',
-        image: '/dm/dm-pro-deadline.jpg',
-        imageAlt: '届出・申請の期日を数日前から知らせる画面',
-      },
-      {
-        num: '03　毎月・毎日',
-        title: '請求・FAX整理',
-        text: '請求書づくりと、届いた書類の振り分け。',
-        result: '手入力と紙探しを減らします。',
-        image: '/dm/dm-pro-docs.jpg',
-        imageAlt: '請求書作成とFAX・届いた書類の整理',
-      },
-    ],
-    links: [
-      { href: '/temasui/pro/', title: 'てますい 士業版（士業事務所のアシスタント）', desc: '面談記録・顧問先への書類のお願い・お知らせ文・電話メモの下書きと、預かり書類チェック。1か月無料。', cta: 'てますい 士業版を見る' },
-      { href: 'https://digisapo-dx.com/rk/', title: '士業RK', desc: 'キーエンスRKで台帳・期日・請求。シナリオ1万円から。', cta: '士業RKの案内を見る' },
-      { href: '/pro-dx/', title: '何から手をつけるか選ぶ', desc: '書く手間・くり返しの手間・まとめる手間に分けて、合う方法を選べる案内です。', cta: '選び方の案内を見る' },
-    ],
-    faqs: [
-      {
-        q: '社労士・税理士の今のExcelのまま始められますか？',
-        a: '始められます。様式を作り直すより、今の顧客台帳・請求のファイルに合わせます。実際に動くかどうかは、初回相談の際に画面を見ながら一緒に確認できます。',
-      },
-      {
-        q: '期日通知は、何日前に来ますか？',
-        a: '7日前・3日前・当日を基本にします。事務所のやり方に合わせて変えられます。',
-      },
-      {
-        q: '顧問先の名前はサイトに出ますか？',
-        a: 'お客様の情報を無断で掲載することは一切ございません。ご相談内容も機密情報として厳重にお預かりいたします。',
-      },
-    ],
-  },
   care: {
     pageKey: 'forCare',
     tone: 'care',
@@ -282,14 +227,12 @@ export const INDUSTRIES = {
 }
 
 export const INDUSTRY_NAV = [
-  { to: '/for/pro', label: '士業の方' },
   { to: '/for/care', label: '介護・医療の方' },
   { to: '/for/biz', label: '中小企業の方' },
   { to: '/for/factory', label: '工場の方' },
 ]
 
 export const INDUSTRY_BY_PAGE = {
-  forPro: INDUSTRIES.pro,
   forCare: INDUSTRIES.care,
   forBiz: INDUSTRIES.biz,
   forFactory: INDUSTRIES.factory,

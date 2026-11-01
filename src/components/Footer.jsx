@@ -30,13 +30,11 @@ export default function Footer() {
           <a href="/temasui/hospital/">病院版</a>
           <a href="/temasui/factory/">工場版</a>
           <a href="/temasui/biz/">中小企業版</a>
-          <a href="/temasui/pro/">士業版</a>
           <a href="/temasui/security/">セキュリティ</a>
         </nav>
 
         <nav className="footer-col" aria-label="現場から">
           <p className="footer-col-title">現場から</p>
-          <Link to="/for/pro">士業の方</Link>
           <Link to="/for/care">介護施設・病院の方</Link>
           <Link to="/for/biz">中小企業の方</Link>
           <a href="/power-automate/">Power Automate の自動化</a>

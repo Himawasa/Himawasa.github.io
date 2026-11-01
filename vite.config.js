@@ -128,7 +128,7 @@ export default defineConfig({
         writeFileSync(join(dist, '404.html'), generateRouteHtml(PAGES.notFound, assets))
         for (const key of [
           'services', 'works', 'about', 'ai', 'contact', 'try', 'privacy', 'supply',
-          'forPro', 'forCare', 'forBiz', 'forFactory',
+          'forCare', 'forBiz', 'forFactory',
         ]) {
           const page = PAGES[key]
           const dir = join(dist, page.path.replace(/^\//, ''))
