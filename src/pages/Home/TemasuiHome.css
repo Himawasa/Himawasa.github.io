@@ -33,7 +33,7 @@
 .th-desc { color: var(--gray); line-height: 1.9; margin-bottom: 24px; }
 
 /* ── ② 版を選ぶ ── */
-.th-versions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.th-versions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; } /* 版は4つ（士業版は 2026-11-01 にやめた） */
 .th-version { background: var(--white); border: 1px solid var(--cream-bd); border-radius: var(--radius); padding: 18px 16px; display: flex; flex-direction: column; }
 .th-version h3 { font-size: 1.05rem; font-weight: 900; margin-bottom: 8px; }
 .th-version p { color: var(--gray); font-size: 0.9rem; line-height: 1.85; flex: 1; }
