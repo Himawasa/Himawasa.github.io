@@ -14,12 +14,10 @@
 
 ## てますい（書く手間を減らすアシスタント）
 トップ: https://himawasa-sync.com/
-始め方: https://himawasa-sync.com/temasui/start/
-セキュリティとデータの取り扱い: https://himawasa-sync.com/temasui/security/
-- てますい 介護版（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
-- てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
-- てますい 中小企業版（中小企業のアシスタント）: https://himawasa-sync.com/temasui/biz/
-- てますい 病院版（病棟・地域連携室のアシスタント）: https://himawasa-sync.com/temasui/hospital/ （2026-10-04 提供開始。料金はほかの版と同じ。紹介状・FAX の読み取りつき。在宅クリニック・診療所でも使える。ご契約後ご希望で AI の処理を国内に切り替えられる）
+てますい はデジサポへ移転: https://digisapo-dx.com/temasui/
+セキュリティとデータの取り扱い（デジサポへ移転）: https://digisapo-dx.com/temasui/security/
+- てますい 記録当番（デジサポへ移転・旧 介護版・工場版・中小企業版）: https://digisapo-dx.com/temasui/kiroku/
+- てますい 仕分け当番（デジサポへ移転・旧 病院版）: https://digisapo-dx.com/temasui/shiwake/
 - 記録・報告の書き方の記事（デジサポのコラムへ移転）: https://digisapo-dx.com/column/
   - 書類の下書き: 介護記録・申し送り・ご家族への連絡・事故報告書・ヒヤリハット・議事録・お知らせ・関係機関へのメールの8種類。メモを入れるか、話すだけで下書きになる。出てくるのは下書きで、職員が確かめて使う。
   - 持ち物チェック: 写真から持ち物リスト（記名の有無つき）、返却時は写真で照合。
