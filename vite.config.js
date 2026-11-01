@@ -158,6 +158,19 @@ export default defineConfig({
         writeFileSync(join(dist, 'shiftsync', 'index.html'), movedHtml('https://digisapo-dx.com/temasui/shift/', 'シフト表の自動作成（ShiftSync）', 'てますい シフト当番'))
         mkdirSync(join(dist, 'kintone-dx'), { recursive: true })
         writeFileSync(join(dist, 'kintone-dx', 'index.html'), movedHtml('https://digisapo-dx.com/kintone/', 'kintone の導入・見直しと自動化', 'kintone の導入・見直し'))
+        // てますい の紹介ページ（介護版・工場版・中小企業版・病院版・始め方・セキュリティ）も 2026-11-01 に別の事業へ移した（段階4）。
+        // 介護・工場・中小企業の版は書類の下書き＝記録当番、病院版は紹介状・FAX＝仕分け当番。写真（img）は HiMaWaSa のトップでも使うので残す
+        for (const [dirName, to, what, label] of [
+          ['temasui', 'https://digisapo-dx.com/temasui/kiroku/', 'てますい 介護版', 'てますい 記録当番'],
+          ['temasui/factory', 'https://digisapo-dx.com/temasui/kiroku/', 'てますい 工場版', 'てますい 記録当番'],
+          ['temasui/biz', 'https://digisapo-dx.com/temasui/kiroku/', 'てますい 中小企業版', 'てますい 記録当番'],
+          ['temasui/hospital', 'https://digisapo-dx.com/temasui/shiwake/', 'てますい 病院版', 'てますい 仕分け当番'],
+          ['temasui/start', 'https://digisapo-dx.com/temasui/', 'てますいの始め方', 'てますい'],
+          ['temasui/security', 'https://digisapo-dx.com/temasui/security/', 'てますい のセキュリティとデータの取り扱い', 'セキュリティとデータの取り扱い'],
+        ]) {
+          mkdirSync(join(dist, dirName), { recursive: true })
+          writeFileSync(join(dist, dirName, 'index.html'), movedHtml(to, what, label))
+        }
         // てますい の書き方ガイド（一覧と6本）も 2026-11-01 に別の事業のコラムへ移した（段階4）。記事の名前は同じ
         mkdirSync(join(dist, 'temasui', 'guide'), { recursive: true })
         writeFileSync(join(dist, 'temasui', 'guide', 'index.html'), movedHtml('https://digisapo-dx.com/column/', 'てますい 書き方ガイド', 'コラム'))

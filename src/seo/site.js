@@ -495,12 +495,6 @@ export const AI_ERA = {
 export const PUBLIC_PAGES = [
   { path: '/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '1.0' },
   { path: '/for/care/', lastmod: '2026-08-30', changefreq: 'weekly', priority: '0.95' },
-  { path: '/temasui/start/', lastmod: '2026-10-04', changefreq: 'weekly', priority: '0.9' },
-  { path: '/temasui/', lastmod: '2026-10-03', changefreq: 'weekly', priority: '0.9' },
-  { path: '/temasui/factory/', lastmod: '2026-09-26', changefreq: 'weekly', priority: '0.85' },
-  { path: '/temasui/biz/', lastmod: '2026-09-27', changefreq: 'weekly', priority: '0.85' },
-  { path: '/temasui/hospital/', lastmod: '2026-10-04', changefreq: 'weekly', priority: '0.85' },
-  { path: '/temasui/security/', lastmod: '2026-10-04', changefreq: 'monthly', priority: '0.5' },
   { path: '/for/factory/', lastmod: '2026-09-26', changefreq: 'weekly', priority: '0.85' },
   { path: '/for/biz/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.85' },
   { path: '/services/', lastmod: '2026-08-22', changefreq: 'weekly', priority: '0.8' },
@@ -575,13 +569,10 @@ export function generateLlmsTxt() {
 
 ## 主に頼まれること（この順で案内する）
 - [てますい（トップ）](https://himawasa-sync.com/): てますいの全体（5つの版・強み・料金）。名前で探した人はここ。
-- [てますいの始め方](https://himawasa-sync.com/temasui/start/): 業種を選んで、登録なしの見本で試すか、1か月無料で申し込む。
-- [てますい 介護版（介護施設のアシスタント）](https://himawasa-sync.com/temasui/): 介護記録・申し送り・事故報告書などの下書き（話すだけでも）、持ち物チェック、予定カレンダー。インストール不要、1か月無料
-- [てますい 中小企業版（中小企業のアシスタント）](https://himawasa-sync.com/temasui/biz/): 業務日報・議事録・お客さまへのメール・クレーム対応記録・報告書・電話メモ・引き継ぎの下書き、備品・在庫チェック、来客・納期・社内予定の共有。1か月無料。
-- [てますい 病院版（病棟・地域連携室のアシスタント）](https://himawasa-sync.com/temasui/hospital/): 2026-10-04 提供開始。中小病院のほか、在宅クリニック・診療所でも、紹介状・FAX の読み取りと書類の下書きが使える。AI の処理は標準では国内に限らず、ご契約後ご希望で国内（東京）に切り替えられる（料金は同じ）。届いた紹介状・FAX を撮るだけで一覧（台帳）に（氏名・生年月日は2回読んで1文字違いを要確認。一覧は90日で自動削除）。看護サマリ・退院時の情報提供・入院時情報の整理・ご家族への連絡・返書・申し送り・インシデント報告・電話メモの下書き（診断・薬・検査値は書かない）。入院時の持ち物チェック、入退院・検査・面会の共有。電子カルテとはつながない。月額10,000円・初期30,000円（税別。ほかの版と同じ）・最低3か月・1か月無料。
+- [てますい（デジサポへ移転）](https://digisapo-dx.com/temasui/): 5つの当番（記録・仕分け・持ち物・シフト・請求）。体験版と申し込みもこちらから。
+- [てますい 記録当番（デジサポへ移転）](https://digisapo-dx.com/temasui/kiroku/): 介護記録・申し送り・事故報告書・作業日報・議事録などの下書き（話すだけでも・外国語で話しても日本語に）。旧 介護版・工場版・中小企業版
 - [記録・報告の書き方の記事（デジサポのコラムへ移転）](https://digisapo-dx.com/column/): ヒヤリハット報告書（介護・工場）／介護記録（「様子見」で終わらせない5つのコツ）／外国籍の職員の記録の助け方／作業日報のひな形／紹介状・FAXの受付台帳の回し方（地域連携室）／看護サマリを書く時間を短くするには
-- [てますい 工場版（工場のアシスタント）](https://himawasa-sync.com/temasui/factory/): 作業日報・交代時の引き継ぎ・設備のメンテ記録・ヒヤリハット・不具合報告などの下書き、工具・備品チェック（確かめる目印は会社ごとに設定）。料金は介護版と同じ
-- [てますい セキュリティとデータの取り扱い](https://himawasa-sync.com/temasui/security/): データの保管場所（東京）・保存しないもの・保存期間・AI の処理・アクセスの守り・3省2ガイドラインへの対応。院内・社内の確認用に印刷できる
+- [てますい セキュリティとデータの取り扱い（デジサポへ移転）](https://digisapo-dx.com/temasui/security/): データの保管場所（東京）・保存しないもの・保存期間・AI の処理・アクセスの守り・3省2ガイドラインへの対応。印刷できる
 - [介護施設・病院](https://himawasa-sync.com/for/care/): シフト表、持ち物チェック、日計・カルテ転記
 - [持ち物チェック（てますい 持ち物当番・デジサポへ移転）](https://digisapo-dx.com/mochimono/): お泊まりの持ち物を撮影して一覧に、お返しのときに照合
 - [シフト表の自動作成（てますい シフト当番・デジサポへ移転）](https://digisapo-dx.com/temasui/shift/): KING OF TIME などの勤怠の記録から、今の勤務表の様式へ
@@ -617,12 +608,10 @@ export function generateLlmsFullTxt() {
 
 ## てますい（書く手間を減らすアシスタント）
 トップ: https://himawasa-sync.com/
-始め方: https://himawasa-sync.com/temasui/start/
-セキュリティとデータの取り扱い: https://himawasa-sync.com/temasui/security/
-- てますい 介護版（介護施設のアシスタント）: https://himawasa-sync.com/temasui/
-- てますい 工場版（工場のアシスタント）: https://himawasa-sync.com/temasui/factory/
-- てますい 中小企業版（中小企業のアシスタント）: https://himawasa-sync.com/temasui/biz/
-- てますい 病院版（病棟・地域連携室のアシスタント）: https://himawasa-sync.com/temasui/hospital/ （2026-10-04 提供開始。料金はほかの版と同じ。紹介状・FAX の読み取りつき。在宅クリニック・診療所でも使える。ご契約後ご希望で AI の処理を国内に切り替えられる）
+てますい はデジサポへ移転: https://digisapo-dx.com/temasui/
+セキュリティとデータの取り扱い（デジサポへ移転）: https://digisapo-dx.com/temasui/security/
+- てますい 記録当番（デジサポへ移転・旧 介護版・工場版・中小企業版）: https://digisapo-dx.com/temasui/kiroku/
+- てますい 仕分け当番（デジサポへ移転・旧 病院版）: https://digisapo-dx.com/temasui/shiwake/
 - 記録・報告の書き方の記事（デジサポのコラムへ移転）: https://digisapo-dx.com/column/
   - 書類の下書き: 介護記録・申し送り・ご家族への連絡・事故報告書・ヒヤリハット・議事録・お知らせ・関係機関へのメールの8種類。メモを入れるか、話すだけで下書きになる。出てくるのは下書きで、職員が確かめて使う。
   - 持ち物チェック: 写真から持ち物リスト（記名の有無つき）、返却時は写真で照合。
@@ -1066,12 +1055,9 @@ function navHtml() {
       <a href="/for/care/">介護・医療の方</a>
       <a href="/for/biz/">中小企業の方</a>
       <a href="/for/factory/">工場の方</a>
-      <a href="/temasui/start/">てますいの始め方</a>
-      <a href="/temasui/">てますい 介護版</a>
-      <a href="/temasui/hospital/">てますい 病院版</a>
-      <a href="/temasui/factory/">てますい 工場版</a>
-      <a href="/temasui/biz/">てますい 中小企業版</a>
-      <a href="/temasui/security/">てますい セキュリティとデータの取り扱い</a>
+      <a href="https://digisapo-dx.com/temasui/">てますい（デジサポ）</a>
+      <a href="https://digisapo-dx.com/temasui/kiroku/">てますい 記録当番（デジサポ）</a>
+      <a href="https://digisapo-dx.com/temasui/security/">てますい セキュリティとデータの取り扱い（デジサポ）</a>
       <a href="/power-automate/">Power Automate の自動化</a>
       <a href="https://digisapo-dx.com/kintone/">kintone の導入・見直し（デジサポ）</a>
       <a href="https://digisapo-dx.com/temasui/shift/">シフト表の自動作成（デジサポ）</a>
@@ -1082,11 +1068,8 @@ function navHtml() {
  * メニューは React が作るので、JS を動かさない相手（検索エンジンの最初の巡回など）には見えない。
  * その穴を埋めるためのもの。React が起動すると #root ごと置き換わる。見た目は index.css の .static-links */
 export const STATIC_LINKS = [
-  { href: '/temasui/', label: 'てますい（介護施設のアシスタント）' },
-  { href: '/temasui/factory/', label: 'てますい 工場版' },
-  { href: '/temasui/biz/', label: 'てますい 中小企業版' },
-  { href: '/temasui/hospital/', label: 'てますい 病院版' },
-  { href: '/temasui/start/', label: 'てますいの始め方' },
+  { href: 'https://digisapo-dx.com/temasui/', label: 'てますい（デジサポ）' },
+  { href: 'https://digisapo-dx.com/temasui/kiroku/', label: 'てますい 記録当番（デジサポ）' },
   { href: 'https://digisapo-dx.com/column/', label: '書き方の記事（デジサポ）' },
   { href: '/for/care/', label: '介護・医療の方' },
   { href: '/for/factory/', label: '工場の方' },
@@ -1110,7 +1093,7 @@ function pageBodyHtml(page) {
     return `
     <h2>てますい — 書く手間が、すいすい減っていく。</h2>
     <p>スマホに向かって話すか、短いメモを入れるだけで、日報や介護記録のきれいな下書きがすぐに出来上がります。ダウンロード不要・1か月無料。</p>
-    <p><a href="/temasui/">介護版</a> / <a href="/temasui/hospital/">病院版</a> / <a href="/temasui/factory/">工場版</a> / <a href="/temasui/biz/">中小企業版</a> / <a href="/temasui/start/">版を選ぶ</a></p>
+    <p><a href="https://digisapo-dx.com/temasui/">てますい（デジサポへ移転しました）</a></p>
     <h2>今のExcelやシステムはそのままで、自動化のご相談も承ります</h2>
     <p>シフト表・請求・転記など、毎月の手作業を短くします。<a href="/contact/">ご相談（30分・無料）</a> / <a href="/services/">サービスと料金</a></p>
     <p>無料ツール：<a href="https://try.himawasa-sync.com/tekipaki/">てきぱき</a> / <a href="/try/">無料体験の一覧</a></p>`
