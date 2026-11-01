@@ -171,6 +171,14 @@ export default defineConfig({
           mkdirSync(join(dist, dirName), { recursive: true })
           writeFileSync(join(dist, dirName, 'index.html'), movedHtml(to, what, label))
         }
+        // パズサバの図解 2 ページ（趣味のページ）も 2026-11-01 に専用の住所 pazusaba.digisapo-dx.com へ移した。img も使い道がないので消した
+        for (const [dirName, to, what, label] of [
+          ['pazusaba/suigen-league', 'https://pazusaba.digisapo-dx.com/suigen-league/', 'パズサバ 水源リーグの図解', '水源リーグ 図解'],
+          ['pazusaba/wasteland-king', 'https://pazusaba.digisapo-dx.com/wasteland-king/', 'パズサバ 荒野の王の図解', '荒野の王 図解'],
+        ]) {
+          mkdirSync(join(dist, dirName), { recursive: true })
+          writeFileSync(join(dist, dirName, 'index.html'), movedHtml(to, what, label))
+        }
         // てますい の書き方ガイド（一覧と6本）も 2026-11-01 に別の事業のコラムへ移した（段階4）。記事の名前は同じ
         mkdirSync(join(dist, 'temasui', 'guide'), { recursive: true })
         writeFileSync(join(dist, 'temasui', 'guide', 'index.html'), movedHtml('https://digisapo-dx.com/column/', 'てますい 書き方ガイド', 'コラム'))
